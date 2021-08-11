@@ -75,6 +75,13 @@ namespace Controladores
              FROM
                 [TBVEICULO]";
 
+        private const string sqlExisteVeiculo =
+            @"SELECT 
+                COUNT(*) 
+            FROM 
+                [TBVEICULO]
+            WHERE 
+                [ID] = @ID";
         #endregion
 
         public override string sqlSelecionarPorId => sqlSelecionarVeiculoPorId;
@@ -82,6 +89,7 @@ namespace Controladores
         public override string sqlInserir => sqlInserirVeiculo;
         public override string sqlEditar => sqlEditarVeiculo;
         public override string sqlExcluir => sqlExcluirVeiculo;
+        public override string sqlExists => sqlExisteVeiculo;
 
         protected override Veiculo ConverterEmRegistro(IDataReader reader)
         {

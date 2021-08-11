@@ -10,12 +10,11 @@ using System.Windows.Forms;
 
 namespace telinhas
 {
-    public partial class FormGerenciarAlugueis : Form
+    public partial class FormGerenciamento : Form
     {
-        public FormGerenciarAlugueis(String titulo)
+        public FormGerenciamento()
         {
             InitializeComponent();
-            lbTitulo.Text = titulo;
         }
     }
 }
