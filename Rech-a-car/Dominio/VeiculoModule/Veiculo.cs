@@ -39,7 +39,7 @@ namespace Dominio.VeiculoModule
             Regex templatePlacaAntiga = new Regex(@"\b[A-Z]{3}[0-9][0-9]{3}\b");
             Regex templateChassi = new Regex(@"\b[0-9]{1}[A-Z]{2}[0-9]{2}[A-Z]{1}[0-9]{8}\b");
 
-            string validacao = String.Empty;
+            string validacao = "";
 
             if (String.IsNullOrEmpty(Modelo))
                 validacao += "Modelo do veículo é obrigatório";
