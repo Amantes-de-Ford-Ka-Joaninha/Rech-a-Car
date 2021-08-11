@@ -1,7 +1,7 @@
 ﻿
-namespace telinhas
+namespace WindowsApp
 {
-    partial class FormGerenciamento
+    partial class FormRealizarAluguel
     {
         /// <summary>
         /// Required designer variable.

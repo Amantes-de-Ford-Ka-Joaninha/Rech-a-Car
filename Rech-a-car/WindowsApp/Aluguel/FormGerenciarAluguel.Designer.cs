@@ -1,5 +1,5 @@
 ﻿
-namespace telinhas
+namespace WindowsApp
 {
     partial class FormGerenciarAluguel
     {

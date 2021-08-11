@@ -8,14 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace telinhas
+namespace WindowsApp
 {
-    public partial class FormGerenciamento : Form
+    public partial class FormRealizarAluguel : Form
     {
-        public FormGerenciamento(String titulo)
+        public FormRealizarAluguel()
         {
             InitializeComponent();
-            lbTitulo.Text = titulo;
         }
     }
 }

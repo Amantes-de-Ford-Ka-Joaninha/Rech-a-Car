@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace telinhas
+namespace WindowsApp
 {
     public partial class FormTelaInicial : Form
     {
@@ -59,7 +59,7 @@ namespace telinhas
         private void btnGerenciarAlugueis_Click(object sender, EventArgs e)
         {
             EsconderSubMenu();
-            Form formGerenciarAlugueis = new FormGerenciarAluguel("Gerenciamento de Aluguéis");
+            Form formGerenciarAlugueis = new FormGerenciarAluguel();
             AbrirFormFilho(formGerenciarAlugueis);
         }
 
