@@ -46,10 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormGerenciarAlugueis.cs">
+    <Compile Include="Aluguel\FormGerenciarAlugueis.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormGerenciarAlugueis.Designer.cs">
+    <Compile Include="Aluguel\FormGerenciarAlugueis.Designer.cs">
       <DependentUpon>FormGerenciarAlugueis.cs</DependentUpon>
     </Compile>
     <Compile Include="FormTelaInicial.cs">
@@ -58,21 +58,21 @@
     <Compile Include="FormTelaInicial.Designer.cs">
       <DependentUpon>FormTelaInicial.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormRealizarAluguel.cs">
+    <Compile Include="Aluguel\FormRealizarAluguel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormRealizarAluguel.Designer.cs">
+    <Compile Include="Aluguel\FormRealizarAluguel.Designer.cs">
       <DependentUpon>FormRealizarAluguel.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormGerenciarAlugueis.resx">
+    <EmbeddedResource Include="Aluguel\FormGerenciarAlugueis.resx">
       <DependentUpon>FormGerenciarAlugueis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTelaInicial.resx">
       <DependentUpon>FormTelaInicial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormRealizarAluguel.resx">
+    <EmbeddedResource Include="Aluguel\FormRealizarAluguel.resx">
       <DependentUpon>FormRealizarAluguel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -125,5 +125,6 @@
   <ItemGroup>
     <None Include="Resources\filtro1.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
