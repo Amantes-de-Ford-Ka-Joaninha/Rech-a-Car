@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsApp
+namespace telinhas
 {
-    public partial class Form1 : Form
+    public partial class FormRealizarAluguel : Form
     {
-        public Form1()
+        public FormRealizarAluguel()
         {
             InitializeComponent();
         }
