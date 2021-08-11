@@ -10,6 +10,7 @@ namespace Dominio.AluguelModule
     {
         public override string Validar()
         {
+            string validacao = String.Empty;
             throw new NotImplementedException();
         }
     }
