@@ -12,8 +12,6 @@ namespace Controladores
         public abstract string sqlInserir { get; }
         public abstract string sqlEditar { get; }
         public abstract string sqlExcluir { get; }
-        public abstract string sqlExists { get; }
-
         public T GetById(int id)
         {
             return Db.Get(sqlSelecionarPorId, ConverterEmRegistro, AdicionarParametro("ID", id));
@@ -34,10 +32,6 @@ namespace Controladores
         public void Excluir(int id)
         {
             Db.Delete(sqlExcluir, AdicionarParametro("ID", id));
-        }
-        public bool Exists(int id)
-        {
-            return Db.Exists(sqlExists, AdicionarParametro("ID", id));
         }
 
         protected abstract T ConverterEmRegistro(IDataReader reader);
