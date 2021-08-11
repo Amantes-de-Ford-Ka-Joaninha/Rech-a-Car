@@ -35,7 +35,7 @@ namespace telinhas
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btVeiculos = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.panelSubMenuAluguel = new System.Windows.Forms.Panel();
             this.btnGerenciarAlugueis = new System.Windows.Forms.Button();
@@ -64,7 +64,7 @@ namespace telinhas
             this.PanelMenuLateral.Controls.Add(this.panel3);
             this.PanelMenuLateral.Controls.Add(this.button7);
             this.PanelMenuLateral.Controls.Add(this.button6);
-            this.PanelMenuLateral.Controls.Add(this.button5);
+            this.PanelMenuLateral.Controls.Add(this.btVeiculos);
             this.PanelMenuLateral.Controls.Add(this.button4);
             this.PanelMenuLateral.Controls.Add(this.panelSubMenuAluguel);
             this.PanelMenuLateral.Controls.Add(this.btnAluguel);
@@ -141,25 +141,26 @@ namespace telinhas
             this.button6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button6.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // btVeiculos
             // 
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Image = global::telinhas.Properties.Resources.veiculos;
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(0, 303);
-            this.button5.Name = "button5";
-            this.button5.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button5.Size = new System.Drawing.Size(250, 50);
-            this.button5.TabIndex = 4;
-            this.button5.Text = " Veículos";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button5.UseVisualStyleBackColor = true;
+            this.btVeiculos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btVeiculos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btVeiculos.FlatAppearance.BorderSize = 0;
+            this.btVeiculos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btVeiculos.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btVeiculos.ForeColor = System.Drawing.Color.White;
+            this.btVeiculos.Image = global::telinhas.Properties.Resources.veiculos;
+            this.btVeiculos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btVeiculos.Location = new System.Drawing.Point(0, 303);
+            this.btVeiculos.Name = "btVeiculos";
+            this.btVeiculos.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btVeiculos.Size = new System.Drawing.Size(250, 50);
+            this.btVeiculos.TabIndex = 4;
+            this.btVeiculos.Text = " Veículos";
+            this.btVeiculos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btVeiculos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btVeiculos.UseVisualStyleBackColor = true;
+            this.btVeiculos.Click += new System.EventHandler(this.btVeiculos_Click);
             // 
             // button4
             // 
@@ -372,7 +373,7 @@ namespace telinhas
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btVeiculos;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btnGerenciarAlugueis;
         private System.Windows.Forms.Label label1;
