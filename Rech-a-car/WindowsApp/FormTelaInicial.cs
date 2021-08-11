@@ -80,7 +80,8 @@ namespace telinhas
 
         private void btVeiculos_Click(object sender, EventArgs e)
         {
-
+            Form formVeiculos = new FormGerenciamento("Gerenciamento de Veículos");
+            AbrirFormFilho(formVeiculos);
         }
     }
 }

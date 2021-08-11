@@ -43,6 +43,7 @@ namespace telinhas
             this.lbTitulo.AutoSize = true;
             this.lbTitulo.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTitulo.ForeColor = System.Drawing.Color.White;
+            this.lbTitulo.Location = new System.Drawing.Point(192, 9);
             this.lbTitulo.Location = new System.Drawing.Point(204, 9);
             this.lbTitulo.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbTitulo.Name = "lbTitulo";
