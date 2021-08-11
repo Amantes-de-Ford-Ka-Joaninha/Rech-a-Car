@@ -59,7 +59,7 @@ namespace telinhas
         private void btnGerenciarAlugueis_Click(object sender, EventArgs e)
         {
             EsconderSubMenu();
-            Form formGerenciarAlugueis = new FormGerenciarAlugueis("Gerenciamento de Aluguéis");
+            Form formGerenciarAlugueis = new FormGerenciarAluguel("Gerenciamento de Aluguéis");
             AbrirFormFilho(formGerenciarAlugueis);
         }
 
@@ -76,6 +76,11 @@ namespace telinhas
             panelFormFilho.Tag = formFilho;
             formFilho.BringToFront();
             formFilho.Show();
+        }
+
+        private void btVeiculos_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

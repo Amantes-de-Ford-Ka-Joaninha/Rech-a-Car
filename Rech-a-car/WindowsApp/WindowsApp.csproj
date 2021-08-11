@@ -46,11 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Aluguel\FormGerenciarAlugueis.cs">
+    <Compile Include="Aluguel\FormGerenciarAluguel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Aluguel\FormGerenciarAlugueis.Designer.cs">
-      <DependentUpon>FormGerenciarAlugueis.cs</DependentUpon>
+    <Compile Include="Aluguel\FormGerenciarAluguel.Designer.cs">
+      <DependentUpon>FormGerenciarAluguel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGerenciamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGerenciamento.Designer.cs">
+      <DependentUpon>FormGerenciamento.cs</DependentUpon>
     </Compile>
     <Compile Include="FormTelaInicial.cs">
       <SubType>Form</SubType>
@@ -66,8 +72,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Aluguel\FormGerenciarAlugueis.resx">
-      <DependentUpon>FormGerenciarAlugueis.cs</DependentUpon>
+    <EmbeddedResource Include="Aluguel\FormGerenciarAluguel.resx">
+      <DependentUpon>FormGerenciarAluguel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGerenciamento.resx">
+      <DependentUpon>FormGerenciamento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTelaInicial.resx">
       <DependentUpon>FormTelaInicial.cs</DependentUpon>
