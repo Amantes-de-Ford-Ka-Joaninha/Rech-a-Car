@@ -11,6 +11,8 @@ namespace Dominio.AluguelModule
         public override string Validar()
         {
             string validacao = String.Empty;
+            if(true)
+
             throw new NotImplementedException();
         }
     }
