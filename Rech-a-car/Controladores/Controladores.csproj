@@ -42,7 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControladorAluguel.cs" />
     <Compile Include="ControladorBase.cs" />
+    <Compile Include="ControladorClientePF.cs" />
+    <Compile Include="ControladorClientePJ.cs" />
+    <Compile Include="ControladorServico.cs" />
+    <Compile Include="ControladorVeiculo.cs" />
     <Compile Include="Db.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
