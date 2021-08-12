@@ -12,74 +12,72 @@ namespace WindowsApp
 {
     public partial class FormTelaInicial : Form
     {
-        private Form formAtivo = null;
-
+        public static FormTelaInicial Instancia;
+        private Form formAtivo;
         public FormTelaInicial()
         {
+            Instancia = this;
             InitializeComponent();
-            CustomizarDesign();
+            EsconderSubMenu();
         }
 
-        private void CustomizarDesign()
+        public Form FormAtivo { set { AbrirFormPanel(value); } }
+        private void EsconderSubMenu()
         {
             panelSubMenuAluguel.Visible = false;
         }
-
-        private void EsconderSubMenu()
-        {
-            if (panelSubMenuAluguel.Visible == true)
-                panelSubMenuAluguel.Visible = false;
-        }
-
         private void MostrarSubMenu(Panel subMenu)
         {
-            if (subMenu.Visible == false)
-            {
-                EsconderSubMenu();
-                subMenu.Visible = true;
-            }
-            else
-            {
-                subMenu.Visible = false;
-            }
+            subMenu.Visible = !subMenu.Visible;
         }
-        private void btnAluguel_Click(object sender, EventArgs e)
+        private void AbrirFormPanel(Form panelForm)
+        {
+            EsconderSubMenu();
+
+            formAtivo?.Close();
+
+            formAtivo = panelForm;
+
+            panelForm.TopLevel = false;
+            panelForm.FormBorderStyle = FormBorderStyle.None;
+            panelForm.Dock = DockStyle.Fill;
+            panelFormFilho.Controls.Add(panelForm);
+            panelFormFilho.Tag = panelForm;
+            panelForm.BringToFront();
+            panelForm.Show();
+        }
+
+        #region Eventos
+
+        private void bt_Aluguel_Click(object sender, EventArgs e)
         {
             MostrarSubMenu(panelSubMenuAluguel);
         }
-
-        private void AbrirFormFilho(Form formFilho)
+        private void bt_RealizarAluguel_Click(object sender, EventArgs e)
         {
-            if (formAtivo != null)
-                formAtivo.Close();
-            formAtivo = formFilho;
-            formFilho.TopLevel = false;
-            formFilho.FormBorderStyle = FormBorderStyle.None;
-            formFilho.Dock = DockStyle.Fill;
-            panelFormFilho.Controls.Add(formFilho);
-            panelFormFilho.Tag = formFilho;
-            formFilho.BringToFront();
-            formFilho.Show();
+            FormAtivo = new FormRealizarAluguel();
+        }
+        private void bt_GerenciarAlugueis_Click(object sender, EventArgs e)
+        {
+            FormAtivo = new FormGerenciarAluguel();
+        }
+        private void bt_Veiculos_Click(object sender, EventArgs e)
+        {
+            FormAtivo = new FormGerenciamento("Gerenciamento de Veículos");
+        }
+        private void bt_servicos_Click(object sender, EventArgs e)
+        {
+            FormAtivo = new FormGerenciamento("Gerenciamento de Serviços");
+        }
+        private void bt_funcionarios_Click(object sender, EventArgs e)
+        {
+            FormAtivo = new FormGerenciamento("Gerenciamento de Funcionários");
+        }
+        private void bt_clientes_Click(object sender, EventArgs e)
+        {
+            FormAtivo = new FormGerenciamento("Gerenciamento de Clientes");
         }
 
-        private void btnRealizarAluguel_Click(object sender, EventArgs e)
-        {
-            EsconderSubMenu();
-            Form formRealizarAluguel = new FormRealizarAluguel();
-            AbrirFormFilho(formRealizarAluguel);
-        }
-
-        private void btnGerenciarAlugueis_Click(object sender, EventArgs e)
-        {
-            EsconderSubMenu();
-            Form formGerenciarAlugueis = new FormGerenciarAluguel();
-            AbrirFormFilho(formGerenciarAlugueis);
-        }
-
-        private void btVeiculos_Click(object sender, EventArgs e)
-        {
-            Form formVeiculos = new FormGerenciamento("Gerenciamento de Veículos");
-            AbrirFormFilho(formVeiculos);
-        }
+        #endregion
     }
 }
