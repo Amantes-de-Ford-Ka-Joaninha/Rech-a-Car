@@ -1,5 +1,4 @@
-﻿
-namespace telinhas
+﻿namespace WindowsApp
 {
     partial class FormGerenciarAluguel
     {
@@ -80,7 +79,7 @@ namespace telinhas
             this.btFiltro.FlatAppearance.BorderSize = 0;
             this.btFiltro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btFiltro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(33)))), ((int)(((byte)(34)))));
-            this.btFiltro.Image = global::telinhas.Properties.Resources.filtro1;
+            this.btFiltro.Image = global::WindowsApp.Properties.Resources.filtro1;
             this.btFiltro.Location = new System.Drawing.Point(565, 61);
             this.btFiltro.Name = "btFiltro";
             this.btFiltro.Size = new System.Drawing.Size(69, 69);
@@ -90,7 +89,7 @@ namespace telinhas
             // picLupa
             // 
             this.picLupa.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.picLupa.Image = global::telinhas.Properties.Resources.pesquisa;
+            this.picLupa.Image = global::WindowsApp.Properties.Resources.pesquisa;
             this.picLupa.Location = new System.Drawing.Point(495, 80);
             this.picLupa.Name = "picLupa";
             this.picLupa.Size = new System.Drawing.Size(33, 33);

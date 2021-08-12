@@ -1,5 +1,5 @@
 ﻿
-namespace telinhas
+namespace WindowsApp
 {
     partial class FormTelaInicial
     {
@@ -91,7 +91,7 @@ namespace telinhas
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button8.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button8.ForeColor = System.Drawing.Color.White;
-            this.button8.Image = global::telinhas.Properties.Resources.sair;
+            this.button8.Image = global::WindowsApp.Properties.Resources.sair;
             this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button8.Location = new System.Drawing.Point(0, 0);
             this.button8.Name = "button8";
@@ -110,7 +110,7 @@ namespace telinhas
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Image = global::telinhas.Properties.Resources.servicos;
+            this.button7.Image = global::WindowsApp.Properties.Resources.servicos;
             this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button7.Location = new System.Drawing.Point(0, 403);
             this.button7.Name = "button7";
@@ -129,7 +129,7 @@ namespace telinhas
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Image = global::telinhas.Properties.Resources.funcionarios;
+            this.button6.Image = global::WindowsApp.Properties.Resources.funcionarios;
             this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button6.Location = new System.Drawing.Point(0, 353);
             this.button6.Name = "button6";
@@ -149,7 +149,7 @@ namespace telinhas
             this.btVeiculos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btVeiculos.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btVeiculos.ForeColor = System.Drawing.Color.White;
-            this.btVeiculos.Image = global::telinhas.Properties.Resources.veiculos;
+            this.btVeiculos.Image = global::WindowsApp.Properties.Resources.veiculos;
             this.btVeiculos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btVeiculos.Location = new System.Drawing.Point(0, 303);
             this.btVeiculos.Name = "btVeiculos";
@@ -169,7 +169,7 @@ namespace telinhas
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Image = global::telinhas.Properties.Resources.clientes;
+            this.button4.Image = global::WindowsApp.Properties.Resources.clientes;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button4.Location = new System.Drawing.Point(0, 253);
             this.button4.Name = "button4";
@@ -235,7 +235,7 @@ namespace telinhas
             this.btnAluguel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAluguel.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAluguel.ForeColor = System.Drawing.Color.White;
-            this.btnAluguel.Image = global::telinhas.Properties.Resources.aluguel;
+            this.btnAluguel.Image = global::WindowsApp.Properties.Resources.aluguel;
             this.btnAluguel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAluguel.Location = new System.Drawing.Point(0, 100);
             this.btnAluguel.Name = "btnAluguel";

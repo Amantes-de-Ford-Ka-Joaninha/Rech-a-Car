@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{B7E0380A-8D8B-46FE-9A5C-D028D5E10650}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>telinhas</RootNamespace>
-    <AssemblyName>telinhas</AssemblyName>
+    <RootNamespace>WindowsApp</RootNamespace>
+    <AssemblyName>WindowsApp</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,23 +46,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Aluguel\FormGerenciarAluguel.cs">
+    <Compile Include="AluguelModule\FormGerenciarAluguel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Aluguel\FormGerenciarAluguel.Designer.cs">
+    <Compile Include="AluguelModule\FormGerenciarAluguel.Designer.cs">
       <DependentUpon>FormGerenciarAluguel.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormCadastrarVeiculo.cs">
+    <Compile Include="AluguelModule\FormRealizarAluguel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormCadastrarVeiculo.Designer.cs">
-      <DependentUpon>FormCadastrarVeiculo.cs</DependentUpon>
+    <Compile Include="AluguelModule\FormRealizarAluguel.Designer.cs">
+      <DependentUpon>FormRealizarAluguel.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormGerenciamento.cs">
+    <Compile Include="Shared\FormGerenciamento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormGerenciamento.Designer.cs">
+    <Compile Include="Shared\FormGerenciamento.Designer.cs">
       <DependentUpon>FormGerenciamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VeiculoModule\FormCadastrarVeiculo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VeiculoModule\FormCadastrarVeiculo.Designer.cs">
+      <DependentUpon>FormCadastrarVeiculo.cs</DependentUpon>
     </Compile>
     <Compile Include="FormTelaInicial.cs">
       <SubType>Form</SubType>
@@ -70,28 +76,22 @@
     <Compile Include="FormTelaInicial.Designer.cs">
       <DependentUpon>FormTelaInicial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Aluguel\FormRealizarAluguel.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Aluguel\FormRealizarAluguel.Designer.cs">
-      <DependentUpon>FormRealizarAluguel.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Aluguel\FormGerenciarAluguel.resx">
+    <EmbeddedResource Include="AluguelModule\FormGerenciarAluguel.resx">
       <DependentUpon>FormGerenciarAluguel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormCadastrarVeiculo.resx">
-      <DependentUpon>FormCadastrarVeiculo.cs</DependentUpon>
+    <EmbeddedResource Include="AluguelModule\FormRealizarAluguel.resx">
+      <DependentUpon>FormRealizarAluguel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormGerenciamento.resx">
+    <EmbeddedResource Include="Shared\FormGerenciamento.resx">
       <DependentUpon>FormGerenciamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VeiculoModule\FormCadastrarVeiculo.resx">
+      <DependentUpon>FormCadastrarVeiculo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTelaInicial.resx">
       <DependentUpon>FormTelaInicial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Aluguel\FormRealizarAluguel.resx">
-      <DependentUpon>FormRealizarAluguel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -161,5 +161,6 @@
   <ItemGroup>
     <None Include="Resources\inserir-icone-de-imagem.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

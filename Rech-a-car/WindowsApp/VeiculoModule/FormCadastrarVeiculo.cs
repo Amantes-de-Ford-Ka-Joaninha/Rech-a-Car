@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace telinhas
+namespace WindowsApp
 {
     public partial class FormCadastrarVeiculo : Form
     {
         public FormCadastrarVeiculo()
         {
             InitializeComponent();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }
