@@ -54,41 +54,42 @@ namespace Dominio.VeiculoModule
         public override string Validar()
         {
             Regex templatePlacaMercoSul = new Regex(@"\b[A-Z]{3}[0-9][A-Z][0-9]{2}\b");
-            Regex templatePlacaAntiga = new Regex(@"\b[A-Z]{3}[0-9][0-9]{3}\b");
-            Regex templateChassi = new Regex(@"\b[0-9]{1}[A-Z]{2}[0-9]{2}[A-Z]{1}[0-9]{8}\b");
+            Regex templatePlacaAntiga = new Regex(@"\b[A-Z]{3}[0-9]{4}\b");
 
             string validacao = "";
+            string validacaoDados = "";
 
             if (String.IsNullOrEmpty(Modelo))
-                validacao += "Modelo do veículo é obrigatório";
+                validacao += "Modelo do veículo é obrigatório\n";
 
             if (String.IsNullOrEmpty(Marca))
-                validacao += "Marca do veículo é obrigatória";
+                validacao += "Marca do veículo é obrigatória\n";
 
             if (String.IsNullOrEmpty(Categoria))
-                validacao += "Categoria do veículo é obrigatória";
+                validacao += "Categoria do veículo é obrigatória\n";
 
             if (!templatePlacaAntiga.IsMatch(Placa) && !templatePlacaMercoSul.IsMatch(Placa))
-                validacao += "Placa do veículo inválida";
+                validacao += "Placa do veículo inválida\n";
 
-            if (!templateChassi.IsMatch(Chassi))
-                validacao += "Chassi do veículo inválido";
+            if (Chassi.Length != 17)
+                validacao += "Chassi do veículo inválido\n";
 
-            if (Capacidade > 0)
-                validacao += "Capacidade deve ser maior que 0";
+            if (Capacidade < 0)
+                validacao += "Selecione a capacidade\n";
 
-            if (Portas > 1)
-                validacao += "Deve ter pelo menos duas Portas";
+            if (Portas < 1)
+                validacao += "Deve ter pelo menos duas Portas\n";
 
-            if (Porta_malas > 0)
-                validacao += "Volume do Porta-malas inválido";
+            if (Porta_malas < 0)
+                validacao += "Volume do Porta-malas inválido\n";
 
             if (Ano > DateTime.Now.Year + 1)
-                validacao += "Ano do carro inválido";
+                validacao += "Ano do carro inválido\n";
 
-            validacao += DadosVeiculo.Validar();
+            validacaoDados = DadosVeiculo.Validar();
+            if (validacaoDados != Valido) validacao += validacaoDados;
 
-            if (validacao == Valido)
+            if (validacao == String.Empty)
                 return Valido;
 
             return validacao;
