@@ -33,7 +33,7 @@ namespace WindowsApp.Shared
 
         private void btAdicionar_Click(object sender, EventArgs e)
         {
-            TelaInicial.Instancia.FormAtivo = Cadastro.Inserir();
+            TelaPrincipal.Instancia.FormAtivo = Cadastro.Inserir();
         }
         private void bt_editar_Click(object sender, EventArgs e)
         {
@@ -41,7 +41,7 @@ namespace WindowsApp.Shared
                 return;
             HabilitarAtualizacoes();
             var entidade = Cadastro.Controlador.GetById(GetIdSelecionado());
-            TelaInicial.Instancia.FormAtivo = Cadastro.Editar(entidade);
+            TelaPrincipal.Instancia.FormAtivo = Cadastro.Editar(entidade);
         }
         private void bt_remover_Click(object sender, EventArgs e)
         {
