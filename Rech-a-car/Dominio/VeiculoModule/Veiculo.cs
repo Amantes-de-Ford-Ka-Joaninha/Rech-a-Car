@@ -6,11 +6,10 @@ namespace Dominio.VeiculoModule
 {
     public class Veiculo : Entidade
     {
-        public Veiculo(string modelo, string marca, int quilometragem, int ano, string placa, int capacidade, int portas, string chassi, int porta_malas, Image foto, bool automatico)
+        public Veiculo(string modelo, string marca, int ano, string placa, int capacidade, int portas, string chassi, int porta_malas, Image foto, bool automatico, string categoria, DadosVeiculo dadosVeiculo)
         {
             Modelo = modelo;
             Marca = marca;
-            Quilometragem = quilometragem;
             Ano = ano;
             Placa = placa;
             Capacidade = capacidade;
@@ -19,20 +18,39 @@ namespace Dominio.VeiculoModule
             Porta_malas = porta_malas;
             Foto = foto;
             Automatico = automatico;
+            Categoria = categoria;
+            DadosVeiculo = dadosVeiculo;
         }
 
         public string Modelo { get; }
         public string Marca { get; }
-        public int Quilometragem { get; }
-        public int Ano { get; }
+        public string Categoria { get; }
         public string Placa { get; }
+        public string Chassi { get; }
         public int Capacidade { get; }
         public int Portas { get; }
-        public string Chassi { get; }
         public int Porta_malas { get; }
+        public int Ano { get; }
         public Image Foto { get; }
-        public bool Automatico { get; }
+        public bool Automatico { get; set; }
+        public DadosVeiculo DadosVeiculo { get; }
 
+        public string PortaMalaToString()
+        {
+            if (Porta_malas == 0)
+                return "Pequeno";
+            if (Porta_malas == 1)
+                return "Médio";
+            else
+                return "Grande";
+        }
+        public string CambioToString()
+        {
+            if (Automatico)
+                return "Automático";
+            else
+                return "Manual";
+        }
         public override string Validar()
         {
             Regex templatePlacaMercoSul = new Regex(@"\b[A-Z]{3}[0-9][A-Z][0-9]{2}\b");
@@ -47,14 +65,14 @@ namespace Dominio.VeiculoModule
             if (String.IsNullOrEmpty(Marca))
                 validacao += "Marca do veículo é obrigatória";
 
+            if (String.IsNullOrEmpty(Categoria))
+                validacao += "Categoria do veículo é obrigatória";
+
             if (!templatePlacaAntiga.IsMatch(Placa) && !templatePlacaMercoSul.IsMatch(Placa))
                 validacao += "Placa do veículo inválida";
 
             if (!templateChassi.IsMatch(Chassi))
                 validacao += "Chassi do veículo inválido";
-
-            if (String.IsNullOrEmpty(Modelo))
-                validacao += "Modelo do veículo é obrigatório";
 
             if (Capacidade > 0)
                 validacao += "Capacidade deve ser maior que 0";
@@ -64,6 +82,14 @@ namespace Dominio.VeiculoModule
 
             if (Porta_malas > 0)
                 validacao += "Volume do Porta-malas inválido";
+
+            if (Ano > DateTime.Now.Year + 1)
+                validacao += "Ano do carro inválido";
+
+            validacao += DadosVeiculo.Validar();
+
+            if (validacao == Valido)
+                return Valido;
 
             return validacao;
         }

@@ -1,11 +1,10 @@
-﻿using Controladores.Shared;
-using Dominio;
+﻿using Dominio;
 using System.Collections.Generic;
 using System.Data;
 
 namespace Controladores
 {
-    abstract public class ControladorEntidade<T> : Controlador where T : Entidade
+    abstract public class ControladorEntidade<T> where T : Entidade
     {
         public List<T> Registros => ObterRegistros();
         public abstract string sqlSelecionarPorId { get; }
@@ -16,11 +15,11 @@ namespace Controladores
         public abstract string sqlExists { get; }
         public T GetById(int id)
         {
-            return Db.Get(sqlSelecionarPorId, ConverterEmRegistro, AdicionarParametro("ID", id));
+            return Db.Get(sqlSelecionarPorId, ConverterEmEntidade, AdicionarParametro("ID", id));
         }
         public List<T> ObterRegistros()
         {
-            return Db.GetAll(sqlSelecionarTodos, ConverterEmRegistro);
+            return Db.GetAll(sqlSelecionarTodos, ConverterEmEntidade);
         }
         public void Inserir(T registro)
         {
@@ -39,9 +38,9 @@ namespace Controladores
         {
             Db.Exists(sqlExists, AdicionarParametro("ID", id));
         }
-        protected abstract T ConverterEmRegistro(IDataReader reader);
+        protected abstract T ConverterEmEntidade(IDataReader reader);
         protected abstract Dictionary<string, object> ObtemParametrosRegistro(T registro);
-        protected static Dictionary<string, object> AdicionarParametro(string campo, object valor)
+        public static Dictionary<string, object> AdicionarParametro(string campo, object valor)
         {
             return new Dictionary<string, object>() { { campo, valor } };
         }

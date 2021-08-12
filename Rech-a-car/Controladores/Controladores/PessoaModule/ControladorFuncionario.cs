@@ -19,7 +19,7 @@ namespace Controladores.PessoaModule
 
         public override string sqlExists => throw new NotImplementedException();
 
-        protected override Funcionario ConverterEmRegistro(IDataReader reader)
+        protected override Funcionario ConverterEmEntidade(IDataReader reader)
         {
             throw new NotImplementedException();
         }

@@ -1,8 +1,7 @@
-﻿using Controladores.Shared;
-
-namespace Controladores.PessoaModule
+﻿namespace Controladores.PessoaModule
 {
-    public class ControladorCliente : Controlador
+    public class ControladorCliente
     {
+        //minha ideia é simplesmente declarar os dois aqui concatenar e mandar bala azar
     }
 }

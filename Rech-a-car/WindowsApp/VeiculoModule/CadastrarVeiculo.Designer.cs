@@ -32,25 +32,18 @@ namespace WindowsApp
             this.tb_modelo = new System.Windows.Forms.TextBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.tb_ano = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tb_categoria = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.tb_chassi = new System.Windows.Forms.TextBox();
             this.tb_placa = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.cb_cambio = new System.Windows.Forms.ComboBox();
-            this.tb_quilometragem = new System.Windows.Forms.TextBox();
-            this.tb_portaMalas = new System.Windows.Forms.TextBox();
-            this.tb_capacidade = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.tb_precoKm = new System.Windows.Forms.TextBox();
-            this.tb_diaria = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -60,6 +53,13 @@ namespace WindowsApp
             this.bt_adicionar = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.tb_marca = new System.Windows.Forms.TextBox();
+            this.cb_capacidade = new System.Windows.Forms.ComboBox();
+            this.cb_portaMalas = new System.Windows.Forms.ComboBox();
+            this.tb_diaria = new System.Windows.Forms.MaskedTextBox();
+            this.tb_precoKm = new System.Windows.Forms.MaskedTextBox();
+            this.tb_quilometragem = new System.Windows.Forms.MaskedTextBox();
+            this.tb_ano = new System.Windows.Forms.MaskedTextBox();
+            this.tb_chassi = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // tb_modelo
@@ -98,16 +98,6 @@ namespace WindowsApp
             this.label1.TabIndex = 14;
             this.label1.Text = "Modelo";
             // 
-            // tb_ano
-            // 
-            this.tb_ano.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tb_ano.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_ano.Location = new System.Drawing.Point(113, 153);
-            this.tb_ano.Margin = new System.Windows.Forms.Padding(4);
-            this.tb_ano.Name = "tb_ano";
-            this.tb_ano.Size = new System.Drawing.Size(205, 29);
-            this.tb_ano.TabIndex = 3;
-            // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -143,16 +133,6 @@ namespace WindowsApp
             this.label3.Size = new System.Drawing.Size(84, 23);
             this.label3.TabIndex = 14;
             this.label3.Text = "Categoria";
-            // 
-            // tb_chassi
-            // 
-            this.tb_chassi.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tb_chassi.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_chassi.Location = new System.Drawing.Point(113, 273);
-            this.tb_chassi.Margin = new System.Windows.Forms.Padding(4);
-            this.tb_chassi.Name = "tb_chassi";
-            this.tb_chassi.Size = new System.Drawing.Size(205, 29);
-            this.tb_chassi.TabIndex = 3;
             // 
             // tb_placa
             // 
@@ -217,43 +197,13 @@ namespace WindowsApp
             this.cb_cambio.Size = new System.Drawing.Size(205, 29);
             this.cb_cambio.TabIndex = 15;
             // 
-            // tb_quilometragem
-            // 
-            this.tb_quilometragem.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tb_quilometragem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_quilometragem.Location = new System.Drawing.Point(556, 95);
-            this.tb_quilometragem.Margin = new System.Windows.Forms.Padding(4);
-            this.tb_quilometragem.Name = "tb_quilometragem";
-            this.tb_quilometragem.Size = new System.Drawing.Size(205, 29);
-            this.tb_quilometragem.TabIndex = 3;
-            // 
-            // tb_portaMalas
-            // 
-            this.tb_portaMalas.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tb_portaMalas.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_portaMalas.Location = new System.Drawing.Point(556, 153);
-            this.tb_portaMalas.Margin = new System.Windows.Forms.Padding(4);
-            this.tb_portaMalas.Name = "tb_portaMalas";
-            this.tb_portaMalas.Size = new System.Drawing.Size(205, 29);
-            this.tb_portaMalas.TabIndex = 3;
-            // 
-            // tb_capacidade
-            // 
-            this.tb_capacidade.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tb_capacidade.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_capacidade.Location = new System.Drawing.Point(556, 213);
-            this.tb_capacidade.Margin = new System.Windows.Forms.Padding(4);
-            this.tb_capacidade.Name = "tb_capacidade";
-            this.tb_capacidade.Size = new System.Drawing.Size(205, 29);
-            this.tb_capacidade.TabIndex = 3;
-            // 
             // label7
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(413, 98);
+            this.label7.Location = new System.Drawing.Point(413, 220);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(130, 23);
@@ -266,7 +216,7 @@ namespace WindowsApp
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(447, 156);
+            this.label8.Location = new System.Drawing.Point(447, 98);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(101, 23);
@@ -279,7 +229,7 @@ namespace WindowsApp
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(443, 217);
+            this.label9.Location = new System.Drawing.Point(443, 159);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(99, 23);
@@ -298,26 +248,6 @@ namespace WindowsApp
             this.label11.Size = new System.Drawing.Size(57, 23);
             this.label11.TabIndex = 14;
             this.label11.Text = "Portas";
-            // 
-            // tb_precoKm
-            // 
-            this.tb_precoKm.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tb_precoKm.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_precoKm.Location = new System.Drawing.Point(556, 273);
-            this.tb_precoKm.Margin = new System.Windows.Forms.Padding(4);
-            this.tb_precoKm.Name = "tb_precoKm";
-            this.tb_precoKm.Size = new System.Drawing.Size(205, 29);
-            this.tb_precoKm.TabIndex = 3;
-            // 
-            // tb_diaria
-            // 
-            this.tb_diaria.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tb_diaria.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_diaria.Location = new System.Drawing.Point(556, 332);
-            this.tb_diaria.Margin = new System.Windows.Forms.Padding(4);
-            this.tb_diaria.Name = "tb_diaria";
-            this.tb_diaria.Size = new System.Drawing.Size(205, 29);
-            this.tb_diaria.TabIndex = 3;
             // 
             // label12
             // 
@@ -366,7 +296,8 @@ namespace WindowsApp
             this.cb_portas.Items.AddRange(new object[] {
             "2",
             "3",
-            "4"});
+            "4",
+            "6"});
             this.cb_portas.Location = new System.Drawing.Point(113, 530);
             this.cb_portas.Margin = new System.Windows.Forms.Padding(4);
             this.cb_portas.Name = "cb_portas";
@@ -428,12 +359,97 @@ namespace WindowsApp
             this.tb_marca.Size = new System.Drawing.Size(205, 29);
             this.tb_marca.TabIndex = 20;
             // 
+            // cb_capacidade
+            // 
+            this.cb_capacidade.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cb_capacidade.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_capacidade.FormattingEnabled = true;
+            this.cb_capacidade.Items.AddRange(new object[] {
+            "2",
+            "5",
+            "8"});
+            this.cb_capacidade.Location = new System.Drawing.Point(556, 156);
+            this.cb_capacidade.Margin = new System.Windows.Forms.Padding(4);
+            this.cb_capacidade.Name = "cb_capacidade";
+            this.cb_capacidade.Size = new System.Drawing.Size(205, 29);
+            this.cb_capacidade.TabIndex = 21;
+            // 
+            // cb_portaMalas
+            // 
+            this.cb_portaMalas.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cb_portaMalas.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_portaMalas.FormattingEnabled = true;
+            this.cb_portaMalas.Items.AddRange(new object[] {
+            "Pequeno",
+            "Médio",
+            "Grande"});
+            this.cb_portaMalas.Location = new System.Drawing.Point(556, 98);
+            this.cb_portaMalas.Margin = new System.Windows.Forms.Padding(4);
+            this.cb_portaMalas.Name = "cb_portaMalas";
+            this.cb_portaMalas.Size = new System.Drawing.Size(205, 29);
+            this.cb_portaMalas.TabIndex = 22;
+            // 
+            // tb_diaria
+            // 
+            this.tb_diaria.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.tb_diaria.Location = new System.Drawing.Point(556, 336);
+            this.tb_diaria.Mask = "$ 9999.00";
+            this.tb_diaria.Name = "tb_diaria";
+            this.tb_diaria.Size = new System.Drawing.Size(205, 29);
+            this.tb_diaria.TabIndex = 23;
+            // 
+            // tb_precoKm
+            // 
+            this.tb_precoKm.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.tb_precoKm.Location = new System.Drawing.Point(556, 277);
+            this.tb_precoKm.Mask = "$ 9999.00";
+            this.tb_precoKm.Name = "tb_precoKm";
+            this.tb_precoKm.Size = new System.Drawing.Size(205, 29);
+            this.tb_precoKm.TabIndex = 24;
+            // 
+            // tb_quilometragem
+            // 
+            this.tb_quilometragem.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.tb_quilometragem.Location = new System.Drawing.Point(556, 220);
+            this.tb_quilometragem.Mask = "000000";
+            this.tb_quilometragem.Name = "tb_quilometragem";
+            this.tb_quilometragem.Size = new System.Drawing.Size(205, 29);
+            this.tb_quilometragem.TabIndex = 25;
+            this.tb_quilometragem.ValidatingType = typeof(int);
+            // 
+            // tb_ano
+            // 
+            this.tb_ano.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.tb_ano.Location = new System.Drawing.Point(113, 153);
+            this.tb_ano.Mask = "0000";
+            this.tb_ano.Name = "tb_ano";
+            this.tb_ano.Size = new System.Drawing.Size(205, 29);
+            this.tb_ano.TabIndex = 26;
+            this.tb_ano.ValidatingType = typeof(int);
+            // 
+            // tb_chassi
+            // 
+            this.tb_chassi.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.tb_chassi.Location = new System.Drawing.Point(113, 274);
+            this.tb_chassi.Mask = "9LL,LL99L,L,99,999999";
+            this.tb_chassi.Name = "tb_chassi";
+            this.tb_chassi.Size = new System.Drawing.Size(205, 29);
+            this.tb_chassi.TabIndex = 27;
+            this.tb_chassi.ValidatingType = typeof(int);
+            // 
             // CadastrarVeiculo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(33)))), ((int)(((byte)(34)))));
             this.ClientSize = new System.Drawing.Size(891, 642);
+            this.Controls.Add(this.tb_chassi);
+            this.Controls.Add(this.tb_ano);
+            this.Controls.Add(this.tb_quilometragem);
+            this.Controls.Add(this.tb_precoKm);
+            this.Controls.Add(this.tb_diaria);
+            this.Controls.Add(this.cb_portaMalas);
+            this.Controls.Add(this.cb_capacidade);
             this.Controls.Add(this.tb_marca);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.bt_foto);
@@ -454,14 +470,7 @@ namespace WindowsApp
             this.Controls.Add(this.label1);
             this.Controls.Add(this.bt_adicionar);
             this.Controls.Add(this.tb_placa);
-            this.Controls.Add(this.tb_capacidade);
-            this.Controls.Add(this.tb_diaria);
             this.Controls.Add(this.tb_categoria);
-            this.Controls.Add(this.tb_portaMalas);
-            this.Controls.Add(this.tb_precoKm);
-            this.Controls.Add(this.tb_chassi);
-            this.Controls.Add(this.tb_quilometragem);
-            this.Controls.Add(this.tb_ano);
             this.Controls.Add(this.tb_modelo);
             this.Controls.Add(this.lbTitulo);
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -478,25 +487,18 @@ namespace WindowsApp
         private System.Windows.Forms.Label lbTitulo;
         private System.Windows.Forms.Button bt_adicionar;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tb_ano;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tb_categoria;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tb_chassi;
         private System.Windows.Forms.TextBox tb_placa;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cb_cambio;
-        private System.Windows.Forms.TextBox tb_quilometragem;
-        private System.Windows.Forms.TextBox tb_portaMalas;
-        private System.Windows.Forms.TextBox tb_capacidade;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox tb_precoKm;
-        private System.Windows.Forms.TextBox tb_diaria;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label15;
@@ -505,5 +507,12 @@ namespace WindowsApp
         private System.Windows.Forms.Button bt_foto;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox tb_marca;
+        private System.Windows.Forms.ComboBox cb_capacidade;
+        private System.Windows.Forms.ComboBox cb_portaMalas;
+        private System.Windows.Forms.MaskedTextBox tb_diaria;
+        private System.Windows.Forms.MaskedTextBox tb_precoKm;
+        private System.Windows.Forms.MaskedTextBox tb_quilometragem;
+        private System.Windows.Forms.MaskedTextBox tb_ano;
+        private System.Windows.Forms.MaskedTextBox tb_chassi;
     }
 }

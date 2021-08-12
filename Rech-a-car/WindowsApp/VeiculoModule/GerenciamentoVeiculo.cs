@@ -7,7 +7,6 @@ namespace WindowsApp.VeiculoModule
     {
         public GerenciamentoVeiculo() : base("Gerenciamento de Veículos")
         {
-
         }
 
         protected override CadastroEntidade<Veiculo> Cadastro { get { return new CadastrarVeiculo(); } }

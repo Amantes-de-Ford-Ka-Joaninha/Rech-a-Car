@@ -55,6 +55,7 @@
     <Compile Include="PessoaModule\Pessoa.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServicoModule\Servico.cs" />
+    <Compile Include="VeiculoModule\DadosVeiculo.cs" />
     <Compile Include="VeiculoModule\Veiculo.cs" />
   </ItemGroup>
   <ItemGroup />

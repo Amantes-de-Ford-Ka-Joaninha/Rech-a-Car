@@ -19,7 +19,7 @@ namespace Controladores
 
         public override string sqlExists => throw new NotImplementedException();
 
-        protected override Aluguel ConverterEmRegistro(IDataReader reader)
+        protected override Aluguel ConverterEmEntidade(IDataReader reader)
         {
             throw new NotImplementedException();
         }
