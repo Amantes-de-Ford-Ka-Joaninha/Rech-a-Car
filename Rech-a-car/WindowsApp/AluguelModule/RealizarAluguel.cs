@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 
 namespace WindowsApp
 {
@@ -7,6 +8,7 @@ namespace WindowsApp
         public RealizarAluguel()
         {
             InitializeComponent();
+            throw new NotImplementedException();
         }
     }
 }

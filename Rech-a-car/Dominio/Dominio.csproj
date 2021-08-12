@@ -43,7 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AluguelModule\Aluguel.cs" />
-    <Compile Include="PessoaModule\Cliente.cs" />
+    <Compile Include="PessoaModule\ICliente.cs" />
     <Compile Include="PessoaModule\ClientePF.cs" />
     <Compile Include="PessoaModule\ClientePJ.cs" />
     <Compile Include="PessoaModule\Condutor.cs" />

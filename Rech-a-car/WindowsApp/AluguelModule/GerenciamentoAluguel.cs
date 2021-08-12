@@ -1,14 +1,16 @@
 ﻿using Dominio.AluguelModule;
+using System;
+using System.Windows.Forms;
 using WindowsApp.Shared;
 
 namespace WindowsApp
 {
-    public partial class GerenciamentoAluguel : GerenciamentoEntidade<Aluguel>
+    public partial class GerenciamentoAluguel : Form
     {
-        public GerenciamentoAluguel() : base("Gerenciamento de Aluguel")
+        public GerenciamentoAluguel()
         {
             InitializeComponent();
+            lbTitulo.Text = "Gerenciamento de Aluguel";
         }
-        protected override CadastroEntidade<Aluguel> Cadastro { get => throw new System.NotImplementedException(); }
     }
 }

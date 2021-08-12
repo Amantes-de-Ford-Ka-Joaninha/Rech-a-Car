@@ -58,7 +58,6 @@
     <Compile Include="AluguelModule\RealizarAluguel.Designer.cs">
       <DependentUpon>RealizarAluguel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Shared\TipoCadastro.cs" />
     <Compile Include="Shared\GerenciamentoEntidade.cs">
       <SubType>Form</SubType>
     </Compile>

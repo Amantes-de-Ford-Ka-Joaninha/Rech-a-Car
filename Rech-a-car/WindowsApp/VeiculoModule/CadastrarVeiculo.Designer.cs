@@ -29,46 +29,48 @@ namespace WindowsApp
         /// </summary>
         private void InitializeComponent()
         {
-            this.tbFiltro = new System.Windows.Forms.TextBox();
+            this.tb_modelo = new System.Windows.Forms.TextBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tb_ano = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tb_categoria = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tb_chassi = new System.Windows.Forms.TextBox();
+            this.tb_placa = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.cbCambio = new System.Windows.Forms.ComboBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.cb_cambio = new System.Windows.Forms.ComboBox();
+            this.tb_quilometragem = new System.Windows.Forms.TextBox();
+            this.tb_portaMalas = new System.Windows.Forms.TextBox();
+            this.tb_capacidade = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.tb_precoKm = new System.Windows.Forms.TextBox();
+            this.tb_diaria = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.cbPortas = new System.Windows.Forms.ComboBox();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.button1 = new System.Windows.Forms.Button();
+            this.cb_portas = new System.Windows.Forms.ComboBox();
+            this.seleciona_arquivo = new System.Windows.Forms.OpenFileDialog();
+            this.bt_foto = new System.Windows.Forms.Button();
             this.bt_adicionar = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tb_marca = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // tbFiltro
+            // tb_modelo
             // 
-            this.tbFiltro.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbFiltro.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbFiltro.Location = new System.Drawing.Point(113, 95);
-            this.tbFiltro.Margin = new System.Windows.Forms.Padding(4);
-            this.tbFiltro.Name = "tbFiltro";
-            this.tbFiltro.Size = new System.Drawing.Size(205, 29);
-            this.tbFiltro.TabIndex = 3;
+            this.tb_modelo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tb_modelo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_modelo.Location = new System.Drawing.Point(113, 95);
+            this.tb_modelo.Margin = new System.Windows.Forms.Padding(4);
+            this.tb_modelo.Name = "tb_modelo";
+            this.tb_modelo.Size = new System.Drawing.Size(205, 29);
+            this.tb_modelo.TabIndex = 3;
             // 
             // lbTitulo
             // 
@@ -96,15 +98,15 @@ namespace WindowsApp
             this.label1.TabIndex = 14;
             this.label1.Text = "Modelo";
             // 
-            // textBox1
+            // tb_ano
             // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(113, 153);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(205, 29);
-            this.textBox1.TabIndex = 3;
+            this.tb_ano.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tb_ano.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_ano.Location = new System.Drawing.Point(113, 153);
+            this.tb_ano.Margin = new System.Windows.Forms.Padding(4);
+            this.tb_ano.Name = "tb_ano";
+            this.tb_ano.Size = new System.Drawing.Size(205, 29);
+            this.tb_ano.TabIndex = 3;
             // 
             // label2
             // 
@@ -119,15 +121,15 @@ namespace WindowsApp
             this.label2.TabIndex = 14;
             this.label2.Text = "Ano";
             // 
-            // textBox2
+            // tb_categoria
             // 
-            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(113, 213);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(205, 29);
-            this.textBox2.TabIndex = 3;
+            this.tb_categoria.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tb_categoria.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_categoria.Location = new System.Drawing.Point(113, 213);
+            this.tb_categoria.Margin = new System.Windows.Forms.Padding(4);
+            this.tb_categoria.Name = "tb_categoria";
+            this.tb_categoria.Size = new System.Drawing.Size(205, 29);
+            this.tb_categoria.TabIndex = 3;
             // 
             // label3
             // 
@@ -142,25 +144,25 @@ namespace WindowsApp
             this.label3.TabIndex = 14;
             this.label3.Text = "Categoria";
             // 
-            // textBox3
+            // tb_chassi
             // 
-            this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(113, 273);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(205, 29);
-            this.textBox3.TabIndex = 3;
+            this.tb_chassi.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tb_chassi.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_chassi.Location = new System.Drawing.Point(113, 273);
+            this.tb_chassi.Margin = new System.Windows.Forms.Padding(4);
+            this.tb_chassi.Name = "tb_chassi";
+            this.tb_chassi.Size = new System.Drawing.Size(205, 29);
+            this.tb_chassi.TabIndex = 3;
             // 
-            // textBox4
+            // tb_placa
             // 
-            this.textBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(113, 332);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(205, 29);
-            this.textBox4.TabIndex = 3;
+            this.tb_placa.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tb_placa.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_placa.Location = new System.Drawing.Point(113, 332);
+            this.tb_placa.Margin = new System.Windows.Forms.Padding(4);
+            this.tb_placa.Name = "tb_placa";
+            this.tb_placa.Size = new System.Drawing.Size(205, 29);
+            this.tb_placa.TabIndex = 3;
             // 
             // label4
             // 
@@ -194,56 +196,56 @@ namespace WindowsApp
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(35, 400);
+            this.label6.Location = new System.Drawing.Point(35, 461);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(69, 23);
             this.label6.TabIndex = 14;
             this.label6.Text = "Câmbio";
             // 
-            // cbCambio
+            // cb_cambio
             // 
-            this.cbCambio.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cbCambio.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbCambio.FormattingEnabled = true;
-            this.cbCambio.Items.AddRange(new object[] {
+            this.cb_cambio.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cb_cambio.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_cambio.FormattingEnabled = true;
+            this.cb_cambio.Items.AddRange(new object[] {
             "Manual",
             "Automático"});
-            this.cbCambio.Location = new System.Drawing.Point(113, 396);
-            this.cbCambio.Margin = new System.Windows.Forms.Padding(4);
-            this.cbCambio.Name = "cbCambio";
-            this.cbCambio.Size = new System.Drawing.Size(205, 29);
-            this.cbCambio.TabIndex = 15;
+            this.cb_cambio.Location = new System.Drawing.Point(113, 462);
+            this.cb_cambio.Margin = new System.Windows.Forms.Padding(4);
+            this.cb_cambio.Name = "cb_cambio";
+            this.cb_cambio.Size = new System.Drawing.Size(205, 29);
+            this.cb_cambio.TabIndex = 15;
             // 
-            // textBox5
+            // tb_quilometragem
             // 
-            this.textBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(556, 95);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(205, 29);
-            this.textBox5.TabIndex = 3;
+            this.tb_quilometragem.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tb_quilometragem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_quilometragem.Location = new System.Drawing.Point(556, 95);
+            this.tb_quilometragem.Margin = new System.Windows.Forms.Padding(4);
+            this.tb_quilometragem.Name = "tb_quilometragem";
+            this.tb_quilometragem.Size = new System.Drawing.Size(205, 29);
+            this.tb_quilometragem.TabIndex = 3;
             // 
-            // textBox6
+            // tb_portaMalas
             // 
-            this.textBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(556, 153);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(205, 29);
-            this.textBox6.TabIndex = 3;
+            this.tb_portaMalas.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tb_portaMalas.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_portaMalas.Location = new System.Drawing.Point(556, 153);
+            this.tb_portaMalas.Margin = new System.Windows.Forms.Padding(4);
+            this.tb_portaMalas.Name = "tb_portaMalas";
+            this.tb_portaMalas.Size = new System.Drawing.Size(205, 29);
+            this.tb_portaMalas.TabIndex = 3;
             // 
-            // textBox7
+            // tb_capacidade
             // 
-            this.textBox7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(556, 213);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(205, 29);
-            this.textBox7.TabIndex = 3;
+            this.tb_capacidade.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tb_capacidade.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_capacidade.Location = new System.Drawing.Point(556, 213);
+            this.tb_capacidade.Margin = new System.Windows.Forms.Padding(4);
+            this.tb_capacidade.Name = "tb_capacidade";
+            this.tb_capacidade.Size = new System.Drawing.Size(205, 29);
+            this.tb_capacidade.TabIndex = 3;
             // 
             // label7
             // 
@@ -290,32 +292,32 @@ namespace WindowsApp
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(45, 468);
+            this.label11.Location = new System.Drawing.Point(45, 534);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(57, 23);
             this.label11.TabIndex = 14;
             this.label11.Text = "Portas";
             // 
-            // textBox9
+            // tb_precoKm
             // 
-            this.textBox9.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.Location = new System.Drawing.Point(556, 273);
-            this.textBox9.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(205, 29);
-            this.textBox9.TabIndex = 3;
+            this.tb_precoKm.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tb_precoKm.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_precoKm.Location = new System.Drawing.Point(556, 273);
+            this.tb_precoKm.Margin = new System.Windows.Forms.Padding(4);
+            this.tb_precoKm.Name = "tb_precoKm";
+            this.tb_precoKm.Size = new System.Drawing.Size(205, 29);
+            this.tb_precoKm.TabIndex = 3;
             // 
-            // textBox10
+            // tb_diaria
             // 
-            this.textBox10.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox10.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox10.Location = new System.Drawing.Point(556, 332);
-            this.textBox10.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(205, 29);
-            this.textBox10.TabIndex = 3;
+            this.tb_diaria.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tb_diaria.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_diaria.Location = new System.Drawing.Point(556, 332);
+            this.tb_diaria.Margin = new System.Windows.Forms.Padding(4);
+            this.tb_diaria.Name = "tb_diaria";
+            this.tb_diaria.Size = new System.Drawing.Size(205, 29);
+            this.tb_diaria.TabIndex = 3;
             // 
             // label12
             // 
@@ -356,37 +358,37 @@ namespace WindowsApp
             this.label15.TabIndex = 16;
             this.label15.Text = "Foto";
             // 
-            // cbPortas
+            // cb_portas
             // 
-            this.cbPortas.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cbPortas.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbPortas.FormattingEnabled = true;
-            this.cbPortas.Items.AddRange(new object[] {
+            this.cb_portas.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cb_portas.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_portas.FormattingEnabled = true;
+            this.cb_portas.Items.AddRange(new object[] {
             "2",
             "3",
             "4"});
-            this.cbPortas.Location = new System.Drawing.Point(113, 464);
-            this.cbPortas.Margin = new System.Windows.Forms.Padding(4);
-            this.cbPortas.Name = "cbPortas";
-            this.cbPortas.Size = new System.Drawing.Size(205, 29);
-            this.cbPortas.TabIndex = 17;
+            this.cb_portas.Location = new System.Drawing.Point(113, 530);
+            this.cb_portas.Margin = new System.Windows.Forms.Padding(4);
+            this.cb_portas.Name = "cb_portas";
+            this.cb_portas.Size = new System.Drawing.Size(205, 29);
+            this.cb_portas.TabIndex = 17;
             // 
-            // openFileDialog1
+            // seleciona_arquivo
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
+            this.seleciona_arquivo.FileName = "seleciona_arquivo";
             // 
-            // button1
+            // bt_foto
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = global::WindowsApp.Properties.Resources.inserir_icone_de_imagem;
-            this.button1.Location = new System.Drawing.Point(584, 385);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(140, 117);
-            this.button1.TabIndex = 18;
-            this.button1.UseVisualStyleBackColor = true;
+            this.bt_foto.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.bt_foto.FlatAppearance.BorderSize = 0;
+            this.bt_foto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_foto.Image = global::WindowsApp.Properties.Resources.inserir_icone_de_imagem;
+            this.bt_foto.Location = new System.Drawing.Point(584, 385);
+            this.bt_foto.Margin = new System.Windows.Forms.Padding(4);
+            this.bt_foto.Name = "bt_foto";
+            this.bt_foto.Size = new System.Drawing.Size(140, 117);
+            this.bt_foto.TabIndex = 18;
+            this.bt_foto.UseVisualStyleBackColor = true;
             // 
             // bt_adicionar
             // 
@@ -403,17 +405,42 @@ namespace WindowsApp
             this.bt_adicionar.UseVisualStyleBackColor = true;
             this.bt_adicionar.Click += new System.EventHandler(this.bt_adicionar_Click);
             // 
-            // FormCadastrarVeiculo
+            // label10
+            // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(45, 399);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(57, 23);
+            this.label10.TabIndex = 19;
+            this.label10.Text = "Marca";
+            // 
+            // tb_marca
+            // 
+            this.tb_marca.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tb_marca.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_marca.Location = new System.Drawing.Point(113, 396);
+            this.tb_marca.Margin = new System.Windows.Forms.Padding(4);
+            this.tb_marca.Name = "tb_marca";
+            this.tb_marca.Size = new System.Drawing.Size(205, 29);
+            this.tb_marca.TabIndex = 20;
+            // 
+            // CadastrarVeiculo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(33)))), ((int)(((byte)(34)))));
             this.ClientSize = new System.Drawing.Size(891, 642);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.cbPortas);
+            this.Controls.Add(this.tb_marca);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.bt_foto);
+            this.Controls.Add(this.cb_portas);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.cbCambio);
+            this.Controls.Add(this.cb_cambio);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label3);
@@ -426,19 +453,19 @@ namespace WindowsApp
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.bt_adicionar);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox10);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.tbFiltro);
+            this.Controls.Add(this.tb_placa);
+            this.Controls.Add(this.tb_capacidade);
+            this.Controls.Add(this.tb_diaria);
+            this.Controls.Add(this.tb_categoria);
+            this.Controls.Add(this.tb_portaMalas);
+            this.Controls.Add(this.tb_precoKm);
+            this.Controls.Add(this.tb_chassi);
+            this.Controls.Add(this.tb_quilometragem);
+            this.Controls.Add(this.tb_ano);
+            this.Controls.Add(this.tb_modelo);
             this.Controls.Add(this.lbTitulo);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "FormCadastrarVeiculo";
+            this.Name = "CadastrarVeiculo";
             this.Text = "FormCadastrarVeiculo";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -447,34 +474,36 @@ namespace WindowsApp
 
         #endregion
 
-        private System.Windows.Forms.TextBox tbFiltro;
+        private System.Windows.Forms.TextBox tb_modelo;
         private System.Windows.Forms.Label lbTitulo;
         private System.Windows.Forms.Button bt_adicionar;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tb_ano;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tb_categoria;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox tb_chassi;
+        private System.Windows.Forms.TextBox tb_placa;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cbCambio;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.ComboBox cb_cambio;
+        private System.Windows.Forms.TextBox tb_quilometragem;
+        private System.Windows.Forms.TextBox tb_portaMalas;
+        private System.Windows.Forms.TextBox tb_capacidade;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox tb_precoKm;
+        private System.Windows.Forms.TextBox tb_diaria;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.ComboBox cbPortas;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox cb_portas;
+        private System.Windows.Forms.OpenFileDialog seleciona_arquivo;
+        private System.Windows.Forms.Button bt_foto;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox tb_marca;
     }
 }

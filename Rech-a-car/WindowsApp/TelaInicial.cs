@@ -12,7 +12,7 @@ namespace WindowsApp
         {
             Instancia = this;
             InitializeComponent();
-            //InicializarPanels();
+            //InicializarPanels();              IDEIA A SER DISCUTIDA
             EsconderSubMenu();
         }
 
@@ -66,22 +66,21 @@ namespace WindowsApp
         }
         private void bt_servicos_Click(object sender, EventArgs e)
         {
-            //FormAtivo = new GerenciamentoEntidade<Servico>("Gerenciamento de Serviços");
+            throw new NotImplementedException();
         }
         private void bt_funcionarios_Click(object sender, EventArgs e)
         {
-            //FormAtivo = new GerenciamentoEntidade<Funcionario>("Gerenciamento de Funcionários");
+            throw new NotImplementedException();
         }
         private void bt_clientes_Click(object sender, EventArgs e)
         {
-            //FormAtivo = new GerenciamentoEntidade<Cliente>("Gerenciamento de Clientes");
+            throw new NotImplementedException();
         }
-
-        #endregion
-
         private void bt_sair_Click(object sender, EventArgs e)
         {
             Close();
         }
+
+        #endregion
     }
 }

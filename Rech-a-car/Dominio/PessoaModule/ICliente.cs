@@ -1,6 +1,6 @@
 ﻿namespace Dominio.PessoaModule
 {
-    public interface Cliente
+    public interface ICliente
     {
     }
 }

@@ -13,18 +13,39 @@ namespace WindowsApp.Shared
             lbTitulo.Text = titulo;
         }
 
+        private int GetIdSelecionado()
+        {
+            const int primeira = 0;
+
+            var id = dgvAluguel.SelectedRows[primeira].Cells[primeira].Value;
+
+            return (int)id;
+        }
+        private void HabilitarAtualizacoes()
+        {
+            bt_editar.Enabled = true;
+            bt_remover.Enabled = true;
+        }
+        private bool SelecionarLinha()
+        {
+            return dgvAluguel.SelectedRows.Count > 0;
+        }
+
         private void btAdicionar_Click(object sender, EventArgs e)
         {
-            TelaInicial.Instancia.FormAtivo = Cadastro.ConfigurarTela(TipoCadastro.Insercao);
+            TelaInicial.Instancia.FormAtivo = Cadastro.Inserir();
         }
         private void bt_editar_Click(object sender, EventArgs e)
         {
-            TelaInicial.Instancia.FormAtivo = Cadastro.ConfigurarTela(TipoCadastro.Edicao);
+            if (!SelecionarLinha())
+                return;
+            HabilitarAtualizacoes();
+            var entidade = Cadastro.Controlador.GetById(GetIdSelecionado());
+            TelaInicial.Instancia.FormAtivo = Cadastro.Editar(entidade);
         }
-
         private void bt_remover_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            Cadastro.Controlador.Excluir(GetIdSelecionado());
         }
     }
 }

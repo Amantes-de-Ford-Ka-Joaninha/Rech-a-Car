@@ -7,23 +7,10 @@ namespace WindowsApp.Shared
 {
     public abstract class CadastroEntidade<T> : Form where T : Entidade
     {
-        protected ControladorEntidade<T> controlador;
+        protected T entidade;
+        public abstract ControladorEntidade<T> Controlador { get; }
 
-        public CadastroEntidade(ControladorEntidade<T> controlador)
-        {
-            this.controlador = controlador;
-        }
-
-        protected abstract CadastroEntidade<T> Inserir();
-        protected abstract CadastroEntidade<T> Editar();
-        public CadastroEntidade<T> ConfigurarTela(TipoCadastro tipoCadastro)
-        {
-            if (tipoCadastro == TipoCadastro.Insercao)
-                return Inserir();
-            if (tipoCadastro == TipoCadastro.Edicao)
-                return Editar();
-            else
-                throw new ArgumentException();
-        }
+        public virtual CadastroEntidade<T> Inserir() { return this; }
+        public abstract CadastroEntidade<T> Editar(T entidade);
     }
 }

@@ -52,7 +52,7 @@ namespace WindowsApp.Shared
             this.dgvAluguel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAluguel.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(7)))), ((int)(((byte)(49)))));
             this.dgvAluguel.Location = new System.Drawing.Point(35, 188);
-            this.dgvAluguel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvAluguel.Margin = new System.Windows.Forms.Padding(4);
             this.dgvAluguel.Name = "dgvAluguel";
             this.dgvAluguel.RowHeadersWidth = 51;
             this.dgvAluguel.Size = new System.Drawing.Size(821, 436);
@@ -63,7 +63,7 @@ namespace WindowsApp.Shared
             this.tbFiltro.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbFiltro.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbFiltro.Location = new System.Drawing.Point(35, 107);
-            this.tbFiltro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbFiltro.Margin = new System.Windows.Forms.Padding(4);
             this.tbFiltro.Name = "tbFiltro";
             this.tbFiltro.Size = new System.Drawing.Size(484, 39);
             this.tbFiltro.TabIndex = 6;
@@ -89,7 +89,7 @@ namespace WindowsApp.Shared
             this.bt_adicionar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(33)))), ((int)(((byte)(34)))));
             this.bt_adicionar.Image = global::WindowsApp.Properties.Resources.adicionar;
             this.bt_adicionar.Location = new System.Drawing.Point(776, 87);
-            this.bt_adicionar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_adicionar.Margin = new System.Windows.Forms.Padding(4);
             this.bt_adicionar.Name = "bt_adicionar";
             this.bt_adicionar.Size = new System.Drawing.Size(80, 74);
             this.bt_adicionar.TabIndex = 12;
@@ -99,12 +99,13 @@ namespace WindowsApp.Shared
             // bt_editar
             // 
             this.bt_editar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.bt_editar.Enabled = false;
             this.bt_editar.FlatAppearance.BorderSize = 0;
             this.bt_editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_editar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(33)))), ((int)(((byte)(34)))));
             this.bt_editar.Image = global::WindowsApp.Properties.Resources.editar1;
             this.bt_editar.Location = new System.Drawing.Point(688, 87);
-            this.bt_editar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_editar.Margin = new System.Windows.Forms.Padding(4);
             this.bt_editar.Name = "bt_editar";
             this.bt_editar.Size = new System.Drawing.Size(80, 74);
             this.bt_editar.TabIndex = 11;
@@ -114,12 +115,13 @@ namespace WindowsApp.Shared
             // bt_remover
             // 
             this.bt_remover.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.bt_remover.Enabled = false;
             this.bt_remover.FlatAppearance.BorderSize = 0;
             this.bt_remover.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_remover.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(33)))), ((int)(((byte)(34)))));
             this.bt_remover.Image = global::WindowsApp.Properties.Resources.remover;
             this.bt_remover.Location = new System.Drawing.Point(600, 87);
-            this.bt_remover.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_remover.Margin = new System.Windows.Forms.Padding(4);
             this.bt_remover.Name = "bt_remover";
             this.bt_remover.Size = new System.Drawing.Size(80, 74);
             this.bt_remover.TabIndex = 8;
@@ -131,7 +133,7 @@ namespace WindowsApp.Shared
             this.picLupa.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.picLupa.Image = global::WindowsApp.Properties.Resources.pesquisa;
             this.picLupa.Location = new System.Drawing.Point(528, 107);
-            this.picLupa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picLupa.Margin = new System.Windows.Forms.Padding(4);
             this.picLupa.Name = "picLupa";
             this.picLupa.Size = new System.Drawing.Size(44, 41);
             this.picLupa.TabIndex = 7;
@@ -140,7 +142,7 @@ namespace WindowsApp.Shared
             // panelFormFilho
             // 
             this.panelFormFilho.Location = new System.Drawing.Point(0, 0);
-            this.panelFormFilho.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelFormFilho.Margin = new System.Windows.Forms.Padding(4);
             this.panelFormFilho.Name = "panelFormFilho";
             this.panelFormFilho.Size = new System.Drawing.Size(912, 690);
             this.panelFormFilho.TabIndex = 13;
@@ -159,7 +161,7 @@ namespace WindowsApp.Shared
             this.Controls.Add(this.picLupa);
             this.Controls.Add(this.tbFiltro);
             this.Controls.Add(this.panelFormFilho);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "GerenciamentoEntidade";
             this.Text = "FormGerenciamento";
             ((System.ComponentModel.ISupportInitialize)(this.dgvAluguel)).EndInit();
