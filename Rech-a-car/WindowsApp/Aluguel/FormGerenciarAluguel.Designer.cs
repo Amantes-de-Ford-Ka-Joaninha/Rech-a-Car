@@ -40,15 +40,16 @@ namespace telinhas
             // 
             // lbTitulo
             // 
+            this.lbTitulo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbTitulo.AutoSize = true;
             this.lbTitulo.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTitulo.ForeColor = System.Drawing.Color.White;
-            this.lbTitulo.Location = new System.Drawing.Point(192, 9);
+            this.lbTitulo.Location = new System.Drawing.Point(219, 9);
             this.lbTitulo.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(287, 25);
+            this.lbTitulo.Size = new System.Drawing.Size(152, 25);
             this.lbTitulo.TabIndex = 0;
-            this.lbTitulo.Text = "NADA ABSOLUTAMENTE NADA";
+            this.lbTitulo.Text = "Text placeholder";
             // 
             // tbFiltro
             // 

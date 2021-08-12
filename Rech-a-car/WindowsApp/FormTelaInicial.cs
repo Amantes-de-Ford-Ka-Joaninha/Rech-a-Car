@@ -49,21 +49,6 @@ namespace telinhas
             MostrarSubMenu(panelSubMenuAluguel);
         }
 
-        private void btnRealizarAluguel_Click(object sender, EventArgs e)
-        {
-            EsconderSubMenu();
-            Form formRealizarAluguel = new FormRealizarAluguel();
-            AbrirFormFilho(formRealizarAluguel);
-        }
-
-        private void btnGerenciarAlugueis_Click(object sender, EventArgs e)
-        {
-            EsconderSubMenu();
-            Form formGerenciarAlugueis = new FormGerenciarAluguel("Gerenciamento de Aluguéis");
-            AbrirFormFilho(formGerenciarAlugueis);
-        }
-
-
         private void AbrirFormFilho(Form formFilho)
         {
             if (formAtivo != null)
@@ -76,6 +61,20 @@ namespace telinhas
             panelFormFilho.Tag = formFilho;
             formFilho.BringToFront();
             formFilho.Show();
+        }
+
+        private void btnRealizarAluguel_Click(object sender, EventArgs e)
+        {
+            EsconderSubMenu();
+            Form formRealizarAluguel = new FormRealizarAluguel();
+            AbrirFormFilho(formRealizarAluguel);
+        }
+
+        private void btnGerenciarAlugueis_Click(object sender, EventArgs e)
+        {
+            EsconderSubMenu();
+            Form formGerenciarAlugueis = new FormGerenciarAluguel("Gerenciamento de Aluguéis");
+            AbrirFormFilho(formGerenciarAlugueis);
         }
 
         private void btVeiculos_Click(object sender, EventArgs e)
