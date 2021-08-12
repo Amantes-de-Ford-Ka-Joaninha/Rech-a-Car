@@ -1,10 +1,11 @@
-﻿using Dominio;
+﻿using Controladores.Shared;
+using Dominio;
 using System.Collections.Generic;
 using System.Data;
 
 namespace Controladores
 {
-    abstract public class ControladorBase<T> where T : Entidade
+    abstract public class ControladorEntidade<T> : Controlador where T : Entidade
     {
         public List<T> Registros => ObterRegistros();
         public abstract string sqlSelecionarPorId { get; }

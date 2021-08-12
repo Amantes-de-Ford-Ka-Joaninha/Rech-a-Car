@@ -1,7 +1,7 @@
 ﻿
 namespace WindowsApp
 {
-    partial class FormTelaInicial
+    partial class TelaInicial
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace WindowsApp
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTelaInicial));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaInicial));
             this.PanelMenuLateral = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.bt_sair = new System.Windows.Forms.Button();
@@ -105,6 +105,7 @@ namespace WindowsApp
             this.bt_sair.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bt_sair.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bt_sair.UseVisualStyleBackColor = true;
+            this.bt_sair.Click += new System.EventHandler(this.bt_sair_Click);
             // 
             // bt_servicos
             // 
@@ -359,7 +360,7 @@ namespace WindowsApp
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // FormTelaInicial
+            // TelaInicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -370,7 +371,7 @@ namespace WindowsApp
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(1261, 728);
-            this.Name = "FormTelaInicial";
+            this.Name = "TelaInicial";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Rech-a-Car";
             this.PanelMenuLateral.ResumeLayout(false);

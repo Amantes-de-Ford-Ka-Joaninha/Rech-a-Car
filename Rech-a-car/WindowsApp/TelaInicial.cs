@@ -1,24 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsApp.VeiculoModule;
 
 namespace WindowsApp
 {
-    public partial class FormTelaInicial : Form
+    public partial class TelaInicial : Form
     {
-        public static FormTelaInicial Instancia;
+        public static TelaInicial Instancia;
         private Form formAtivo;
-        public FormTelaInicial()
+        public TelaInicial()
         {
             Instancia = this;
             InitializeComponent();
+            //InicializarPanels();
             EsconderSubMenu();
+        }
+
+        private void InicializarPanels()
+        {
+            throw new NotImplementedException();
         }
 
         public Form FormAtivo { set { AbrirFormPanel(value); } }
@@ -33,18 +33,17 @@ namespace WindowsApp
         private void AbrirFormPanel(Form panelForm)
         {
             EsconderSubMenu();
-
             formAtivo?.Close();
 
             formAtivo = panelForm;
+            formAtivo.TopLevel = false;
+            formAtivo.FormBorderStyle = FormBorderStyle.None;
+            formAtivo.Dock = DockStyle.Fill;
 
-            panelForm.TopLevel = false;
-            panelForm.FormBorderStyle = FormBorderStyle.None;
-            panelForm.Dock = DockStyle.Fill;
-            panelFormFilho.Controls.Add(panelForm);
-            panelFormFilho.Tag = panelForm;
-            panelForm.BringToFront();
-            panelForm.Show();
+            panelFormFilho.Controls.Add(formAtivo);
+
+            formAtivo.BringToFront();
+            formAtivo.Show();
         }
 
         #region Eventos
@@ -55,29 +54,34 @@ namespace WindowsApp
         }
         private void bt_RealizarAluguel_Click(object sender, EventArgs e)
         {
-            FormAtivo = new FormRealizarAluguel();
+            FormAtivo = new RealizarAluguel();
         }
         private void bt_GerenciarAlugueis_Click(object sender, EventArgs e)
         {
-            FormAtivo = new FormGerenciarAluguel();
+            FormAtivo = new GerenciamentoAluguel();
         }
         private void bt_Veiculos_Click(object sender, EventArgs e)
         {
-            FormAtivo = new FormGerenciamento("Gerenciamento de Veículos");
+            FormAtivo = new GerenciamentoVeiculo();
         }
         private void bt_servicos_Click(object sender, EventArgs e)
         {
-            FormAtivo = new FormGerenciamento("Gerenciamento de Serviços");
+            //FormAtivo = new GerenciamentoEntidade<Servico>("Gerenciamento de Serviços");
         }
         private void bt_funcionarios_Click(object sender, EventArgs e)
         {
-            FormAtivo = new FormGerenciamento("Gerenciamento de Funcionários");
+            //FormAtivo = new GerenciamentoEntidade<Funcionario>("Gerenciamento de Funcionários");
         }
         private void bt_clientes_Click(object sender, EventArgs e)
         {
-            FormAtivo = new FormGerenciamento("Gerenciamento de Clientes");
+            //FormAtivo = new GerenciamentoEntidade<Cliente>("Gerenciamento de Clientes");
         }
 
         #endregion
+
+        private void bt_sair_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

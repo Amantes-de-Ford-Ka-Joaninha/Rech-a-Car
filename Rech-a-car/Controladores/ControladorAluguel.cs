@@ -1,14 +1,11 @@
-﻿using System;
+﻿using Dominio.AluguelModule;
+using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Dominio.AluguelModule;
 
 namespace Controladores
 {
-    class ControladorAluguel : ControladorBase<Aluguel>
+    public class ControladorAluguel : ControladorEntidade<Aluguel>
     {
         public override string sqlSelecionarPorId => throw new NotImplementedException();
 

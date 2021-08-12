@@ -1,6 +1,6 @@
 ﻿namespace WindowsApp
 {
-    partial class FormGerenciarAluguel
+    partial class GerenciamentoAluguel
     {
         /// <summary>
         /// Required designer variable.

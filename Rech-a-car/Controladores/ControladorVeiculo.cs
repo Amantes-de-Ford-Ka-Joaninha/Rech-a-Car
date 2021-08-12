@@ -1,13 +1,13 @@
-﻿using System;
+﻿using Dominio.VeiculoModule;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
-using Dominio.VeiculoModule;
 using System.IO;
 
 namespace Controladores
 {
-    class ControladorVeiculo : ControladorBase<Veiculo>
+    public class ControladorVeiculo : ControladorEntidade<Veiculo>
     {
         #region Queries
         private const string sqlInserirVeiculo =
@@ -103,7 +103,7 @@ namespace Controladores
             var chassi = Convert.ToString(reader["CHASSI"]);
             var porta_malas = Convert.ToInt32(reader["PORTA_MALAS"]);
             var automatico = Convert.ToBoolean(reader["AUTOMATICO"]);
-            var foto = RecuperarImagem((byte[]) reader["FOTO"]);
+            var foto = RecuperarImagem((byte[])reader["FOTO"]);
 
             Veiculo veiculo = new Veiculo(modelo, marca, quilometragem, ano, placa, capacidade, portas, chassi, porta_malas, foto, automatico)
             {

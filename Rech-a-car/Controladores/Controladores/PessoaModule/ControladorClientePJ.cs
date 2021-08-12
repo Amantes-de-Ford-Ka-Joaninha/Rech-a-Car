@@ -1,11 +1,11 @@
-﻿using Dominio.ServicoModule;
+﻿using Dominio.PessoaModule;
 using System;
 using System.Collections.Generic;
 using System.Data;
 
-namespace Controladores
+namespace Controladores.PessoaModule
 {
-    public class ControladorServico : ControladorEntidade<Servico>
+    class ControladorClientePJ : ControladorEntidade<ClientePJ>
     {
         public override string sqlSelecionarPorId => throw new NotImplementedException();
 
@@ -19,12 +19,12 @@ namespace Controladores
 
         public override string sqlExists => throw new NotImplementedException();
 
-        protected override Servico ConverterEmRegistro(IDataReader reader)
+        protected override ClientePJ ConverterEmRegistro(IDataReader reader)
         {
             throw new NotImplementedException();
         }
 
-        protected override Dictionary<string, object> ObtemParametrosRegistro(Servico registro)
+        protected override Dictionary<string, object> ObtemParametrosRegistro(ClientePJ registro)
         {
             throw new NotImplementedException();
         }

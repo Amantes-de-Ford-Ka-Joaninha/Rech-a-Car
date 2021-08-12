@@ -1,7 +1,7 @@
 ﻿
 namespace WindowsApp
 {
-    partial class FormCadastrarVeiculo
+    partial class CadastrarVeiculo
     {
         /// <summary>
         /// Required designer variable.
@@ -65,7 +65,7 @@ namespace WindowsApp
             this.tbFiltro.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbFiltro.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbFiltro.Location = new System.Drawing.Point(113, 95);
-            this.tbFiltro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbFiltro.Margin = new System.Windows.Forms.Padding(4);
             this.tbFiltro.Name = "tbFiltro";
             this.tbFiltro.Size = new System.Drawing.Size(205, 29);
             this.tbFiltro.TabIndex = 3;
@@ -101,7 +101,7 @@ namespace WindowsApp
             this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(113, 153);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(205, 29);
             this.textBox1.TabIndex = 3;
@@ -124,7 +124,7 @@ namespace WindowsApp
             this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(113, 213);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(205, 29);
             this.textBox2.TabIndex = 3;
@@ -147,7 +147,7 @@ namespace WindowsApp
             this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.Location = new System.Drawing.Point(113, 273);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(205, 29);
             this.textBox3.TabIndex = 3;
@@ -157,7 +157,7 @@ namespace WindowsApp
             this.textBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox4.Location = new System.Drawing.Point(113, 332);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(205, 29);
             this.textBox4.TabIndex = 3;
@@ -210,7 +210,7 @@ namespace WindowsApp
             "Manual",
             "Automático"});
             this.cbCambio.Location = new System.Drawing.Point(113, 396);
-            this.cbCambio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbCambio.Margin = new System.Windows.Forms.Padding(4);
             this.cbCambio.Name = "cbCambio";
             this.cbCambio.Size = new System.Drawing.Size(205, 29);
             this.cbCambio.TabIndex = 15;
@@ -220,7 +220,7 @@ namespace WindowsApp
             this.textBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox5.Location = new System.Drawing.Point(556, 95);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(4);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(205, 29);
             this.textBox5.TabIndex = 3;
@@ -230,7 +230,7 @@ namespace WindowsApp
             this.textBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox6.Location = new System.Drawing.Point(556, 153);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(4);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(205, 29);
             this.textBox6.TabIndex = 3;
@@ -240,7 +240,7 @@ namespace WindowsApp
             this.textBox7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox7.Location = new System.Drawing.Point(556, 213);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox7.Margin = new System.Windows.Forms.Padding(4);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(205, 29);
             this.textBox7.TabIndex = 3;
@@ -302,7 +302,7 @@ namespace WindowsApp
             this.textBox9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox9.Location = new System.Drawing.Point(556, 273);
-            this.textBox9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox9.Margin = new System.Windows.Forms.Padding(4);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(205, 29);
             this.textBox9.TabIndex = 3;
@@ -312,7 +312,7 @@ namespace WindowsApp
             this.textBox10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox10.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox10.Location = new System.Drawing.Point(556, 332);
-            this.textBox10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox10.Margin = new System.Windows.Forms.Padding(4);
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(205, 29);
             this.textBox10.TabIndex = 3;
@@ -366,7 +366,7 @@ namespace WindowsApp
             "3",
             "4"});
             this.cbPortas.Location = new System.Drawing.Point(113, 464);
-            this.cbPortas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbPortas.Margin = new System.Windows.Forms.Padding(4);
             this.cbPortas.Name = "cbPortas";
             this.cbPortas.Size = new System.Drawing.Size(205, 29);
             this.cbPortas.TabIndex = 17;
@@ -382,7 +382,7 @@ namespace WindowsApp
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Image = global::WindowsApp.Properties.Resources.inserir_icone_de_imagem;
             this.button1.Location = new System.Drawing.Point(584, 385);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(140, 117);
             this.button1.TabIndex = 18;
@@ -396,11 +396,12 @@ namespace WindowsApp
             this.bt_adicionar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(33)))), ((int)(((byte)(34)))));
             this.bt_adicionar.Image = global::WindowsApp.Properties.Resources.adicionar;
             this.bt_adicionar.Location = new System.Drawing.Point(795, 554);
-            this.bt_adicionar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_adicionar.Margin = new System.Windows.Forms.Padding(4);
             this.bt_adicionar.Name = "bt_adicionar";
             this.bt_adicionar.Size = new System.Drawing.Size(80, 74);
             this.bt_adicionar.TabIndex = 13;
             this.bt_adicionar.UseVisualStyleBackColor = true;
+            this.bt_adicionar.Click += new System.EventHandler(this.bt_adicionar_Click);
             // 
             // FormCadastrarVeiculo
             // 
@@ -436,7 +437,7 @@ namespace WindowsApp
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.tbFiltro);
             this.Controls.Add(this.lbTitulo);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormCadastrarVeiculo";
             this.Text = "FormCadastrarVeiculo";
             this.ResumeLayout(false);

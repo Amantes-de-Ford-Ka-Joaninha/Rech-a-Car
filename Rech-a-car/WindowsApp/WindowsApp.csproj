@@ -46,52 +46,59 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AluguelModule\FormGerenciarAluguel.cs">
+    <Compile Include="AluguelModule\GerenciamentoAluguel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AluguelModule\FormGerenciarAluguel.Designer.cs">
-      <DependentUpon>FormGerenciarAluguel.cs</DependentUpon>
+    <Compile Include="AluguelModule\GerenciamentoAluguel.Designer.cs">
+      <DependentUpon>GerenciamentoAluguel.cs</DependentUpon>
     </Compile>
-    <Compile Include="AluguelModule\FormRealizarAluguel.cs">
+    <Compile Include="AluguelModule\RealizarAluguel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AluguelModule\FormRealizarAluguel.Designer.cs">
-      <DependentUpon>FormRealizarAluguel.cs</DependentUpon>
+    <Compile Include="AluguelModule\RealizarAluguel.Designer.cs">
+      <DependentUpon>RealizarAluguel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Shared\FormGerenciamento.cs">
+    <Compile Include="Shared\TipoCadastro.cs" />
+    <Compile Include="Shared\GerenciamentoEntidade.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Shared\FormGerenciamento.Designer.cs">
-      <DependentUpon>FormGerenciamento.cs</DependentUpon>
+    <Compile Include="Shared\GerenciamentoEntidade.Designer.cs">
+      <DependentUpon>GerenciamentoEntidade.cs</DependentUpon>
     </Compile>
-    <Compile Include="VeiculoModule\FormCadastrarVeiculo.cs">
+    <Compile Include="Shared\CadastroEntidade.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VeiculoModule\FormCadastrarVeiculo.Designer.cs">
-      <DependentUpon>FormCadastrarVeiculo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormTelaInicial.cs">
+    <Compile Include="VeiculoModule\CadastrarVeiculo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormTelaInicial.Designer.cs">
-      <DependentUpon>FormTelaInicial.cs</DependentUpon>
+    <Compile Include="VeiculoModule\CadastrarVeiculo.Designer.cs">
+      <DependentUpon>CadastrarVeiculo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelaInicial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelaInicial.Designer.cs">
+      <DependentUpon>TelaInicial.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AluguelModule\FormGerenciarAluguel.resx">
-      <DependentUpon>FormGerenciarAluguel.cs</DependentUpon>
+    <Compile Include="VeiculoModule\GerenciamentoVeiculo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <EmbeddedResource Include="AluguelModule\GerenciamentoAluguel.resx">
+      <DependentUpon>GerenciamentoAluguel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AluguelModule\FormRealizarAluguel.resx">
-      <DependentUpon>FormRealizarAluguel.cs</DependentUpon>
+    <EmbeddedResource Include="AluguelModule\RealizarAluguel.resx">
+      <DependentUpon>RealizarAluguel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Shared\FormGerenciamento.resx">
-      <DependentUpon>FormGerenciamento.cs</DependentUpon>
+    <EmbeddedResource Include="Shared\GerenciamentoEntidade.resx">
+      <DependentUpon>GerenciamentoEntidade.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VeiculoModule\FormCadastrarVeiculo.resx">
-      <DependentUpon>FormCadastrarVeiculo.cs</DependentUpon>
+    <EmbeddedResource Include="VeiculoModule\CadastrarVeiculo.resx">
+      <DependentUpon>CadastrarVeiculo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormTelaInicial.resx">
-      <DependentUpon>FormTelaInicial.cs</DependentUpon>
+    <EmbeddedResource Include="TelaInicial.resx">
+      <DependentUpon>TelaInicial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -161,6 +168,15 @@
   <ItemGroup>
     <None Include="Resources\inserir-icone-de-imagem.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Controladores\Controladores.csproj">
+      <Project>{7320109f-4252-4183-9391-61e87319efcb}</Project>
+      <Name>Controladores</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dominio\Dominio.csproj">
+      <Project>{10FEC66B-3C48-4866-9E4B-612FDA372701}</Project>
+      <Name>Dominio</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
