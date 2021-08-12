@@ -24,11 +24,11 @@ namespace Dominio.VeiculoModule
             string validacao = String.Empty;
 
             if (Quilometragem < 0)
-                validacao += "Quilometragem inválida";
-            if (Diaria < 0)
-                validacao += "Valor da diária deve ser maior que 0";
-            if (PrecoKm < 0)
-                validacao += "Valor do preço por Km deve ser maior que 0";
+                validacao += "Quilometragem inválida\n";
+            if (Diaria <= 0)
+                validacao += "Valor da diária deve ser maior que 0\n";
+            if (PrecoKm <= 0)
+                validacao += "Valor do preço por Km deve ser maior que 0\n";
 
             if (validacao == String.Empty)
                 return Valido;

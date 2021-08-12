@@ -58,7 +58,6 @@ namespace Controladores.VeiculoModule
                 { "PRECO_KM", dadosVeiculo.PrecoKm },
                 { "DIARIA", dadosVeiculo.Diaria },
                 { "ID_TAREFA", dadosVeiculo.Idtarefa },
-
             };
 
             return parametros;

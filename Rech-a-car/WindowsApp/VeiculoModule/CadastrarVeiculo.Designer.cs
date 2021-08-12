@@ -59,16 +59,17 @@ namespace WindowsApp
             this.tb_precoKm = new System.Windows.Forms.TextBox();
             this.tb_quilometragem = new System.Windows.Forms.TextBox();
             this.tb_ano = new System.Windows.Forms.MaskedTextBox();
-            this.tb_chassi = new System.Windows.Forms.TextBox();
+            this.tb_chassi = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // tb_modelo
             // 
             this.tb_modelo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_modelo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_modelo.Location = new System.Drawing.Point(85, 77);
+            this.tb_modelo.Location = new System.Drawing.Point(113, 95);
+            this.tb_modelo.Margin = new System.Windows.Forms.Padding(4);
             this.tb_modelo.Name = "tb_modelo";
-            this.tb_modelo.Size = new System.Drawing.Size(155, 25);
+            this.tb_modelo.Size = new System.Drawing.Size(205, 29);
             this.tb_modelo.TabIndex = 0;
             // 
             // lbTitulo
@@ -77,10 +78,10 @@ namespace WindowsApp
             this.lbTitulo.AutoSize = true;
             this.lbTitulo.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTitulo.ForeColor = System.Drawing.Color.White;
-            this.lbTitulo.Location = new System.Drawing.Point(216, 9);
-            this.lbTitulo.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lbTitulo.Location = new System.Drawing.Point(288, 11);
+            this.lbTitulo.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(181, 25);
+            this.lbTitulo.Size = new System.Drawing.Size(230, 32);
             this.lbTitulo.TabIndex = 2;
             this.lbTitulo.Text = "Cadastro de Veículo";
             // 
@@ -90,9 +91,10 @@ namespace WindowsApp
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(25, 80);
+            this.label1.Location = new System.Drawing.Point(33, 98);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 17);
+            this.label1.Size = new System.Drawing.Size(68, 23);
             this.label1.TabIndex = 14;
             this.label1.Text = "Modelo";
             // 
@@ -102,9 +104,10 @@ namespace WindowsApp
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(48, 127);
+            this.label2.Location = new System.Drawing.Point(64, 156);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(31, 17);
+            this.label2.Size = new System.Drawing.Size(41, 23);
             this.label2.TabIndex = 14;
             this.label2.Text = "Ano";
             // 
@@ -112,9 +115,10 @@ namespace WindowsApp
             // 
             this.tb_categoria.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_categoria.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_categoria.Location = new System.Drawing.Point(85, 173);
+            this.tb_categoria.Location = new System.Drawing.Point(113, 213);
+            this.tb_categoria.Margin = new System.Windows.Forms.Padding(4);
             this.tb_categoria.Name = "tb_categoria";
-            this.tb_categoria.Size = new System.Drawing.Size(155, 25);
+            this.tb_categoria.Size = new System.Drawing.Size(205, 29);
             this.tb_categoria.TabIndex = 2;
             // 
             // label3
@@ -123,9 +127,10 @@ namespace WindowsApp
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(14, 176);
+            this.label3.Location = new System.Drawing.Point(19, 217);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 17);
+            this.label3.Size = new System.Drawing.Size(84, 23);
             this.label3.TabIndex = 14;
             this.label3.Text = "Categoria";
             // 
@@ -133,9 +138,10 @@ namespace WindowsApp
             // 
             this.tb_placa.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_placa.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_placa.Location = new System.Drawing.Point(85, 270);
+            this.tb_placa.Location = new System.Drawing.Point(113, 332);
+            this.tb_placa.Margin = new System.Windows.Forms.Padding(4);
             this.tb_placa.Name = "tb_placa";
-            this.tb_placa.Size = new System.Drawing.Size(155, 25);
+            this.tb_placa.Size = new System.Drawing.Size(205, 29);
             this.tb_placa.TabIndex = 4;
             // 
             // label4
@@ -144,9 +150,10 @@ namespace WindowsApp
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(34, 225);
+            this.label4.Location = new System.Drawing.Point(45, 277);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 17);
+            this.label4.Size = new System.Drawing.Size(58, 23);
             this.label4.TabIndex = 14;
             this.label4.Text = "Chassi";
             // 
@@ -156,9 +163,10 @@ namespace WindowsApp
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(41, 273);
+            this.label5.Location = new System.Drawing.Point(55, 336);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(38, 17);
+            this.label5.Size = new System.Drawing.Size(50, 23);
             this.label5.TabIndex = 14;
             this.label5.Text = "Placa";
             // 
@@ -168,9 +176,10 @@ namespace WindowsApp
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(26, 375);
+            this.label6.Location = new System.Drawing.Point(35, 462);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 17);
+            this.label6.Size = new System.Drawing.Size(69, 23);
             this.label6.TabIndex = 14;
             this.label6.Text = "Câmbio";
             // 
@@ -182,9 +191,10 @@ namespace WindowsApp
             this.cb_cambio.Items.AddRange(new object[] {
             "Manual",
             "Automático"});
-            this.cb_cambio.Location = new System.Drawing.Point(85, 375);
+            this.cb_cambio.Location = new System.Drawing.Point(113, 462);
+            this.cb_cambio.Margin = new System.Windows.Forms.Padding(4);
             this.cb_cambio.Name = "cb_cambio";
-            this.cb_cambio.Size = new System.Drawing.Size(155, 25);
+            this.cb_cambio.Size = new System.Drawing.Size(205, 29);
             this.cb_cambio.TabIndex = 6;
             // 
             // label7
@@ -193,9 +203,10 @@ namespace WindowsApp
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(310, 179);
+            this.label7.Location = new System.Drawing.Point(413, 220);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(99, 17);
+            this.label7.Size = new System.Drawing.Size(130, 23);
             this.label7.TabIndex = 14;
             this.label7.Text = "Quilometragem";
             // 
@@ -205,9 +216,10 @@ namespace WindowsApp
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(335, 80);
+            this.label8.Location = new System.Drawing.Point(447, 98);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(78, 17);
+            this.label8.Size = new System.Drawing.Size(101, 23);
             this.label8.TabIndex = 14;
             this.label8.Text = "Porta-malas";
             // 
@@ -217,9 +229,10 @@ namespace WindowsApp
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(332, 129);
+            this.label9.Location = new System.Drawing.Point(443, 159);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(77, 17);
+            this.label9.Size = new System.Drawing.Size(99, 23);
             this.label9.TabIndex = 14;
             this.label9.Text = "Capacidade";
             // 
@@ -229,9 +242,10 @@ namespace WindowsApp
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(34, 434);
+            this.label11.Location = new System.Drawing.Point(45, 534);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(45, 17);
+            this.label11.Size = new System.Drawing.Size(57, 23);
             this.label11.TabIndex = 14;
             this.label11.Text = "Portas";
             // 
@@ -241,9 +255,10 @@ namespace WindowsApp
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(344, 225);
+            this.label12.Location = new System.Drawing.Point(459, 277);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(65, 17);
+            this.label12.Size = new System.Drawing.Size(85, 23);
             this.label12.TabIndex = 14;
             this.label12.Text = "Preço/Km";
             // 
@@ -253,9 +268,10 @@ namespace WindowsApp
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(367, 273);
+            this.label13.Location = new System.Drawing.Point(489, 336);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(42, 17);
+            this.label13.Size = new System.Drawing.Size(54, 23);
             this.label13.TabIndex = 14;
             this.label13.Text = "Diária";
             // 
@@ -265,9 +281,10 @@ namespace WindowsApp
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(375, 362);
+            this.label15.Location = new System.Drawing.Point(500, 446);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(34, 17);
+            this.label15.Size = new System.Drawing.Size(44, 23);
             this.label15.TabIndex = 16;
             this.label15.Text = "Foto";
             // 
@@ -281,9 +298,10 @@ namespace WindowsApp
             "3",
             "4",
             "6"});
-            this.cb_portas.Location = new System.Drawing.Point(85, 431);
+            this.cb_portas.Location = new System.Drawing.Point(113, 530);
+            this.cb_portas.Margin = new System.Windows.Forms.Padding(4);
             this.cb_portas.Name = "cb_portas";
-            this.cb_portas.Size = new System.Drawing.Size(155, 25);
+            this.cb_portas.Size = new System.Drawing.Size(205, 29);
             this.cb_portas.TabIndex = 7;
             // 
             // ofdImagem
@@ -296,9 +314,10 @@ namespace WindowsApp
             this.bt_foto.FlatAppearance.BorderSize = 0;
             this.bt_foto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_foto.Image = global::WindowsApp.Properties.Resources.inserir_icone_de_imagem;
-            this.bt_foto.Location = new System.Drawing.Point(438, 324);
+            this.bt_foto.Location = new System.Drawing.Point(584, 399);
+            this.bt_foto.Margin = new System.Windows.Forms.Padding(4);
             this.bt_foto.Name = "bt_foto";
-            this.bt_foto.Size = new System.Drawing.Size(105, 95);
+            this.bt_foto.Size = new System.Drawing.Size(140, 117);
             this.bt_foto.TabIndex = 13;
             this.bt_foto.UseVisualStyleBackColor = true;
             this.bt_foto.Click += new System.EventHandler(this.bt_foto_Click);
@@ -310,9 +329,10 @@ namespace WindowsApp
             this.bt_adicionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_adicionar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(33)))), ((int)(((byte)(34)))));
             this.bt_adicionar.Image = global::WindowsApp.Properties.Resources.adicionar;
-            this.bt_adicionar.Location = new System.Drawing.Point(596, 450);
+            this.bt_adicionar.Location = new System.Drawing.Point(795, 554);
+            this.bt_adicionar.Margin = new System.Windows.Forms.Padding(4);
             this.bt_adicionar.Name = "bt_adicionar";
-            this.bt_adicionar.Size = new System.Drawing.Size(60, 60);
+            this.bt_adicionar.Size = new System.Drawing.Size(80, 74);
             this.bt_adicionar.TabIndex = 14;
             this.bt_adicionar.UseVisualStyleBackColor = true;
             this.bt_adicionar.Click += new System.EventHandler(this.bt_adicionar_Click);
@@ -323,9 +343,10 @@ namespace WindowsApp
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(34, 324);
+            this.label10.Location = new System.Drawing.Point(45, 399);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(45, 17);
+            this.label10.Size = new System.Drawing.Size(57, 23);
             this.label10.TabIndex = 19;
             this.label10.Text = "Marca";
             // 
@@ -333,9 +354,10 @@ namespace WindowsApp
             // 
             this.tb_marca.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_marca.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_marca.Location = new System.Drawing.Point(85, 322);
+            this.tb_marca.Location = new System.Drawing.Point(113, 396);
+            this.tb_marca.Margin = new System.Windows.Forms.Padding(4);
             this.tb_marca.Name = "tb_marca";
-            this.tb_marca.Size = new System.Drawing.Size(155, 25);
+            this.tb_marca.Size = new System.Drawing.Size(205, 29);
             this.tb_marca.TabIndex = 5;
             // 
             // cb_capacidade
@@ -347,9 +369,10 @@ namespace WindowsApp
             "2",
             "5",
             "8"});
-            this.cb_capacidade.Location = new System.Drawing.Point(417, 127);
+            this.cb_capacidade.Location = new System.Drawing.Point(556, 156);
+            this.cb_capacidade.Margin = new System.Windows.Forms.Padding(4);
             this.cb_capacidade.Name = "cb_capacidade";
-            this.cb_capacidade.Size = new System.Drawing.Size(155, 25);
+            this.cb_capacidade.Size = new System.Drawing.Size(205, 29);
             this.cb_capacidade.TabIndex = 9;
             // 
             // cb_portaMalas
@@ -361,50 +384,52 @@ namespace WindowsApp
             "Pequeno",
             "Médio",
             "Grande"});
-            this.cb_portaMalas.Location = new System.Drawing.Point(417, 80);
+            this.cb_portaMalas.Location = new System.Drawing.Point(556, 98);
+            this.cb_portaMalas.Margin = new System.Windows.Forms.Padding(4);
             this.cb_portaMalas.Name = "cb_portaMalas";
-            this.cb_portaMalas.Size = new System.Drawing.Size(155, 25);
+            this.cb_portaMalas.Size = new System.Drawing.Size(205, 29);
             this.cb_portaMalas.TabIndex = 8;
             // 
             // tb_diaria
             // 
             this.tb_diaria.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_diaria.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.tb_diaria.Location = new System.Drawing.Point(417, 273);
-            this.tb_diaria.Margin = new System.Windows.Forms.Padding(2);
+            this.tb_diaria.Location = new System.Drawing.Point(556, 336);
+            this.tb_diaria.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_diaria.Name = "tb_diaria";
-            this.tb_diaria.Size = new System.Drawing.Size(155, 25);
+            this.tb_diaria.Size = new System.Drawing.Size(205, 29);
             this.tb_diaria.TabIndex = 12;
             // 
             // tb_precoKm
             // 
             this.tb_precoKm.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_precoKm.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.tb_precoKm.Location = new System.Drawing.Point(417, 225);
-            this.tb_precoKm.Margin = new System.Windows.Forms.Padding(2);
+            this.tb_precoKm.Location = new System.Drawing.Point(556, 277);
+            this.tb_precoKm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_precoKm.Name = "tb_precoKm";
-            this.tb_precoKm.Size = new System.Drawing.Size(155, 25);
+            this.tb_precoKm.Size = new System.Drawing.Size(205, 29);
             this.tb_precoKm.TabIndex = 11;
             // 
             // tb_quilometragem
             // 
             this.tb_quilometragem.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_quilometragem.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.tb_quilometragem.Location = new System.Drawing.Point(417, 179);
-            this.tb_quilometragem.Margin = new System.Windows.Forms.Padding(2);
+            this.tb_quilometragem.Location = new System.Drawing.Point(556, 220);
+            this.tb_quilometragem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_quilometragem.Name = "tb_quilometragem";
-            this.tb_quilometragem.Size = new System.Drawing.Size(155, 25);
+            this.tb_quilometragem.Size = new System.Drawing.Size(205, 29);
             this.tb_quilometragem.TabIndex = 10;
+            this.tb_quilometragem.Text = "0";
             // 
             // tb_ano
             // 
             this.tb_ano.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_ano.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.tb_ano.Location = new System.Drawing.Point(85, 124);
-            this.tb_ano.Margin = new System.Windows.Forms.Padding(2);
+            this.tb_ano.Location = new System.Drawing.Point(113, 153);
+            this.tb_ano.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_ano.Mask = "0000";
             this.tb_ano.Name = "tb_ano";
-            this.tb_ano.Size = new System.Drawing.Size(155, 25);
+            this.tb_ano.Size = new System.Drawing.Size(205, 29);
             this.tb_ano.TabIndex = 1;
             this.tb_ano.ValidatingType = typeof(int);
             // 
@@ -412,18 +437,20 @@ namespace WindowsApp
             // 
             this.tb_chassi.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_chassi.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.tb_chassi.Location = new System.Drawing.Point(85, 223);
-            this.tb_chassi.Margin = new System.Windows.Forms.Padding(2);
+            this.tb_chassi.Location = new System.Drawing.Point(113, 271);
+            this.tb_chassi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb_chassi.Mask = "&&&&&&&&&&&&&&&&&";
             this.tb_chassi.Name = "tb_chassi";
-            this.tb_chassi.Size = new System.Drawing.Size(155, 25);
+            this.tb_chassi.Size = new System.Drawing.Size(205, 29);
             this.tb_chassi.TabIndex = 3;
+            this.tb_chassi.ValidatingType = typeof(int);
             // 
             // CadastrarVeiculo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(33)))), ((int)(((byte)(34)))));
-            this.ClientSize = new System.Drawing.Size(668, 522);
+            this.ClientSize = new System.Drawing.Size(891, 642);
             this.Controls.Add(this.tb_chassi);
             this.Controls.Add(this.tb_ano);
             this.Controls.Add(this.tb_quilometragem);
@@ -454,6 +481,7 @@ namespace WindowsApp
             this.Controls.Add(this.tb_categoria);
             this.Controls.Add(this.tb_modelo);
             this.Controls.Add(this.lbTitulo);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CadastrarVeiculo";
             this.Text = "FormCadastrarVeiculo";
             this.ResumeLayout(false);
@@ -493,6 +521,6 @@ namespace WindowsApp
         private System.Windows.Forms.TextBox tb_precoKm;
         private System.Windows.Forms.TextBox tb_quilometragem;
         private System.Windows.Forms.MaskedTextBox tb_ano;
-        private System.Windows.Forms.TextBox tb_chassi;
+        private System.Windows.Forms.MaskedTextBox tb_chassi;
     }
 }
