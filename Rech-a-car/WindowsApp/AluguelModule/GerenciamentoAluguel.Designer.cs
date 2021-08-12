@@ -1,7 +1,6 @@
-﻿
-namespace WindowsApp
+﻿namespace WindowsApp
 {
-    partial class FormGerenciarAluguel
+    partial class GerenciamentoAluguel
     {
         /// <summary>
         /// Required designer variable.
@@ -40,23 +39,23 @@ namespace WindowsApp
             // 
             // lbTitulo
             // 
+            this.lbTitulo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbTitulo.AutoSize = true;
             this.lbTitulo.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTitulo.ForeColor = System.Drawing.Color.White;
-            this.lbTitulo.Location = new System.Drawing.Point(192, 9);
-            this.lbTitulo.Location = new System.Drawing.Point(204, 9);
+            this.lbTitulo.Location = new System.Drawing.Point(173, 9);
             this.lbTitulo.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(287, 25);
+            this.lbTitulo.Size = new System.Drawing.Size(316, 32);
             this.lbTitulo.TabIndex = 0;
-            this.lbTitulo.Text = "NADA ABSOLUTAMENTE NADA";
+            this.lbTitulo.Text = "Gerenciamento de Aluguéis";
             // 
             // tbFiltro
             // 
             this.tbFiltro.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbFiltro.Location = new System.Drawing.Point(25, 80);
             this.tbFiltro.Name = "tbFiltro";
-            this.tbFiltro.Size = new System.Drawing.Size(464, 33);
+            this.tbFiltro.Size = new System.Drawing.Size(464, 39);
             this.tbFiltro.TabIndex = 1;
             // 
             // dgvAluguel
@@ -71,6 +70,7 @@ namespace WindowsApp
             this.dgvAluguel.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(7)))), ((int)(((byte)(49)))));
             this.dgvAluguel.Location = new System.Drawing.Point(25, 146);
             this.dgvAluguel.Name = "dgvAluguel";
+            this.dgvAluguel.RowHeadersWidth = 51;
             this.dgvAluguel.Size = new System.Drawing.Size(616, 354);
             this.dgvAluguel.TabIndex = 4;
             // 
@@ -80,7 +80,7 @@ namespace WindowsApp
             this.btFiltro.FlatAppearance.BorderSize = 0;
             this.btFiltro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btFiltro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(33)))), ((int)(((byte)(34)))));
-            this.btFiltro.Image = global::telinhas.Properties.Resources.filtro1;
+            this.btFiltro.Image = global::WindowsApp.Properties.Resources.filtro1;
             this.btFiltro.Location = new System.Drawing.Point(565, 61);
             this.btFiltro.Name = "btFiltro";
             this.btFiltro.Size = new System.Drawing.Size(69, 69);
@@ -90,7 +90,7 @@ namespace WindowsApp
             // picLupa
             // 
             this.picLupa.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.picLupa.Image = global::telinhas.Properties.Resources.pesquisa;
+            this.picLupa.Image = global::WindowsApp.Properties.Resources.pesquisa;
             this.picLupa.Location = new System.Drawing.Point(495, 80);
             this.picLupa.Name = "picLupa";
             this.picLupa.Size = new System.Drawing.Size(33, 33);
@@ -99,7 +99,7 @@ namespace WindowsApp
             // 
             // FormGerenciarAluguel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(33)))), ((int)(((byte)(34)))));
             this.ClientSize = new System.Drawing.Size(668, 522);

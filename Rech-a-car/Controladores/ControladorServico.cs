@@ -1,14 +1,11 @@
-﻿using System;
+﻿using Dominio.ServicoModule;
+using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Dominio.ServicoModule;
 
 namespace Controladores
 {
-    class ControladorServico : ControladorBase<Servico>
+    public class ControladorServico : ControladorEntidade<Servico>
     {
         public override string sqlSelecionarPorId => throw new NotImplementedException();
 
@@ -22,7 +19,7 @@ namespace Controladores
 
         public override string sqlExists => throw new NotImplementedException();
 
-        protected override Servico ConverterEmRegistro(IDataReader reader)
+        protected override Servico ConverterEmEntidade(IDataReader reader)
         {
             throw new NotImplementedException();
         }

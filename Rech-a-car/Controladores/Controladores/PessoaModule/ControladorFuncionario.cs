@@ -1,14 +1,11 @@
-﻿using System;
+﻿using Dominio.PessoaModule;
+using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Dominio.PessoaModule;
 
-namespace Controladores
+namespace Controladores.PessoaModule
 {
-    class ControladorClientePF : ControladorBase<ClientePF>
+    public class ControladorFuncionario : ControladorEntidade<Funcionario>
     {
         public override string sqlSelecionarPorId => throw new NotImplementedException();
 
@@ -22,12 +19,12 @@ namespace Controladores
 
         public override string sqlExists => throw new NotImplementedException();
 
-        protected override ClientePF ConverterEmRegistro(IDataReader reader)
+        protected override Funcionario ConverterEmEntidade(IDataReader reader)
         {
             throw new NotImplementedException();
         }
 
-        protected override Dictionary<string, object> ObtemParametrosRegistro(ClientePF registro)
+        protected override Dictionary<string, object> ObtemParametrosRegistro(Funcionario registro)
         {
             throw new NotImplementedException();
         }

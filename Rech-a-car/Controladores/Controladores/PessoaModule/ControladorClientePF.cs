@@ -1,11 +1,11 @@
-﻿using Dominio.AluguelModule;
+﻿using Dominio.PessoaModule;
 using System;
 using System.Collections.Generic;
 using System.Data;
 
 namespace Controladores
 {
-    public class ControladorAluguel : ControladorEntidade<Aluguel>
+    class ControladorClientePF : ControladorEntidade<ClientePF>
     {
         public override string sqlSelecionarPorId => throw new NotImplementedException();
 
@@ -19,12 +19,12 @@ namespace Controladores
 
         public override string sqlExists => throw new NotImplementedException();
 
-        protected override Aluguel ConverterEmEntidade(IDataReader reader)
+        protected override ClientePF ConverterEmEntidade(IDataReader reader)
         {
             throw new NotImplementedException();
         }
 
-        protected override Dictionary<string, object> ObtemParametrosRegistro(Aluguel registro)
+        protected override Dictionary<string, object> ObtemParametrosRegistro(ClientePF registro)
         {
             throw new NotImplementedException();
         }

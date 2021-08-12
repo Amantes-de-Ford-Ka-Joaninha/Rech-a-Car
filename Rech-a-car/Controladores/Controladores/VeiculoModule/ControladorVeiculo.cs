@@ -1,13 +1,13 @@
-﻿using System;
+﻿using Dominio.VeiculoModule;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
-using Dominio.VeiculoModule;
 using System.IO;
 
-namespace Controladores
+namespace Controladores.VeiculoModule
 {
-    class ControladorVeiculo : ControladorBase<Veiculo>
+    public class ControladorVeiculo : ControladorEntidade<Veiculo>
     {
         #region Queries
         private const string sqlInserirVeiculo =
@@ -91,23 +91,25 @@ namespace Controladores
         public override string sqlExcluir => sqlExcluirVeiculo;
         public override string sqlExists => sqlExisteVeiculo;
 
-        protected override Veiculo ConverterEmRegistro(IDataReader reader)
+        protected override Veiculo ConverterEmEntidade(IDataReader reader)
         {
+            var id = Convert.ToInt32(reader["ID"]);
             var modelo = Convert.ToString(reader["MODELO"]);
             var marca = Convert.ToString(reader["MARCA"]);
-            var quilometragem = Convert.ToInt32(reader["QUILOMETRAGEM"]);
-            var ano = Convert.ToInt32(reader["ANO"]);
+            var categoria = Convert.ToString(reader["CATEGORIA"]);
             var placa = Convert.ToString(reader["PLACA"]);
-            var capacidade = Convert.ToInt32(reader["CAPACIDADE"]);
-            var portas = Convert.ToInt32(reader["PORTAS"]);
             var chassi = Convert.ToString(reader["CHASSI"]);
+            var portas = Convert.ToInt32(reader["PORTAS"]);
+            var ano = Convert.ToInt32(reader["ANO"]);
             var porta_malas = Convert.ToInt32(reader["PORTA_MALAS"]);
+            var capacidade = Convert.ToInt32(reader["CAPACIDADE"]);
             var automatico = Convert.ToBoolean(reader["AUTOMATICO"]);
-            var foto = RecuperarImagem((byte[]) reader["FOTO"]);
 
-            Veiculo veiculo = new Veiculo(modelo, marca, quilometragem, ano, placa, capacidade, portas, chassi, porta_malas, foto, automatico)
+            var foto = RecuperarImagem((byte[])reader["FOTO"]);
+            var dadosVeiculo = ControladorDadosVeiculo.SelecionarPorIdVeiculo(id);
+            Veiculo veiculo = new Veiculo(modelo, marca, ano, placa, capacidade, portas, chassi, porta_malas, foto, automatico, categoria, dadosVeiculo)
             {
-                Id = Convert.ToInt32(reader["ID"])
+                Id = id
             };
 
             return veiculo;
@@ -119,7 +121,6 @@ namespace Controladores
                 { "ID", veiculo.Id },
                 { "MODELO", veiculo.Modelo },
                 { "MARCA", veiculo.Marca },
-                { "QUILOMETRAGEM", veiculo.Quilometragem },
                 { "ANO", veiculo.Ano },
                 { "PLACA", veiculo.Placa },
                 { "CAPACIDADE", veiculo.Capacidade },
@@ -127,7 +128,8 @@ namespace Controladores
                 { "CHASSI", veiculo.Chassi },
                 { "PORTA_MALAS", veiculo.Porta_malas },
                 { "FOTO", veiculo.Foto },
-                { "AUTOMATICO", veiculo.Automatico }
+                { "AUTOMATICO", veiculo.Automatico },
+                { "CATEGORIA", veiculo.Categoria }
             };
 
             return parametros;

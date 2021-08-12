@@ -44,11 +44,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ControladorAluguel.cs" />
-    <Compile Include="ControladorBase.cs" />
-    <Compile Include="ControladorClientePF.cs" />
-    <Compile Include="ControladorClientePJ.cs" />
+    <Compile Include="ControladorEntidade.cs" />
+    <Compile Include="Controladores\PessoaModule\ControladorCliente.cs" />
+    <Compile Include="Controladores\PessoaModule\ControladorClientePF.cs" />
+    <Compile Include="Controladores\PessoaModule\ControladorClientePJ.cs" />
+    <Compile Include="Controladores\PessoaModule\ControladorFuncionario.cs" />
+    <Compile Include="Controladores\VeiculoModule\ControladorDadosVeiculo.cs" />
     <Compile Include="ControladorServico.cs" />
-    <Compile Include="ControladorVeiculo.cs" />
+    <Compile Include="Controladores\VeiculoModule\ControladorVeiculo.cs" />
     <Compile Include="Db.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

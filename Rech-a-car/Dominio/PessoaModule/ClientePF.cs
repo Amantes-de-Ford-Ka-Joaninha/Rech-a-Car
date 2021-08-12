@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Dominio.PessoaModule
 {
-    public class ClientePF : Condutor, Cliente
+    public class ClientePF : Condutor, ICliente
     {
         public override string Validar()
         {

@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Dominio.PessoaModule
 {
-    public class ClientePJ : PessoaJuridica, Cliente
+    public class ClientePJ : PessoaJuridica, ICliente
     {
         public override string Validar()
         {
