@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Dominio.ServicoModule
 {
-    public class  Servico : Entidade
+    public class Servico : Entidade
     {
+        public override string Validar()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

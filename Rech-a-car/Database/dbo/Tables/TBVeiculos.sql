@@ -10,6 +10,7 @@
     [PORTA_MALAS]   VARCHAR (50)    NOT NULL,
     [AUTOMATICO]    BIT             NOT NULL,
     [FOTO]          VARBINARY (MAX) NOT NULL,
-    [ID]            INT             NOT NULL
+    [ID]            INT             NOT NULL,
+    CONSTRAINT [PK_TBVeiculos] PRIMARY KEY CLUSTERED ([ID] ASC)
 );
 

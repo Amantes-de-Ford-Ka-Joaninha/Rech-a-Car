@@ -135,6 +135,8 @@ namespace telinhas
             this.panelFormFilho.Size = new System.Drawing.Size(684, 561);
             this.panelFormFilho.TabIndex = 13;
             // 
+            this.SuspendLayout();
+            // 
             // FormGerenciamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -155,11 +157,12 @@ namespace telinhas
             ((System.ComponentModel.ISupportInitialize)(this.picLupa)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
+            this.Name = "FormGerenciamento";
+            this.Text = "FormGerenciamento";
+            this.ResumeLayout(false);
         }
 
         #endregion
-
         private System.Windows.Forms.DataGridView dgvAluguel;
         private System.Windows.Forms.Button btFiltro;
         private System.Windows.Forms.PictureBox picLupa;
