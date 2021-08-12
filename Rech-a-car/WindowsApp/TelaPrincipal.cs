@@ -4,11 +4,11 @@ using WindowsApp.VeiculoModule;
 
 namespace WindowsApp
 {
-    public partial class TelaInicial : Form
+    public partial class TelaPrincipal : Form
     {
-        public static TelaInicial Instancia;
+        public static TelaPrincipal Instancia;
         private Form formAtivo;
-        public TelaInicial()
+        public TelaPrincipal()
         {
             Instancia = this;
             InitializeComponent();

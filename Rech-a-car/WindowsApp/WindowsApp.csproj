@@ -73,11 +73,11 @@
     <Compile Include="VeiculoModule\CadastrarVeiculo.Designer.cs">
       <DependentUpon>CadastrarVeiculo.cs</DependentUpon>
     </Compile>
-    <Compile Include="TelaInicial.cs">
+    <Compile Include="TelaPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TelaInicial.Designer.cs">
-      <DependentUpon>TelaInicial.cs</DependentUpon>
+    <Compile Include="TelaPrincipal.Designer.cs">
+      <DependentUpon>TelaPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -96,8 +96,8 @@
     <EmbeddedResource Include="VeiculoModule\CadastrarVeiculo.resx">
       <DependentUpon>CadastrarVeiculo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TelaInicial.resx">
-      <DependentUpon>TelaInicial.cs</DependentUpon>
+    <EmbeddedResource Include="TelaPrincipal.resx">
+      <DependentUpon>TelaPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
