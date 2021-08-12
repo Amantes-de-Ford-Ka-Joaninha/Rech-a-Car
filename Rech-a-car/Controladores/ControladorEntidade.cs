@@ -34,9 +34,9 @@ namespace Controladores
         {
             Db.Delete(sqlExcluir, AdicionarParametro("ID", id));
         }
-        public void Exists(int id)
+        public bool Exists(int id)
         {
-            Db.Exists(sqlExists, AdicionarParametro("ID", id));
+            return Db.Exists(sqlExists, AdicionarParametro("ID", id));
         }
         protected abstract T ConverterEmEntidade(IDataReader reader);
         protected abstract Dictionary<string, object> ObtemParametrosRegistro(T registro);
