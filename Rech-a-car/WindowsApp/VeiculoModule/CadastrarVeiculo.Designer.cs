@@ -48,18 +48,18 @@ namespace WindowsApp
             this.label13 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.cb_portas = new System.Windows.Forms.ComboBox();
-            this.seleciona_arquivo = new System.Windows.Forms.OpenFileDialog();
+            this.ofdImagem = new System.Windows.Forms.OpenFileDialog();
             this.bt_foto = new System.Windows.Forms.Button();
             this.bt_adicionar = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.tb_marca = new System.Windows.Forms.TextBox();
             this.cb_capacidade = new System.Windows.Forms.ComboBox();
             this.cb_portaMalas = new System.Windows.Forms.ComboBox();
-            this.tb_diaria = new System.Windows.Forms.MaskedTextBox();
-            this.tb_precoKm = new System.Windows.Forms.MaskedTextBox();
-            this.tb_quilometragem = new System.Windows.Forms.MaskedTextBox();
+            this.tb_diaria = new System.Windows.Forms.TextBox();
+            this.tb_precoKm = new System.Windows.Forms.TextBox();
+            this.tb_quilometragem = new System.Windows.Forms.TextBox();
             this.tb_ano = new System.Windows.Forms.MaskedTextBox();
-            this.tb_chassi = new System.Windows.Forms.MaskedTextBox();
+            this.tb_chassi = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // tb_modelo
@@ -69,7 +69,7 @@ namespace WindowsApp
             this.tb_modelo.Location = new System.Drawing.Point(85, 77);
             this.tb_modelo.Name = "tb_modelo";
             this.tb_modelo.Size = new System.Drawing.Size(155, 25);
-            this.tb_modelo.TabIndex = 3;
+            this.tb_modelo.TabIndex = 0;
             // 
             // lbTitulo
             // 
@@ -115,7 +115,7 @@ namespace WindowsApp
             this.tb_categoria.Location = new System.Drawing.Point(85, 173);
             this.tb_categoria.Name = "tb_categoria";
             this.tb_categoria.Size = new System.Drawing.Size(155, 25);
-            this.tb_categoria.TabIndex = 3;
+            this.tb_categoria.TabIndex = 2;
             // 
             // label3
             // 
@@ -136,7 +136,7 @@ namespace WindowsApp
             this.tb_placa.Location = new System.Drawing.Point(85, 270);
             this.tb_placa.Name = "tb_placa";
             this.tb_placa.Size = new System.Drawing.Size(155, 25);
-            this.tb_placa.TabIndex = 3;
+            this.tb_placa.TabIndex = 4;
             // 
             // label4
             // 
@@ -185,7 +185,7 @@ namespace WindowsApp
             this.cb_cambio.Location = new System.Drawing.Point(85, 375);
             this.cb_cambio.Name = "cb_cambio";
             this.cb_cambio.Size = new System.Drawing.Size(155, 25);
-            this.cb_cambio.TabIndex = 15;
+            this.cb_cambio.TabIndex = 6;
             // 
             // label7
             // 
@@ -265,7 +265,7 @@ namespace WindowsApp
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(375, 351);
+            this.label15.Location = new System.Drawing.Point(375, 362);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(34, 17);
             this.label15.TabIndex = 16;
@@ -284,11 +284,11 @@ namespace WindowsApp
             this.cb_portas.Location = new System.Drawing.Point(85, 431);
             this.cb_portas.Name = "cb_portas";
             this.cb_portas.Size = new System.Drawing.Size(155, 25);
-            this.cb_portas.TabIndex = 17;
+            this.cb_portas.TabIndex = 7;
             // 
-            // seleciona_arquivo
+            // ofdImagem
             // 
-            this.seleciona_arquivo.FileName = "seleciona_arquivo";
+            this.ofdImagem.FileName = "seleciona_arquivo";
             // 
             // bt_foto
             // 
@@ -296,11 +296,12 @@ namespace WindowsApp
             this.bt_foto.FlatAppearance.BorderSize = 0;
             this.bt_foto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_foto.Image = global::WindowsApp.Properties.Resources.inserir_icone_de_imagem;
-            this.bt_foto.Location = new System.Drawing.Point(438, 313);
+            this.bt_foto.Location = new System.Drawing.Point(438, 324);
             this.bt_foto.Name = "bt_foto";
             this.bt_foto.Size = new System.Drawing.Size(105, 95);
-            this.bt_foto.TabIndex = 18;
+            this.bt_foto.TabIndex = 13;
             this.bt_foto.UseVisualStyleBackColor = true;
+            this.bt_foto.Click += new System.EventHandler(this.bt_foto_Click);
             // 
             // bt_adicionar
             // 
@@ -312,7 +313,7 @@ namespace WindowsApp
             this.bt_adicionar.Location = new System.Drawing.Point(596, 450);
             this.bt_adicionar.Name = "bt_adicionar";
             this.bt_adicionar.Size = new System.Drawing.Size(60, 60);
-            this.bt_adicionar.TabIndex = 13;
+            this.bt_adicionar.TabIndex = 14;
             this.bt_adicionar.UseVisualStyleBackColor = true;
             this.bt_adicionar.Click += new System.EventHandler(this.bt_adicionar_Click);
             // 
@@ -335,7 +336,7 @@ namespace WindowsApp
             this.tb_marca.Location = new System.Drawing.Point(85, 322);
             this.tb_marca.Name = "tb_marca";
             this.tb_marca.Size = new System.Drawing.Size(155, 25);
-            this.tb_marca.TabIndex = 20;
+            this.tb_marca.TabIndex = 5;
             // 
             // cb_capacidade
             // 
@@ -349,7 +350,7 @@ namespace WindowsApp
             this.cb_capacidade.Location = new System.Drawing.Point(417, 127);
             this.cb_capacidade.Name = "cb_capacidade";
             this.cb_capacidade.Size = new System.Drawing.Size(155, 25);
-            this.cb_capacidade.TabIndex = 21;
+            this.cb_capacidade.TabIndex = 9;
             // 
             // cb_portaMalas
             // 
@@ -363,52 +364,48 @@ namespace WindowsApp
             this.cb_portaMalas.Location = new System.Drawing.Point(417, 80);
             this.cb_portaMalas.Name = "cb_portaMalas";
             this.cb_portaMalas.Size = new System.Drawing.Size(155, 25);
-            this.cb_portaMalas.TabIndex = 22;
+            this.cb_portaMalas.TabIndex = 8;
             // 
             // tb_diaria
             // 
             this.tb_diaria.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_diaria.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.tb_diaria.Location = new System.Drawing.Point(417, 273);
-            this.tb_diaria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tb_diaria.Mask = "$ 9999.00";
+            this.tb_diaria.Margin = new System.Windows.Forms.Padding(2);
             this.tb_diaria.Name = "tb_diaria";
             this.tb_diaria.Size = new System.Drawing.Size(155, 25);
-            this.tb_diaria.TabIndex = 23;
+            this.tb_diaria.TabIndex = 12;
             // 
             // tb_precoKm
             // 
             this.tb_precoKm.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_precoKm.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.tb_precoKm.Location = new System.Drawing.Point(417, 225);
-            this.tb_precoKm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tb_precoKm.Mask = "$ 9999.00";
+            this.tb_precoKm.Margin = new System.Windows.Forms.Padding(2);
             this.tb_precoKm.Name = "tb_precoKm";
             this.tb_precoKm.Size = new System.Drawing.Size(155, 25);
-            this.tb_precoKm.TabIndex = 24;
+            this.tb_precoKm.TabIndex = 11;
             // 
             // tb_quilometragem
             // 
             this.tb_quilometragem.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_quilometragem.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.tb_quilometragem.Location = new System.Drawing.Point(417, 179);
-            this.tb_quilometragem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tb_quilometragem.Mask = "000000";
+            this.tb_quilometragem.Margin = new System.Windows.Forms.Padding(2);
             this.tb_quilometragem.Name = "tb_quilometragem";
             this.tb_quilometragem.Size = new System.Drawing.Size(155, 25);
-            this.tb_quilometragem.TabIndex = 25;
-            this.tb_quilometragem.ValidatingType = typeof(int);
+            this.tb_quilometragem.TabIndex = 10;
             // 
             // tb_ano
             // 
             this.tb_ano.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_ano.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.tb_ano.Location = new System.Drawing.Point(85, 124);
-            this.tb_ano.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb_ano.Margin = new System.Windows.Forms.Padding(2);
             this.tb_ano.Mask = "0000";
             this.tb_ano.Name = "tb_ano";
             this.tb_ano.Size = new System.Drawing.Size(155, 25);
-            this.tb_ano.TabIndex = 26;
+            this.tb_ano.TabIndex = 1;
             this.tb_ano.ValidatingType = typeof(int);
             // 
             // tb_chassi
@@ -416,12 +413,10 @@ namespace WindowsApp
             this.tb_chassi.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_chassi.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.tb_chassi.Location = new System.Drawing.Point(85, 223);
-            this.tb_chassi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tb_chassi.Mask = "9LL,LL99L,L,99,999999";
+            this.tb_chassi.Margin = new System.Windows.Forms.Padding(2);
             this.tb_chassi.Name = "tb_chassi";
             this.tb_chassi.Size = new System.Drawing.Size(155, 25);
-            this.tb_chassi.TabIndex = 27;
-            this.tb_chassi.ValidatingType = typeof(int);
+            this.tb_chassi.TabIndex = 3;
             // 
             // CadastrarVeiculo
             // 
@@ -488,16 +483,16 @@ namespace WindowsApp
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ComboBox cb_portas;
-        private System.Windows.Forms.OpenFileDialog seleciona_arquivo;
+        private System.Windows.Forms.OpenFileDialog ofdImagem;
         private System.Windows.Forms.Button bt_foto;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox tb_marca;
         private System.Windows.Forms.ComboBox cb_capacidade;
         private System.Windows.Forms.ComboBox cb_portaMalas;
-        private System.Windows.Forms.MaskedTextBox tb_diaria;
-        private System.Windows.Forms.MaskedTextBox tb_precoKm;
-        private System.Windows.Forms.MaskedTextBox tb_quilometragem;
+        private System.Windows.Forms.TextBox tb_diaria;
+        private System.Windows.Forms.TextBox tb_precoKm;
+        private System.Windows.Forms.TextBox tb_quilometragem;
         private System.Windows.Forms.MaskedTextBox tb_ano;
-        private System.Windows.Forms.MaskedTextBox tb_chassi;
+        private System.Windows.Forms.TextBox tb_chassi;
     }
 }

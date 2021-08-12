@@ -9,9 +9,10 @@ using WindowsApp.Shared;
 
 namespace WindowsApp
 {
-    public partial class CadastrarVeiculo : CadastroEntidade<Veiculo>
+    public partial class CadastrarVeiculo : CadastroEntidade<Veiculo> //Form
     {
         public override ControladorEntidade<Veiculo> Controlador { get => new ControladorVeiculo(); }
+        private Bitmap imagem;
 
         public CadastrarVeiculo()
         {
@@ -34,6 +35,7 @@ namespace WindowsApp
                 MessageBox.Show(validacao);
                 return;
             }
+
             Controlador.Inserir(veiculo);
             MessageBox.Show("Inserido com Sucesso!");
         }
@@ -71,25 +73,47 @@ namespace WindowsApp
             var portaMalas = cb_portaMalas.SelectedIndex;
             var chassi = tb_chassi.Text;
             var capacidade = cb_capacidade.SelectedIndex;
-            var ano = Convert.ToInt32(tb_ano.Text);
-            var portas = Convert.ToInt32(cb_portas.SelectedItem);
-            var cambio = (string)cb_cambio.SelectedItem == "Automático";
+            Int32.TryParse(tb_ano.Text, out int ano);
+            Int32.TryParse(cb_portas.SelectedItem.ToString(), out int portas);
+            var cambio = cb_cambio.SelectedItem.ToString() == "Automático";
             var categoria = tb_categoria.Text;
 
-            Image foto = null;
+            Image foto = imagem;
 
             var dadosVeiculo = GetDadosVeiculo();
 
-            var veiculo = new Veiculo(modelo, marca, ano, placa, capacidade, portas, chassi, portaMalas, foto, cambio, categoria, dadosVeiculo);
-            return veiculo;
+            entidade = new Veiculo(modelo, marca, ano, placa, capacidade, portas, chassi, portaMalas, foto, cambio, categoria, dadosVeiculo);
+            return entidade;
         }
         private DadosVeiculo GetDadosVeiculo()
         {
-            var quilometragem = Convert.ToInt32(tb_quilometragem.Text);
-            var diaria = Convert.ToDouble(tb_diaria.Text);
-            var precoKm = Convert.ToDouble(tb_precoKm.Text);
+            Int32.TryParse(tb_quilometragem.Text, out int quilometragem);
+            Int32.TryParse(tb_diaria.Text, out int diaria);
+            Int32.TryParse(tb_precoKm.Text, out int precoKm);
             var dadosVeiculo = new DadosVeiculo(quilometragem, diaria, precoKm);
             return dadosVeiculo;
+        }
+
+        private void bt_foto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog open = new OpenFileDialog
+                {
+                    Filter = "Image Files(*.jpeg;*.bmp;*.png;*.jpg)|*.jpeg;*.bmp;*.png;*.jpg"
+                };
+                if (ofdImagem.ShowDialog() == DialogResult.OK)
+                {
+                    var imagemSelecionada = ofdImagem.FileName;
+                    imagem = new Bitmap(imagemSelecionada);
+
+                }
+                bt_foto.Image = new Bitmap(imagem, new Size(100,100));
+            }
+            catch (ArgumentException)
+            {
+                MessageBox.Show("Formato incorreto. Por favor, selecione um arquivo de imagem.", "Erro", 0, MessageBoxIcon.Exclamation);
+            }
         }
     }
 }
