@@ -15,8 +15,7 @@ namespace Controladores.VeiculoModule
                 (
                     [MODELO],       
                     [MARCA],             
-                    [TIPO],                    
-                    [QUILOMETRAGEM],
+                    [CATEGORIA],
                     [ANO],
                     [PLACA],
                     [CAPACIDADE],
@@ -30,8 +29,7 @@ namespace Controladores.VeiculoModule
                 (
                     @MODELO,       
                     @MARCA,             
-                    @TIPO,                    
-                    @QUILOMETRAGEM,
+                    @CATEGORIA,
                     @ANO,
                     @PLACA,
                     @CAPACIDADE,
@@ -47,8 +45,7 @@ namespace Controladores.VeiculoModule
                 SET 
                     [MODELO] = @MODELO,       
                     [MARCA] = @MARCA,             
-                    [TIPO] = @TIPO,                    
-                    [QUILOMETRAGEM] = @QUILOMETRAGEM,
+                    [CATEGORIA] = @CATEGORIA,
                     [ANO] = @ANO,
                     [PLACA] = @PLACA,
                     [CAPACIDADE] = @CAPACIDADE,
@@ -116,6 +113,8 @@ namespace Controladores.VeiculoModule
         }
         protected override Dictionary<string, object> ObtemParametrosRegistro(Veiculo veiculo)
         {
+            ControladorDadosVeiculo.Inserir(veiculo.DadosVeiculo);
+
             var parametros = new Dictionary<string, object>
             {
                 { "ID", veiculo.Id },
@@ -127,14 +126,19 @@ namespace Controladores.VeiculoModule
                 { "PORTAS", veiculo.Portas },
                 { "CHASSI", veiculo.Chassi },
                 { "PORTA_MALAS", veiculo.Porta_malas },
-                { "FOTO", veiculo.Foto },
+                { "FOTO", SalvarImagem(veiculo.Foto)  },
                 { "AUTOMATICO", veiculo.Automatico },
                 { "CATEGORIA", veiculo.Categoria }
             };
 
             return parametros;
         }
-
+        private byte[] SalvarImagem(Image foto)
+        {
+            MemoryStream imageStream = new MemoryStream();
+            foto.Save(imageStream, foto.RawFormat);
+            return imageStream.ToArray();
+        }
         private static Image RecuperarImagem(byte[] imageBytes)
         {
             using (var ms = new MemoryStream(imageBytes))

@@ -31,7 +31,7 @@ namespace Tests.VeiculoModule
             Veiculo veiculo1 = new Veiculo("MODELO", "MARCA", 2001, "AAA1111", 4, 4, "ASDFGHJKLQWERTYUI", 0, imagem, false, "CATEGORIA", dadosVeiculo);
 
             string marcaAnterior = veiculo1.Marca;
-            veiculo1.Marca = "TESTADO";
+          //  veiculo1.Marca = "TESTADO";
 
             controladorVeiculo.Editar(veiculo1.Id, veiculo1);
 
