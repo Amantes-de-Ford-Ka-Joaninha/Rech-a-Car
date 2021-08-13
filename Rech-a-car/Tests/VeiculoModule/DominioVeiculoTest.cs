@@ -54,7 +54,7 @@ namespace Tests.VeiculoModule
 
             Veiculo veiculo1 = new Veiculo(null, null, DateTime.Now.Year+2, "PLACA", 0, 0, "CHASSI", -1, null, true, null, dadosVeiculo);
 
-            veiculo1.Validar().Should().Be("Modelo do veículo é obrigatório\nMarca do veículo é obrigatória\nCategoria do veículo é obrigatória\nPlaca do veículo inválida\nChassi do veículo inválido\nDeve ter pelo menos duas Portas\nVolume do Porta-malas inválido\nAno do carro inválido\n");
+            veiculo1.Validar().Should().Be("Modelo do veículo é obrigatório\nMarca do veículo é obrigatória\nCategoria do veículo é obrigatória\nPlaca do veículo inválida\nChassi do veículo inválido\nDeve ter pelo menos duas Portas\nVolume do Porta-malas inválido\nAno do carro inválido\nValor da diária deve ser maior que 0\nValor do preço por Km deve ser maior que 0\n");
         }
 
     }
