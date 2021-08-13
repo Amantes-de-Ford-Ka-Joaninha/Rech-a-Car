@@ -21,12 +21,21 @@ namespace WindowsApp.ServicoModule
 
         public override DataGridViewColumn[] ConfigurarColunas()
         {
-            throw new NotImplementedException();
+            return new DataGridViewColumn[]
+            {
+            new DataGridViewTextBoxColumn { DataPropertyName = "Nome", HeaderText = "Nome"},
+            new DataGridViewTextBoxColumn { DataPropertyName = "Taxa", HeaderText = "Taxa"}
+            };
         }
 
         public override object[] ObterLinha(Servico item)
         {
-            throw new NotImplementedException();
+            List<object> linha = new List<object>()
+            {
+                servico.Nome,
+                servico.Taxa,
+            };
+            return linha.ToArray();
         }
     }
 }

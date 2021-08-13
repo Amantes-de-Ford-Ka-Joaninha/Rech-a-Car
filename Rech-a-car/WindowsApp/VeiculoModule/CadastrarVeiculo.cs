@@ -8,7 +8,7 @@ using WindowsApp.Shared;
 
 namespace WindowsApp
 {
-    public partial class CadastrarVeiculo : CadastroEntidade<Veiculo> //Form //
+    public partial class CadastrarVeiculo : CadastroEntidade<Veiculo>
     {
         public override ControladorEntidade<Veiculo> Controlador { get => new ControladorVeiculo(); }
         private Bitmap imagem;
