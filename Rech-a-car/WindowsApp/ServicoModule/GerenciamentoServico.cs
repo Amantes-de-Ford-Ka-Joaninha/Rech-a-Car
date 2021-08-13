@@ -24,7 +24,7 @@ namespace WindowsApp.ServicoModule
             throw new NotImplementedException();
         }
 
-        public override object[] ObterLinha(Servico item)
+        public override object[] ObterCamposLinha(Servico item)
         {
             throw new NotImplementedException();
         }

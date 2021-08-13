@@ -24,6 +24,8 @@ namespace WindowsApp
 
         public override CadastroEntidade<Veiculo> Editar(Veiculo veiculo)
         {
+            entidade = veiculo;
+
             tb_modelo.Text = veiculo.Modelo;
             tb_marca.Text = veiculo.Marca;
             tb_placa.Text = veiculo.Placa;
@@ -40,10 +42,10 @@ namespace WindowsApp
             tb_quilometragem.Text = dadosVeiculo.Quilometragem.ToString();
             tb_diaria.Text = dadosVeiculo.Diaria.ToString();
             tb_precoKm.Text = dadosVeiculo.PrecoKm.ToString();
-            
+
             return this;
         }
-        private Veiculo GetVeiculo()
+        private Veiculo GetNovoVeiculo()
         {
             var modelo = tb_modelo.Text;
             var marca = tb_marca.Text;
@@ -55,6 +57,7 @@ namespace WindowsApp
             Int32.TryParse(cb_portas.SelectedItem?.ToString(), out int portas);
             var cambio = cb_cambio.SelectedItem?.ToString() == "Automático";
             var categoria = tb_categoria.Text;
+            imagem = (Bitmap)bt_foto.Image;
 
             var dadosVeiculo = GetDadosVeiculo();
             return new Veiculo(modelo, marca, ano, placa, capacidade, portas, chassi, portaMalas, imagem, cambio, categoria, dadosVeiculo);
@@ -68,12 +71,12 @@ namespace WindowsApp
         }
         private void AtualizarIcone(Bitmap imagem)
         {
-            bt_foto.Image = new Bitmap(imagem, new Size(100, 100));
+            bt_foto.Image = new Bitmap(imagem, new Size(120, 120));
         }
 
         private void bt_adicionar_Click(object sender, EventArgs e)
         {
-            Veiculo veiculo = GetVeiculo();
+            Veiculo veiculo = GetNovoVeiculo();
             var validacao = veiculo.Validar();
 
             if (validacao != "VALIDO")
@@ -82,8 +85,14 @@ namespace WindowsApp
                 return;
             }
 
-            Controlador.Inserir(veiculo);
+            if (entidade == null)
+                Controlador.Inserir(veiculo);
+            else
+                Controlador.Editar(entidade.Id, entidade);
+
             MessageBox.Show("Inserido com Sucesso!");
+
+            Close();
         }
         private void bt_foto_Click(object sender, EventArgs e)
         {

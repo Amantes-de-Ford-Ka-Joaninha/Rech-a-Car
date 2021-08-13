@@ -30,7 +30,7 @@ namespace Tests.VeiculoModule
         }
 
         [TestMethod]
-        public void Deve_editar_veiculo()
+        public void Deve_editar_marca_veiculo()
         {
             string marcaOriginal = veiculo1.Marca;
 
@@ -38,6 +38,18 @@ namespace Tests.VeiculoModule
             controladorVeiculo.Editar(veiculo1.Id, veiculo1);
 
             controladorVeiculo.GetById(veiculo1.Id).Marca.Should().NotBe(marcaOriginal);
+        }
+
+        [TestMethod]
+        public void Deve_editar_ano_veiculo()
+        {
+            int anoOriginal = veiculo1.Ano;
+
+            veiculo1.Ano = 2017;
+
+            controladorVeiculo.Editar(veiculo1.Id, veiculo1);
+
+            controladorVeiculo.GetById(veiculo1.Id).Ano.Should().NotBe(anoOriginal);
         }
 
         [TestMethod]

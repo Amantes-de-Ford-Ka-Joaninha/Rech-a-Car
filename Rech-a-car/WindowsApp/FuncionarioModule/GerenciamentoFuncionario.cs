@@ -21,7 +21,7 @@ namespace WindowsApp.FuncionarioModule
         {
             throw new NotImplementedException();
         }
-        public override object[] ObterLinha(Funcionario item)
+        public override object[] ObterCamposLinha(Funcionario item)
         {
             throw new NotImplementedException();
         }

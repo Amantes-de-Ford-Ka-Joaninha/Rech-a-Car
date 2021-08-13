@@ -5,7 +5,7 @@ using WindowsApp.Shared;
 
 namespace WindowsApp.VeiculoModule
 {
-    class GerenciamentoVeiculo : GerenciamentoEntidade<Veiculo>
+    public class GerenciamentoVeiculo : GerenciamentoEntidade<Veiculo>
     {
         public GerenciamentoVeiculo() : base("Gerenciamento de Veículos")
         {
@@ -23,16 +23,16 @@ namespace WindowsApp.VeiculoModule
                 new DataGridViewTextBoxColumn { DataPropertyName = "Ano", HeaderText = "Ano"},
                 new DataGridViewTextBoxColumn {DataPropertyName = "Categoria", HeaderText = "Categoria"},
                 new DataGridViewTextBoxColumn {DataPropertyName = "Diária", HeaderText = "Diária"},
-                new DataGridViewTextBoxColumn {DataPropertyName = "Preço Km", HeaderText = "Preço Km"}
+                new DataGridViewTextBoxColumn {DataPropertyName = "PrecoKm", HeaderText = "Preço Km"}
             };
         }
-        public override object[] ObterLinha(Veiculo veiculo)
+        public override object[] ObterCamposLinha(Veiculo veiculo)
         {
             List<object> linha = new List<object>()
             {
-                veiculo.Ano,
                 veiculo.Marca,
                 veiculo.Modelo,
+                veiculo.Ano,
                 veiculo.Categoria,
                 veiculo.DadosVeiculo.Diaria,
                 veiculo.DadosVeiculo.PrecoKm
