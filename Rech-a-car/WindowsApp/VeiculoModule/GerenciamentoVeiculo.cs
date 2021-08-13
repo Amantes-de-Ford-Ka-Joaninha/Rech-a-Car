@@ -11,14 +11,16 @@ namespace WindowsApp.VeiculoModule
         {
         }
 
-        protected override CadastroEntidade<Veiculo> Cadastro { get { return new CadastrarVeiculo(); } }
+        protected override VisualizarEntidade<Veiculo> Visualizar => new VisualizarVeiculo();
+        protected override CadastroEntidade<Veiculo> Cadastro => new CadastrarVeiculo();
+
         public override DataGridViewColumn[] ConfigurarColunas()
         {
             return new DataGridViewColumn[]
             {
-                new DataGridViewTextBoxColumn { DataPropertyName = "Ano", HeaderText = "Ano"},
                 new DataGridViewTextBoxColumn { DataPropertyName = "Marca", HeaderText = "Marca"},
                 new DataGridViewTextBoxColumn { DataPropertyName = "Modelo", HeaderText = "Modelo"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "Ano", HeaderText = "Ano"},
                 new DataGridViewTextBoxColumn {DataPropertyName = "Categoria", HeaderText = "Categoria"},
                 new DataGridViewTextBoxColumn {DataPropertyName = "Diária", HeaderText = "Diária"},
                 new DataGridViewTextBoxColumn {DataPropertyName = "Preço Km", HeaderText = "Preço Km"}

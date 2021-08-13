@@ -7,6 +7,7 @@ namespace WindowsApp.Shared
     public abstract partial class GerenciamentoEntidade<T> : Form where T : Entidade
     {
         protected abstract CadastroEntidade<T> Cadastro { get; }
+        protected abstract VisualizarEntidade<T> Visualizar { get; }
         public GerenciamentoEntidade(String titulo)
         {
             InitializeComponent();
@@ -43,10 +44,10 @@ namespace WindowsApp.Shared
 
             return (int)id;
         }
-        private void HabilitarAtualizacoes()
+        private void AlternarBotoes(bool estado)
         {
-            bt_editar.Enabled = true;
-            bt_remover.Enabled = true;
+            bt_editar.Enabled = estado;
+            bt_remover.Enabled = estado;
         }
         private void btAdicionar_Click(object sender, EventArgs e)
         {
@@ -54,15 +55,23 @@ namespace WindowsApp.Shared
         }
         private void bt_editar_Click(object sender, EventArgs e)
         {
-            if (dgvEntidade.SelectedRows.Count != 1)
-                return;
-            HabilitarAtualizacoes();
             var entidade = Cadastro.Controlador.GetById(GetIdSelecionado());
             TelaPrincipal.Instancia.FormAtivo = Cadastro.Editar(entidade);
+            AlternarBotoes(false);
         }
         private void bt_remover_Click(object sender, EventArgs e)
         {
             Cadastro.Controlador.Excluir(GetIdSelecionado());
+            AlternarBotoes(false);
+        }
+        private void dgvEntidade_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            AlternarBotoes(true);
+        }
+
+        private void dgvEntidade_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            TelaPrincipal.Instancia.FormAtivo = Visualizar;
         }
     }
 }

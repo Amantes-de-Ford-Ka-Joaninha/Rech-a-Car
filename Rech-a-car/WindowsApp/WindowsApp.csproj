@@ -58,6 +58,27 @@
     <Compile Include="AluguelModule\RealizarAluguel.Designer.cs">
       <DependentUpon>RealizarAluguel.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClienteModule\GerenciamentoCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FuncionarioModule\CadastroFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FuncionarioModule\GerenciamentoFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FuncionarioModule\VisualizarFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServicoModule\CadastrarServico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServicoModule\GerenciamentoServico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServicoModule\VisualizarServico.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Shared\DataGridViewExtensions.cs" />
     <Compile Include="Shared\GerenciamentoEntidade.cs">
       <SubType>Form</SubType>
@@ -66,6 +87,9 @@
       <DependentUpon>GerenciamentoEntidade.cs</DependentUpon>
     </Compile>
     <Compile Include="Shared\CadastroEntidade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Shared\VisualizarEntidade.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="VeiculoModule\CadastrarVeiculo.cs">
@@ -83,6 +107,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VeiculoModule\GerenciamentoVeiculo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VeiculoModule\VisualizarVeiculo.cs">
       <SubType>Form</SubType>
     </Compile>
     <EmbeddedResource Include="AluguelModule\GerenciamentoAluguel.resx">

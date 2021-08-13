@@ -39,6 +39,7 @@ namespace WindowsApp.Shared
             this.panelFormFilho = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEntidade)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLupa)).BeginInit();
+            this.panelFormFilho.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvEntidade
@@ -58,6 +59,8 @@ namespace WindowsApp.Shared
             this.dgvEntidade.RowHeadersWidth = 51;
             this.dgvEntidade.Size = new System.Drawing.Size(821, 436);
             this.dgvEntidade.TabIndex = 9;
+            this.dgvEntidade.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEntidade_CellContentClick);
+            this.dgvEntidade.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEntidade_CellContentDoubleClick);
             // 
             // tbFiltro
             // 
@@ -75,12 +78,12 @@ namespace WindowsApp.Shared
             this.lbTitulo.AutoSize = true;
             this.lbTitulo.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTitulo.ForeColor = System.Drawing.Color.White;
-            this.lbTitulo.Location = new System.Drawing.Point(301, 11);
+            this.lbTitulo.Location = new System.Drawing.Point(271, 19);
             this.lbTitulo.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(194, 32);
+            this.lbTitulo.Size = new System.Drawing.Size(318, 32);
             this.lbTitulo.TabIndex = 10;
-            this.lbTitulo.Text = "Text placeholder";
+            this.lbTitulo.Text = "Gerenciamento de Entidade";
             // 
             // bt_adicionar
             // 
@@ -142,6 +145,7 @@ namespace WindowsApp.Shared
             // 
             // panelFormFilho
             // 
+            this.panelFormFilho.Controls.Add(this.lbTitulo);
             this.panelFormFilho.Location = new System.Drawing.Point(0, 0);
             this.panelFormFilho.Margin = new System.Windows.Forms.Padding(4);
             this.panelFormFilho.Name = "panelFormFilho";
@@ -156,7 +160,6 @@ namespace WindowsApp.Shared
             this.ClientSize = new System.Drawing.Size(891, 642);
             this.Controls.Add(this.bt_adicionar);
             this.Controls.Add(this.bt_editar);
-            this.Controls.Add(this.lbTitulo);
             this.Controls.Add(this.dgvEntidade);
             this.Controls.Add(this.bt_remover);
             this.Controls.Add(this.picLupa);
@@ -167,6 +170,8 @@ namespace WindowsApp.Shared
             this.Text = "FormGerenciamento";
             ((System.ComponentModel.ISupportInitialize)(this.dgvEntidade)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLupa)).EndInit();
+            this.panelFormFilho.ResumeLayout(false);
+            this.panelFormFilho.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
