@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
+using WindowsApp.ClienteModule;
+using WindowsApp.FuncionarioModule;
+using WindowsApp.ServicoModule;
 using WindowsApp.VeiculoModule;
 
 namespace WindowsApp
@@ -66,15 +69,15 @@ namespace WindowsApp
         }
         private void bt_servicos_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            FormAtivo = new GerenciamentoServico();
         }
         private void bt_funcionarios_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            FormAtivo = new GerenciamentoFuncionario();
         }
         private void bt_clientes_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            FormAtivo = new GerenciamentoCliente();
         }
         private void bt_sair_Click(object sender, EventArgs e)
         {

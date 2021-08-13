@@ -29,7 +29,7 @@ namespace WindowsApp.Shared
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvAluguel = new System.Windows.Forms.DataGridView();
+            this.dgvEntidade = new System.Windows.Forms.DataGridView();
             this.tbFiltro = new System.Windows.Forms.TextBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.bt_adicionar = new System.Windows.Forms.Button();
@@ -37,26 +37,31 @@ namespace WindowsApp.Shared
             this.bt_remover = new System.Windows.Forms.Button();
             this.picLupa = new System.Windows.Forms.PictureBox();
             this.panelFormFilho = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAluguel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEntidade)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLupa)).BeginInit();
+            this.panelFormFilho.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dgvAluguel
+            // dgvEntidade
             // 
-            this.dgvAluguel.AllowUserToAddRows = false;
-            this.dgvAluguel.AllowUserToDeleteRows = false;
-            this.dgvAluguel.AllowUserToResizeColumns = false;
-            this.dgvAluguel.AllowUserToResizeRows = false;
-            this.dgvAluguel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dgvAluguel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(33)))), ((int)(((byte)(34)))));
-            this.dgvAluguel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAluguel.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(7)))), ((int)(((byte)(49)))));
-            this.dgvAluguel.Location = new System.Drawing.Point(35, 188);
-            this.dgvAluguel.Margin = new System.Windows.Forms.Padding(4);
-            this.dgvAluguel.Name = "dgvAluguel";
-            this.dgvAluguel.RowHeadersWidth = 51;
-            this.dgvAluguel.Size = new System.Drawing.Size(821, 436);
-            this.dgvAluguel.TabIndex = 9;
+            this.dgvEntidade.AllowUserToAddRows = false;
+            this.dgvEntidade.AllowUserToDeleteRows = false;
+            this.dgvEntidade.AllowUserToResizeColumns = false;
+            this.dgvEntidade.AllowUserToResizeRows = false;
+            this.dgvEntidade.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dgvEntidade.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(33)))), ((int)(((byte)(34)))));
+            this.dgvEntidade.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEntidade.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(7)))), ((int)(((byte)(49)))));
+            this.dgvEntidade.Location = new System.Drawing.Point(35, 188);
+            this.dgvEntidade.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvEntidade.Name = "dgvEntidade";
+            this.dgvEntidade.RowHeadersVisible = false;
+            this.dgvEntidade.RowHeadersWidth = 51;
+            this.dgvEntidade.Size = new System.Drawing.Size(821, 436);
+            this.dgvEntidade.TabIndex = 9;
+            this.dgvEntidade.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEntidade_CellContentClick);
+            this.dgvEntidade.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEntidade_CellContentDoubleClick);
+            this.dgvEntidade.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEntidade_RowEnter);
             // 
             // tbFiltro
             // 
@@ -74,12 +79,12 @@ namespace WindowsApp.Shared
             this.lbTitulo.AutoSize = true;
             this.lbTitulo.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTitulo.ForeColor = System.Drawing.Color.White;
-            this.lbTitulo.Location = new System.Drawing.Point(301, 11);
+            this.lbTitulo.Location = new System.Drawing.Point(271, 19);
             this.lbTitulo.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(194, 32);
+            this.lbTitulo.Size = new System.Drawing.Size(318, 32);
             this.lbTitulo.TabIndex = 10;
-            this.lbTitulo.Text = "Text placeholder";
+            this.lbTitulo.Text = "Gerenciamento de Entidade";
             // 
             // bt_adicionar
             // 
@@ -141,6 +146,7 @@ namespace WindowsApp.Shared
             // 
             // panelFormFilho
             // 
+            this.panelFormFilho.Controls.Add(this.lbTitulo);
             this.panelFormFilho.Location = new System.Drawing.Point(0, 0);
             this.panelFormFilho.Margin = new System.Windows.Forms.Padding(4);
             this.panelFormFilho.Name = "panelFormFilho";
@@ -155,8 +161,7 @@ namespace WindowsApp.Shared
             this.ClientSize = new System.Drawing.Size(891, 642);
             this.Controls.Add(this.bt_adicionar);
             this.Controls.Add(this.bt_editar);
-            this.Controls.Add(this.lbTitulo);
-            this.Controls.Add(this.dgvAluguel);
+            this.Controls.Add(this.dgvEntidade);
             this.Controls.Add(this.bt_remover);
             this.Controls.Add(this.picLupa);
             this.Controls.Add(this.tbFiltro);
@@ -164,8 +169,10 @@ namespace WindowsApp.Shared
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "GerenciamentoEntidade";
             this.Text = "FormGerenciamento";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAluguel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEntidade)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLupa)).EndInit();
+            this.panelFormFilho.ResumeLayout(false);
+            this.panelFormFilho.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -173,7 +180,7 @@ namespace WindowsApp.Shared
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvAluguel;
+        private System.Windows.Forms.DataGridView dgvEntidade;
         private System.Windows.Forms.Button bt_remover;
         private System.Windows.Forms.PictureBox picLupa;
         private System.Windows.Forms.TextBox tbFiltro;

@@ -19,7 +19,7 @@ namespace Tests.VeiculoModule
         public void Deve_retornar_dadosveiculo_invalido()
         {
             DadosVeiculo dadosVeiculo = new DadosVeiculo(-1, -1, -1);
-            dadosVeiculo.Validar().Should().Be("Quilometragem inválidaValor da diária deve ser maior que 0Valor do preço por Km deve ser maior que 0");
+            dadosVeiculo.Validar().Should().Be("Quilometragem inválida\nValor da diária deve ser maior que 0\nValor do preço por Km deve ser maior que 0\n");
         }
     }
 }
