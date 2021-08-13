@@ -17,6 +17,7 @@ namespace Dominio.VeiculoModule
         public int Quilometragem { get; }
         public double Diaria { get; }
         public double PrecoKm { get; }
+        public int Idtarefa { get; }
 
         public override string Validar()
         {
