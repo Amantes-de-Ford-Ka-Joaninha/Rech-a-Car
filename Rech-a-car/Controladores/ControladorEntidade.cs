@@ -21,11 +21,11 @@ namespace Controladores
         {
             return Db.GetAll(sqlSelecionarTodos, ConverterEmEntidade);
         }
-        public void Inserir(T registro)
+        public virtual void Inserir(T registro)
         {
             registro.Id = Db.Insert(sqlInserir, ObtemParametrosRegistro(registro));
         }
-        public void Editar(int id, T registro)
+        public virtual void Editar(int id, T registro)
         {
             registro.Id = id;
             Db.Update(sqlEditar, ObtemParametrosRegistro(registro));

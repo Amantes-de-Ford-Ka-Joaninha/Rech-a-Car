@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Dominio.VeiculoModule
 {
@@ -17,8 +13,6 @@ namespace Dominio.VeiculoModule
         public int Quilometragem { get; }
         public double Diaria { get; }
         public double PrecoKm { get; }
-        public int Idtarefa { get; }
-
         public override string Validar()
         {
             string validacao = String.Empty;

@@ -1,62 +1,62 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using FluentAssertions;
 using Controladores.VeiculoModule;
 using Dominio.VeiculoModule;
 using System.Drawing;
+using Controladores;
+using Tests.Shared;
 
 namespace Tests.VeiculoModule
 {
     [TestClass]
     public class ControladorVeiculoTest
     {
+        Veiculo veiculo1;
         ControladorVeiculo controladorVeiculo = new ControladorVeiculo();
+
+        [TestInitialize]
+        public void Inserir_Veiculo()
+        {
+            Image imagem = Image.FromFile(@"..\..\Resources\ford_ka_gay.jpg");
+            DadosVeiculo dadosVeiculo = new DadosVeiculo(50000, 50, 10);
+            veiculo1 = new Veiculo("Ka", "Ford", 2001, "ABC1024", 4, 4, "ASDFGHJKLQWERTYUI", 0, imagem, false, "Compacto", dadosVeiculo);
+            controladorVeiculo.Inserir(veiculo1);
+        }
 
         [TestMethod]
         public void Deve_inserir_veiculo()
         {
-            DadosVeiculo dadosVeiculo = new DadosVeiculo(50000, 50, 10);
-            Image imagem = Image.FromFile(@"C:\vasco.png");
-            Veiculo veiculo1 = new Veiculo("MODELO", "MARCA", 2001, "AAA1111", 4, 4, "ASDFGHJKLQWERTYUI", 0, imagem, false, "CATEGORIA", dadosVeiculo);
-
-            controladorVeiculo.Inserir(veiculo1);
             veiculo1.Id.Should().NotBe(0);
         }
 
         [TestMethod]
         public void Deve_editar_veiculo()
         {
-            DadosVeiculo dadosVeiculo = new DadosVeiculo(50000, 50, 10);
-            Image imagem = Image.FromFile(@"C:\vasco.png");
-            Veiculo veiculo1 = new Veiculo("MODELO", "MARCA", 2001, "AAA1111", 4, 4, "ASDFGHJKLQWERTYUI", 0, imagem, false, "CATEGORIA", dadosVeiculo);
+            string marcaOriginal = veiculo1.Marca;
 
-            string marcaAnterior = veiculo1.Marca;
-          //  veiculo1.Marca = "TESTADO";
-
+            veiculo1.Marca = "Marca diferente";
             controladorVeiculo.Editar(veiculo1.Id, veiculo1);
 
-            marcaAnterior.Should().Be(controladorVeiculo.GetById(veiculo1.Id).Marca);
+            controladorVeiculo.GetById(veiculo1.Id).Marca.Should().NotBe(marcaOriginal);
         }
 
         [TestMethod]
         public void Deve_remover_veiculo()
         {
-            DadosVeiculo dadosVeiculo = new DadosVeiculo(50000, 50, 10);
-            Image imagem = Image.FromFile(@"C:\vasco.png");
-            Veiculo veiculo1 = new Veiculo("MODELO", "MARCA", 2001, "AAA1111", 4, 4, "ASDFGHJKLQWERTYUI", 0, imagem, false, "CATEGORIA", dadosVeiculo);
-
-            int idExcluido = veiculo1.Id;
             controladorVeiculo.Excluir(veiculo1.Id);
-            controladorVeiculo.Exists(idExcluido).Should().BeTrue();
+            controladorVeiculo.Exists(veiculo1.Id).Should().BeFalse();
         }
+
         [TestMethod]
         public void Deve_retornar_todos_os_veiculos()
         {
-            DadosVeiculo dadosVeiculo = new DadosVeiculo(50000, 50, 10);
-            Image imagem = Image.FromFile(@"C:\vasco.png");
-            Veiculo veiculo1 = new Veiculo("MODELO", "MARCA", 2001, "AAA1111", 4, 4, "ASDFGHJKLQWERTYUI", 0, imagem, false, "CATEGORIA", dadosVeiculo);
-
             controladorVeiculo.ObterRegistros().Count.Should().Be(1);
+        }
+
+        [TestCleanup]
+        public void LimparTestes()
+        {
+            Db.Delete(TestExtensions.ResetId("TBVeiculo"));
         }
     }
 }
