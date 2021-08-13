@@ -21,19 +21,18 @@ namespace Dominio.VeiculoModule
             Categoria = categoria;
             DadosVeiculo = dadosVeiculo;
         }
-
-        public string Modelo { get; }
-        public string Marca { get; }
-        public string Categoria { get; }
-        public string Placa { get; }
-        public string Chassi { get; }
-        public int Capacidade { get; }
-        public int Portas { get; }
-        public int Porta_malas { get; }
-        public int Ano { get; }
-        public Image Foto { get; }
+        public string Modelo { get; set; }
+        public string Marca { get; set; }
+        public string Categoria { get; set;}
+        public string Placa { get; set; }
+        public string Chassi { get; set; }
+        public int Capacidade { get; set; }
+        public int Portas { get; set; }
+        public int Porta_malas { get; set; }
+        public int Ano { get; set; }
+        public Image Foto { get; set; }
         public bool Automatico { get; set; }
-        public DadosVeiculo DadosVeiculo { get; }
+        public DadosVeiculo DadosVeiculo { get; set;}
 
         public string PortaMalaToString()
         {
@@ -57,7 +56,7 @@ namespace Dominio.VeiculoModule
             Regex templatePlacaAntiga = new Regex(@"\b[A-Z]{3}[0-9]{4}\b");
 
             string validacao = "";
-            string validacaoDados = "";
+            string validacaoDados;
 
             if (String.IsNullOrEmpty(Modelo))
                 validacao += "Modelo do veículo é obrigatório\n";
@@ -87,7 +86,9 @@ namespace Dominio.VeiculoModule
                 validacao += "Ano do carro inválido\n";
 
             validacaoDados = DadosVeiculo.Validar();
-            if (validacaoDados != Valido) validacao += validacaoDados;
+
+            if (validacaoDados != Valido) 
+                validacao += validacaoDados;
 
             if (validacao == String.Empty)
                 return Valido;

@@ -1,16 +1,13 @@
 ﻿using Dominio.VeiculoModule;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Controladores;
 using System.Data.Common;
 
 namespace Controladores.VeiculoModule
 {
     public class ControladorDadosVeiculo
     {
+        #region Queries
         private const string sqlSelecionarDadosVeiculoPorIdVeiculo =
             @"SELECT *
              FROM
@@ -35,17 +32,23 @@ namespace Controladores.VeiculoModule
                 )";
 
         private const string sqlEditarDadosVeiculo =
-                @" UPDATE [TBVEICULO]
+                @" UPDATE [TBDADOSVEICULO]
                 SET     
                     [QUILOMETRAGEM] = @QUILOMETRAGEM,             
                     [PRECO_KM] = @PRECO_KM,
                     [DIARIA] = @DIARIA
                     WHERE [ID] = @ID";
+
+        #endregion
         public static DadosVeiculo SelecionarPorIdVeiculo(int id_veiculo)
         {
             return Db.Get(sqlSelecionarDadosVeiculoPorIdVeiculo, ConverterEmEntidade, ControladorEntidade<DadosVeiculo>.AdicionarParametro("ID", id_veiculo));
         }
-        public static void Editar(int id_veiculo,DadosVeiculo dadosVeiculo)
+        public static void Inserir(DadosVeiculo dadosVeiculo)
+        {
+            Db.Update(sqlInserirDadosVeiculo, ObterParametrosRegistro(dadosVeiculo));
+        }
+        public static void Editar(DadosVeiculo dadosVeiculo)
         {
             Db.Update(sqlEditarDadosVeiculo, ObterParametrosRegistro(dadosVeiculo));
         }
@@ -57,15 +60,9 @@ namespace Controladores.VeiculoModule
                 { "QUILOMETRAGEM", dadosVeiculo.Quilometragem },
                 { "PRECO_KM", dadosVeiculo.PrecoKm },
                 { "DIARIA", dadosVeiculo.Diaria },
-                { "ID_TAREFA", dadosVeiculo.Idtarefa },
-
             };
 
             return parametros;
-        }
-        public static void Inserir(DadosVeiculo dadosVeiculo)
-        {
-            dadosVeiculo.Id = Db.Insert(sqlInserirDadosVeiculo, ObterParametrosRegistro(dadosVeiculo));
         }
         private static DadosVeiculo ConverterEmEntidade(DbDataReader reader)
         {
@@ -73,6 +70,7 @@ namespace Controladores.VeiculoModule
             var quilometragem = Convert.ToInt32(reader["QUILOMETRAGEM"]);
             var precokm = Convert.ToDouble(reader["PRECO_KM"]);
             var diaria = Convert.ToDouble(reader["DIARIA"]);
+
             DadosVeiculo dadosVeiculo = new DadosVeiculo(quilometragem, diaria, precokm);
             {
                 dadosVeiculo.Id = id;

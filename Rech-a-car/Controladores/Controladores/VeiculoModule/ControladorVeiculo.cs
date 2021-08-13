@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 
 namespace Controladores.VeiculoModule
@@ -51,8 +52,8 @@ namespace Controladores.VeiculoModule
                     [CAPACIDADE] = @CAPACIDADE,
                     [PORTAS] = @PORTAS,
                     [CHASSI] = @CHASSI,
-                    [PORTA_MALAS] @PORTA_MALAS,
-                    [FOTO] = @FOTOS,
+                    [PORTA_MALAS] = @PORTA_MALAS,
+                    [FOTO] = @FOTO,
                     [AUTOMATICO] = @AUTOMATICO
                 WHERE [ID] = @ID";
 
@@ -88,6 +89,18 @@ namespace Controladores.VeiculoModule
         public override string sqlExcluir => sqlExcluirVeiculo;
         public override string sqlExists => sqlExisteVeiculo;
 
+        public override void Inserir(Veiculo veiculo)
+        {
+            base.Inserir(veiculo);
+            veiculo.DadosVeiculo.Id = veiculo.Id;
+            ControladorDadosVeiculo.Inserir(veiculo.DadosVeiculo);
+        }
+        public override void Editar(int id, Veiculo veiculo)
+        {
+            base.Editar(id, veiculo);
+            veiculo.DadosVeiculo.Id = id;
+            ControladorDadosVeiculo.Editar(veiculo.DadosVeiculo);
+        }
         protected override Veiculo ConverterEmEntidade(IDataReader reader)
         {
             var id = Convert.ToInt32(reader["ID"]);
@@ -104,6 +117,7 @@ namespace Controladores.VeiculoModule
 
             var foto = RecuperarImagem((byte[])reader["FOTO"]);
             var dadosVeiculo = ControladorDadosVeiculo.SelecionarPorIdVeiculo(id);
+
             Veiculo veiculo = new Veiculo(modelo, marca, ano, placa, capacidade, portas, chassi, porta_malas, foto, automatico, categoria, dadosVeiculo)
             {
                 Id = id
@@ -113,8 +127,6 @@ namespace Controladores.VeiculoModule
         }
         protected override Dictionary<string, object> ObtemParametrosRegistro(Veiculo veiculo)
         {
-            ControladorDadosVeiculo.Inserir(veiculo.DadosVeiculo);
-
             var parametros = new Dictionary<string, object>
             {
                 { "ID", veiculo.Id },
@@ -133,11 +145,14 @@ namespace Controladores.VeiculoModule
 
             return parametros;
         }
-        private byte[] SalvarImagem(Image foto)
+        private static byte[] SalvarImagem(Image foto)
         {
-            MemoryStream imageStream = new MemoryStream();
-            foto.Save(imageStream, foto.RawFormat);
-            return imageStream.ToArray();
+            using (var ms = new MemoryStream())
+            {
+                foto = new Bitmap(foto);
+                foto.Save(ms,ImageFormat.Bmp);
+                return ms.ToArray();
+            }
         }
         private static Image RecuperarImagem(byte[] imageBytes)
         {
