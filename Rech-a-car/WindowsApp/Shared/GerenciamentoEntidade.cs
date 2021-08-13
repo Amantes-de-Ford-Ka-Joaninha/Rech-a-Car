@@ -40,10 +40,10 @@ namespace WindowsApp.Shared
             dgvEntidade.Columns.Clear();
 
             var colunaID = new DataGridViewTextBoxColumn { DataPropertyName = "ID", HeaderText = "ID" };
-            colunaID.Visible = true;
+            colunaID.Visible = false;
             dgvEntidade.Columns.Add(colunaID);
-
             dgvEntidade.Columns.AddRange(ConfigurarColunas());
+
             //dgvEntidade.ConfigurarGridZebrado();
             dgvEntidade.ConfigurarGridSomenteLeitura();
         }
@@ -75,17 +75,28 @@ namespace WindowsApp.Shared
         }
         private void bt_remover_Click(object sender, EventArgs e)
         {
+            var opcao = MessageBox.Show("Tem certeza que deseja excluir?", "Atenção!", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+            if (opcao == DialogResult.Cancel)
+                return;
+
             Cadastro.Controlador.Excluir(GetIdSelecionado());
             AlternarBotoes(false);
             AtualizarRegistros();
         }
         private void dgvEntidade_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            AlternarBotoes(true);
+            //AlternarBotoes(true);
         }
         private void dgvEntidade_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             TelaPrincipal.Instancia.FormAtivo = Visualizar;
+        }
+
+        private void dgvEntidade_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            AlternarBotoes(true);
+
         }
     }
 }

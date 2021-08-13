@@ -61,6 +61,7 @@ namespace WindowsApp.Shared
             this.dgvEntidade.TabIndex = 9;
             this.dgvEntidade.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEntidade_CellContentClick);
             this.dgvEntidade.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEntidade_CellContentDoubleClick);
+            this.dgvEntidade.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEntidade_RowEnter);
             // 
             // tbFiltro
             // 

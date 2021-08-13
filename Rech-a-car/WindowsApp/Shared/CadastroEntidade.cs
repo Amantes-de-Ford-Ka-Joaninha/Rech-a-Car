@@ -11,5 +11,10 @@ namespace WindowsApp.Shared
 
         public virtual CadastroEntidade<T> Inserir() { return this; }
         public abstract CadastroEntidade<T> Editar(T entidade);
+
+        protected void MensagemSucesso() 
+        {
+            MessageBox.Show("Realizado com sucesso!!!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

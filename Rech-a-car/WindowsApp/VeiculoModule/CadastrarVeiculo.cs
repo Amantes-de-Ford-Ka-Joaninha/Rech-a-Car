@@ -88,9 +88,9 @@ namespace WindowsApp
             if (entidade == null)
                 Controlador.Inserir(veiculo);
             else
-                Controlador.Editar(entidade.Id, entidade);
+                Controlador.Editar(entidade.Id, veiculo);
 
-            MessageBox.Show("Inserido com Sucesso!");
+            MensagemSucesso();
 
             Close();
         }
