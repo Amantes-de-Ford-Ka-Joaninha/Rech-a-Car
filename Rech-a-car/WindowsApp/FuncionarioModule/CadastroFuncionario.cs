@@ -13,5 +13,10 @@ namespace WindowsApp.FuncionarioModule
         {
             throw new System.NotImplementedException();
         }
+
+        public override Funcionario GetNovaEntidade()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
