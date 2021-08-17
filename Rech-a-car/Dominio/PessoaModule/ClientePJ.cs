@@ -2,7 +2,7 @@
 
 namespace Dominio.PessoaModule
 {
-    public class ClientePJ : PessoaJuridica, ICliente
+    public class ClientePJ : PessoaJuridica, Cliente
     {
         public override string Validar()
         {

@@ -44,16 +44,11 @@ namespace WindowsApp.Shared
             dgvEntidade.Columns.Add(colunaID);
             dgvEntidade.Columns.AddRange(ConfigurarColunas());
 
-            //dgvEntidade.ConfigurarGridZebrado();
             dgvEntidade.ConfigurarGridSomenteLeitura();
         }
         private int GetIdSelecionado()
         {
-            const int primeira = 0;
-
-            var id = dgvEntidade.SelectedRows[primeira].Cells[0].Value;
-
-            return (int)id;
+            return dgvEntidade.GetIdSelecionado();
         }
         private void AlternarBotoes(bool estado)
         {
@@ -84,10 +79,6 @@ namespace WindowsApp.Shared
             AlternarBotoes(false);
             AtualizarRegistros();
         }
-        private void dgvEntidade_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //AlternarBotoes(true);
-        }
         private void dgvEntidade_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             TelaPrincipal.Instancia.FormAtivo = Visualizar;
@@ -96,7 +87,6 @@ namespace WindowsApp.Shared
         private void dgvEntidade_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
             AlternarBotoes(true);
-
         }
     }
 }

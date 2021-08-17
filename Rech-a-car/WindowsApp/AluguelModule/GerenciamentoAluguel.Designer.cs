@@ -1,4 +1,4 @@
-﻿namespace WindowsApp
+﻿namespace WindowsApp.AluguelModule
 {
     partial class GerenciamentoAluguel
     {
@@ -73,6 +73,7 @@
             this.dgvAluguel.RowHeadersWidth = 51;
             this.dgvAluguel.Size = new System.Drawing.Size(616, 354);
             this.dgvAluguel.TabIndex = 4;
+            this.dgvAluguel.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAluguel_RowEnter);
             // 
             // btFiltro
             // 
@@ -97,7 +98,7 @@
             this.picLupa.TabIndex = 2;
             this.picLupa.TabStop = false;
             // 
-            // FormGerenciarAluguel
+            // GerenciamentoAluguel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -110,7 +111,7 @@
             this.Controls.Add(this.lbTitulo);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(6);
-            this.Name = "FormGerenciarAluguel";
+            this.Name = "GerenciamentoAluguel";
             this.Text = "FormGerenciarAlugueis";
             ((System.ComponentModel.ISupportInitialize)(this.dgvAluguel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLupa)).EndInit();

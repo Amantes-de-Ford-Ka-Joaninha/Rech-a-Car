@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using WindowsApp.AluguelModule;
 using WindowsApp.ClienteModule;
 using WindowsApp.FuncionarioModule;
 using WindowsApp.ServicoModule;

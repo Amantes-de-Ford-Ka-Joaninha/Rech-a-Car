@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AluguelModule\FecharAluguel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AluguelModule\FecharAluguel.Designer.cs">
+      <DependentUpon>FecharAluguel.cs</DependentUpon>
+    </Compile>
     <Compile Include="AluguelModule\GerenciamentoAluguel.cs">
       <SubType>Form</SubType>
     </Compile>
