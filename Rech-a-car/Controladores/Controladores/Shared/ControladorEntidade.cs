@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Controladores.Shared
 {
-    abstract public class ControladorEntidade<T> : ControladorDependencia<T> where T : Entidade
+    abstract public class ControladorEntidade<T> : Controlador<T> where T : Entidade
     {
         public List<T> Registros => ObterRegistros();
         public abstract string sqlSelecionarPorId { get; }
@@ -24,7 +24,7 @@ namespace Controladores.Shared
         {
             registro.Id = Db.Insert(sqlInserir, ObterParametrosRegistro(registro));
         }
-        public virtual void Editar(int id, T registro)
+        public override void Editar(int id, T registro)
         {
             registro.Id = id;
             Db.Update(sqlEditar, ObterParametrosRegistro(registro));

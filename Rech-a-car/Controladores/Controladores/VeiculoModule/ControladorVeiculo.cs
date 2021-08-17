@@ -99,8 +99,7 @@ namespace Controladores.VeiculoModule
         public override void Editar(int id, Veiculo veiculo)
         {
             base.Editar(id, veiculo);
-            veiculo.DadosVeiculo.Id = id;
-            new ControladorDadosVeiculo().Editar(veiculo.DadosVeiculo);
+            new ControladorDadosVeiculo().Editar(id, veiculo.DadosVeiculo);
         }
         protected override Veiculo ConverterEmEntidade(IDataReader reader)
         {

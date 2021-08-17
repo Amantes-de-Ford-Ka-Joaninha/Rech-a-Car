@@ -49,7 +49,7 @@
     <Compile Include="Controladores\PessoaModule\ControladorClientePJ.cs" />
     <Compile Include="Controladores\PessoaModule\ControladorMotorista.cs" />
     <Compile Include="Controladores\PessoaModule\ControladorFuncionario.cs" />
-    <Compile Include="Controladores\Shared\ControladorDependencia.cs" />
+    <Compile Include="Controladores\Shared\Controlador.cs" />
     <Compile Include="Controladores\Shared\ControladorEntidade.cs" />
     <Compile Include="Controladores\VeiculoModule\ControladorDadosVeiculo.cs" />
     <Compile Include="Controladores\ControladorServico.cs" />

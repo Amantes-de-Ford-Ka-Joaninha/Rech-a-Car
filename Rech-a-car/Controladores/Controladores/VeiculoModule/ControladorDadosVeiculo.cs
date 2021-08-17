@@ -6,7 +6,7 @@ using System.Data;
 
 namespace Controladores.VeiculoModule
 {
-    public class ControladorDadosVeiculo : ControladorDependencia<DadosVeiculo>
+    public class ControladorDadosVeiculo : Controlador<DadosVeiculo>
     {
         #region Queries
         private const string sqlSelecionarDadosVeiculoPorIdVeiculo =
@@ -49,7 +49,7 @@ namespace Controladores.VeiculoModule
         {
             Db.Update(sqlInserirDadosVeiculo, ObterParametrosRegistro(dadosVeiculo));
         }
-        public void Editar(DadosVeiculo dadosVeiculo)
+        public override void Editar(int id,DadosVeiculo dadosVeiculo)
         {
             Db.Update(sqlEditarDadosVeiculo, ObterParametrosRegistro(dadosVeiculo));
         }

@@ -6,9 +6,13 @@ using System.Data;
 
 namespace Controladores.PessoaModule
 {
-    public class ControladorMotorista : ControladorDependencia<MotoristaEmpresa>
+    public class ControladorMotorista : Controlador<MotoristaEmpresa>
     {
         public override void Inserir(MotoristaEmpresa motorista)
+        {
+            throw new NotImplementedException();
+        }
+        public override void Editar(int id, MotoristaEmpresa entidade)
         {
             throw new NotImplementedException();
         }

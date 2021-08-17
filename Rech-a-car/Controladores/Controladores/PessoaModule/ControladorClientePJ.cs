@@ -8,6 +8,7 @@ namespace Controladores.PessoaModule
 {
     public class ControladorClientePJ : ControladorEntidade<ClientePJ>
     {
+        #region Queries
         private const string sqlInserirClientePF =
     @"INSERT INTO [TBCLIENTEPJ]
                 (
@@ -56,6 +57,8 @@ namespace Controladores.PessoaModule
                 [TBCLIENTEPJ]
             WHERE 
                 [ID] = @ID";
+
+        #endregion
         public override string sqlSelecionarPorId => sqlSelecionarClientePFPorId;
         public override string sqlSelecionarTodos => sqlSelecionarTodosClientePF;
         public override string sqlInserir => sqlInserirClientePF;
