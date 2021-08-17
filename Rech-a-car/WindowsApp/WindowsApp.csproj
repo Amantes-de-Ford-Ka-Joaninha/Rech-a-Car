@@ -58,6 +58,18 @@
     <Compile Include="AluguelModule\RealizarAluguel.Designer.cs">
       <DependentUpon>RealizarAluguel.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClienteModule\CadastrarClientePF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClienteModule\CadastrarClientePF.Designer.cs">
+      <DependentUpon>CadastrarClientePF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClienteModule\CadastrarClientePJ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClienteModule\CadastrarClientePJ.Designer.cs">
+      <DependentUpon>CadastrarClientePJ.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClienteModule\GerenciamentoCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +132,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AluguelModule\RealizarAluguel.resx">
       <DependentUpon>RealizarAluguel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClienteModule\CadastrarClientePF.resx">
+      <DependentUpon>CadastrarClientePF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClienteModule\CadastrarClientePJ.resx">
+      <DependentUpon>CadastrarClientePJ.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClienteModule\GerenciamentoCliente.resx">
+      <DependentUpon>GerenciamentoCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ServicoModule\CadastrarServico.resx">
       <DependentUpon>CadastrarServico.cs</DependentUpon>
