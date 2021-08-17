@@ -7,7 +7,7 @@ namespace Controladores
 {
     public class ControladorAluguel : ControladorEntidade<Aluguel>
     {
-        public override string sqlSelecionarPorId => throw new NotImplementedException();
+    
 
         public override string sqlSelecionarTodos => throw new NotImplementedException();
 
@@ -18,6 +18,8 @@ namespace Controladores
         public override string sqlExcluir => throw new NotImplementedException();
 
         public override string sqlExists => throw new NotImplementedException();
+
+        public override string sqlSelecionarPorId => throw new NotImplementedException();
 
         protected override Aluguel ConverterEmEntidade(IDataReader reader)
         {
