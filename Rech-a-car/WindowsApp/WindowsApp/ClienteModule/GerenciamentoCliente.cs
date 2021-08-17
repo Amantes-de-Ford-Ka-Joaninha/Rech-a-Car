@@ -11,7 +11,7 @@ namespace WindowsApp.ClienteModule
             throw new NotImplementedException();
         }
 
-        public object[] ObterLinha(ICliente item)
+        public object[] ObterLinha(Cliente item)
         {
             throw new NotImplementedException();
         }

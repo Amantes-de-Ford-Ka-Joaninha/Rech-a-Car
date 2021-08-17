@@ -57,5 +57,13 @@ namespace WindowsApp.Shared
                 grid.ClearSelection();
             };
         }
+        public static int GetIdSelecionado(this DataGridView grid)
+        {
+            const int primeira = 0;
+
+            var id = grid.SelectedRows[primeira].Cells[0].Value;
+
+            return (int)id;
+        }
     }
 }
