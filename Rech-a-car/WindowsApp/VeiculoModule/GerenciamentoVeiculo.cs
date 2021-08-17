@@ -11,8 +11,8 @@ namespace WindowsApp.VeiculoModule
         {
         }
 
-        protected override VisualizarEntidade<Veiculo> Visualizar => new VisualizarVeiculo();
         protected override CadastroEntidade<Veiculo> Cadastro => new CadastrarVeiculo();
+        protected override VisualizarEntidade<Veiculo> Visualizar => new VisualizarVeiculo();
 
         public override DataGridViewColumn[] ConfigurarColunas()
         {
