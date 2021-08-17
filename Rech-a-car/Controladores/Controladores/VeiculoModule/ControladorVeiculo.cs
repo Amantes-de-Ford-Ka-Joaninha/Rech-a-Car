@@ -1,5 +1,4 @@
-﻿using Dominio.VeiculoModule;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
@@ -150,7 +149,7 @@ namespace Controladores.VeiculoModule
             using (var ms = new MemoryStream())
             {
                 foto = new Bitmap(foto);
-                foto.Save(ms,ImageFormat.Bmp);
+                foto.Save(ms, ImageFormat.Bmp);
                 return ms.ToArray();
             }
         }

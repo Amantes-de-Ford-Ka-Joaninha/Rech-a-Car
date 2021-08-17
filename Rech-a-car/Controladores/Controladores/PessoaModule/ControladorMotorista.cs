@@ -1,8 +1,7 @@
-﻿using Dominio.PessoaModule;
+﻿using Controladores.Shared;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using Controladores.Shared;
 
 namespace Controladores.PessoaModule
 {

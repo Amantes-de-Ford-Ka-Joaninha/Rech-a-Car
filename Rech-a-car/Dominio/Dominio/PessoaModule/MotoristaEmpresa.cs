@@ -2,7 +2,7 @@
 {
     public class MotoristaEmpresa : Condutor
     {
-        public MotoristaEmpresa (string nome, string telefone, string endereco, string documento, CNH cnh)
+        public MotoristaEmpresa(string nome, string telefone, string endereco, string documento, CNH cnh)
         {
             Nome = nome;
             Telefone = telefone;
