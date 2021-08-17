@@ -1,6 +1,5 @@
 ﻿using Dominio;
 using System.Collections.Generic;
-using System.Data;
 
 namespace Controladores.Shared
 {
@@ -23,12 +22,12 @@ namespace Controladores.Shared
         }
         public override void Inserir(T registro)
         {
-            registro.Id = Db.Insert(sqlInserir, ObtemParametrosRegistro(registro));
+            registro.Id = Db.Insert(sqlInserir, ObterParametrosRegistro(registro));
         }
         public virtual void Editar(int id, T registro)
         {
             registro.Id = id;
-            Db.Update(sqlEditar, ObtemParametrosRegistro(registro));
+            Db.Update(sqlEditar, ObterParametrosRegistro(registro));
         }
         public void Excluir(int id)
         {

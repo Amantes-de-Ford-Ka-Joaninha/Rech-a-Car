@@ -1,18 +1,7 @@
-﻿using Controladores;
-using Controladores.PessoaModule;
+﻿using Controladores.PessoaModule;
 using Controladores.Shared;
-using Dominio.PessoaModule;
 using Dominio.PessoaModule.ClienteModule;
-using Dominio.VeiculoModule;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using WindowsApp.Shared;
 
 namespace WindowsApp.ClienteModule
@@ -29,7 +18,6 @@ namespace WindowsApp.ClienteModule
         public override CadastroEntidade<ClientePF> Editar(ClientePF clientePF)
         {
             throw new NotImplementedException();
-
         }
         public override ClientePF GetNovaEntidade()
         {

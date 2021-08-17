@@ -1,4 +1,5 @@
 ﻿using Controladores;
+using Controladores.Shared;
 using Dominio.ServicoModule;
 using System;
 using WindowsApp.Shared;

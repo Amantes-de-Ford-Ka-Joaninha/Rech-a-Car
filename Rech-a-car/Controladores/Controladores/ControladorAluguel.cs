@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Controladores.Shared;
+using Dominio.AluguelModule;
+using System;
 using System.Collections.Generic;
 using System.Data;
 
@@ -23,7 +25,7 @@ namespace Controladores
             throw new NotImplementedException();
         }
 
-        protected override Dictionary<string, object> ObtemParametrosRegistro(Aluguel registro)
+        protected override Dictionary<string, object> ObterParametrosRegistro(Aluguel registro)
         {
             throw new NotImplementedException();
         }

@@ -55,17 +55,6 @@
     <Compile Include="Dominio\Entidade.cs" />
     <Compile Include="Dominio\PessoaModule\Funcionario.cs" />
     <Compile Include="Dominio\PessoaModule\Pessoa.cs" />
-    <Compile Include="AluguelModule\Aluguel.cs" />
-    <Compile Include="PessoaModule\Cliente.cs" />
-    <Compile Include="PessoaModule\ClientePF.cs" />
-    <Compile Include="PessoaModule\ClientePJ.cs" />
-    <Compile Include="PessoaModule\Condutor.cs" />
-    <Compile Include="PessoaModule\MotoristaEmpresa.cs" />
-    <Compile Include="PessoaModule\PessoaFisica.cs" />
-    <Compile Include="PessoaModule\PessoaJuridica.cs" />
-    <Compile Include="Entidade.cs" />
-    <Compile Include="PessoaModule\Funcionario.cs" />
-    <Compile Include="PessoaModule\Pessoa.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Dominio\ServicoModule\Servico.cs" />
     <Compile Include="Dominio\VeiculoModule\DadosVeiculo.cs" />

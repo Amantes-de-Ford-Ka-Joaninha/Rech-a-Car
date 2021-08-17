@@ -1,4 +1,4 @@
-﻿using Controladores;
+﻿using Controladores.Shared;
 using Dominio;
 using System.Windows.Forms;
 
@@ -13,7 +13,7 @@ namespace WindowsApp.Shared
         public abstract CadastroEntidade<T> Editar(T entidade);
         public abstract T GetNovaEntidade();
 
-        protected void Salva() 
+        protected void Salva()
         {
             T entidade = GetNovaEntidade();
             var validacao = entidade.Validar();

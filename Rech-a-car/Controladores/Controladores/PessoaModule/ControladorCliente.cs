@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dominio.PessoaModule.ClienteModule;
+using System;
 using System.Collections.Generic;
 
 namespace Controladores.PessoaModule

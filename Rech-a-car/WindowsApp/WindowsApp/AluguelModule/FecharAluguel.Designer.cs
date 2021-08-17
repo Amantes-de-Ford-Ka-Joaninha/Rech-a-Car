@@ -1,7 +1,7 @@
 ﻿
-namespace WindowsApp.ClienteModule
+namespace WindowsApp.AluguelModule
 {
-    partial class CadastrarClientePF
+    partial class FecharAluguel
     {
         /// <summary>
         /// Required designer variable.
@@ -29,18 +29,10 @@ namespace WindowsApp.ClienteModule
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // CadastrarClientePF
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(33)))), ((int)(((byte)(34)))));
-            this.ClientSize = new System.Drawing.Size(668, 522);
-            this.Name = "CadastrarClientePF";
-            this.Text = "CadastrarClientePF";
-            this.ResumeLayout(false);
-
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Text = "FecharAluguel";
         }
 
         #endregion

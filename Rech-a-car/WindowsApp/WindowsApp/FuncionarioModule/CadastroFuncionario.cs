@@ -1,5 +1,5 @@
-﻿using Controladores;
-using Controladores.PessoaModule;
+﻿using Controladores.PessoaModule;
+using Controladores.Shared;
 using Dominio.PessoaModule;
 using WindowsApp.Shared;
 

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Controladores.Shared;
+using Dominio.VeiculoModule;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
@@ -92,13 +94,13 @@ namespace Controladores.VeiculoModule
         {
             base.Inserir(veiculo);
             veiculo.DadosVeiculo.Id = veiculo.Id;
-            ControladorDadosVeiculo.Inserir(veiculo.DadosVeiculo);
+            new ControladorDadosVeiculo().Inserir(veiculo.DadosVeiculo);
         }
         public override void Editar(int id, Veiculo veiculo)
         {
             base.Editar(id, veiculo);
             veiculo.DadosVeiculo.Id = id;
-            ControladorDadosVeiculo.Editar(veiculo.DadosVeiculo);
+            new ControladorDadosVeiculo().Editar(veiculo.DadosVeiculo);
         }
         protected override Veiculo ConverterEmEntidade(IDataReader reader)
         {
@@ -115,7 +117,7 @@ namespace Controladores.VeiculoModule
             var automatico = Convert.ToBoolean(reader["AUTOMATICO"]);
 
             var foto = RecuperarImagem((byte[])reader["FOTO"]);
-            var dadosVeiculo = ControladorDadosVeiculo.SelecionarPorIdVeiculo(id);
+            var dadosVeiculo = new ControladorDadosVeiculo().SelecionarPorIdVeiculo(id);
 
             Veiculo veiculo = new Veiculo(modelo, marca, ano, placa, capacidade, portas, chassi, porta_malas, foto, automatico, categoria, dadosVeiculo)
             {
@@ -124,7 +126,7 @@ namespace Controladores.VeiculoModule
 
             return veiculo;
         }
-        protected override Dictionary<string, object> ObtemParametrosRegistro(Veiculo veiculo)
+        protected override Dictionary<string, object> ObterParametrosRegistro(Veiculo veiculo)
         {
             var parametros = new Dictionary<string, object>
             {

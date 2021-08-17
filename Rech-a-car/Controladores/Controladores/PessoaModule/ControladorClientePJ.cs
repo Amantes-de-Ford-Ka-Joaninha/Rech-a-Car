@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Controladores.Shared;
+using Dominio.PessoaModule.ClienteModule;
+using System;
 using System.Collections.Generic;
 using System.Data;
 
@@ -75,7 +77,7 @@ namespace Controladores.PessoaModule
                 Id = id
             };
         }
-        protected override Dictionary<string, object> ObtemParametrosRegistro(ClientePJ registro)
+        protected override Dictionary<string, object> ObterParametrosRegistro(ClientePJ registro)
         {
             var parametros = new Dictionary<string, object>
             {

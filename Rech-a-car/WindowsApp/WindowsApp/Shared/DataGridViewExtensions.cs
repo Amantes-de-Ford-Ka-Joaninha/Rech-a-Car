@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace WindowsApp.Shared
 {
-   public static class DataGridViewExtensions
+    public static class DataGridViewExtensions
     {
         public static void ConfigurarGridZebrado(this DataGridView grid)
         {
