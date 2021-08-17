@@ -6,22 +6,22 @@ namespace Dominio.PessoaModule.ClienteModule
 {
     public class ClientePJ : PessoaJuridica, ICliente
     {
-        public ClientePJ(string nome, string telefone, string endereco, List<Condutor> condutores)
-        {
-            Nome = nome;
-            Telefone = telefone;
-            Endereco = endereco;
-            Condutores = condutores;
-        }
-
         public string Nome { get; set; }
         public string Telefone { get; set; }
         public string Endereco { get; set; }
         public string Documento { get; set; }
-        public List<Condutor> Condutores { get; set; }
+        public List<MotoristaEmpresa> Condutores { get; set; }
 
         Regex validaTelefone = new Regex(@"\b[1-9]{2}[1-9]{9}\b");
-        Regex validaCNPJ = new Regex(@"\b/^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$/\b");
+
+        public ClientePJ(string nome, string telefone, string endereco, string documento, List<MotoristaEmpresa> condutores)
+        {
+            Nome = nome;
+            Telefone = telefone;
+            Endereco = endereco;
+            Documento = documento;
+            Condutores = condutores;
+        }
 
         public override string Validar()
         {

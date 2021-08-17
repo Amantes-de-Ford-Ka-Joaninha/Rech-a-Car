@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using Dominio.PessoaModule.ClienteModule;
 
-namespace Controladores
+namespace Controladores.PessoaModule
 {
     public class ControladorClientePF : ControladorEntidade<ClientePF>
     {

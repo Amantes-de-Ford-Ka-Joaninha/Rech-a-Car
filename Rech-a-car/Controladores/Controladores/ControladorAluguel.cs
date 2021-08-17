@@ -7,8 +7,6 @@ namespace Controladores
 {
     public class ControladorAluguel : ControladorEntidade<Aluguel>
     {
-    
-
         public override string sqlSelecionarTodos => throw new NotImplementedException();
 
         public override string sqlInserir => throw new NotImplementedException();

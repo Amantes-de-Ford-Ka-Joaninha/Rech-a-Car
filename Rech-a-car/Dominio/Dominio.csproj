@@ -42,24 +42,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AluguelModule\Aluguel.cs" />
-    <Compile Include="AluguelModule\TipoAluguel.cs" />
-    <Compile Include="PessoaModule\CNH.cs" />
-    <Compile Include="PessoaModule\ClienteModule\ICliente.cs" />
-    <Compile Include="PessoaModule\ClienteModule\ClientePF.cs" />
-    <Compile Include="PessoaModule\ClienteModule\ClientePJ.cs" />
-    <Compile Include="PessoaModule\Condutor.cs" />
-    <Compile Include="PessoaModule\MotoristaEmpresa.cs" />
-    <Compile Include="PessoaModule\PessoaFisica.cs" />
-    <Compile Include="PessoaModule\PessoaJuridica.cs" />
-    <Compile Include="Entidade.cs" />
-    <Compile Include="PessoaModule\Funcionario.cs" />
-    <Compile Include="PessoaModule\Pessoa.cs" />
-    <Compile Include="PessoaModule\TipoCNH.cs" />
+    <Compile Include="Dominio\AluguelModule\Aluguel.cs" />
+    <Compile Include="Dominio\AluguelModule\TipoAluguel.cs" />
+    <Compile Include="Dominio\PessoaModule\CNH.cs" />
+    <Compile Include="Dominio\PessoaModule\ClienteModule\ICliente.cs" />
+    <Compile Include="Dominio\PessoaModule\ClienteModule\ClientePF.cs" />
+    <Compile Include="Dominio\PessoaModule\ClienteModule\ClientePJ.cs" />
+    <Compile Include="Dominio\PessoaModule\Condutor.cs" />
+    <Compile Include="Dominio\PessoaModule\MotoristaEmpresa.cs" />
+    <Compile Include="Dominio\PessoaModule\PessoaFisica.cs" />
+    <Compile Include="Dominio\PessoaModule\PessoaJuridica.cs" />
+    <Compile Include="Dominio\Entidade.cs" />
+    <Compile Include="Dominio\PessoaModule\Funcionario.cs" />
+    <Compile Include="Dominio\PessoaModule\Pessoa.cs" />
+    <Compile Include="Dominio\PessoaModule\TipoCNH.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServicoModule\Servico.cs" />
-    <Compile Include="VeiculoModule\DadosVeiculo.cs" />
-    <Compile Include="VeiculoModule\Veiculo.cs" />
+    <Compile Include="Dominio\ServicoModule\Servico.cs" />
+    <Compile Include="Dominio\VeiculoModule\DadosVeiculo.cs" />
+    <Compile Include="Dominio\VeiculoModule\Veiculo.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
