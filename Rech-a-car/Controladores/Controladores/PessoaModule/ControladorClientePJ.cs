@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using Dominio.PessoaModule.ClienteModule;
 
 namespace Controladores.PessoaModule
 {
@@ -71,7 +70,7 @@ namespace Controladores.PessoaModule
             var endereco = Convert.ToString(reader["ENDERECO"]);
             var condutores = new ControladorMotorista().SelecionarCondutoresPJ(id);
 
-            return new ClientePJ(nome,telefone,documento,endereco,condutores)
+            return new ClientePJ(nome, telefone, documento, endereco, condutores)
             {
                 Id = id
             };

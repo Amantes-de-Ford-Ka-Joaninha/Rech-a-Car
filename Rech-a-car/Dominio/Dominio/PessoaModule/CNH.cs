@@ -6,7 +6,7 @@ namespace Dominio.PessoaModule
     public class CNH : Entidade
     {
         public string numeroCnh { get; set; }
-        
+
         public TipoCNH tipoCnh { get; set; }
 
         Regex ValidarCNH = new Regex(@"\b(?=.*\d)[A-Za-z0-9]{1,11}\b");
