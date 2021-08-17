@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-namespace Dominio.PessoaModule
+namespace Dominio.PessoaModule.ClienteModule
 {
     public class ClientePJ : PessoaJuridica, ICliente
     {

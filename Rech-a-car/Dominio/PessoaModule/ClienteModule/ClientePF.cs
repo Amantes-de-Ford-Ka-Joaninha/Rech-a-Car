@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Dominio.PessoaModule
+namespace Dominio.PessoaModule.ClienteModule
 {
     public class ClientePF : Condutor, ICliente
     {
