@@ -18,7 +18,8 @@ namespace Dominio.PessoaModule
         public override string Validar()
         {
             string validacao = String.Empty;
-            if (ValidarCNH.IsMatch(numeroCnh))
+
+            if (!ValidarCNH.IsMatch(numeroCnh))
                 validacao = "CNH Inválida.\n";
 
             return validacao;

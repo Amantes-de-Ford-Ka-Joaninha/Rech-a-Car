@@ -6,12 +6,11 @@ namespace Dominio.PessoaModule
 {
     public class ClientePJ : PessoaJuridica, ICliente
     {
-        public ClientePJ(string nome, string telefone, string endereco, string documento, List<Condutor> condutores)
+        public ClientePJ(string nome, string telefone, string endereco, List<Condutor> condutores)
         {
             Nome = nome;
             Telefone = telefone;
             Endereco = endereco;
-            Documento = documento;
             Condutores = condutores;
         }
 
@@ -22,6 +21,7 @@ namespace Dominio.PessoaModule
         public List<Condutor> Condutores { get; set; }
 
         Regex validaTelefone = new Regex(@"\b[1-9]{2}[1-9]{9}\b");
+        Regex validaCNPJ = new Regex(@"\b/^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$/\b");
 
         public override string Validar()
         {
@@ -31,6 +31,9 @@ namespace Dominio.PessoaModule
                 validador = "O cliente necessita de um nome.\n";
             if (!validaTelefone.IsMatch(Telefone))
                 validador = "Telefone inválido.\n";
+            if (Endereco == string.Empty)
+                validador = "O cliente necessita de um endereço.\n";
+            if(Documento)
 
         }
     }
