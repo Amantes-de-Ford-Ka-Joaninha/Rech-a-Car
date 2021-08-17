@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dominio.AluguelModule
 {
-    public enum EnumTipoAluguel
+    public enum TipoAluguel
     {
         kmcontrolado = 1,
         kmlivre = 2,

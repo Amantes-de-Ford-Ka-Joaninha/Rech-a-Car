@@ -8,7 +8,7 @@ namespace Dominio.AluguelModule
 {
     public class Aluguel : Entidade
     {
-        public Aluguel(Veiculo veiculo, ICliente cliente, List<Servico> servicos, Condutor condutor, EnumTipoAluguel tipoAluguel)
+        public Aluguel(Veiculo veiculo, ICliente cliente, List<Servico> servicos, Condutor condutor, TipoAluguel tipoAluguel)
         {
             this.veiculo = veiculo;
             this.cliente = cliente;
@@ -21,7 +21,7 @@ namespace Dominio.AluguelModule
         public ICliente cliente { get; set; }
         public List<Servico> servicos { get; set; }
         public Condutor condutor { get; set; }
-        public EnumTipoAluguel tipoAluguel { get; set; }
+        public TipoAluguel tipoAluguel { get; set; }
 
         public override string Validar()
         {
