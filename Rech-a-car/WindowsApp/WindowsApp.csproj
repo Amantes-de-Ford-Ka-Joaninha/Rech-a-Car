@@ -73,6 +73,9 @@
     <Compile Include="ServicoModule\CadastrarServico.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ServicoModule\CadastrarServico.Designer.cs">
+      <DependentUpon>CadastrarServico.cs</DependentUpon>
+    </Compile>
     <Compile Include="ServicoModule\GerenciamentoServico.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +120,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AluguelModule\RealizarAluguel.resx">
       <DependentUpon>RealizarAluguel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServicoModule\CadastrarServico.resx">
+      <DependentUpon>CadastrarServico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Shared\GerenciamentoEntidade.resx">
       <DependentUpon>GerenciamentoEntidade.cs</DependentUpon>
