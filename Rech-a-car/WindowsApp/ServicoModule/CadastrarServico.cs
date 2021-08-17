@@ -29,7 +29,7 @@ namespace WindowsApp.ServicoModule
 
             return this;
         }
-        private Servico GetServico()
+        public override Servico GetNovaEntidade()
         {
             var nome = tbNome.Text;
             Double.TryParse(tbTaxa.Text, out double taxa);
@@ -39,17 +39,8 @@ namespace WindowsApp.ServicoModule
 
         private void btAdicionar_Click(object sender, EventArgs e)
         {
-            Servico servico = GetServico();
-            var validacao = servico.Validar();
-
-            if (validacao != "VALIDO")
-            {
-                MessageBox.Show(validacao);
-                return;
-            }
-
-            Controlador.Inserir(servico);
-            MessageBox.Show("Inserido com Sucesso!");
+            Salva();
+            Close();
         }
     }
 }
