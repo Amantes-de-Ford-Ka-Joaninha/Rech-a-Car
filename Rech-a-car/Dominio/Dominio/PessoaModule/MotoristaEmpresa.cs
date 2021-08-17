@@ -1,12 +1,14 @@
-﻿using System;
-
-namespace Dominio.PessoaModule
+﻿namespace Dominio.PessoaModule
 {
     public class MotoristaEmpresa : Condutor
     {
-        public override string Validar()
+        public MotoristaEmpresa (string nome, string telefone, string endereco, string documento, CNH cnh)
         {
-            throw new NotImplementedException();
+            Nome = nome;
+            Telefone = telefone;
+            Endereco = endereco;
+            Documento = documento;
+            Cnh = cnh;
         }
     }
 }

@@ -1,12 +1,13 @@
-﻿using System;
-
-namespace Dominio.PessoaModule
+﻿namespace Dominio.PessoaModule
 {
-    public class Funcionario : Pessoa
+    public class Funcionario : PessoaFisica
     {
-        public override string Validar()
+        public Funcionario(string nome, string telefone, string endereco, string documento)
         {
-            throw new NotImplementedException();
+            Nome = nome;
+            Telefone = telefone;
+            Endereco = endereco;
+            Documento = documento;
         }
     }
 }

@@ -55,7 +55,6 @@
     <Compile Include="Dominio\Entidade.cs" />
     <Compile Include="Dominio\PessoaModule\Funcionario.cs" />
     <Compile Include="Dominio\PessoaModule\Pessoa.cs" />
-    <Compile Include="Dominio\PessoaModule\TipoCNH.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Dominio\ServicoModule\Servico.cs" />
     <Compile Include="Dominio\VeiculoModule\DadosVeiculo.cs" />
