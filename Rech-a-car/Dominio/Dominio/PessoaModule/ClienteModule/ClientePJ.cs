@@ -6,15 +6,7 @@ namespace Dominio.PessoaModule.ClienteModule
 {
     public class ClientePJ : PessoaJuridica, ICliente
     {
-        public string Nome { get; set; }
-        public string Telefone { get; set; }
-        public string Endereco { get; set; }
-        public string Documento { get; set; }
-        public List<MotoristaEmpresa> Condutores { get; set; }
-
-        Regex validaTelefone = new Regex(@"\b[1-9]{2}[1-9]{9}\b");
-
-        public ClientePJ(string nome, string telefone, string endereco, string documento, List<MotoristaEmpresa> condutores)
+        public ClientePJ(string nome, string telefone, string endereco, string documento, List<Condutor> condutores)
         {
             Nome = nome;
             Telefone = telefone;
@@ -23,6 +15,14 @@ namespace Dominio.PessoaModule.ClienteModule
             Condutores = condutores;
         }
 
+        public string Nome { get; set; }
+        public string Telefone { get; set; }
+        public string Endereco { get; set; }
+        public string Documento { get; set; }
+        public List<Condutor> Condutores { get; set; }
+
+        Regex validaTelefone = new Regex(@"\b[1-9]{2}[1-9]{9}\b");
+
         public override string Validar()
         {
             string validador = string.Empty;
@@ -30,11 +30,11 @@ namespace Dominio.PessoaModule.ClienteModule
             if (Nome == string.Empty)
                 validador = "O cliente necessita de um nome.\n";
             if (!validaTelefone.IsMatch(Telefone))
-                validador = "Telefone inválido.\n";
+                validador += "Telefone inválido.\n";
             if (Endereco == string.Empty)
-                validador = "O cliente necessita de um endereço.\n";
+                validador += "O cliente necessita de um endereço.\n";
             if (Documento.Length != 14)
-                validador = "O cliente necessita de um CNPJ válido.\n";
+                validador += "O cliente necessita de um CNPJ válido.\n";
 
             return validador;
         }
