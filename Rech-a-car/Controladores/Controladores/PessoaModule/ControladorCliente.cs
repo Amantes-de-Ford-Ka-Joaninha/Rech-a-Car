@@ -2,6 +2,10 @@
 {
     public class ControladorCliente
     {
-        //minha ideia é simplesmente declarar os dois aqui concatenar e mandar bala azar
+        private ControladorClientePF ControladorPF = new ControladorClientePF();
+        private ControladorClientePJ ControladorPJ = new ControladorClientePJ();
+
+
+
     }
 }

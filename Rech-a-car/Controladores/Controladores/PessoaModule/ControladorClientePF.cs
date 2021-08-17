@@ -5,7 +5,7 @@ using System.Data;
 
 namespace Controladores
 {
-    class ControladorClientePF : ControladorEntidade<ClientePF>
+    public class ControladorClientePF : ControladorEntidade<ClientePF>
     {
         public override string sqlSelecionarPorId => throw new NotImplementedException();
 
@@ -23,7 +23,6 @@ namespace Controladores
         {
             throw new NotImplementedException();
         }
-
         protected override Dictionary<string, object> ObtemParametrosRegistro(ClientePF registro)
         {
             throw new NotImplementedException();
