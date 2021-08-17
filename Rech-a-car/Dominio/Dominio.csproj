@@ -45,9 +45,9 @@
     <Compile Include="AluguelModule\Aluguel.cs" />
     <Compile Include="AluguelModule\TipoAluguel.cs" />
     <Compile Include="PessoaModule\CNH.cs" />
-    <Compile Include="PessoaModule\ICliente.cs" />
-    <Compile Include="PessoaModule\ClientePF.cs" />
-    <Compile Include="PessoaModule\ClientePJ.cs" />
+    <Compile Include="PessoaModule\ClienteModule\ICliente.cs" />
+    <Compile Include="PessoaModule\ClienteModule\ClientePF.cs" />
+    <Compile Include="PessoaModule\ClienteModule\ClientePJ.cs" />
     <Compile Include="PessoaModule\Condutor.cs" />
     <Compile Include="PessoaModule\MotoristaEmpresa.cs" />
     <Compile Include="PessoaModule\PessoaFisica.cs" />

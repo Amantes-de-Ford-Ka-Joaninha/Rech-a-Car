@@ -1,4 +1,4 @@
-﻿namespace Dominio.PessoaModule
+﻿namespace Dominio.PessoaModule.ClienteModule
 {
     public interface ICliente
     {
