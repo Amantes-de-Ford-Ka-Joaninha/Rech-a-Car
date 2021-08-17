@@ -45,7 +45,7 @@ namespace WindowsApp
 
             return this;
         }
-        private Veiculo GetNovoVeiculo()
+        public override Veiculo GetNovaEntidade()
         {
             var modelo = tb_modelo.Text;
             var marca = tb_marca.Text;
@@ -76,22 +76,7 @@ namespace WindowsApp
 
         private void bt_adicionar_Click(object sender, EventArgs e)
         {
-            Veiculo veiculo = GetNovoVeiculo();
-            var validacao = veiculo.Validar();
-
-            if (validacao != "VALIDO")
-            {
-                MessageBox.Show(validacao);
-                return;
-            }
-
-            if (entidade == null)
-                Controlador.Inserir(veiculo);
-            else
-                Controlador.Editar(entidade.Id, veiculo);
-
-            MensagemSucesso();
-
+            Salva();
             Close();
         }
         private void bt_foto_Click(object sender, EventArgs e)
