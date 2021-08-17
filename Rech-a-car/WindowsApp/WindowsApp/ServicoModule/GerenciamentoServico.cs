@@ -28,7 +28,7 @@ namespace WindowsApp.ServicoModule
             };
         }
 
-        public override object[] ObterCamposLinha(Servico item)
+        public override object[] ObterCamposLinha(Servico servico)
         {
             List<object> linha = new List<object>()
             {

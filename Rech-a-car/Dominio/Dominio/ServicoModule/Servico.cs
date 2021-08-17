@@ -7,12 +7,11 @@ namespace Dominio.ServicoModule
         public Servico(string nome, double taxa)
         {
             Nome = nome;
-            Taxa1 = taxa;
+            Taxa = taxa;
         }
 
         public string Nome { get; set; }
-        public string Taxa { get; set; }
-        public double Taxa1 { get; }
+        public double Taxa { get; set; }
 
         public override string Validar()
         {

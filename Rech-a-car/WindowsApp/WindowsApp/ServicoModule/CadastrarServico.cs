@@ -1,14 +1,6 @@
 ﻿using Controladores;
 using Dominio.ServicoModule;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using WindowsApp.Shared;
 
 namespace WindowsApp.ServicoModule
@@ -25,7 +17,7 @@ namespace WindowsApp.ServicoModule
         public override CadastroEntidade<Servico> Editar(Servico servico)
         {
             tbNome.Text = servico.Nome;
-            tbTaxa.Text = servico.Taxa;
+            tbTaxa.Text = servico.Taxa.ToString();
 
             return this;
         }
