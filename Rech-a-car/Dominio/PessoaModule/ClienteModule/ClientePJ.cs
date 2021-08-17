@@ -33,8 +33,10 @@ namespace Dominio.PessoaModule.ClienteModule
                 validador = "Telefone inválido.\n";
             if (Endereco == string.Empty)
                 validador = "O cliente necessita de um endereço.\n";
-            if(Documento)
+            if (Documento.Length != 14)
+                validador = "O cliente necessita de um CNPJ válido.\n";
 
+            return validador;
         }
     }
 }

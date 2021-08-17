@@ -3,6 +3,7 @@ using Dominio.VeiculoModule;
 using Dominio.ServicoModule;
 using Dominio.PessoaModule;
 using System.Collections.Generic;
+using Dominio.PessoaModule.ClienteModule;
 
 namespace Dominio.AluguelModule
 {

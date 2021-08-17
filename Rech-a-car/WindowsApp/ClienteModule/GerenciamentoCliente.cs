@@ -1,6 +1,6 @@
-﻿using Dominio.PessoaModule;
-using System;
+﻿using System;
 using System.Windows.Forms;
+using Dominio.PessoaModule.ClienteModule;
 
 namespace WindowsApp.ClienteModule
 {
