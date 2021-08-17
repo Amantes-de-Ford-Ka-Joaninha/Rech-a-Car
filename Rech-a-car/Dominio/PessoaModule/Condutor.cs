@@ -2,6 +2,6 @@
 {
     public abstract class Condutor : PessoaFisica
     {
-        public CNH cnh { get; set; }
+        public CNH Cnh { get; set; }
     }
 }
