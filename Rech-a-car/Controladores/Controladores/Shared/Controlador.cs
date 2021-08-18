@@ -7,7 +7,7 @@ namespace Controladores.Shared
     {
         public abstract void Inserir(T entidade);
         public abstract void Editar(int id,T entidade);
-        protected abstract T ConverterEmEntidade(IDataReader reader);
+        public abstract T ConverterEmEntidade(IDataReader reader);
         protected abstract Dictionary<string, object> ObterParametrosRegistro(T registro);
         public static Dictionary<string, object> AdicionarParametro(string campo, object valor)
         {

@@ -98,6 +98,7 @@ namespace WindowsApp
             this.bt_servicos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bt_servicos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bt_servicos.UseVisualStyleBackColor = true;
+            this.bt_servicos.Click += new System.EventHandler(this.bt_Servicos_Click);
             // 
             // bt_funcionarios
             // 
@@ -117,6 +118,7 @@ namespace WindowsApp
             this.bt_funcionarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bt_funcionarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bt_funcionarios.UseVisualStyleBackColor = true;
+            this.bt_funcionarios.Click += new System.EventHandler(this.bt_funcionarios_Click);
             // 
             // bt_veiculos
             // 
@@ -137,6 +139,7 @@ namespace WindowsApp
             this.bt_veiculos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bt_veiculos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bt_veiculos.UseVisualStyleBackColor = true;
+            this.bt_veiculos.Click += new System.EventHandler(this.bt_Veiculos_Click);
             // 
             // panelSubMenuClientes
             // 

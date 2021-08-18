@@ -69,7 +69,7 @@ namespace WindowsApp
         {
             FormAtivo = new GerenciamentoVeiculo();
         }
-        private void bt_servicos_Click(object sender, EventArgs e)
+        private void bt_Servicos_Click(object sender, EventArgs e)
         {
             FormAtivo = new GerenciamentoServico();
         }
@@ -80,6 +80,7 @@ namespace WindowsApp
         private void bt_clientes_Click(object sender, EventArgs e)
         {
             MostrarSubMenu(panelSubMenuClientes);
+            FormAtivo = new GerenciamentoClientes();
         }
         private void bt_sair_Click(object sender, EventArgs e)
         {
