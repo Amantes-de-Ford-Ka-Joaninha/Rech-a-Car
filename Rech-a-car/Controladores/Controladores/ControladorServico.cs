@@ -1,12 +1,12 @@
 ﻿using Controladores.Shared;
-using Dominio.PessoaModule;
+using Dominio.ServicoModule;
 using System;
 using System.Collections.Generic;
 using System.Data;
 
-namespace Controladores.PessoaModule
+namespace Controladores
 {
-    public class ControladorFuncionario : ControladorEntidade<Funcionario>
+    public class ControladorServico : ControladorEntidade<Servico>
     {
         public override string sqlSelecionarPorId => throw new NotImplementedException();
 
@@ -20,12 +20,12 @@ namespace Controladores.PessoaModule
 
         public override string sqlExists => throw new NotImplementedException();
 
-        protected override Funcionario ConverterEmEntidade(IDataReader reader)
+        protected override Servico ConverterEmEntidade(IDataReader reader)
         {
             throw new NotImplementedException();
         }
 
-        protected override Dictionary<string, object> ObterParametrosRegistro(Funcionario registro)
+        protected override Dictionary<string, object> ObterParametrosRegistro(Servico registro)
         {
             throw new NotImplementedException();
         }

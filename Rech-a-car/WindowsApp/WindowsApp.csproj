@@ -46,91 +46,118 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AluguelModule\GerenciamentoAluguel.cs">
+    <Compile Include="WindowsApp\AluguelModule\FecharAluguel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AluguelModule\GerenciamentoAluguel.Designer.cs">
+    <Compile Include="WindowsApp\AluguelModule\FecharAluguel.Designer.cs">
+      <DependentUpon>FecharAluguel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsApp\AluguelModule\GerenciamentoAluguel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowsApp\AluguelModule\GerenciamentoAluguel.Designer.cs">
       <DependentUpon>GerenciamentoAluguel.cs</DependentUpon>
     </Compile>
-    <Compile Include="AluguelModule\RealizarAluguel.cs">
+    <Compile Include="WindowsApp\AluguelModule\RealizarAluguel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AluguelModule\RealizarAluguel.Designer.cs">
+    <Compile Include="WindowsApp\AluguelModule\RealizarAluguel.Designer.cs">
       <DependentUpon>RealizarAluguel.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClienteModule\GerenciamentoCliente.cs">
+    <Compile Include="WindowsApp\ClienteModule\CadastrarClientePF.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FuncionarioModule\CadastroFuncionario.cs">
+    <Compile Include="WindowsApp\ClienteModule\CadastrarClientePF.Designer.cs">
+      <DependentUpon>CadastrarClientePF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsApp\ClienteModule\CadastrarClientePJ.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FuncionarioModule\GerenciamentoFuncionario.cs">
+    <Compile Include="WindowsApp\ClienteModule\CadastrarClientePJ.Designer.cs">
+      <DependentUpon>CadastrarClientePJ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsApp\FuncionarioModule\CadastroFuncionario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FuncionarioModule\VisualizarFuncionario.cs">
+    <Compile Include="WindowsApp\FuncionarioModule\GerenciamentoFuncionario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ServicoModule\CadastrarServico.cs">
+    <Compile Include="WindowsApp\FuncionarioModule\VisualizarFuncionario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ServicoModule\CadastrarServico.Designer.cs">
+    <Compile Include="WindowsApp\ServicoModule\CadastrarServico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowsApp\ServicoModule\CadastrarServico.Designer.cs">
       <DependentUpon>CadastrarServico.cs</DependentUpon>
     </Compile>
-    <Compile Include="ServicoModule\GerenciamentoServico.cs">
+    <Compile Include="WindowsApp\ServicoModule\GerenciamentoServico.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ServicoModule\VisualizarServico.cs">
+    <Compile Include="WindowsApp\ServicoModule\VisualizarServico.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Shared\DataGridViewExtensions.cs" />
-    <Compile Include="Shared\GerenciamentoEntidade.cs">
+    <Compile Include="WindowsApp\Shared\DataGridViewExtensions.cs" />
+    <Compile Include="WindowsApp\Shared\GerenciamentoEntidade.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Shared\GerenciamentoEntidade.Designer.cs">
+    <Compile Include="WindowsApp\Shared\GerenciamentoEntidade.Designer.cs">
       <DependentUpon>GerenciamentoEntidade.cs</DependentUpon>
     </Compile>
-    <Compile Include="Shared\CadastroEntidade.cs">
+    <Compile Include="WindowsApp\Shared\CadastroEntidade.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Shared\VisualizarEntidade.cs">
+    <Compile Include="WindowsApp\Shared\VisualizarEntidade.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VeiculoModule\CadastrarVeiculo.cs">
+    <Compile Include="WindowsApp\VeiculoModule\CadastrarVeiculo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VeiculoModule\CadastrarVeiculo.Designer.cs">
+    <Compile Include="WindowsApp\VeiculoModule\CadastrarVeiculo.Designer.cs">
       <DependentUpon>CadastrarVeiculo.cs</DependentUpon>
     </Compile>
-    <Compile Include="TelaPrincipal.cs">
+    <Compile Include="WindowsApp\TelaPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TelaPrincipal.Designer.cs">
+    <Compile Include="WindowsApp\TelaPrincipal.Designer.cs">
       <DependentUpon>TelaPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="WindowsApp\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VeiculoModule\GerenciamentoVeiculo.cs">
+    <Compile Include="WindowsApp\ClienteModule\GerenciamentoCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VeiculoModule\VisualizarVeiculo.cs">
+    <Compile Include="WindowsApp\ClienteModule\GerenciamentoCliente.Designer.cs">
+      <DependentUpon>GerenciamentoCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsApp\VeiculoModule\GerenciamentoVeiculo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <EmbeddedResource Include="AluguelModule\GerenciamentoAluguel.resx">
+    <Compile Include="WindowsApp\VeiculoModule\VisualizarVeiculo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <EmbeddedResource Include="WindowsApp\AluguelModule\GerenciamentoAluguel.resx">
       <DependentUpon>GerenciamentoAluguel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AluguelModule\RealizarAluguel.resx">
+    <EmbeddedResource Include="WindowsApp\AluguelModule\RealizarAluguel.resx">
       <DependentUpon>RealizarAluguel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ServicoModule\CadastrarServico.resx">
+    <EmbeddedResource Include="WindowsApp\ServicoModule\CadastrarServico.resx">
       <DependentUpon>CadastrarServico.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Shared\GerenciamentoEntidade.resx">
+    <EmbeddedResource Include="WindowsApp\ClienteModule\CadastrarClientePF.resx">
+      <DependentUpon>CadastrarClientePF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowsApp\ClienteModule\CadastrarClientePJ.resx">
+      <DependentUpon>CadastrarClientePJ.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowsApp\Shared\GerenciamentoEntidade.resx">
       <DependentUpon>GerenciamentoEntidade.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VeiculoModule\CadastrarVeiculo.resx">
+    <EmbeddedResource Include="WindowsApp\VeiculoModule\CadastrarVeiculo.resx">
       <DependentUpon>CadastrarVeiculo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TelaPrincipal.resx">
+    <EmbeddedResource Include="WindowsApp\TelaPrincipal.resx">
       <DependentUpon>TelaPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -143,6 +170,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="WindowsApp\ClienteModule\GerenciamentoCliente.resx">
+      <DependentUpon>GerenciamentoCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

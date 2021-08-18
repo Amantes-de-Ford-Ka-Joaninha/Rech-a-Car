@@ -1,11 +1,12 @@
-﻿using Dominio.VeiculoModule;
+﻿using Controladores.Shared;
+using Dominio.VeiculoModule;
 using System;
 using System.Collections.Generic;
-using System.Data.Common;
+using System.Data;
 
 namespace Controladores.VeiculoModule
 {
-    public class ControladorDadosVeiculo
+    public class ControladorDadosVeiculo : Controlador<DadosVeiculo>
     {
         #region Queries
         private const string sqlSelecionarDadosVeiculoPorIdVeiculo =
@@ -40,19 +41,19 @@ namespace Controladores.VeiculoModule
                     WHERE [ID] = @ID";
 
         #endregion
-        public static DadosVeiculo SelecionarPorIdVeiculo(int id_veiculo)
+        public DadosVeiculo SelecionarPorIdVeiculo(int id_veiculo)
         {
-            return Db.Get(sqlSelecionarDadosVeiculoPorIdVeiculo, ConverterEmEntidade, ControladorEntidade<DadosVeiculo>.AdicionarParametro("ID", id_veiculo));
+            return Db.Get(sqlSelecionarDadosVeiculoPorIdVeiculo, ConverterEmEntidade, AdicionarParametro("ID", id_veiculo));
         }
-        public static void Inserir(DadosVeiculo dadosVeiculo)
+        public override void Inserir(DadosVeiculo dadosVeiculo)
         {
             Db.Update(sqlInserirDadosVeiculo, ObterParametrosRegistro(dadosVeiculo));
         }
-        public static void Editar(DadosVeiculo dadosVeiculo)
+        public override void Editar(int id,DadosVeiculo dadosVeiculo)
         {
             Db.Update(sqlEditarDadosVeiculo, ObterParametrosRegistro(dadosVeiculo));
         }
-        private static Dictionary<string, object> ObterParametrosRegistro(DadosVeiculo dadosVeiculo)
+        protected override Dictionary<string, object> ObterParametrosRegistro(DadosVeiculo dadosVeiculo)
         {
             var parametros = new Dictionary<string, object>
             {
@@ -64,7 +65,7 @@ namespace Controladores.VeiculoModule
 
             return parametros;
         }
-        private static DadosVeiculo ConverterEmEntidade(DbDataReader reader)
+        protected override DadosVeiculo ConverterEmEntidade(IDataReader reader)
         {
             var id = Convert.ToInt32(reader["ID"]);
             var quilometragem = Convert.ToInt32(reader["QUILOMETRAGEM"]);
