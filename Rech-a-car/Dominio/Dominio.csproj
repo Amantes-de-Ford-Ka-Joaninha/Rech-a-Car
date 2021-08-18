@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Dominio\AluguelModule\Aluguel.cs" />
     <Compile Include="Dominio\AluguelModule\TipoAluguel.cs" />
+    <Compile Include="Dominio\Shared\IControlavel.cs" />
     <Compile Include="Dominio\PessoaModule\CNH.cs" />
     <Compile Include="Dominio\PessoaModule\ClienteModule\ICliente.cs" />
     <Compile Include="Dominio\PessoaModule\ClienteModule\ClientePF.cs" />
@@ -52,7 +53,7 @@
     <Compile Include="Dominio\PessoaModule\MotoristaEmpresa.cs" />
     <Compile Include="Dominio\PessoaModule\PessoaFisica.cs" />
     <Compile Include="Dominio\PessoaModule\PessoaJuridica.cs" />
-    <Compile Include="Dominio\Entidade.cs" />
+    <Compile Include="Dominio\Shared\Entidade.cs" />
     <Compile Include="Dominio\PessoaModule\Funcionario.cs" />
     <Compile Include="Dominio\PessoaModule\Pessoa.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
