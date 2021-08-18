@@ -64,6 +64,12 @@
     <Compile Include="WindowsApp\AluguelModule\RealizarAluguel.Designer.cs">
       <DependentUpon>RealizarAluguel.cs</DependentUpon>
     </Compile>
+    <Compile Include="WindowsApp\ClienteModule\CadastrarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowsApp\ClienteModule\CadastrarCliente.Designer.cs">
+      <DependentUpon>CadastrarCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="WindowsApp\ClienteModule\CadastrarClientePF.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +81,15 @@
     </Compile>
     <Compile Include="WindowsApp\ClienteModule\CadastrarClientePJ.Designer.cs">
       <DependentUpon>CadastrarClientePJ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsApp\ClienteModule\GerenciamentoClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowsApp\ClienteModule\GerenciamentoClientes.Designer.cs">
+      <DependentUpon>GerenciamentoClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsApp\ClienteModule\VisualizarCliente.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="WindowsApp\FuncionarioModule\CadastroFuncionario.cs">
       <SubType>Form</SubType>
@@ -124,12 +139,6 @@
     </Compile>
     <Compile Include="WindowsApp\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WindowsApp\ClienteModule\GerenciamentoCliente.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WindowsApp\ClienteModule\GerenciamentoCliente.Designer.cs">
-      <DependentUpon>GerenciamentoCliente.cs</DependentUpon>
-    </Compile>
     <Compile Include="WindowsApp\VeiculoModule\GerenciamentoVeiculo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WindowsApp\AluguelModule\RealizarAluguel.resx">
       <DependentUpon>RealizarAluguel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowsApp\ClienteModule\GerenciamentoClientes.resx">
+      <DependentUpon>GerenciamentoClientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WindowsApp\ServicoModule\CadastrarServico.resx">
       <DependentUpon>CadastrarServico.cs</DependentUpon>
@@ -170,9 +182,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="WindowsApp\ClienteModule\GerenciamentoCliente.resx">
-      <DependentUpon>GerenciamentoCliente.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -9,7 +9,7 @@ namespace Controladores.PessoaModule
     public class ControladorClientePJ : ControladorEntidade<ClientePJ>
     {
         #region Queries
-        private const string sqlInserirClientePF =
+        private const string sqlInserirClientePJ =
     @"INSERT INTO [TBCLIENTEPJ]
                 (
                     [NOME],       
@@ -25,7 +25,7 @@ namespace Controladores.PessoaModule
                     @DOCUMENTO,
                 )";
 
-        private const string sqlEditarClientePF =
+        private const string sqlEditarClientePJ =
             @" UPDATE [TBCLIENTEPJ]
                 SET 
                     [NOME] = @MODELO,       
@@ -34,23 +34,23 @@ namespace Controladores.PessoaModule
                     [DOCUMENTO] = @ANO,
                 WHERE [ID] = @ID";
 
-        private const string sqlExcluirClientePF =
+        private const string sqlExcluirClientePJ =
             @"DELETE FROM [TBCLIENTEPJ] 
                 WHERE [ID] = @ID";
 
-        private const string sqlSelecionarClientePFPorId =
+        private const string sqlSelecionarClientePJPorId =
             @"SELECT *
              FROM
                 [TBCLIENTEPJ]
              WHERE 
                 [ID] = @ID";
 
-        private const string sqlSelecionarTodosClientePF =
+        private const string sqlSelecionarTodosClientePJ =
             @"SELECT *
              FROM
                 [TBCLIENTEPJ]";
 
-        private const string sqlExisteClientePF =
+        private const string sqlExisteClientePJ =
             @"SELECT 
                 COUNT(*) 
             FROM 
@@ -59,12 +59,12 @@ namespace Controladores.PessoaModule
                 [ID] = @ID";
 
         #endregion
-        public override string sqlSelecionarPorId => sqlSelecionarClientePFPorId;
-        public override string sqlSelecionarTodos => sqlSelecionarTodosClientePF;
-        public override string sqlInserir => sqlInserirClientePF;
-        public override string sqlEditar => sqlEditarClientePF;
-        public override string sqlExcluir => sqlExcluirClientePF;
-        public override string sqlExists => sqlExisteClientePF;
+        public override string sqlSelecionarPorId => sqlSelecionarClientePJPorId;
+        public override string sqlSelecionarTodos => sqlSelecionarTodosClientePJ;
+        public override string sqlInserir => sqlInserirClientePJ;
+        public override string sqlEditar => sqlEditarClientePJ;
+        public override string sqlExcluir => sqlExcluirClientePJ;
+        public override string sqlExists => sqlExisteClientePJ;
 
         protected override ClientePJ ConverterEmEntidade(IDataReader reader)
         {

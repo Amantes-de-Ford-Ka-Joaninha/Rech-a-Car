@@ -58,6 +58,10 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shared\TestExtensions.cs" />
+    <Compile Include="Tests\ClientePF_Module\DominioClientePF_Test.cs" />
+    <Compile Include="Tests\ClientePF_Module\ControladorClientePF_Test.cs" />
+    <Compile Include="Tests\ClientePJ_Module\ControladorClientePJ_Test.cs" />
+    <Compile Include="Tests\ClientePJ_Module\DominioClientePJ_Test.cs" />
     <Compile Include="Tests\VeiculoModule\ControladorVeiculoTest.cs" />
     <Compile Include="Tests\VeiculoModule\DominioVeiculoTest.cs" />
     <Compile Include="Tests\VeiculoModule\DominioDadosVeiculoTest.cs" />
@@ -76,7 +80,10 @@
       <Name>Dominio</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Tests\FuncionarioModule\" />
+    <Folder Include="Tests\MotoristaModule\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\ford_ka_gay.jpg" />
   </ItemGroup>
