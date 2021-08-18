@@ -29,6 +29,7 @@ namespace WindowsApp
         private void EsconderSubMenu()
         {
             panelSubMenuAluguel.Visible = false;
+            panelSubMenuClientes.Visible = false;
         }
         private void MostrarSubMenu(Panel subMenu)
         {
@@ -78,7 +79,7 @@ namespace WindowsApp
         }
         private void bt_clientes_Click(object sender, EventArgs e)
         {
-            FormAtivo = new GerenciamentoCliente();
+            MostrarSubMenu(panelSubMenuClientes);
         }
         private void bt_sair_Click(object sender, EventArgs e)
         {
@@ -86,5 +87,15 @@ namespace WindowsApp
         }
 
         #endregion
+
+        private void btPessoaFisica_Click(object sender, EventArgs e)
+        {
+            TelaPrincipal.Instancia.FormAtivo = new CadastrarClientePF();
+        }
+
+        private void btPessoaJuridica_Click(object sender, EventArgs e)
+        {
+            TelaPrincipal.Instancia.FormAtivo = new CadastrarClientePJ();
+        }
     }
 }
