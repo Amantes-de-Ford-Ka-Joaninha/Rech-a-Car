@@ -4,7 +4,7 @@ using WindowsApp.Shared;
 
 namespace WindowsApp.ClienteModule
 {
-    internal class VisualizarCliente : VisualizarEntidade<ICliente>
+    public class VisualizarCliente : VisualizarEntidade<ICliente>
     {
     }
 }

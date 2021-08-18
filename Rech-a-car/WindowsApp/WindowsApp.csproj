@@ -64,11 +64,11 @@
     <Compile Include="WindowsApp\AluguelModule\RealizarAluguel.Designer.cs">
       <DependentUpon>RealizarAluguel.cs</DependentUpon>
     </Compile>
-    <Compile Include="WindowsApp\ClienteModule\CadastrarCliente.cs">
+    <Compile Include="WindowsApp\ClienteModule\CadastroCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WindowsApp\ClienteModule\CadastrarCliente.Designer.cs">
-      <DependentUpon>CadastrarCliente.cs</DependentUpon>
+    <Compile Include="WindowsApp\ClienteModule\CadastroCliente.Designer.cs">
+      <DependentUpon>CadastroCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="WindowsApp\ClienteModule\CadastrarClientePF.cs">
       <SubType>Form</SubType>

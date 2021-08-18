@@ -10,7 +10,7 @@ namespace WindowsApp
 {
     public partial class CadastrarVeiculo : CadastroEntidade<Veiculo>
     {
-        public override ControladorEntidade<Veiculo> Controlador { get => new ControladorVeiculo(); }
+        public override Controlador<Veiculo> Controlador { get => new ControladorVeiculo(); }
         private Bitmap imagem;
 
         public CadastrarVeiculo()

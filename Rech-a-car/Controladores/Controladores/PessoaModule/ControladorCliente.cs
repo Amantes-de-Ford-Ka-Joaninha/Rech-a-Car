@@ -16,7 +16,7 @@ namespace Controladores.PessoaModule
             if (cliente is ClientePF)
                 ControladorPF.Editar(cliente.Id, (ClientePF)cliente);
             else if (cliente is ClientePJ)
-                ControladorPJ.Editar(cliente.Id, (ClientePJ)cliente);
+                ControladorPJ.Editar(cliente.Id, null);
             else
                 throw new ArgumentException();
         }
@@ -36,7 +36,7 @@ namespace Controladores.PessoaModule
             if (Convert.ToString(reader["DOCUMENTO"]).Length is 11)
                 return ControladorPF.ConverterEmEntidade(reader);
             else if (Convert.ToString(reader["DOCUMENTO"]).Length is 14)
-                return ControladorPJ.ConverterEmEntidade(reader);
+                return null;
             else
                 throw new ArgumentException();
         }

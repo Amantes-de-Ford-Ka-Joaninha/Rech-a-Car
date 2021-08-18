@@ -9,6 +9,8 @@ namespace Controladores.Shared
         public List<T> Registros => ObterRegistros();
         public abstract void Inserir(T entidade);
         public abstract void Editar(int id,T entidade);
+        public abstract void Excluir(int id);
+
         public abstract T ConverterEmEntidade(IDataReader reader);
         protected abstract Dictionary<string, object> ObterParametrosRegistro(T registro);
         public static Dictionary<string, object> AdicionarParametro(string campo, object valor)
@@ -17,6 +19,5 @@ namespace Controladores.Shared
         }
         abstract public T GetById(int id);
         abstract public List<T> ObterRegistros();
-        abstract public void Excluir(int id);
     }
 }

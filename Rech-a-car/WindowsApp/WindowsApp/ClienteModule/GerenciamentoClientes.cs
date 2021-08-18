@@ -1,13 +1,5 @@
-﻿using Dominio.PessoaModule;
-using Dominio.PessoaModule.ClienteModule;
-using System;
+﻿using Dominio.PessoaModule.ClienteModule;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsApp.Shared;
 
@@ -19,7 +11,7 @@ namespace WindowsApp.ClienteModule
         {
         }
 
-        protected override CadastroEntidade<ICliente> Cadastro => null;
+        protected override CadastroEntidade<ICliente> Cadastro => new CadastroCliente();
         protected override VisualizarEntidade<ICliente> Visualizar => new VisualizarCliente();
         
         public override DataGridViewColumn[] ConfigurarColunas()

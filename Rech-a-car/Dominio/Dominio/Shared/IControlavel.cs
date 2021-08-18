@@ -5,6 +5,5 @@
         int Id { get; set; }
 
         string Validar();
-
     }
 }
