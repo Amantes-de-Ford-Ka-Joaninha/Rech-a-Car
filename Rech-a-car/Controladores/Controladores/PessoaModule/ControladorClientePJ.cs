@@ -1,12 +1,14 @@
-﻿using System;
+﻿using Controladores.Shared;
+using Dominio.PessoaModule.ClienteModule;
+using System;
 using System.Collections.Generic;
 using System.Data;
-using Dominio.PessoaModule.ClienteModule;
 
 namespace Controladores.PessoaModule
 {
     public class ControladorClientePJ : ControladorEntidade<ClientePJ>
     {
+        #region Queries
         private const string sqlInserirClientePF =
     @"INSERT INTO [TBCLIENTEPJ]
                 (
@@ -55,6 +57,8 @@ namespace Controladores.PessoaModule
                 [TBCLIENTEPJ]
             WHERE 
                 [ID] = @ID";
+
+        #endregion
         public override string sqlSelecionarPorId => sqlSelecionarClientePFPorId;
         public override string sqlSelecionarTodos => sqlSelecionarTodosClientePF;
         public override string sqlInserir => sqlInserirClientePF;
@@ -71,12 +75,12 @@ namespace Controladores.PessoaModule
             var endereco = Convert.ToString(reader["ENDERECO"]);
             var condutores = new ControladorMotorista().SelecionarCondutoresPJ(id);
 
-            return new ClientePJ(nome,telefone,documento,endereco,condutores)
+            return new ClientePJ(nome, telefone, documento, endereco, condutores)
             {
                 Id = id
             };
         }
-        protected override Dictionary<string, object> ObtemParametrosRegistro(ClientePJ registro)
+        protected override Dictionary<string, object> ObterParametrosRegistro(ClientePJ registro)
         {
             var parametros = new Dictionary<string, object>
             {

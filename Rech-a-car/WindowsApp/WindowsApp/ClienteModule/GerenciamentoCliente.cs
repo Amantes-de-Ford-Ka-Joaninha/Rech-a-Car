@@ -1,19 +1,32 @@
-﻿using System;
+﻿using Dominio.PessoaModule.ClienteModule;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using Dominio.PessoaModule.ClienteModule;
 
 namespace WindowsApp.ClienteModule
 {
-    public class GerenciamentoCliente : Form
+    public partial class GerenciamentoCliente : Form
     {
-        public DataGridViewColumn[] ConfigurarColunas()
+        public GerenciamentoCliente()
         {
-            throw new NotImplementedException();
+            InitializeComponent();
+        }
+        public object[] ObterLinha(ICliente cliente) { return new object[0]; }
+
+        private void btClientePF_Click(object sender, EventArgs e)
+        {
+            TelaPrincipal.Instancia.FormAtivo = new CadastrarClientePF();
         }
 
-        public object[] ObterLinha(ICliente item)
+        private void btClientePJ_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            TelaPrincipal.Instancia.FormAtivo = new CadastrarClientePJ();
         }
     }
 }

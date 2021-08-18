@@ -1,7 +1,6 @@
-﻿using Dominio.PessoaModule;
+﻿using Dominio.PessoaModule.ClienteModule;
 using System;
 using System.Collections.Generic;
-using Dominio.PessoaModule.ClienteModule;
 
 namespace Controladores.PessoaModule
 {

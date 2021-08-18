@@ -1,4 +1,5 @@
-﻿using Dominio.ServicoModule;
+﻿using Controladores.Shared;
+using Dominio.ServicoModule;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -24,7 +25,7 @@ namespace Controladores
             throw new NotImplementedException();
         }
 
-        protected override Dictionary<string, object> ObtemParametrosRegistro(Servico registro)
+        protected override Dictionary<string, object> ObterParametrosRegistro(Servico registro)
         {
             throw new NotImplementedException();
         }

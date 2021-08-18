@@ -23,7 +23,7 @@ namespace Dominio.VeiculoModule
         }
         public string Modelo { get; set; }
         public string Marca { get; set; }
-        public string Categoria { get; set;}
+        public string Categoria { get; set; }
         public string Placa { get; set; }
         public string Chassi { get; set; }
         public int Capacidade { get; set; }
@@ -32,7 +32,7 @@ namespace Dominio.VeiculoModule
         public int Ano { get; set; }
         public Image Foto { get; set; }
         public bool Automatico { get; set; }
-        public DadosVeiculo DadosVeiculo { get; set;}
+        public DadosVeiculo DadosVeiculo { get; set; }
 
         public string PortaMalaToString()
         {
@@ -87,7 +87,7 @@ namespace Dominio.VeiculoModule
 
             validacaoDados = DadosVeiculo.Validar();
 
-            if (validacaoDados != Valido) 
+            if (validacaoDados != Valido)
                 validacao += validacaoDados;
 
             if (validacao == String.Empty)

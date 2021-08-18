@@ -1,9 +1,9 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using FluentAssertions;
+﻿using Controladores;
 using Controladores.VeiculoModule;
 using Dominio.VeiculoModule;
+using FluentAssertions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Drawing;
-using Controladores;
 using Tests.Shared;
 
 namespace Tests.VeiculoModule

@@ -1,10 +1,9 @@
 ﻿using Dominio;
 using System.Collections.Generic;
-using System.Data;
 
-namespace Controladores
+namespace Controladores.Shared
 {
-    abstract public class ControladorEntidade<T> where T : Entidade
+    abstract public class ControladorEntidade<T> : Controlador<T> where T : Entidade
     {
         public List<T> Registros => ObterRegistros();
         public abstract string sqlSelecionarPorId { get; }
@@ -21,14 +20,14 @@ namespace Controladores
         {
             return Db.GetAll(sqlSelecionarTodos, ConverterEmEntidade);
         }
-        public virtual void Inserir(T registro)
+        public override void Inserir(T registro)
         {
-            registro.Id = Db.Insert(sqlInserir, ObtemParametrosRegistro(registro));
+            registro.Id = Db.Insert(sqlInserir, ObterParametrosRegistro(registro));
         }
-        public virtual void Editar(int id, T registro)
+        public override void Editar(int id, T registro)
         {
             registro.Id = id;
-            Db.Update(sqlEditar, ObtemParametrosRegistro(registro));
+            Db.Update(sqlEditar, ObterParametrosRegistro(registro));
         }
         public void Excluir(int id)
         {
@@ -37,12 +36,6 @@ namespace Controladores
         public bool Exists(int id)
         {
             return Db.Exists(sqlExists, AdicionarParametro("ID", id));
-        }
-        protected abstract T ConverterEmEntidade(IDataReader reader);
-        protected abstract Dictionary<string, object> ObtemParametrosRegistro(T registro);
-        public static Dictionary<string, object> AdicionarParametro(string campo, object valor)
-        {
-            return new Dictionary<string, object>() { { campo, valor } };
         }
     }
 }

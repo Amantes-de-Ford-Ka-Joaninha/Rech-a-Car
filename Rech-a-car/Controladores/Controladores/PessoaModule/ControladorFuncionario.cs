@@ -1,4 +1,5 @@
-﻿using Dominio.PessoaModule;
+﻿using Controladores.Shared;
+using Dominio.PessoaModule;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -24,7 +25,7 @@ namespace Controladores.PessoaModule
             throw new NotImplementedException();
         }
 
-        protected override Dictionary<string, object> ObtemParametrosRegistro(Funcionario registro)
+        protected override Dictionary<string, object> ObterParametrosRegistro(Funcionario registro)
         {
             throw new NotImplementedException();
         }

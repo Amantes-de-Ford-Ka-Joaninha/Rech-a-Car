@@ -1,7 +1,8 @@
-﻿using System;
+﻿using Controladores.Shared;
+using Dominio.PessoaModule.ClienteModule;
+using System;
 using System.Collections.Generic;
 using System.Data;
-using Dominio.PessoaModule.ClienteModule;
 
 namespace Controladores.PessoaModule
 {
@@ -23,7 +24,7 @@ namespace Controladores.PessoaModule
         {
             throw new NotImplementedException();
         }
-        protected override Dictionary<string, object> ObtemParametrosRegistro(ClientePF registro)
+        protected override Dictionary<string, object> ObterParametrosRegistro(ClientePF registro)
         {
             throw new NotImplementedException();
         }
