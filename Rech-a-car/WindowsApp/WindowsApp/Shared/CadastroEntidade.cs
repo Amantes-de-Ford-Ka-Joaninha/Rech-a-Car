@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace WindowsApp.Shared
 {
-    public abstract class CadastroEntidade<T> : Form where T : Entidade
+    public abstract class CadastroEntidade<T> : Form where T : Entidade 
     {
         public T entidade;
         public abstract ControladorEntidade<T> Controlador { get; }
