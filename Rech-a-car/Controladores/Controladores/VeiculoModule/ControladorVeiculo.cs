@@ -101,7 +101,7 @@ namespace Controladores.VeiculoModule
             base.Editar(id, veiculo);
             new ControladorDadosVeiculo().Editar(id, veiculo.DadosVeiculo);
         }
-        protected override Veiculo ConverterEmEntidade(IDataReader reader)
+        public override Veiculo ConverterEmEntidade(IDataReader reader)
         {
             var id = Convert.ToInt32(reader["ID"]);
             var modelo = Convert.ToString(reader["MODELO"]);

@@ -10,8 +10,6 @@ namespace Controladores.PessoaModule
     {
         private ControladorClientePF ControladorPF = new ControladorClientePF();
         private ControladorClientePJ ControladorPJ = new ControladorClientePJ();
-
-        public List<ICliente> Registros { get => GetClientes(); }
         
         public override void Editar(int id, ICliente cliente)
         {
@@ -33,12 +31,12 @@ namespace Controladores.PessoaModule
                 throw new ArgumentException();
         }
 
-        protected override ICliente ConverterEmEntidade(IDataReader reader)
+        public override ICliente ConverterEmEntidade(IDataReader reader)
         {
             if (Convert.ToString(reader["DOCUMENTO"]).Length is 11)
-                ControladorPF.ConverterEmEntidade((ClientePF)reader);
+                return ControladorPF.ConverterEmEntidade(reader);
             else if (Convert.ToString(reader["DOCUMENTO"]).Length is 14)
-                ControladorPJ.ConverterEmEntidade((ClientePJ)reader);
+                return ControladorPJ.ConverterEmEntidade(reader);
             else
                 throw new ArgumentException();
         }
@@ -48,12 +46,22 @@ namespace Controladores.PessoaModule
             throw new NotImplementedException();
         }
 
-        private List<ICliente> GetClientes()
+        public override ICliente GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override List<ICliente> ObterRegistros()
         {
             List<ICliente> Clientes = new List<ICliente>();
             Clientes.AddRange(ControladorPF.Registros);
             Clientes.AddRange(ControladorPJ.Registros);
             return Clientes;
+        }
+
+        public override void Excluir(int id)
+        {
+            throw new ArgumentException();
         }
     }
 }

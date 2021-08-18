@@ -65,7 +65,7 @@ namespace Controladores.VeiculoModule
 
             return parametros;
         }
-        protected override DadosVeiculo ConverterEmEntidade(IDataReader reader)
+        public override DadosVeiculo ConverterEmEntidade(IDataReader reader)
         {
             var id = Convert.ToInt32(reader["ID"]);
             var quilometragem = Convert.ToInt32(reader["QUILOMETRAGEM"]);
@@ -78,6 +78,21 @@ namespace Controladores.VeiculoModule
             };
 
             return dadosVeiculo;
+        }
+
+        public override DadosVeiculo GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override List<DadosVeiculo> ObterRegistros()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Excluir(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

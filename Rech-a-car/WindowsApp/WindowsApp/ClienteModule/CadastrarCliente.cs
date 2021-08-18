@@ -21,7 +21,7 @@ namespace WindowsApp.WindowsApp.ClienteModule
             InitializeComponent();
         }
 
-        public override ControladorEntidade<ICliente> Controlador => new ControladorCliente();
+        public override Controlador<ICliente> Controlador => new ControladorCliente();
 
         public override CadastroEntidade<ICliente> Editar(ICliente entidade)
         {

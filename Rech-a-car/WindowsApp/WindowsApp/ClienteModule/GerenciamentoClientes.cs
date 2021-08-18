@@ -13,14 +13,14 @@ using WindowsApp.Shared;
 
 namespace WindowsApp.ClienteModule
 {
-    public partial class GerenciamentoClientes : GerenciamentoEntidade<Pessoa>
+    public partial class GerenciamentoClientes : GerenciamentoEntidade<ICliente>
     {
         public GerenciamentoClientes() : base("Gerenciamento de Serviços")
         {
         }
 
-        protected override CadastroEntidade<Pessoa> Cadastro => null;
-        protected override VisualizarEntidade<Pessoa> Visualizar => new VisualizarCliente();
+        protected override CadastroEntidade<ICliente> Cadastro => null;
+        protected override VisualizarEntidade<ICliente> Visualizar => new VisualizarCliente();
         
         public override DataGridViewColumn[] ConfigurarColunas()
         {
@@ -33,7 +33,7 @@ namespace WindowsApp.ClienteModule
             };
         }
 
-        public override object[] ObterCamposLinha(Pessoa cliente)
+        public override object[] ObterCamposLinha(ICliente cliente)
         {
             List<object> linha = new List<object>()
             {

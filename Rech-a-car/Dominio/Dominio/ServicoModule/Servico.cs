@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dominio.Shared;
+using System;
 
 namespace Dominio.ServicoModule
 {

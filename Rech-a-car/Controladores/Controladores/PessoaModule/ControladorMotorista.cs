@@ -16,7 +16,7 @@ namespace Controladores.PessoaModule
         {
             throw new NotImplementedException();
         }
-        protected override MotoristaEmpresa ConverterEmEntidade(IDataReader reader)
+        public override MotoristaEmpresa ConverterEmEntidade(IDataReader reader)
         {
             throw new NotImplementedException();
         }
@@ -27,6 +27,21 @@ namespace Controladores.PessoaModule
         }
 
         public List<MotoristaEmpresa> SelecionarCondutoresPJ(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override MotoristaEmpresa GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override List<MotoristaEmpresa> ObterRegistros()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Excluir(int id)
         {
             throw new NotImplementedException();
         }

@@ -6,18 +6,17 @@ namespace Controladores.Shared
 {
     abstract public class ControladorEntidade<T> : Controlador<T> where T : Entidade
     {
-        public List<T> Registros => ObterRegistros();
         public abstract string sqlSelecionarPorId { get; }
         public abstract string sqlSelecionarTodos { get; }
         public abstract string sqlInserir { get; }
         public abstract string sqlEditar { get; }
         public abstract string sqlExcluir { get; }
         public abstract string sqlExists { get; }
-        public T GetById(int id)
+        public override T GetById(int id)
         {
             return Db.Get(sqlSelecionarPorId, ConverterEmEntidade, AdicionarParametro("ID", id));
         }
-        public List<T> ObterRegistros()
+        public override List<T> ObterRegistros()
         {
             return Db.GetAll(sqlSelecionarTodos, ConverterEmEntidade);
         }
@@ -30,7 +29,7 @@ namespace Controladores.Shared
             registro.Id = id;
             Db.Update(sqlEditar, ObterParametrosRegistro(registro));
         }
-        public void Excluir(int id)
+        public override void Excluir(int id)
         {
             Db.Delete(sqlExcluir, AdicionarParametro("ID", id));
         }

@@ -1,11 +1,12 @@
 ﻿using Dominio;
+using Dominio.Shared;
 using System;
 using System.Linq;
 using System.Windows.Forms;
 
 namespace WindowsApp.Shared
 {
-    public abstract partial class GerenciamentoEntidade<T> : Form where T : Entidade
+    public abstract partial class GerenciamentoEntidade<T> : Form where T : IControlavel
     {
         protected abstract CadastroEntidade<T> Cadastro { get; }
         protected abstract VisualizarEntidade<T> Visualizar { get; }

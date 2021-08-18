@@ -20,7 +20,7 @@ namespace Controladores
 
         public override string sqlSelecionarPorId => throw new NotImplementedException();
 
-        protected override Aluguel ConverterEmEntidade(IDataReader reader)
+        public override Aluguel ConverterEmEntidade(IDataReader reader)
         {
             throw new NotImplementedException();
         }

@@ -6,6 +6,7 @@ namespace Controladores.Shared
 {
     public abstract class Controlador<T> where T : IControlavel
     {
+        public List<T> Registros => ObterRegistros();
         public abstract void Inserir(T entidade);
         public abstract void Editar(int id,T entidade);
         public abstract T ConverterEmEntidade(IDataReader reader);
@@ -14,5 +15,8 @@ namespace Controladores.Shared
         {
             return new Dictionary<string, object>() { { campo, valor } };
         }
+        abstract public T GetById(int id);
+        abstract public List<T> ObterRegistros();
+        abstract public void Excluir(int id);
     }
 }

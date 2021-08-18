@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using Dominio.Shared;
+using System.Text.RegularExpressions;
 
 namespace Dominio.PessoaModule
 {

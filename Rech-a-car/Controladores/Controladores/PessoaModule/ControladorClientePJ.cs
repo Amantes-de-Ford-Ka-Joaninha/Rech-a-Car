@@ -66,7 +66,7 @@ namespace Controladores.PessoaModule
         public override string sqlExcluir => sqlExcluirClientePJ;
         public override string sqlExists => sqlExisteClientePJ;
 
-        protected override ClientePJ ConverterEmEntidade(IDataReader reader)
+        public override ClientePJ ConverterEmEntidade(IDataReader reader)
         {
             var id = Convert.ToInt32(reader["ID"]);
             var nome = Convert.ToString(reader["NOME"]);
