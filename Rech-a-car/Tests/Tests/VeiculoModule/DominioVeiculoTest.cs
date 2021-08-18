@@ -38,13 +38,13 @@ namespace Tests.VeiculoModule
         public void Deve_retornar_carro_valido()
         {
             Veiculo veiculo1 = new Veiculo("MODELO", "MARCA", 2001, "AAA1111", 4, 4, "ASDFGHJKLQWERTYUI", 0, imagem, false, "CATEGORIA", dadosVeiculo);
-            veiculo1.Validar().Should().Be("VALIDO");
+            veiculo1.Validar().Should().Be(veiculo1.Valido);
         }
 
         [TestMethod]
         public void Deve_retornar_carro_invalido()
         {
-            Veiculo veiculo1 = new Veiculo(null, null, DateTime.Now.Year + 2, "PLACA", 0, 0, "CHASSI", -1, null, true, null, dadosVeiculo);
+            Veiculo veiculo1 = new Veiculo(string.Empty, string.Empty, DateTime.Now.Year + 2, "PLACA", 0, 0, "CHASSI", -1, null, true, string.Empty, dadosVeiculo);
             veiculo1.Validar().Should().Be("Modelo do veículo é obrigatório\nMarca do veículo é obrigatória\nCategoria do veículo é obrigatória\nPlaca do veículo inválida\nChassi do veículo inválido\nDeve ter pelo menos duas Portas\nVolume do Porta-malas inválido\nAno do carro inválido\n");
         }
     }
