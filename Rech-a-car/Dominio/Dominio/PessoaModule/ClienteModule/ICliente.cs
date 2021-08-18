@@ -1,8 +1,9 @@
-﻿namespace Dominio.PessoaModule.ClienteModule
+﻿using Dominio.Shared;
+
+namespace Dominio.PessoaModule.ClienteModule
 {
-    public interface ICliente
+    public interface ICliente : IControlavel
     {
-        int Id { get; set; }
         string Nome { get; set; }
         string Telefone { get; set; }
         string Endereco { get; set; }
