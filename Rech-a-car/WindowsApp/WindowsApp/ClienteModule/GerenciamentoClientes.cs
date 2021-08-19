@@ -13,7 +13,7 @@ namespace WindowsApp.ClienteModule
 
         protected override CadastroEntidade<ICliente> Cadastro => new CadastroCliente();
         protected override VisualizarEntidade<ICliente> Visualizar => new VisualizarCliente();
-        
+
         public override DataGridViewColumn[] ConfigurarColunas()
         {
             return new DataGridViewColumn[]

@@ -1,5 +1,4 @@
-﻿using Dominio;
-using Dominio.Shared;
+﻿using Dominio.Shared;
 using System.Windows.Forms;
 
 namespace WindowsApp.Shared

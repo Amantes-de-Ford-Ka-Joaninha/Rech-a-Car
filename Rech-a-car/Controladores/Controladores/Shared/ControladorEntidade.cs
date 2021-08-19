@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Dominio.Shared;
+using System;
 using System.Collections.Generic;
 using System.Data;
-using Dominio.Shared;
 
 namespace Controladores.Shared
 {

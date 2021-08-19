@@ -91,12 +91,12 @@ namespace WindowsApp
 
         private void btPessoaFisica_Click(object sender, EventArgs e)
         {
-            TelaPrincipal.Instancia.FormAtivo = new CadastrarClientePF();
+            FormAtivo = new CadastrarClientePF();
         }
 
         private void btPessoaJuridica_Click(object sender, EventArgs e)
         {
-            TelaPrincipal.Instancia.FormAtivo = new CadastrarClientePJ();
+            FormAtivo = new CadastrarClientePJ();
         }
     }
 }

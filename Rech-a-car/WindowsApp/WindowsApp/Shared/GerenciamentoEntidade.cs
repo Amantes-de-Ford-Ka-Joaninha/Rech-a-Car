@@ -1,5 +1,4 @@
-﻿using Dominio;
-using Dominio.Shared;
+﻿using Dominio.Shared;
 using System;
 using System.Linq;
 using System.Windows.Forms;
