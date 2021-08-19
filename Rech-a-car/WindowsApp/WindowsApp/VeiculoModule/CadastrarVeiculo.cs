@@ -5,6 +5,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using WindowsApp.Shared;
+using WindowsApp.VeiculoModule;
 
 namespace WindowsApp
 {
@@ -77,7 +78,7 @@ namespace WindowsApp
         private void bt_adicionar_Click(object sender, EventArgs e)
         {
             Salva();
-            Close();
+            TelaPrincipal.Instancia.FormAtivo = new GerenciamentoVeiculo();
         }
         private void bt_foto_Click(object sender, EventArgs e)
         {
