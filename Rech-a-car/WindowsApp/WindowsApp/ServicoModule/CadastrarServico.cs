@@ -22,6 +22,7 @@ namespace WindowsApp.ServicoModule
 
             return this;
         }
+
         public override Servico GetNovaEntidade()
         {
             var nome = tbNome.Text;

@@ -23,6 +23,7 @@ namespace WindowsApp.ClienteModule
         {
             throw new NotImplementedException();
         }
+
         public override ClientePF GetNovaEntidade()
         {
             var nome = tbNome.Text;
