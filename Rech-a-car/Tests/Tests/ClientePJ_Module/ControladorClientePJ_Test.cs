@@ -76,7 +76,7 @@ namespace Tests.Tests.ClientePJ_Module
         [TestMethod]
         public void Deve_retornar_todos_os_clientesPJ()
         {
-            controladorClientePJ.ObterRegistros().Count.Should().Be(1);
+            controladorClientePJ.Registros.Count.Should().Be(1);
         }
 
         [TestCleanup]

@@ -1,9 +1,11 @@
 ﻿CREATE TABLE [dbo].[TBClientePJ] (
-    [ID]        INT          NOT NULL,
+    [ID]        INT          IDENTITY (1, 1) NOT NULL,
     [NOME]      VARCHAR (50) NOT NULL,
     [TELEFONE]  VARCHAR (50) NOT NULL,
     [ENDERECO]  VARCHAR (50) NOT NULL,
     [DOCUMENTO] VARCHAR (50) NOT NULL,
     CONSTRAINT [PK_TBClientePJ] PRIMARY KEY CLUSTERED ([ID] ASC)
 );
+
+
 
