@@ -35,8 +35,9 @@ namespace Dominio.PessoaModule
     {
         A = 1,
         B = 2,
-        C = 3,
-        D = 4,
-        E = 5
+        AB = 3,
+        C = 4,
+        D = 5,
+        E = 6
     }
 }
