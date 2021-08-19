@@ -15,7 +15,6 @@ namespace Tests.Tests.ClientePF_Module
         ControladorClientePF controladorClientePF = new ControladorClientePF();
         ClientePF cliente;
 
-
         [TestInitialize]
         public void Inserir_clientePF()
         {
@@ -94,7 +93,7 @@ namespace Tests.Tests.ClientePF_Module
         [TestCleanup]
         public void LimparTestes()
         {
-            Db.Delete(TestExtensions.ResetId("TBVeiculo"));
+            Db.Delete(TestExtensions.ResetId("TBClientePF"));
         }
     }
 }
