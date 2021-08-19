@@ -1,9 +1,12 @@
-﻿using System;
+﻿using Dominio.PessoaModule.ClienteModule;
+using Dominio.Shared;
+using System;
 using System.Windows.Forms;
 using WindowsApp.AluguelModule;
 using WindowsApp.ClienteModule;
 using WindowsApp.FuncionarioModule;
 using WindowsApp.ServicoModule;
+using WindowsApp.Shared;
 using WindowsApp.VeiculoModule;
 
 namespace WindowsApp
@@ -31,7 +34,10 @@ namespace WindowsApp
         }
         private void AbrirFormPanel(Form panelForm)
         {
-            EsconderSubMenu();
+            if (formAtivo is GerenciamentoEntidade<ICliente>)
+                EsconderSubMenu();
+
+            //if (formAtivo is CadastroEntidade<IControlavel>)
             formAtivo?.Close();
 
             formAtivo = panelForm;
@@ -74,15 +80,8 @@ namespace WindowsApp
         private void bt_clientes_Click(object sender, EventArgs e)
         {
             MostrarSubMenu(panelSubMenuClientes);
-            //FormAtivo = new GerenciamentoClientes(); REATIVAR APÓS FINALIZADO O CONTROLADOR
+            FormAtivo = new GerenciamentoClientes();
         }
-        private void bt_sair_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        #endregion
-
         private void btPessoaFisica_Click(object sender, EventArgs e)
         {
             FormAtivo = new CadastrarClientePF();
@@ -92,5 +91,11 @@ namespace WindowsApp
         {
             FormAtivo = new CadastrarClientePJ();
         }
+        private void bt_sair_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        #endregion
     }
 }
