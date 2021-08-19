@@ -4,7 +4,6 @@ using Controladores.VeiculoModule;
 using Dominio.AluguelModule;
 using Dominio.PessoaModule;
 using Dominio.PessoaModule.ClienteModule;
-using Dominio.ServicoModule;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -17,29 +16,26 @@ namespace Controladores
         private const string sqlInserirAluguel =
     @"INSERT INTO [TBALUGUEL]
                 (
-                    [NOME],       
-                    [TELEFONE],             
-                    [ENDERECO],
-                    [DOCUMENTO],
-                    [DATA_NASCIMENTO]
+                    [ID_CLIENTE],       
+                    [ID_CONDUTOR],             
+                    [ID_VEICULO],
+                    [TIPO_ALUGUEL],
                 )
             VALUES
                 (
-                    @NOME,       
-                    @TELEFONE,             
-                    @ENDERECO,
-                    @DOCUMENTO,
-                    @DATA_NASCIMENTO
+                    @ID_CLIENTE,       
+                    @ID_CONDUTOR,             
+                    @ID_VEICULO,
+                    @TIPO_ALUGUEL,
                 )";
 
         private const string sqlEditarAluguel =
             @" UPDATE [TBALUGUEL]
                 SET 
-                    [NOME] = @NOME,       
-                    [TELEFONE] = @TELEFONE,             
-                    [ENDERECO] = @ENDERECO,
-                    [DOCUMENTO] = @DOCUMENTO,
-                    [DATA_NASCIMENTO] = @DATA_NASCIMENTO,
+                    [ID_CLIENTE] = @ID_CLIENTE,       
+                    [ID_CONDUTOR] = @ID_CONDUTOR,             
+                    [ID_VEICULO] = @ID_VEICULO,
+                    [TIPO_ALUGUEL] = @TIPO_ALUGUEL,
                 WHERE [ID] = @ID";
 
         private const string sqlExcluirAluguel =
