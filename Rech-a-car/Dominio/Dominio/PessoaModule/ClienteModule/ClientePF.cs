@@ -18,5 +18,18 @@ namespace Dominio.PessoaModule.ClienteModule
         {
             return (DataNascimento - DateTime.Now).Days / 365;
         }
+
+        public override string Validar()
+        {
+            string validacao = base.Validar();
+
+            if (GetIdade() < 18)
+                validacao = "Idade mínima para dirigir é de 18 anos.\n";
+
+            if (validacao == string.Empty)
+                return Valido;
+
+            return validacao;
+        }
     }
 }

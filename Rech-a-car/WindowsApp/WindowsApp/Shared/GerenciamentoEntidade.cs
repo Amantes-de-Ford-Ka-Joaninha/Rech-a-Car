@@ -82,7 +82,8 @@ namespace WindowsApp.Shared
         {
             TelaPrincipal.Instancia.FormAtivo = Visualizar;
         }
-        private void dgvEntidade_RowEnter(object sender, DataGridViewCellEventArgs e)
+
+        private void dgvEntidade_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             AlternarBotoes(true);
         }

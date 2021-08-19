@@ -2,7 +2,7 @@
 {
     public abstract class PessoaFisica : Pessoa
     {
-        public override string ValidaDocumento(string documento)
+        protected override string ValidaDocumento()
         {
             string validador = string.Empty;
             if (Documento.Length != 11)

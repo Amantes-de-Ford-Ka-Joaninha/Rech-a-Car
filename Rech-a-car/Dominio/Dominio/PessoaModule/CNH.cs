@@ -6,9 +6,9 @@ namespace Dominio.PessoaModule
 {
     public class CNH : Entidade
     {
-        public string numeroCnh { get; set; }
+        public string NumeroCnh { get; set; }
 
-        public TipoCNH tipoCnh { get; set; }
+        public TipoCNH TipoCnh { get; set; }
 
         Regex ValidarCNH = new Regex(@"\b(?=.*\d)[A-Za-z0-9]{1,11}\b");
 
@@ -16,7 +16,7 @@ namespace Dominio.PessoaModule
         {
             string validacao = String.Empty;
 
-            if (!ValidarCNH.IsMatch(numeroCnh))
+            if (!ValidarCNH.IsMatch(NumeroCnh))
                 validacao = "CNH Inválida.\n";
 
             if (validacao == String.Empty)

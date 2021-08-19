@@ -8,25 +8,88 @@ namespace Controladores.PessoaModule
 {
     public class ControladorFuncionario : ControladorEntidade<Funcionario>
     {
-        public override string sqlSelecionarPorId => throw new NotImplementedException();
+        #region Queries
+        private const string sqlInserirFuncionario =
+    @"INSERT INTO [TBFUNCIONARIO]
+                (
+                    [NOME],       
+                    [TELEFONE],             
+                    [ENDERECO],
+                    [DOCUMENTO],
+                )
+            VALUES
+                (
+                    @NOME,       
+                    @TELEFONE,             
+                    @ENDERECO,
+                    @DOCUMENTO,
+                )";
 
-        public override string sqlSelecionarTodos => throw new NotImplementedException();
+        private const string sqlEditarFuncionario =
+            @" UPDATE [TBFUNCIONARIO]
+                SET 
+                    [NOME] = @NOME,       
+                    [TELEFONE] = @TELEFONE,             
+                    [ENDERECO] = @ENDERECO,
+                    [DOCUMENTO] = @DOCUMENTO,
+                WHERE [ID] = @ID";
 
-        public override string sqlInserir => throw new NotImplementedException();
+        private const string sqlExcluirFuncionario =
+            @"DELETE FROM [TBFUNCIONARIO] 
+                WHERE [ID] = @ID";
 
-        public override string sqlEditar => throw new NotImplementedException();
+        private const string sqlSelecionarFuncionario =
+            @"SELECT *
+             FROM
+                [TBFUNCIONARIO]
+             WHERE 
+                [ID] = @ID";
 
-        public override string sqlExcluir => throw new NotImplementedException();
+        private const string sqlSelecionarTodosFuncionarios =
+            @"SELECT *
+             FROM
+                [TBFUNCIONARIO]";
 
-        public override string sqlExists => throw new NotImplementedException();
+        private const string sqlExisteFuncionario =
+            @"SELECT 
+                COUNT(*) 
+            FROM 
+                [TBFUNCIONARIO]
+            WHERE 
+                [ID] = @ID";
 
+        #endregion
+        public override string sqlSelecionarPorId => sqlSelecionarFuncionario;
+        public override string sqlSelecionarTodos => sqlSelecionarTodosFuncionarios;
+        public override string sqlInserir => sqlInserirFuncionario;
+        public override string sqlEditar => sqlEditarFuncionario;
+        public override string sqlExcluir => sqlExcluirFuncionario;
+        public override string sqlExists => sqlExisteFuncionario;
         public override Funcionario ConverterEmEntidade(IDataReader reader)
         {
-            throw new NotImplementedException();
+            var id = Convert.ToInt32(reader["ID"]);
+            var nome = Convert.ToString(reader["NOME"]);
+            var telefone = Convert.ToString(reader["TELEFONE"]);
+            var documento = Convert.ToString(reader["DOCUMENTO"]);
+            var endereco = Convert.ToString(reader["ENDERECO"]);
+
+            return new Funcionario(nome, telefone, documento, endereco)
+            {
+                Id = id
+            };
         }
-        protected override Dictionary<string, object> ObterParametrosRegistro(Funcionario registro)
+        protected override Dictionary<string, object> ObterParametrosRegistro(Funcionario funcionario)
         {
-            throw new NotImplementedException();
+            var parametros = new Dictionary<string, object>
+            {
+                { "ID", funcionario.Id },
+                { "MODELO", funcionario.Nome },
+                { "MARCA", funcionario.Endereco },
+                { "ANO", funcionario.Telefone },
+                { "ENDERECO", funcionario.Endereco },
+            };
+
+            return parametros;
         }
     }
 }

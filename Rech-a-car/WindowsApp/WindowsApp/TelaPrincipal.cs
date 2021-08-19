@@ -16,13 +16,7 @@ namespace WindowsApp
         {
             Instancia = this;
             InitializeComponent();
-            //InicializarPanels();              IDEIA A SER DISCUTIDA
             EsconderSubMenu();
-        }
-
-        private void InicializarPanels()
-        {
-            throw new NotImplementedException();
         }
 
         public Form FormAtivo { set { AbrirFormPanel(value); } }

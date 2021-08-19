@@ -22,13 +22,13 @@ namespace Dominio.PessoaModule
             if (Endereco == string.Empty)
                 validador += "Insira um endereço.\n";
 
-            validador += ValidaDocumento(Documento);
+            validador += ValidaDocumento();
 
             if (validador == string.Empty)
                 return Valido;
 
             return validador;
         }
-        public abstract string ValidaDocumento(string documento);
+        protected abstract string ValidaDocumento();
     }
 }

@@ -82,7 +82,8 @@ namespace WindowsApp.Shared
             this.dgvEntidade.EnableHeadersVisualStyles = false;
             this.dgvEntidade.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(33)))), ((int)(((byte)(34)))));
             this.dgvEntidade.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.dgvEntidade.Location = new System.Drawing.Point(26, 153);
+            this.dgvEntidade.Location = new System.Drawing.Point(35, 188);
+            this.dgvEntidade.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvEntidade.MultiSelect = false;
             this.dgvEntidade.Name = "dgvEntidade";
             this.dgvEntidade.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -103,17 +104,18 @@ namespace WindowsApp.Shared
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(58)))), ((int)(((byte)(54)))));
             this.dgvEntidade.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvEntidade.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEntidade.Size = new System.Drawing.Size(616, 354);
+            this.dgvEntidade.Size = new System.Drawing.Size(821, 436);
             this.dgvEntidade.TabIndex = 9;
-            this.dgvEntidade.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEntidade_RowEnter);
+            this.dgvEntidade.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEntidade_CellClick);
             // 
             // tbFiltro
             // 
             this.tbFiltro.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbFiltro.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbFiltro.Location = new System.Drawing.Point(26, 87);
+            this.tbFiltro.Location = new System.Drawing.Point(35, 107);
+            this.tbFiltro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbFiltro.Name = "tbFiltro";
-            this.tbFiltro.Size = new System.Drawing.Size(364, 33);
+            this.tbFiltro.Size = new System.Drawing.Size(484, 39);
             this.tbFiltro.TabIndex = 6;
             // 
             // lbTitulo
@@ -122,10 +124,10 @@ namespace WindowsApp.Shared
             this.lbTitulo.AutoSize = true;
             this.lbTitulo.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTitulo.ForeColor = System.Drawing.Color.White;
-            this.lbTitulo.Location = new System.Drawing.Point(203, 15);
-            this.lbTitulo.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lbTitulo.Location = new System.Drawing.Point(271, 18);
+            this.lbTitulo.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(249, 25);
+            this.lbTitulo.Size = new System.Drawing.Size(318, 32);
             this.lbTitulo.TabIndex = 10;
             this.lbTitulo.Text = "Gerenciamento de Entidade";
             // 
@@ -136,9 +138,10 @@ namespace WindowsApp.Shared
             this.bt_adicionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_adicionar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(33)))), ((int)(((byte)(34)))));
             this.bt_adicionar.Image = global::WindowsApp.Properties.Resources.adicionar;
-            this.bt_adicionar.Location = new System.Drawing.Point(582, 71);
+            this.bt_adicionar.Location = new System.Drawing.Point(776, 87);
+            this.bt_adicionar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bt_adicionar.Name = "bt_adicionar";
-            this.bt_adicionar.Size = new System.Drawing.Size(60, 60);
+            this.bt_adicionar.Size = new System.Drawing.Size(80, 74);
             this.bt_adicionar.TabIndex = 12;
             this.bt_adicionar.UseVisualStyleBackColor = true;
             this.bt_adicionar.Click += new System.EventHandler(this.btAdicionar_Click);
@@ -151,9 +154,10 @@ namespace WindowsApp.Shared
             this.bt_editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_editar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(33)))), ((int)(((byte)(34)))));
             this.bt_editar.Image = global::WindowsApp.Properties.Resources.editar1;
-            this.bt_editar.Location = new System.Drawing.Point(516, 71);
+            this.bt_editar.Location = new System.Drawing.Point(688, 87);
+            this.bt_editar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bt_editar.Name = "bt_editar";
-            this.bt_editar.Size = new System.Drawing.Size(60, 60);
+            this.bt_editar.Size = new System.Drawing.Size(80, 74);
             this.bt_editar.TabIndex = 11;
             this.bt_editar.UseVisualStyleBackColor = true;
             this.bt_editar.Click += new System.EventHandler(this.bt_editar_Click);
@@ -166,9 +170,10 @@ namespace WindowsApp.Shared
             this.bt_remover.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_remover.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(33)))), ((int)(((byte)(34)))));
             this.bt_remover.Image = global::WindowsApp.Properties.Resources.remover;
-            this.bt_remover.Location = new System.Drawing.Point(450, 71);
+            this.bt_remover.Location = new System.Drawing.Point(600, 87);
+            this.bt_remover.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bt_remover.Name = "bt_remover";
-            this.bt_remover.Size = new System.Drawing.Size(60, 60);
+            this.bt_remover.Size = new System.Drawing.Size(80, 74);
             this.bt_remover.TabIndex = 8;
             this.bt_remover.UseVisualStyleBackColor = true;
             this.bt_remover.Click += new System.EventHandler(this.bt_remover_Click);
@@ -177,9 +182,10 @@ namespace WindowsApp.Shared
             // 
             this.picLupa.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.picLupa.Image = global::WindowsApp.Properties.Resources.pesquisa;
-            this.picLupa.Location = new System.Drawing.Point(396, 87);
+            this.picLupa.Location = new System.Drawing.Point(528, 107);
+            this.picLupa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.picLupa.Name = "picLupa";
-            this.picLupa.Size = new System.Drawing.Size(33, 33);
+            this.picLupa.Size = new System.Drawing.Size(44, 41);
             this.picLupa.TabIndex = 7;
             this.picLupa.TabStop = false;
             // 
@@ -187,16 +193,17 @@ namespace WindowsApp.Shared
             // 
             this.panelFormFilho.Controls.Add(this.lbTitulo);
             this.panelFormFilho.Location = new System.Drawing.Point(0, 0);
+            this.panelFormFilho.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelFormFilho.Name = "panelFormFilho";
-            this.panelFormFilho.Size = new System.Drawing.Size(684, 561);
+            this.panelFormFilho.Size = new System.Drawing.Size(912, 690);
             this.panelFormFilho.TabIndex = 13;
             // 
             // GerenciamentoEntidade
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(33)))), ((int)(((byte)(34)))));
-            this.ClientSize = new System.Drawing.Size(668, 522);
+            this.ClientSize = new System.Drawing.Size(891, 642);
             this.Controls.Add(this.bt_adicionar);
             this.Controls.Add(this.bt_editar);
             this.Controls.Add(this.dgvEntidade);
@@ -204,6 +211,7 @@ namespace WindowsApp.Shared
             this.Controls.Add(this.picLupa);
             this.Controls.Add(this.tbFiltro);
             this.Controls.Add(this.panelFormFilho);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "GerenciamentoEntidade";
             this.Text = "FormGerenciamento";
             ((System.ComponentModel.ISupportInitialize)(this.dgvEntidade)).EndInit();
