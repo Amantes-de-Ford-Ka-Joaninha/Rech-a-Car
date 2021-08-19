@@ -7,6 +7,8 @@
             string validador = string.Empty;
             if (Documento.Length != 14)
                 validador += "O cliente necessita de um CNPJ válido.\n";
+            if (validador == string.Empty)
+                return Valido;
 
             return validador;
         }
