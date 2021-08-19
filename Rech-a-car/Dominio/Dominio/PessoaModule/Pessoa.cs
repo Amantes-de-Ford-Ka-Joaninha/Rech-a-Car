@@ -24,9 +24,6 @@ namespace Dominio.PessoaModule
 
             validador += ValidaDocumento();
 
-            if (validador == string.Empty)
-                return Valido;
-
             return validador;
         }
         protected abstract string ValidaDocumento();

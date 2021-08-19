@@ -16,7 +16,7 @@ namespace Dominio.PessoaModule.ClienteModule
         }
         public int GetIdade()
         {
-            return (DataNascimento - DateTime.Now).Days / 365;
+            return (DateTime.Now-DataNascimento).Days / 365;
         }
 
         public override string Validar()
@@ -26,7 +26,7 @@ namespace Dominio.PessoaModule.ClienteModule
             if (GetIdade() < 18)
                 validacao = "Idade mínima para dirigir é de 18 anos.\n";
 
-            if (validacao == string.Empty)
+            if (validacao == String.Empty)
                 return Valido;
 
             return validacao;

@@ -16,7 +16,8 @@ namespace Controladores.PessoaModule
                     [TELEFONE],             
                     [ENDERECO],
                     [DOCUMENTO],
-                    [DATA_NASCIMENTO]
+                    [DATA_NASCIMENTO],
+                    [ID_CNH]
                 )
             VALUES
                 (
@@ -24,7 +25,8 @@ namespace Controladores.PessoaModule
                     @TELEFONE,             
                     @ENDERECO,
                     @DOCUMENTO,
-                    @DATA_NASCIMENTO
+                    @DATA_NASCIMENTO,
+                    @ID_CNH
                 )";
 
         private const string sqlEditarClientePF =
@@ -34,7 +36,7 @@ namespace Controladores.PessoaModule
                     [TELEFONE] = @TELEFONE,             
                     [ENDERECO] = @ENDERECO,
                     [DOCUMENTO] = @DOCUMENTO,
-                    [DATA_NASCIMENTO] = @DATA_NASCIMENTO,
+                    [DATA_NASCIMENTO] = @DATA_NASCIMENTO
                 WHERE [ID] = @ID";
 
         private const string sqlExcluirClientePF =
@@ -68,6 +70,11 @@ namespace Controladores.PessoaModule
         public override string sqlEditar => sqlEditarClientePF;
         public override string sqlExcluir => sqlExcluirClientePF;
         public override string sqlExists => sqlExisteClientePF;
+        public override void Inserir(ClientePF cliente)
+        {
+            new ControladorCNH().Inserir(cliente.Cnh);
+            base.Inserir(cliente);
+        }
         public override ClientePF ConverterEmEntidade(IDataReader reader)
         {
             var id = Convert.ToInt32(reader["ID"]);
@@ -90,11 +97,12 @@ namespace Controladores.PessoaModule
             var parametros = new Dictionary<string, object>
             {
                 { "ID", cliente.Id },
-                { "MODELO", cliente.Nome },
-                { "MARCA", cliente.Endereco },
-                { "ANO", cliente.Telefone },
+                { "NOME", cliente.Nome },
                 { "ENDERECO", cliente.Endereco },
+                { "TELEFONE", cliente.Telefone },
+                { "DOCUMENTO", cliente.Documento },
                 { "DATA_NASCIMENTO", cliente.DataNascimento },
+                { "ID_CNH", cliente.Cnh.Id },
             };
 
             return parametros;
