@@ -10,7 +10,7 @@ namespace Dominio.PessoaModule
 
         public TipoCNH TipoCnh { get; set; }
 
-        Regex ValidarCNH = new Regex(@"\b(?=.*\d)[A-Za-z0-9]{1,11}\b");
+        Regex ValidarCNH = new Regex(@"\b(?=.*\d)[0-9]{11}\b");
 
         public CNH(string numeroCnh, TipoCNH tipoCnh)
         {
