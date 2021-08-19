@@ -30,19 +30,19 @@ namespace WindowsApp.ClienteModule
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.tbNome = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.tbTelefone = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.tbEndereco = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.tbCPF = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.tbNascimento = new System.Windows.Forms.Label();
-            this.tbCNH = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.lbNome = new System.Windows.Forms.Label();
+            this.tbNome = new System.Windows.Forms.TextBox();
+            this.lbTelefone = new System.Windows.Forms.Label();
+            this.tbTelefone = new System.Windows.Forms.TextBox();
+            this.lbEndereco = new System.Windows.Forms.Label();
+            this.tbEndereco = new System.Windows.Forms.TextBox();
+            this.lbCPF = new System.Windows.Forms.Label();
+            this.tbCPF = new System.Windows.Forms.TextBox();
+            this.lbNascimento = new System.Windows.Forms.Label();
+            this.lbCNH = new System.Windows.Forms.Label();
+            this.tbCNH = new System.Windows.Forms.TextBox();
+            this.mtbNascimento = new System.Windows.Forms.MaskedTextBox();
+            this.btAdicionar = new System.Windows.Forms.Button();
             this.cbTipoCNH = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
@@ -57,133 +57,134 @@ namespace WindowsApp.ClienteModule
             this.label1.TabIndex = 0;
             this.label1.Text = "Cadastro de Cliente (PF)";
             // 
+            // lbNome
+            // 
+            this.lbNome.AutoSize = true;
+            this.lbNome.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNome.ForeColor = System.Drawing.Color.White;
+            this.lbNome.Location = new System.Drawing.Point(48, 180);
+            this.lbNome.Name = "lbNome";
+            this.lbNome.Size = new System.Drawing.Size(53, 21);
+            this.lbNome.TabIndex = 1;
+            this.lbNome.Text = "Nome";
+            // 
             // tbNome
             // 
-            this.tbNome.AutoSize = true;
             this.tbNome.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbNome.ForeColor = System.Drawing.Color.White;
-            this.tbNome.Location = new System.Drawing.Point(48, 180);
+            this.tbNome.Location = new System.Drawing.Point(107, 177);
             this.tbNome.Name = "tbNome";
-            this.tbNome.Size = new System.Drawing.Size(53, 21);
+            this.tbNome.Size = new System.Drawing.Size(204, 29);
             this.tbNome.TabIndex = 1;
-            this.tbNome.Text = "Nome";
             // 
-            // textBox1
+            // lbTelefone
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(107, 177);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(204, 29);
-            this.textBox1.TabIndex = 1;
+            this.lbTelefone.AutoSize = true;
+            this.lbTelefone.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTelefone.ForeColor = System.Drawing.Color.White;
+            this.lbTelefone.Location = new System.Drawing.Point(34, 226);
+            this.lbTelefone.Name = "lbTelefone";
+            this.lbTelefone.Size = new System.Drawing.Size(67, 21);
+            this.lbTelefone.TabIndex = 1;
+            this.lbTelefone.Text = "Telefone";
             // 
             // tbTelefone
             // 
-            this.tbTelefone.AutoSize = true;
             this.tbTelefone.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTelefone.ForeColor = System.Drawing.Color.White;
-            this.tbTelefone.Location = new System.Drawing.Point(34, 226);
+            this.tbTelefone.Location = new System.Drawing.Point(107, 223);
             this.tbTelefone.Name = "tbTelefone";
-            this.tbTelefone.Size = new System.Drawing.Size(67, 21);
-            this.tbTelefone.TabIndex = 1;
-            this.tbTelefone.Text = "Telefone";
+            this.tbTelefone.Size = new System.Drawing.Size(204, 29);
+            this.tbTelefone.TabIndex = 2;
             // 
-            // textBox2
+            // lbEndereco
             // 
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(107, 223);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(204, 29);
-            this.textBox2.TabIndex = 2;
+            this.lbEndereco.AutoSize = true;
+            this.lbEndereco.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbEndereco.ForeColor = System.Drawing.Color.White;
+            this.lbEndereco.Location = new System.Drawing.Point(27, 272);
+            this.lbEndereco.Name = "lbEndereco";
+            this.lbEndereco.Size = new System.Drawing.Size(74, 21);
+            this.lbEndereco.TabIndex = 1;
+            this.lbEndereco.Text = "Endereço";
             // 
             // tbEndereco
             // 
-            this.tbEndereco.AutoSize = true;
             this.tbEndereco.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbEndereco.ForeColor = System.Drawing.Color.White;
-            this.tbEndereco.Location = new System.Drawing.Point(27, 272);
+            this.tbEndereco.Location = new System.Drawing.Point(107, 269);
             this.tbEndereco.Name = "tbEndereco";
-            this.tbEndereco.Size = new System.Drawing.Size(74, 21);
-            this.tbEndereco.TabIndex = 1;
-            this.tbEndereco.Text = "Endereço";
+            this.tbEndereco.Size = new System.Drawing.Size(204, 29);
+            this.tbEndereco.TabIndex = 3;
             // 
-            // textBox3
+            // lbCPF
             // 
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(107, 269);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(204, 29);
-            this.textBox3.TabIndex = 3;
+            this.lbCPF.AutoSize = true;
+            this.lbCPF.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCPF.ForeColor = System.Drawing.Color.White;
+            this.lbCPF.Location = new System.Drawing.Point(383, 180);
+            this.lbCPF.Name = "lbCPF";
+            this.lbCPF.Size = new System.Drawing.Size(37, 21);
+            this.lbCPF.TabIndex = 1;
+            this.lbCPF.Text = "CPF";
             // 
             // tbCPF
             // 
-            this.tbCPF.AutoSize = true;
             this.tbCPF.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbCPF.ForeColor = System.Drawing.Color.White;
-            this.tbCPF.Location = new System.Drawing.Point(383, 180);
+            this.tbCPF.Location = new System.Drawing.Point(426, 177);
             this.tbCPF.Name = "tbCPF";
-            this.tbCPF.Size = new System.Drawing.Size(37, 21);
-            this.tbCPF.TabIndex = 1;
-            this.tbCPF.Text = "CPF";
+            this.tbCPF.Size = new System.Drawing.Size(211, 29);
+            this.tbCPF.TabIndex = 4;
             // 
-            // textBox4
+            // lbNascimento
             // 
-            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(426, 177);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(211, 29);
-            this.textBox4.TabIndex = 4;
+            this.lbNascimento.AutoSize = true;
+            this.lbNascimento.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNascimento.ForeColor = System.Drawing.Color.White;
+            this.lbNascimento.Location = new System.Drawing.Point(327, 272);
+            this.lbNascimento.Name = "lbNascimento";
+            this.lbNascimento.Size = new System.Drawing.Size(93, 21);
+            this.lbNascimento.TabIndex = 1;
+            this.lbNascimento.Text = "Nascimento";
             // 
-            // tbNascimento
+            // lbCNH
             // 
-            this.tbNascimento.AutoSize = true;
-            this.tbNascimento.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbNascimento.ForeColor = System.Drawing.Color.White;
-            this.tbNascimento.Location = new System.Drawing.Point(327, 272);
-            this.tbNascimento.Name = "tbNascimento";
-            this.tbNascimento.Size = new System.Drawing.Size(93, 21);
-            this.tbNascimento.TabIndex = 1;
-            this.tbNascimento.Text = "Nascimento";
+            this.lbCNH.AutoSize = true;
+            this.lbCNH.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCNH.ForeColor = System.Drawing.Color.White;
+            this.lbCNH.Location = new System.Drawing.Point(377, 226);
+            this.lbCNH.Name = "lbCNH";
+            this.lbCNH.Size = new System.Drawing.Size(43, 21);
+            this.lbCNH.TabIndex = 1;
+            this.lbCNH.Text = "CNH";
             // 
             // tbCNH
             // 
-            this.tbCNH.AutoSize = true;
             this.tbCNH.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbCNH.ForeColor = System.Drawing.Color.White;
-            this.tbCNH.Location = new System.Drawing.Point(377, 226);
+            this.tbCNH.Location = new System.Drawing.Point(426, 223);
             this.tbCNH.Name = "tbCNH";
-            this.tbCNH.Size = new System.Drawing.Size(43, 21);
-            this.tbCNH.TabIndex = 1;
-            this.tbCNH.Text = "CNH";
+            this.tbCNH.Size = new System.Drawing.Size(151, 29);
+            this.tbCNH.TabIndex = 5;
             // 
-            // textBox6
+            // mtbNascimento
             // 
-            this.textBox6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(426, 223);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(151, 29);
-            this.textBox6.TabIndex = 5;
+            this.mtbNascimento.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mtbNascimento.Location = new System.Drawing.Point(426, 269);
+            this.mtbNascimento.Mask = "00 / 00 / 0000";
+            this.mtbNascimento.Name = "mtbNascimento";
+            this.mtbNascimento.Size = new System.Drawing.Size(211, 29);
+            this.mtbNascimento.TabIndex = 7;
+            this.mtbNascimento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.mtbNascimento.ValidatingType = typeof(System.DateTime);
             // 
-            // maskedTextBox1
+            // btAdicionar
             // 
-            this.maskedTextBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox1.Location = new System.Drawing.Point(426, 269);
-            this.maskedTextBox1.Mask = "00 / 00 / 0000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(211, 29);
-            this.maskedTextBox1.TabIndex = 7;
-            this.maskedTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
-            // 
-            // button1
-            // 
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = global::WindowsApp.Properties.Resources.adicionar;
-            this.button1.Location = new System.Drawing.Point(581, 440);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 70);
-            this.button1.TabIndex = 4;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btAdicionar.FlatAppearance.BorderSize = 0;
+            this.btAdicionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btAdicionar.Image = global::WindowsApp.Properties.Resources.adicionar;
+            this.btAdicionar.Location = new System.Drawing.Point(581, 440);
+            this.btAdicionar.Name = "btAdicionar";
+            this.btAdicionar.Size = new System.Drawing.Size(75, 70);
+            this.btAdicionar.TabIndex = 4;
+            this.btAdicionar.UseVisualStyleBackColor = true;
+            this.btAdicionar.Click += new System.EventHandler(this.btAdicionar_Click);
             // 
             // cbTipoCNH
             // 
@@ -208,19 +209,19 @@ namespace WindowsApp.ClienteModule
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(33)))), ((int)(((byte)(34)))));
             this.ClientSize = new System.Drawing.Size(668, 522);
             this.Controls.Add(this.cbTipoCNH);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.maskedTextBox1);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.btAdicionar);
+            this.Controls.Add(this.mtbNascimento);
             this.Controls.Add(this.tbCPF);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.lbCPF);
             this.Controls.Add(this.tbCNH);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.tbNascimento);
             this.Controls.Add(this.tbTelefone);
+            this.Controls.Add(this.lbCNH);
             this.Controls.Add(this.tbEndereco);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.lbNascimento);
+            this.Controls.Add(this.lbTelefone);
+            this.Controls.Add(this.lbEndereco);
             this.Controls.Add(this.tbNome);
+            this.Controls.Add(this.lbNome);
             this.Controls.Add(this.label1);
             this.Name = "CadastrarClientePF";
             this.Text = "CadastrarClientePF";
@@ -232,19 +233,19 @@ namespace WindowsApp.ClienteModule
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label tbNome;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label tbTelefone;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label tbEndereco;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label tbCPF;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label tbNascimento;
-        private System.Windows.Forms.Label tbCNH;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lbNome;
+        private System.Windows.Forms.TextBox tbNome;
+        private System.Windows.Forms.Label lbTelefone;
+        private System.Windows.Forms.TextBox tbTelefone;
+        private System.Windows.Forms.Label lbEndereco;
+        private System.Windows.Forms.TextBox tbEndereco;
+        private System.Windows.Forms.Label lbCPF;
+        private System.Windows.Forms.TextBox tbCPF;
+        private System.Windows.Forms.Label lbNascimento;
+        private System.Windows.Forms.Label lbCNH;
+        private System.Windows.Forms.TextBox tbCNH;
+        private System.Windows.Forms.MaskedTextBox mtbNascimento;
+        private System.Windows.Forms.Button btAdicionar;
         private System.Windows.Forms.ComboBox cbTipoCNH;
     }
 }

@@ -31,7 +31,7 @@ namespace WindowsApp.ClienteModule
             var endereco = tbEndereco.Text;
             var documento = tbCPF.Text;
             var cnh = GetCNH();
-            DateTime dataNascimento = DateTime.ParseExact(tbNascimento.Text, "dd/MM/yyyy", CultureInfo.CreateSpecificCulture("pt-BR"));
+            DateTime dataNascimento = DateTime.ParseExact(mtbNascimento.Text, "dd / MM / yyyy", CultureInfo.CreateSpecificCulture("pt-BR"));
             return new ClientePF(nome, telefone, endereco, documento, cnh, dataNascimento);
         }
 
@@ -43,10 +43,10 @@ namespace WindowsApp.ClienteModule
             return new CNH(numero, (TipoCNH)tipo);
         }
 
-        private void bt_adicionar_Click(object sender, EventArgs e)
+        private void btAdicionar_Click(object sender, EventArgs e)
         {
             Salva();
-            TelaPrincipal.Instancia.FormAtivo = new GerenciamentoVeiculo();
+            TelaPrincipal.Instancia.FormAtivo = new GerenciamentoClientes();
         }
     }
 }
