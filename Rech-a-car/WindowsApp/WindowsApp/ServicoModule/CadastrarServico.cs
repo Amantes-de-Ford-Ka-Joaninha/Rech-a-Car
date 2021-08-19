@@ -34,7 +34,7 @@ namespace WindowsApp.ServicoModule
         private void btAdicionar_Click(object sender, EventArgs e)
         {
             Salva();
-            Close();
+            TelaPrincipal.Instancia.FormAtivo = new GerenciamentoServico();
         }
     }
 }
