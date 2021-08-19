@@ -2,26 +2,18 @@
 using Controladores.Shared;
 using Dominio.PessoaModule.ClienteModule;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using WindowsApp.Shared;
 
-namespace WindowsApp.WindowsApp.ClienteModule
+namespace WindowsApp.ClienteModule
 {
-    public partial class CadastrarCliente : CadastroEntidade<ICliente>
+    public partial class CadastroCliente : CadastroEntidade<ICliente>
     {
-        public CadastrarCliente()
+        public CadastroCliente()
         {
             InitializeComponent();
         }
 
-        public override ControladorEntidade<ICliente> Controlador => new ControladorCliente();
+        public override Controlador<ICliente> Controlador => new ControladorCliente();
 
         public override CadastroEntidade<ICliente> Editar(ICliente entidade)
         {

@@ -20,12 +20,12 @@ namespace Controladores
 
         public override string sqlExists => throw new NotImplementedException();
 
-        protected override Servico ConverterEmEntidade(IDataReader reader)
+        public override Servico ConverterEmEntidade(IDataReader reader)
         {
             throw new NotImplementedException();
         }
 
-        protected override Dictionary<string, object> ObterParametrosRegistro(Servico registro)
+        protected override Dictionary<string, object> ObterParametrosRegistro(Servico entidade)
         {
             throw new NotImplementedException();
         }

@@ -15,12 +15,11 @@ namespace Tests.Tests.ClientePF_Module
         ControladorClientePF controladorClientePF = new ControladorClientePF();
         ClientePF cliente;
 
-
         [TestInitialize]
         public void Inserir_clientePF()
         {
-            CNH cnh = new CNH(36510896881, 1);
-            cliente = new ClientePF("nome", "999999999", "endereco", "99999999999", cnh);
+            CNH cnh = new CNH("36510896881", TipoCNH.A);
+            cliente = new ClientePF("nome", "999999999", "endereco", "99999999999", cnh, new DateTime(2001,04,27));
             controladorClientePF.Inserir(cliente);
         }
         [TestMethod]
@@ -78,7 +77,7 @@ namespace Tests.Tests.ClientePF_Module
         {
             CNH cnhAnterior = cliente.Cnh;
 
-            cliente.Cnh = new CNH(89002604438, 2);
+            cliente.Cnh = new CNH("36510896881", TipoCNH.C);
 
             controladorClientePF.Editar(cliente.Id, cliente);
 
@@ -88,13 +87,13 @@ namespace Tests.Tests.ClientePF_Module
         [TestMethod]
         public void Deve_retornar_todos_os_clientesPF()
         {
-            controladorClientePF.ObterRegistros().Count.Should().Be(1);
+            controladorClientePF.Registros.Count.Should().Be(1);
         }
 
         [TestCleanup]
         public void LimparTestes()
         {
-            Db.Delete(TestExtensions.ResetId("TBVeiculo"));
+            Db.Delete(TestExtensions.ResetId("TBClientePF"));
         }
     }
 }

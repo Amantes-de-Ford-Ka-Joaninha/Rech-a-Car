@@ -62,7 +62,7 @@ namespace Tests.VeiculoModule
         [TestMethod]
         public void Deve_retornar_todos_os_veiculos()
         {
-            controladorVeiculo.ObterRegistros().Count.Should().Be(1);
+            controladorVeiculo.Registros.Count.Should().Be(1);
         }
 
         [TestCleanup]

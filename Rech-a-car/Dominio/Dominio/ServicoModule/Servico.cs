@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dominio.Shared;
+using System;
 
 namespace Dominio.ServicoModule
 {
@@ -15,7 +16,17 @@ namespace Dominio.ServicoModule
 
         public override string Validar()
         {
-            throw new NotImplementedException();
+            string validacao = string.Empty;
+
+            if (Nome == string.Empty)
+                validacao = "Insira um Nome.\n";
+            if (Taxa <= 0)
+                validacao += "Taxa deve ser maior que 0.\n";
+
+            if (validacao == string.Empty)
+                return Valido;
+
+            return validacao;
         }
     }
 }

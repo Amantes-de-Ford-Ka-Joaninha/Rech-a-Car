@@ -101,7 +101,7 @@ namespace Controladores.VeiculoModule
             base.Editar(id, veiculo);
             new ControladorDadosVeiculo().Editar(id, veiculo.DadosVeiculo);
         }
-        protected override Veiculo ConverterEmEntidade(IDataReader reader)
+        public override Veiculo ConverterEmEntidade(IDataReader reader)
         {
             var id = Convert.ToInt32(reader["ID"]);
             var modelo = Convert.ToString(reader["MODELO"]);
@@ -116,7 +116,7 @@ namespace Controladores.VeiculoModule
             var automatico = Convert.ToBoolean(reader["AUTOMATICO"]);
 
             var foto = RecuperarImagem((byte[])reader["FOTO"]);
-            var dadosVeiculo = new ControladorDadosVeiculo().SelecionarPorIdVeiculo(id);
+            var dadosVeiculo = new ControladorDadosVeiculo().GetByIdVeiculo(id);
 
             Veiculo veiculo = new Veiculo(modelo, marca, ano, placa, capacidade, portas, chassi, porta_malas, foto, automatico, categoria, dadosVeiculo)
             {
@@ -159,6 +159,84 @@ namespace Controladores.VeiculoModule
             using (var ms = new MemoryStream(imageBytes))
             {
                 return Image.FromStream(ms);
+            }
+        }
+
+        private class ControladorDadosVeiculo
+        {
+            #region Queries
+            private const string sqlSelecionarDadosVeiculoPorIdVeiculo =
+                @"SELECT *
+             FROM
+                [TBDADOSVEICULO]
+             WHERE 
+                [ID] = @ID";
+
+            private const string sqlInserirDadosVeiculo =
+                @"INSERT INTO [TBDADOSVEICULO]
+                (
+                    [ID],
+                    [QUILOMETRAGEM],
+                    [PRECO_KM],
+                    [DIARIA]
+                )
+            VALUES
+                (
+                    @ID,
+                    @QUILOMETRAGEM,
+                    @PRECO_KM,
+                    @DIARIA
+                )";
+
+            private const string sqlEditarDadosVeiculo =
+                    @" UPDATE [TBDADOSVEICULO]
+                SET     
+                    [QUILOMETRAGEM] = @QUILOMETRAGEM,             
+                    [PRECO_KM] = @PRECO_KM,
+                    [DIARIA] = @DIARIA
+                    WHERE [ID] = @ID";
+
+
+            #endregion
+
+            public DadosVeiculo GetByIdVeiculo(int id_veiculo)
+            {
+                return Db.Get(sqlSelecionarDadosVeiculoPorIdVeiculo, ConverterEmEntidade, AdicionarParametro("ID", id_veiculo));
+            }
+            public void Inserir(DadosVeiculo dadosVeiculo)
+            {
+                Db.Update(sqlInserirDadosVeiculo, ObterParametrosRegistro(dadosVeiculo));
+            }
+            public void Editar(int id, DadosVeiculo dadosVeiculo)
+            {
+                dadosVeiculo.Id = id;
+                Db.Update(sqlEditarDadosVeiculo, ObterParametrosRegistro(dadosVeiculo));
+            }
+            public Dictionary<string, object> ObterParametrosRegistro(DadosVeiculo dadosVeiculo)
+            {
+                var parametros = new Dictionary<string, object>
+                {
+                { "ID", dadosVeiculo.Id },
+                { "QUILOMETRAGEM", dadosVeiculo.Quilometragem },
+                { "PRECO_KM", dadosVeiculo.PrecoKm },
+                { "DIARIA", dadosVeiculo.Diaria },
+                };
+
+                return parametros;
+            }
+            public DadosVeiculo ConverterEmEntidade(IDataReader reader)
+            {
+                var id = Convert.ToInt32(reader["ID"]);
+                var quilometragem = Convert.ToInt32(reader["QUILOMETRAGEM"]);
+                var precokm = Convert.ToDouble(reader["PRECO_KM"]);
+                var diaria = Convert.ToDouble(reader["DIARIA"]);
+
+                DadosVeiculo dadosVeiculo = new DadosVeiculo(quilometragem, diaria, precokm);
+                {
+                    dadosVeiculo.Id = id;
+                };
+
+                return dadosVeiculo;
             }
         }
     }

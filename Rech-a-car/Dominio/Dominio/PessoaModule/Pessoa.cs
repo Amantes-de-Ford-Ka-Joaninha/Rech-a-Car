@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using Dominio.Shared;
+using System.Text.RegularExpressions;
 
 namespace Dominio.PessoaModule
 {
@@ -21,13 +22,10 @@ namespace Dominio.PessoaModule
             if (Endereco == string.Empty)
                 validador += "Insira um endereço.\n";
 
-            validador += ValidaDocumento(Documento);
-
-            if (validador == string.Empty)
-                return Valido;
+            validador += ValidaDocumento();
 
             return validador;
         }
-        public abstract string ValidaDocumento(string documento);
+        protected abstract string ValidaDocumento();
     }
 }

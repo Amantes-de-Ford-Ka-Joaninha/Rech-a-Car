@@ -6,3 +6,5 @@
     [Telefone]  VARCHAR (15)  NOT NULL
 );
 
+
+

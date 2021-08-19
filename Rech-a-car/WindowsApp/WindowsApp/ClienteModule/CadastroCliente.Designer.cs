@@ -1,7 +1,7 @@
 ﻿
-namespace WindowsApp.WindowsApp.ClienteModule
+namespace WindowsApp.ClienteModule
 {
-    partial class CadastrarCliente
+    partial class CadastroCliente
     {
         /// <summary>
         /// Required designer variable.

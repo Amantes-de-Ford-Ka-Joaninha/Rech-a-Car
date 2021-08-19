@@ -10,7 +10,7 @@
     [CATEGORIA]   VARCHAR (50)    NOT NULL,
     [AUTOMATICO]  BIT             NOT NULL,
     [FOTO]        VARBINARY (MAX) NOT NULL,
-    [ID]       INT          IDENTITY (1, 1) NOT NULL,
+    [ID]          INT             IDENTITY (1, 1) NOT NULL,
     CONSTRAINT [PK_TBVeiculo] PRIMARY KEY CLUSTERED ([ID] ASC)
 );
 

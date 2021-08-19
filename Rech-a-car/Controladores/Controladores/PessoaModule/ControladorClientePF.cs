@@ -8,25 +8,104 @@ namespace Controladores.PessoaModule
 {
     public class ControladorClientePF : ControladorEntidade<ClientePF>
     {
-        public override string sqlSelecionarPorId => throw new NotImplementedException();
+        #region Queries
+        private const string sqlInserirClientePF =
+    @"INSERT INTO [TBCLIENTEPF]
+                (
+                    [NOME],       
+                    [TELEFONE],             
+                    [ENDERECO],
+                    [DOCUMENTO],
+                    [DATA_NASCIMENTO],
+                    [ID_CNH]
+                )
+            VALUES
+                (
+                    @NOME,       
+                    @TELEFONE,             
+                    @ENDERECO,
+                    @DOCUMENTO,
+                    @DATA_NASCIMENTO,
+                    @ID_CNH
+                )";
 
-        public override string sqlSelecionarTodos => throw new NotImplementedException();
+        private const string sqlEditarClientePF =
+            @" UPDATE [TBCLIENTEPF]
+                SET 
+                    [NOME] = @NOME,       
+                    [TELEFONE] = @TELEFONE,             
+                    [ENDERECO] = @ENDERECO,
+                    [DOCUMENTO] = @DOCUMENTO,
+                    [DATA_NASCIMENTO] = @DATA_NASCIMENTO
+                WHERE [ID] = @ID";
 
-        public override string sqlInserir => throw new NotImplementedException();
+        private const string sqlExcluirClientePF =
+            @"DELETE FROM [TBCLIENTEPF] 
+                WHERE [ID] = @ID";
 
-        public override string sqlEditar => throw new NotImplementedException();
+        private const string sqlSelecionarClientePFPorId =
+            @"SELECT *
+             FROM
+                [TBCLIENTEPF]
+             WHERE 
+                [ID] = @ID";
 
-        public override string sqlExcluir => throw new NotImplementedException();
+        private const string sqlSelecionarTodosClientePF =
+            @"SELECT *
+             FROM
+                [TBCLIENTEPF]";
 
-        public override string sqlExists => throw new NotImplementedException();
+        private const string sqlExisteClientePF =
+            @"SELECT 
+                COUNT(*) 
+            FROM 
+                [TBCLIENTEPF]
+            WHERE 
+                [ID] = @ID";
 
-        protected override ClientePF ConverterEmEntidade(IDataReader reader)
+        #endregion
+        public override string sqlSelecionarPorId => sqlSelecionarClientePFPorId;
+        public override string sqlSelecionarTodos => sqlSelecionarTodosClientePF;
+        public override string sqlInserir => sqlInserirClientePF;
+        public override string sqlEditar => sqlEditarClientePF;
+        public override string sqlExcluir => sqlExcluirClientePF;
+        public override string sqlExists => sqlExisteClientePF;
+        public override void Inserir(ClientePF cliente)
         {
-            throw new NotImplementedException();
+            new ControladorCNH().Inserir(cliente.Cnh);
+            base.Inserir(cliente);
         }
-        protected override Dictionary<string, object> ObterParametrosRegistro(ClientePF registro)
+        public override ClientePF ConverterEmEntidade(IDataReader reader)
         {
-            throw new NotImplementedException();
+            var id = Convert.ToInt32(reader["ID"]);
+            var nome = Convert.ToString(reader["NOME"]);
+            var telefone = Convert.ToString(reader["TELEFONE"]);
+            var documento = Convert.ToString(reader["DOCUMENTO"]);
+            var endereco = Convert.ToString(reader["ENDERECO"]);
+            var data_nascimento = Convert.ToDateTime(reader["DATA_NASCIMENTO"]);
+
+            var id_cnh = Convert.ToInt32(reader["ID_CNH"]);
+            var cnh = new ControladorCNH().GetByIdCondutor(id_cnh);
+
+            return new ClientePF(nome, telefone, documento, endereco, cnh,data_nascimento)
+            {
+                Id = id
+            };
+        }
+        protected override Dictionary<string, object> ObterParametrosRegistro(ClientePF cliente)
+        {
+            var parametros = new Dictionary<string, object>
+            {
+                { "ID", cliente.Id },
+                { "NOME", cliente.Nome },
+                { "ENDERECO", cliente.Endereco },
+                { "TELEFONE", cliente.Telefone },
+                { "DOCUMENTO", cliente.Documento },
+                { "DATA_NASCIMENTO", cliente.DataNascimento },
+                { "ID_CNH", cliente.Cnh.Id },
+            };
+
+            return parametros;
         }
     }
 }

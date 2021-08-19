@@ -5,12 +5,13 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using WindowsApp.Shared;
+using WindowsApp.VeiculoModule;
 
 namespace WindowsApp
 {
     public partial class CadastrarVeiculo : CadastroEntidade<Veiculo>
     {
-        public override ControladorEntidade<Veiculo> Controlador { get => new ControladorVeiculo(); }
+        public override Controlador<Veiculo> Controlador { get => new ControladorVeiculo(); }
         private Bitmap imagem;
 
         public CadastrarVeiculo()
@@ -77,7 +78,7 @@ namespace WindowsApp
         private void bt_adicionar_Click(object sender, EventArgs e)
         {
             Salva();
-            Close();
+            TelaPrincipal.Instancia.FormAtivo = new GerenciamentoVeiculo();
         }
         private void bt_foto_Click(object sender, EventArgs e)
         {
