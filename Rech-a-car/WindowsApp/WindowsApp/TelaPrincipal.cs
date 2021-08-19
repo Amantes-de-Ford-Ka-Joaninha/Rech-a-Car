@@ -16,13 +16,7 @@ namespace WindowsApp
         {
             Instancia = this;
             InitializeComponent();
-            //InicializarPanels();              IDEIA A SER DISCUTIDA
             EsconderSubMenu();
-        }
-
-        private void InicializarPanels()
-        {
-            throw new NotImplementedException();
         }
 
         public Form FormAtivo { set { AbrirFormPanel(value); } }
@@ -91,12 +85,12 @@ namespace WindowsApp
 
         private void btPessoaFisica_Click(object sender, EventArgs e)
         {
-            TelaPrincipal.Instancia.FormAtivo = new CadastrarClientePF();
+            FormAtivo = new CadastrarClientePF();
         }
 
         private void btPessoaJuridica_Click(object sender, EventArgs e)
         {
-            TelaPrincipal.Instancia.FormAtivo = new CadastrarClientePJ();
+            FormAtivo = new CadastrarClientePJ();
         }
     }
 }

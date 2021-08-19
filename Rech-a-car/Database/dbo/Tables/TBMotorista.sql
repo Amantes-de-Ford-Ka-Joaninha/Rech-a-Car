@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[TBMotorista] (
-    [ID]         INT          NOT NULL,
+    [ID]         INT          IDENTITY (1, 1) NOT NULL,
     [NOME]       VARCHAR (50) NOT NULL,
     [TELEFONE]   VARCHAR (50) NOT NULL,
     [ENDERECO]   VARCHAR (50) NOT NULL,
@@ -10,4 +10,6 @@
     CONSTRAINT [FK_TBMotorista_TBClientePJ] FOREIGN KEY ([ID_EMPRESA]) REFERENCES [dbo].[TBClientePJ] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT [FK_TBMotorista_TBCnh] FOREIGN KEY ([ID_CNH]) REFERENCES [dbo].[TBCnh] ([ID]) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
+
 

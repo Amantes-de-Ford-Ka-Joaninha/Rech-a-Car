@@ -1,5 +1,5 @@
 ﻿using Dominio.PessoaModule;
-using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using WindowsApp.Shared;
 
@@ -15,11 +15,24 @@ namespace WindowsApp.FuncionarioModule
         protected override VisualizarEntidade<Funcionario> Visualizar => new VisualizarFuncionario();
         public override DataGridViewColumn[] ConfigurarColunas()
         {
-            throw new NotImplementedException();
+            return new DataGridViewColumn[]
+            {
+                new DataGridViewTextBoxColumn { DataPropertyName = "Nome", HeaderText = "Nome"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "Telefone", HeaderText = "Telefone"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "Endereco", HeaderText = "Endereco"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "Documento", HeaderText = "Documento"},
+            };
         }
-        public override object[] ObterCamposLinha(Funcionario item)
+        public override object[] ObterCamposLinha(Funcionario funcionario)
         {
-            throw new NotImplementedException();
+            List<object> linha = new List<object>()
+            {
+                funcionario.Nome,
+                funcionario.Documento,
+                funcionario.Telefone,
+                funcionario.Endereco,
+            };
+            return linha.ToArray();
         }
     }
 }

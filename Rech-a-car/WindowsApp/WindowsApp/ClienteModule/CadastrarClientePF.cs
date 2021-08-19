@@ -8,7 +8,7 @@ namespace WindowsApp.ClienteModule
 {
     public partial class CadastrarClientePF : CadastroEntidade<ClientePF>
     {
-        public override ControladorEntidade<ClientePF> Controlador { get => new ControladorClientePF(); }
+        public override Controlador<ClientePF> Controlador { get => new ControladorClientePF(); }
 
         public CadastrarClientePF()
         {

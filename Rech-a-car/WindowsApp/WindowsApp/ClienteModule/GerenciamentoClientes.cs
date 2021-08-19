@@ -1,27 +1,19 @@
-﻿using Dominio.PessoaModule;
-using Dominio.PessoaModule.ClienteModule;
-using System;
+﻿using Dominio.PessoaModule.ClienteModule;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsApp.Shared;
 
 namespace WindowsApp.ClienteModule
 {
-    public partial class GerenciamentoClientes : GerenciamentoEntidade<Pessoa>
+    public partial class GerenciamentoClientes : GerenciamentoEntidade<ICliente>
     {
         public GerenciamentoClientes() : base("Gerenciamento de Serviços")
         {
         }
 
-        protected override CadastroEntidade<Pessoa> Cadastro => null;
-        protected override VisualizarEntidade<Pessoa> Visualizar => new VisualizarCliente();
-        
+        protected override CadastroEntidade<ICliente> Cadastro => new CadastroCliente();
+        protected override VisualizarEntidade<ICliente> Visualizar => new VisualizarCliente();
+
         public override DataGridViewColumn[] ConfigurarColunas()
         {
             return new DataGridViewColumn[]
@@ -33,7 +25,7 @@ namespace WindowsApp.ClienteModule
             };
         }
 
-        public override object[] ObterCamposLinha(Pessoa cliente)
+        public override object[] ObterCamposLinha(ICliente cliente)
         {
             List<object> linha = new List<object>()
             {
