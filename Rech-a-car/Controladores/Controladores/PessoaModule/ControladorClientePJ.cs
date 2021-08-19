@@ -103,6 +103,10 @@ namespace Controladores.PessoaModule
         {
             new ControladorMotorista().Excluir(idMotorista);
         }
+        public void EditarMotorista(int idMotorista,MotoristaEmpresa motorista)
+        {
+            new ControladorMotorista().Editar(idMotorista, motorista);
+        }
         protected class ControladorMotorista
         {
             #region Queries
