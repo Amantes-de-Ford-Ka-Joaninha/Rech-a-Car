@@ -53,6 +53,7 @@
     <Compile Include="Controladores\ControladorServico.cs" />
     <Compile Include="Controladores\VeiculoModule\ControladorVeiculo.cs" />
     <Compile Include="Controladores\Db.cs" />
+    <Compile Include="Controladores\ControladorCNH.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

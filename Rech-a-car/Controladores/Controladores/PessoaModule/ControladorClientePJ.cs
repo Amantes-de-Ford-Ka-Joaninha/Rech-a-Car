@@ -81,15 +81,15 @@ namespace Controladores.PessoaModule
                 Id = id
             };
         }
-        protected override Dictionary<string, object> ObterParametrosRegistro(ClientePJ registro)
+        protected override Dictionary<string, object> ObterParametrosRegistro(ClientePJ cliente)
         {
             var parametros = new Dictionary<string, object>
             {
-                { "ID", registro.Id },
-                { "MODELO", registro.Nome },
-                { "MARCA", registro.Endereco },
-                { "ANO", registro.Telefone },
-                { "ENDERECO", registro.Endereco },
+                { "ID", cliente.Id },
+                { "MODELO", cliente.Nome },
+                { "MARCA", cliente.Endereco },
+                { "ANO", cliente.Telefone },
+                { "ENDERECO", cliente.Endereco },
             };
 
             return parametros;
