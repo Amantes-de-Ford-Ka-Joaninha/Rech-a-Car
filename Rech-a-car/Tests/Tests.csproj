@@ -82,7 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Tests\FuncionarioModule\" />
-    <Folder Include="Tests\MotoristaModule\" />
+    <Folder Include="Tests\FuncionárioModule\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\ford_ka_gay.jpg" />
