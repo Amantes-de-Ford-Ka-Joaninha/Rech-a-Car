@@ -74,7 +74,7 @@ namespace WindowsApp
         private void bt_clientes_Click(object sender, EventArgs e)
         {
             MostrarSubMenu(panelSubMenuClientes);
-            FormAtivo = new GerenciamentoClientes();
+            //FormAtivo = new GerenciamentoClientes(); REATIVAR APÓS FINALIZADO O CONTROLADOR
         }
         private void bt_sair_Click(object sender, EventArgs e)
         {
