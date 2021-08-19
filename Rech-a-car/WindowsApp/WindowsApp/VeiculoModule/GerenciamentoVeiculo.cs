@@ -23,7 +23,7 @@ namespace WindowsApp.VeiculoModule
                 new DataGridViewTextBoxColumn { DataPropertyName = "Ano", HeaderText = "Ano"},
                 new DataGridViewTextBoxColumn { DataPropertyName = "Categoria", HeaderText = "Categoria"},
                 new DataGridViewTextBoxColumn { DataPropertyName = "Diária", HeaderText = "Diária"},
-                new DataGridViewTextBoxColumn { DataPropertyName = "PrecoKm", HeaderText = "Preço Km"}
+                new DataGridViewTextBoxColumn { DataPropertyName = "PrecoKm", HeaderText = "Preço/Km"}
             };
         }
         public override object[] ObterCamposLinha(Veiculo veiculo)
