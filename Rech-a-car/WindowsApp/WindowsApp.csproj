@@ -154,6 +154,9 @@
     <EmbeddedResource Include="WindowsApp\ClienteModule\GerenciamentoClientes.resx">
       <DependentUpon>GerenciamentoClientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="WindowsApp\FuncionarioModule\CadastroFuncionario.resx">
+      <DependentUpon>CadastroFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WindowsApp\ServicoModule\CadastrarServico.resx">
       <DependentUpon>CadastrarServico.cs</DependentUpon>
     </EmbeddedResource>

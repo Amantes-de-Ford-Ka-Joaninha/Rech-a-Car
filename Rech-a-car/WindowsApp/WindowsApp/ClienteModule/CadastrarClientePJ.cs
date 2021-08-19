@@ -30,33 +30,38 @@ namespace WindowsApp.ClienteModule
             var telefone = tbTelefone.Text;
             var endereco = tbEndereco.Text;
             var documento = tbCNPJ.Text;
-            var motoristas = GetMotorista();
+            //var motoristas = GetMotorista();
             return new ClientePJ(nome, telefone, endereco, documento, motoristas);
         }
 
-        public List<MotoristaEmpresa> GetMotorista()
-        {
-            var nome = tbNome.Text;
-            var telefone = tbTelefone.Text;
-            var endereco = tbEndereco.Text;
-            var documento = tbCNPJ.Text;
-            var cnh = GetCNH();
-            MotoristaEmpresa motora = new MotoristaEmpresa(nome, telefone, endereco, documento, cnh);
+        //public List<MotoristaEmpresa> GetMotorista()
+        //{
+        //    var nome = tbNome.Text;
+        //    var telefone = tbTelefone.Text;
+        //    var endereco = tbEndereco.Text;
+        //    var documento = tbCNPJ.Text;
+        //    var cnh = GetCNH();
+        //    MotoristaEmpresa motora = new MotoristaEmpresa(nome, telefone, endereco, documento, cnh);
             
-        }
+        //}
 
-        public CNH GetCNH()
-        {
-            var numero = tbNome.Text;
-            var tipo = cbTipoCNH.SelectedIndex;
+        //public CNH GetCNH()
+        //{
+        //    var numero = tbNome.Text;
+        //    var tipo = cbTipoCNH.SelectedIndex;
 
-            return new CNH(numero, (TipoCNH)tipo);
-        }
+        //    return new CNH(numero, (TipoCNH)tipo);
+        //}
 
         private void btAdicionar_Click(object sender, EventArgs e)
         {
             Salva();
             TelaPrincipal.Instancia.FormAtivo = new GerenciamentoClientes();
+        }
+
+        private void btAdicionarMotorista_Click(object sender, EventArgs e)
+        {
+            //listBoxMotoristas.DataSource = 
         }
     }
 }
