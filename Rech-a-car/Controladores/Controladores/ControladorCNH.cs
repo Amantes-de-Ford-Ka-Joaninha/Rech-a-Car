@@ -19,25 +19,25 @@ namespace Controladores
             @"INSERT INTO [TBCNH]
                     (
                     [TIPO],
-                    [NUMERO],
+                    [NUMERO]
                     )
                     VALUES
                     (
                     @TIPO,
-                    @NUMERO,
+                    @NUMERO
                     )";
 
         private const string sqlEditarCnh =
             @" UPDATE [TBCNH]
                     SET     
                     [TIPO] = @TIPO,             
-                    [NUMERO] = @NUMERO,
+                    [NUMERO] = @NUMERO
                     WHERE [ID] = @ID";
 
         #endregion
         public void Inserir(CNH cnh)
         {
-            Db.Update(sqlInserirCnh, ObterParametrosRegistro(cnh));
+            cnh.Id = Db.Insert(sqlInserirCnh, ObterParametrosRegistro(cnh));
         }
         public void Editar(int id, CNH cnh)
         {
