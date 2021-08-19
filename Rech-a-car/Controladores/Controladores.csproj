@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controladores\ControladorAluguel.cs" />
+    <Compile Include="Controladores\ControladorCnh.cs" />
     <Compile Include="Controladores\PessoaModule\ControladorCliente.cs" />
     <Compile Include="Controladores\PessoaModule\ControladorClientePF.cs" />
     <Compile Include="Controladores\PessoaModule\ControladorClientePJ.cs" />
@@ -53,7 +54,6 @@
     <Compile Include="Controladores\ControladorServico.cs" />
     <Compile Include="Controladores\VeiculoModule\ControladorVeiculo.cs" />
     <Compile Include="Controladores\Db.cs" />
-    <Compile Include="Controladores\ControladorCNH.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

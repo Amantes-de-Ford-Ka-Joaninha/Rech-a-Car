@@ -76,7 +76,9 @@ namespace Controladores.PessoaModule
             var documento = Convert.ToString(reader["DOCUMENTO"]);
             var endereco = Convert.ToString(reader["ENDERECO"]);
             var data_nascimento = Convert.ToDateTime(reader["DATA_NASCIMENTO"]);
-            var cnh = new ControladorCNH().GetByIdCondutor(id);
+
+            var id_cnh = Convert.ToInt32(reader["ID_CNH"]);
+            var cnh = new ControladorCNH().GetByIdCondutor(id_cnh);
 
             return new ClientePF(nome, telefone, documento, endereco, cnh,data_nascimento)
             {

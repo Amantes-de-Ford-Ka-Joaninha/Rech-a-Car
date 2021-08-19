@@ -12,6 +12,12 @@ namespace Dominio.PessoaModule
 
         Regex ValidarCNH = new Regex(@"\b(?=.*\d)[A-Za-z0-9]{1,11}\b");
 
+        public CNH(string numeroCnh, TipoCNH tipoCnh)
+        {
+            NumeroCnh = numeroCnh;
+            TipoCnh = tipoCnh;
+        }
+
         public override string Validar()
         {
             string validacao = String.Empty;
