@@ -43,7 +43,7 @@ namespace Controladores
                 }
             }
         }
-        public static void Update(string sql, Dictionary<string, object> parameters)
+        public static void Update(string sql, Dictionary<string, object> parameters, Dictionary<string, object> parametrosAdicionais = null)
         {
             using (DbConnection connection = factory.CreateConnection())
             {
@@ -55,6 +55,7 @@ namespace Controladores
                     command.Connection = connection;
 
                     command.SetParameters(parameters);
+                    command.SetParameters(parametrosAdicionais);
 
                     connection.Open();
 
