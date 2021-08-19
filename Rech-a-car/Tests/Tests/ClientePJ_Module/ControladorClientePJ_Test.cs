@@ -82,7 +82,7 @@ namespace Tests.Tests.ClientePJ_Module
         [TestCleanup]
         public void LimparTestes()
         {
-            Db.Delete(TestExtensions.ResetId("TBVeiculo"));
+            Db.Delete(TestExtensions.ResetId("TBClientePJ"));
         }
     }
 }

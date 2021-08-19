@@ -37,7 +37,7 @@ namespace Controladores
         #endregion
         public void Inserir(CNH cnh)
         {
-            Db.Insert(sqlInserirCnh, ObterParametrosRegistro(cnh));
+            cnh.Id = Db.Insert(sqlInserirCnh, ObterParametrosRegistro(cnh));
         }
         public void Editar(int id, CNH cnh)
         {

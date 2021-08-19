@@ -10,9 +10,6 @@
 
             validacao += Cnh.Validar();
 
-            if (validacao == string.Empty)
-                return Valido;
-
             return validacao;
         }
     }

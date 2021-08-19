@@ -25,9 +25,6 @@ namespace Dominio.PessoaModule
             if (!ValidarCNH.IsMatch(NumeroCnh))
                 validacao = "CNH Inválida.\n";
 
-            if (validacao == String.Empty)
-                return Valido;
-
             return validacao;
         }
     }

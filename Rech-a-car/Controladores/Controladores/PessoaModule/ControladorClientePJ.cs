@@ -16,23 +16,23 @@ namespace Controladores.PessoaModule
                     [NOME],       
                     [TELEFONE],             
                     [ENDERECO],
-                    [DOCUMENTO],
+                    [DOCUMENTO]
                 )
             VALUES
                 (
                     @NOME,       
                     @TELEFONE,             
                     @ENDERECO,
-                    @DOCUMENTO,
+                    @DOCUMENTO
                 )";
 
         private const string sqlEditarClientePJ =
             @" UPDATE [TBCLIENTEPJ]
                 SET 
-                    [NOME] = @MODELO,       
-                    [TELEFONE] = @MARCA,             
-                    [ENDERECO] = @CATEGORIA,
-                    [DOCUMENTO] = @ANO,
+                    [NOME] = @NOME,       
+                    [TELEFONE] = @TELEFONE,             
+                    [ENDERECO] = @ENDERECO,
+                    [DOCUMENTO] = @DOCUMENTO
                 WHERE [ID] = @ID";
 
         private const string sqlExcluirClientePJ =
@@ -86,10 +86,10 @@ namespace Controladores.PessoaModule
             var parametros = new Dictionary<string, object>
             {
                 { "ID", cliente.Id },
-                { "MODELO", cliente.Nome },
-                { "MARCA", cliente.Endereco },
-                { "ANO", cliente.Telefone },
+                { "NOME", cliente.Nome },
                 { "ENDERECO", cliente.Endereco },
+                { "TELEFONE", cliente.Telefone },
+                { "DOCUMENTO", cliente.Documento },
             };
 
             return parametros;
