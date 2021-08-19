@@ -1,4 +1,5 @@
 ﻿using Controladores.Shared;
+using Dominio.PessoaModule;
 using Dominio.PessoaModule.ClienteModule;
 using System;
 using System.Collections.Generic;
@@ -92,6 +93,38 @@ namespace Controladores.PessoaModule
             };
 
             return parametros;
+        }
+        private class ControladorMotorista
+        {
+            public List<MotoristaEmpresa> Registros => throw new NotImplementedException();
+
+            public MotoristaEmpresa ConverterEmEntidade(IDataReader reader)
+            {
+                throw new NotImplementedException();
+            }
+            public void Inserir(MotoristaEmpresa entidade)
+            {
+                throw new NotImplementedException();
+            }
+
+            public void Editar(int id, MotoristaEmpresa entidade)
+            {
+                throw new NotImplementedException();
+            }
+            private Dictionary<string, object> ObterParametrosRegistro(MotoristaEmpresa entidade)
+            {
+                throw new NotImplementedException();
+            }
+
+            public List<MotoristaEmpresa> SelecionarCondutoresPJ(int id)
+            {
+                throw new NotImplementedException();
+            }
+
+            public MotoristaEmpresa GetByIdClientePJ(int id)
+            {
+                throw new NotSupportedException();
+            }
         }
     }
 }

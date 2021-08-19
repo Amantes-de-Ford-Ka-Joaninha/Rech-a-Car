@@ -24,7 +24,6 @@ namespace Controladores.PessoaModule
         {
             throw new NotImplementedException();
         }
-
         protected override Dictionary<string, object> ObterParametrosRegistro(Funcionario registro)
         {
             throw new NotImplementedException();

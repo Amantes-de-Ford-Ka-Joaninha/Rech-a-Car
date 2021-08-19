@@ -1,5 +1,4 @@
 ﻿using Controladores.Shared;
-using Dominio;
 using Dominio.Shared;
 using System.Windows.Forms;
 

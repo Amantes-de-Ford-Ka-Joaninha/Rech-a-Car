@@ -47,11 +47,9 @@
     <Compile Include="Controladores\PessoaModule\ControladorCliente.cs" />
     <Compile Include="Controladores\PessoaModule\ControladorClientePF.cs" />
     <Compile Include="Controladores\PessoaModule\ControladorClientePJ.cs" />
-    <Compile Include="Controladores\PessoaModule\ControladorMotorista.cs" />
     <Compile Include="Controladores\PessoaModule\ControladorFuncionario.cs" />
     <Compile Include="Controladores\Shared\Controlador.cs" />
     <Compile Include="Controladores\Shared\ControladorEntidade.cs" />
-    <Compile Include="Controladores\VeiculoModule\ControladorDadosVeiculo.cs" />
     <Compile Include="Controladores\ControladorServico.cs" />
     <Compile Include="Controladores\VeiculoModule\ControladorVeiculo.cs" />
     <Compile Include="Controladores\Db.cs" />
