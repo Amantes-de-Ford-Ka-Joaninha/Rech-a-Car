@@ -29,5 +29,10 @@ namespace Controladores
         {
             throw new NotImplementedException();
         }
+
+        public List<Servico> GetServicosAlugados(int idAluguel)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
