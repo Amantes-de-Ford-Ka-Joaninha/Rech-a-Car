@@ -19,17 +19,30 @@ namespace Tests.Tests.ClientePJ_Module
 
 
         [TestInitialize]
-        public void Inserir_clientePF()
+        public void Inserir_clientePJ()
         {
             cliente = new ClientePJ("nome", "99999999999", "endereco", "99999999999999");
             controladorClientePJ.Inserir(cliente);
             motorista = new MotoristaEmpresa("nomeMotorista", "99999999999", "endereco", "99999999999999",new CNH("59778304921",TipoCNH.A));
-            controladorClientePJ.AdicionarMotorista(cliente.Id, motorista);
         }
         [TestMethod]
         public void Deve_inserir_cliente()
         {
             cliente.Id.Should().NotBe(0);
+        }
+        [TestMethod]
+        public void Deve_inserir_motorista()
+        {
+            controladorClientePJ.AdicionarMotorista(cliente.Id, motorista);
+            cliente = controladorClientePJ.GetById(cliente.Id);
+            cliente.Motoristas.Count.Should().NotBe(0);
+        }
+        [TestMethod]
+        public void Deve_remover_motorista()
+        {
+            cliente = controladorClientePJ.GetById(cliente.Id);
+            controladorClientePJ.RemoverMotorista(cliente.Motoristas[0].Id);
+            cliente.Motoristas.Count.Should().Be(0);
         }
         [TestMethod]
         public void Deve_editar_nome_cliente()
@@ -85,6 +98,7 @@ namespace Tests.Tests.ClientePJ_Module
         public void LimparTestes()
         {
             Db.Delete(TestExtensions.ResetId("TBClientePJ"));
+            Db.Delete(TestExtensions.ResetId("TBMotorista"));
         }
     }
 }

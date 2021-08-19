@@ -4,6 +4,7 @@ using Dominio.PessoaModule.ClienteModule;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 
 namespace Controladores.PessoaModule
 {
@@ -96,7 +97,11 @@ namespace Controladores.PessoaModule
         }
         public void AdicionarMotorista(int idEmpresa,MotoristaEmpresa motorista)
         {
-            new ControladorMotorista().Inserir(motorista,idEmpresa);
+            new ControladorMotorista().Inserir(motorista,idEmpresa);            
+        }
+        public void RemoverMotorista(int idMotorista)
+        {
+            new ControladorMotorista().Excluir(idMotorista);
         }
         protected class ControladorMotorista
         {
@@ -144,6 +149,10 @@ namespace Controladores.PessoaModule
                     [ID_CNH] = @ID_CNH
                     WHERE [ID] = @ID";
 
+            private const string sqlExcluirMotorista =
+                @"DELETE FROM [TBMOTORISTA] 
+                            WHERE [ID] = @ID";
+
 
             #endregion
 
@@ -158,7 +167,7 @@ namespace Controladores.PessoaModule
             public void Inserir(MotoristaEmpresa motorista,int idEmpresa)
             {
                 new ControladorCNH().Inserir(motorista.Cnh);
-                Db.Update(sqlInserirMotorista,ObterParametrosRegistro(motorista),AdicionarParametro("ID_EMPRESA",idEmpresa));
+                motorista.Id = Db.Insert(sqlInserirMotorista,ObterParametrosRegistro(motorista),AdicionarParametro("ID_EMPRESA", idEmpresa));
             }
             public void Editar(int id, MotoristaEmpresa motorista)
             {
@@ -197,6 +206,11 @@ namespace Controladores.PessoaModule
                 };
 
                 return dadosVeiculo;
+            }
+
+            public void Excluir(int id)
+            {
+                Db.Delete(sqlExcluirMotorista,AdicionarParametro("ID",id));
             }
         }
     }
