@@ -82,6 +82,12 @@
     <Compile Include="WindowsApp\ClienteModule\CadastrarClientePJ.Designer.cs">
       <DependentUpon>CadastrarClientePJ.cs</DependentUpon>
     </Compile>
+    <Compile Include="WindowsApp\ClienteModule\CadastroMotorista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowsApp\ClienteModule\CadastroMotorista.Designer.cs">
+      <DependentUpon>CadastroMotorista.cs</DependentUpon>
+    </Compile>
     <Compile Include="WindowsApp\ClienteModule\GerenciamentoClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WindowsApp\AluguelModule\RealizarAluguel.resx">
       <DependentUpon>RealizarAluguel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowsApp\ClienteModule\CadastroMotorista.resx">
+      <DependentUpon>CadastroMotorista.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WindowsApp\ClienteModule\GerenciamentoClientes.resx">
       <DependentUpon>GerenciamentoClientes.cs</DependentUpon>

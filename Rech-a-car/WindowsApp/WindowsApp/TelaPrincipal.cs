@@ -80,16 +80,16 @@ namespace WindowsApp
         private void bt_clientes_Click(object sender, EventArgs e)
         {
             MostrarSubMenu(panelSubMenuClientes);
-            FormAtivo = new GerenciamentoClientes();
+            
         }
         private void btPessoaFisica_Click(object sender, EventArgs e)
         {
-            FormAtivo = new CadastrarClientePF();
+            FormAtivo = new GerenciamentoClientes();
         }
 
         private void btPessoaJuridica_Click(object sender, EventArgs e)
         {
-            FormAtivo = new CadastrarClientePJ();
+            FormAtivo = new GerenciamentoClientes();
         }
         private void bt_sair_Click(object sender, EventArgs e)
         {

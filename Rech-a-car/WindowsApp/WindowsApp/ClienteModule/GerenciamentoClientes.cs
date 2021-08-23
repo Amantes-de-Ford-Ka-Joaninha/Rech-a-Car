@@ -7,6 +7,7 @@ namespace WindowsApp.ClienteModule
 {
     public partial class GerenciamentoClientes : GerenciamentoEntidade<ICliente>
     {
+
         public GerenciamentoClientes() : base("Gerenciamento de Clientes")
         {
         }
