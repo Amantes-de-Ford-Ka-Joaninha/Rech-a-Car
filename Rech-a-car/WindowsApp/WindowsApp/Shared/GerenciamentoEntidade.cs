@@ -9,14 +9,13 @@ namespace WindowsApp.Shared
     {
         protected abstract CadastroEntidade<T> Cadastro { get; }
         protected abstract VisualizarEntidade<T> Visualizar { get; }
-        public GerenciamentoEntidade(String titulo, bool botoes = true)
+        public GerenciamentoEntidade(String titulo, TipoTela tipo = TipoTela.TodosBotoes)
         {
             InitializeComponent();
             AtualizarRegistros();
             lbTitulo.Text = titulo;
 
-            if (!botoes)
-                EscondeBotoes();
+            AtualizarBotoes(tipo);
         }
 
         public abstract object[] ObterCamposLinha(T item);
@@ -57,14 +56,34 @@ namespace WindowsApp.Shared
             bt_editar.Enabled = estado;
             bt_remover.Enabled = estado;
         }
-        private void EscondeBotoes()
+        private void AtualizarBotoes(TipoTela tipo)
         {
-            bt_adicionar.Visible = false;
-            bt_editar.Visible = false;
-            bt_remover.Visible = false;
-            tbFiltro.Width += 180;
-            picLupa.Left += 180;
-            btFiltro.Left += 180;
+            if (tipo is TipoTela.SemBotoes)
+                RemoveTodos();
+
+            if (tipo is TipoTela.SemCadastrar)
+                RemoveCadastrar();
+
+
+            void RemoveCadastrar()
+            {
+                bt_adicionar.Visible = false;
+                tbFiltro.Width += 50;
+                picLupa.Left += 50;
+                btFiltro.Left += 50;
+                bt_editar.Left += 50;
+                bt_remover.Left += 50;
+            }
+
+            void RemoveTodos()
+            {
+                bt_adicionar.Visible = false;
+                bt_editar.Visible = false;
+                bt_remover.Visible = false;
+                tbFiltro.Width += 180;
+                picLupa.Left += 180;
+                btFiltro.Left += 180;
+            }
         }
 
         #region Eventos
@@ -105,5 +124,11 @@ namespace WindowsApp.Shared
         }
 
         #endregion
+    }
+    public enum TipoTela
+    {
+        SemBotoes,
+        SemCadastrar,
+        TodosBotoes
     }
 }

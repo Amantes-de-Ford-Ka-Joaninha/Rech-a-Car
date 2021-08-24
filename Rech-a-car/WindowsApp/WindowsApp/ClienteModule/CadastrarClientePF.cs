@@ -4,9 +4,7 @@ using Dominio.PessoaModule;
 using Dominio.PessoaModule.ClienteModule;
 using System;
 using System.Globalization;
-using System.Windows.Forms;
 using WindowsApp.Shared;
-using WindowsApp.VeiculoModule;
 
 namespace WindowsApp.ClienteModule
 {
@@ -17,6 +15,7 @@ namespace WindowsApp.ClienteModule
         public CadastrarClientePF()
         {
             InitializeComponent();
+            cbTipoCNH.SelectedIndex = 2;
         }
 
         public override CadastroEntidade<ClientePF> Editar(ClientePF clientePF)
@@ -37,7 +36,7 @@ namespace WindowsApp.ClienteModule
 
         public CNH GetCNH()
         {
-            var numero = tbNome.Text;
+            var numero = tbCNH.Text;
             var tipo = cbTipoCNH.SelectedIndex;
 
             return new CNH(numero, (TipoCNH)tipo);

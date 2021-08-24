@@ -8,7 +8,7 @@ namespace WindowsApp.ClienteModule
     public partial class GerenciamentoCliente : GerenciamentoEntidade<ICliente>
     {
 
-        public GerenciamentoCliente() : base("Gerenciamento de Clientes",false)
+        public GerenciamentoCliente() : base("Gerenciamento de Clientes", TipoTela.SemCadastrar)
         {
         }
 
