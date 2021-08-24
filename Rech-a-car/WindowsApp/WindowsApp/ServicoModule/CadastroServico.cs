@@ -6,11 +6,11 @@ using WindowsApp.Shared;
 
 namespace WindowsApp.ServicoModule
 {
-    public partial class CadastrarServico : CadastroEntidade<Servico>
+    public partial class CadastroServico : CadastroEntidade<Servico>
     {
         public override Controlador<Servico> Controlador { get => new ControladorServico(); }
 
-        public CadastrarServico()
+        public CadastroServico()
         {
             InitializeComponent();
         }

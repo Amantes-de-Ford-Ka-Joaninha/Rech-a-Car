@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="WindowsApp\AluguelModule\CadastrarAluguel.cs">
+    <Compile Include="WindowsApp\AluguelModule\CadastroAluguel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WindowsApp\AluguelModule\CadastrarAluguel.Designer.cs">
-      <DependentUpon>CadastrarAluguel.cs</DependentUpon>
+    <Compile Include="WindowsApp\AluguelModule\CadastroAluguel.Designer.cs">
+      <DependentUpon>CadastroAluguel.cs</DependentUpon>
     </Compile>
     <Compile Include="WindowsApp\AluguelModule\GerenciamentoAluguel.cs">
       <SubType>Form</SubType>
@@ -70,17 +70,17 @@
     <Compile Include="WindowsApp\ClienteModule\CadastroCliente.Designer.cs">
       <DependentUpon>CadastroCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="WindowsApp\ClienteModule\CadastrarClientePF.cs">
+    <Compile Include="WindowsApp\ClienteModule\ClientePJModule\CadastroClientePF.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WindowsApp\ClienteModule\CadastrarClientePF.Designer.cs">
-      <DependentUpon>CadastrarClientePF.cs</DependentUpon>
+    <Compile Include="WindowsApp\ClienteModule\ClientePJModule\CadastroClientePF.Designer.cs">
+      <DependentUpon>CadastroClientePF.cs</DependentUpon>
     </Compile>
-    <Compile Include="WindowsApp\ClienteModule\ClientePJModule\CadastrarClientePJ.cs">
+    <Compile Include="WindowsApp\ClienteModule\ClientePJModule\CadastroClientePJ.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WindowsApp\ClienteModule\ClientePJModule\CadastrarClientePJ.Designer.cs">
-      <DependentUpon>CadastrarClientePJ.cs</DependentUpon>
+    <Compile Include="WindowsApp\ClienteModule\ClientePJModule\CadastroClientePJ.Designer.cs">
+      <DependentUpon>CadastroClientePJ.cs</DependentUpon>
     </Compile>
     <Compile Include="WindowsApp\ClienteModule\ClientePJModule\CadastroMotorista.cs">
       <SubType>Form</SubType>
@@ -109,11 +109,11 @@
     <Compile Include="WindowsApp\FuncionarioModule\VisualizarFuncionario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WindowsApp\ServicoModule\CadastrarServico.cs">
+    <Compile Include="WindowsApp\ServicoModule\CadastroServico.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WindowsApp\ServicoModule\CadastrarServico.Designer.cs">
-      <DependentUpon>CadastrarServico.cs</DependentUpon>
+    <Compile Include="WindowsApp\ServicoModule\CadastroServico.Designer.cs">
+      <DependentUpon>CadastroServico.cs</DependentUpon>
     </Compile>
     <Compile Include="WindowsApp\ServicoModule\GerenciamentoServico.cs">
       <SubType>Form</SubType>
@@ -163,14 +163,14 @@
     <EmbeddedResource Include="WindowsApp\FuncionarioModule\CadastroFuncionario.resx">
       <DependentUpon>CadastroFuncionario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WindowsApp\ServicoModule\CadastrarServico.resx">
-      <DependentUpon>CadastrarServico.cs</DependentUpon>
+    <EmbeddedResource Include="WindowsApp\ServicoModule\CadastroServico.resx">
+      <DependentUpon>CadastroServico.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WindowsApp\ClienteModule\CadastrarClientePF.resx">
-      <DependentUpon>CadastrarClientePF.cs</DependentUpon>
+    <EmbeddedResource Include="WindowsApp\ClienteModule\ClientePJModule\CadastroClientePF.resx">
+      <DependentUpon>CadastroClientePF.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WindowsApp\ClienteModule\ClientePJModule\CadastrarClientePJ.resx">
-      <DependentUpon>CadastrarClientePJ.cs</DependentUpon>
+    <EmbeddedResource Include="WindowsApp\ClienteModule\ClientePJModule\CadastroClientePJ.resx">
+      <DependentUpon>CadastroClientePJ.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WindowsApp\Shared\GerenciamentoEntidade.resx">
       <DependentUpon>GerenciamentoEntidade.cs</DependentUpon>

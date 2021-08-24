@@ -1,7 +1,7 @@
 ﻿
 namespace WindowsApp.ServicoModule
 {
-    partial class CadastrarServico
+    partial class CadastroServico
     {
         /// <summary>
         /// Required designer variable.

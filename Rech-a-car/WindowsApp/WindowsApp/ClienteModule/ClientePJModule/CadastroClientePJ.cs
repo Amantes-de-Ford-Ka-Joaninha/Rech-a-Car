@@ -11,11 +11,11 @@ using WindowsApp.WindowsApp.ClienteModule;
 
 namespace WindowsApp.ClienteModule
 {
-    public partial class CadastrarClientePJ : CadastroEntidade<ClientePJ>
+    public partial class CadastroClientePJ : CadastroEntidade<ClientePJ>
     {
         public override Controlador<ClientePJ> Controlador { get => new ControladorClientePJ(); }
 
-        public CadastrarClientePJ()
+        public CadastroClientePJ()
         {
             InitializeComponent();
         }

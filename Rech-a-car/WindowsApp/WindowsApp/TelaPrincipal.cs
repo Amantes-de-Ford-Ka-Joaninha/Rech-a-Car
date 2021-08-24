@@ -75,13 +75,13 @@ namespace WindowsApp
         }
         private void btPessoaFisica_Click(object sender, EventArgs e)
         {
-            FormAtivo = new CadastrarClientePF();
+            FormAtivo = new CadastroClientePF();
             EsconderSubMenu();
         }
 
         private void btPessoaJuridica_Click(object sender, EventArgs e)
         {
-            FormAtivo = new CadastrarClientePJ();
+            FormAtivo = new CadastroClientePJ();
             EsconderSubMenu();
         }
         private void bt_sair_Click(object sender, EventArgs e)

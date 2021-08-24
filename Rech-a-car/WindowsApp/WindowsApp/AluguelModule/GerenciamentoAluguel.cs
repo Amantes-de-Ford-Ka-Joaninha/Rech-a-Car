@@ -11,7 +11,7 @@ namespace WindowsApp.AluguelModule
         {
             InitializeComponent();
         }
-        protected override CadastroEntidade<Aluguel> Cadastro => new CadastrarAluguel();
+        protected override CadastroEntidade<Aluguel> Cadastro => new CadastroAluguel();
 
         protected override VisualizarEntidade<Aluguel> Visualizar => new VisualizarAluguel();
 

@@ -1,7 +1,7 @@
 ﻿
 namespace WindowsApp.AluguelModule
 {
-    partial class CadastrarAluguel
+    partial class CadastroAluguel
     {
         /// <summary>
         /// Required designer variable.

@@ -9,11 +9,11 @@ using WindowsApp.Shared;
 
 namespace WindowsApp.ClienteModule
 {
-    public partial class CadastrarClientePF : CadastroEntidade<ClientePF>
+    public partial class CadastroClientePF : CadastroEntidade<ClientePF>
     {
         public override Controlador<ClientePF> Controlador { get => new ControladorClientePF(); }
 
-        public CadastrarClientePF()
+        public CadastroClientePF()
         {
             InitializeComponent();
             cbTipoCNH.SelectedIndex = 2;

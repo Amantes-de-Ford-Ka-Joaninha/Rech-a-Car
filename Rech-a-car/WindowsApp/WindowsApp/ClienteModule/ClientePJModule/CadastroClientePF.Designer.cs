@@ -1,7 +1,7 @@
 ﻿
 namespace WindowsApp.ClienteModule
 {
-    partial class CadastrarClientePF
+    partial class CadastroClientePF
     {
         /// <summary>
         /// Required designer variable.

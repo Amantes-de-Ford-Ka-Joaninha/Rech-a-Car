@@ -6,9 +6,9 @@ using WindowsApp.Shared;
 
 namespace WindowsApp.AluguelModule
 {
-    public partial class CadastrarAluguel : CadastroEntidade<Aluguel>
+    public partial class CadastroAluguel : CadastroEntidade<Aluguel>
     {
-        public CadastrarAluguel()
+        public CadastroAluguel()
         {
             InitializeComponent();
         }
