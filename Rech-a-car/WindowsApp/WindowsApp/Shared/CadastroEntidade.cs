@@ -18,7 +18,7 @@ namespace WindowsApp.Shared
             T entidade = GetNovaEntidade();
             var validacao = entidade.Validar();
 
-            if (validacao != "VALIDO")
+            if (validacao != string.Empty)
             {
                 MessageBox.Show(validacao);
                 return;
