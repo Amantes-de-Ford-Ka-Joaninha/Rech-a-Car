@@ -1,5 +1,4 @@
-﻿using Dominio.Shared;
-using System;
+﻿using System;
 
 namespace Dominio.ServicoModule
 {
@@ -9,24 +8,33 @@ namespace Dominio.ServicoModule
         {
             Nome = nome;
             Taxa = taxa;
+            
         }
 
         public string Nome { get; set; }
         public double Taxa { get; set; }
 
+       
+       
+
         public override string Validar()
         {
-            string validacao = string.Empty;
+            string resultadoValidacao = "";
 
-            if (Nome == string.Empty)
-                validacao = "Insira um Nome.\n";
+            if (string.IsNullOrEmpty(Nome))
+                resultadoValidacao = "O Campo Nome é Obrigatorio";
+
             if (Taxa <= 0)
-                validacao += "Taxa deve ser maior que 0.\n";
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O Campo Taxa é está inválido";  
 
-            if (validacao == string.Empty)
-                return Valido;
+            if (resultadoValidacao == "")
+                resultadoValidacao = "ESTA_VALIDO";
 
-            return validacao;
+            return resultadoValidacao;
         }
+
+       
+
     }
+
 }

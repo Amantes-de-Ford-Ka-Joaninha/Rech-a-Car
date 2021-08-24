@@ -4,6 +4,7 @@ using Dominio.PessoaModule.ClienteModule;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 
 namespace Controladores.PessoaModule
 {
@@ -74,12 +75,12 @@ namespace Controladores.PessoaModule
             var telefone = Convert.ToString(reader["TELEFONE"]);
             var documento = Convert.ToString(reader["DOCUMENTO"]);
             var endereco = Convert.ToString(reader["ENDERECO"]);
-            var condutores = new ControladorMotorista().SelecionarCondutoresPJ(id);
 
-            return new ClientePJ(nome, telefone, documento, endereco, condutores)
+            return new ClientePJ(nome, telefone, documento, endereco)
             {
-                Id = id
-            };
+                Id = id,
+                Motoristas = new ControladorMotorista().SelecionarCondutoresPJ(id)
+        };
         }
         protected override Dictionary<string, object> ObterParametrosRegistro(ClientePJ cliente)
         {
@@ -94,8 +95,19 @@ namespace Controladores.PessoaModule
 
             return parametros;
         }
-
-        private class ControladorMotorista
+        public void AdicionarMotorista(int idEmpresa,MotoristaEmpresa motorista)
+        {
+            new ControladorMotorista().Inserir(motorista,idEmpresa);            
+        }
+        public void RemoverMotorista(int idMotorista)
+        {
+            new ControladorMotorista().Excluir(idMotorista);
+        }
+        public void EditarMotorista(int idMotorista,MotoristaEmpresa motorista)
+        {
+            new ControladorMotorista().Editar(idMotorista, motorista);
+        }
+        protected class ControladorMotorista
         {
             #region Queries
             private const string sqlSelecionarMotoristaPorId =
@@ -117,14 +129,18 @@ namespace Controladores.PessoaModule
                     [NOME],
                     [TELEFONE],
                     [ENDERECO],
-                    [DOCUMENTO]
+                    [DOCUMENTO],
+                    [ID_EMPRESA],
+                    [ID_CNH]
                 )
             VALUES
                 (
                     @NOME,
                     @TELEFONE,
                     @ENDERECO,
-                    @DOCUMENTO
+                    @DOCUMENTO,
+                    @ID_EMPRESA,
+                    @ID_CNH
                 )";
 
             private const string sqlEditarMotorista =
@@ -132,9 +148,14 @@ namespace Controladores.PessoaModule
                     SET     
                     [NOME] = @NOME,             
                     [TELEFONE] = @TELEFONE,
-                    [ENDERECO] = @ENDERECO
-                    [DOCUMENTO] = @DOCUMENTO
+                    [ENDERECO] = @ENDERECO,
+                    [DOCUMENTO] = @DOCUMENTO,
+                    [ID_CNH] = @ID_CNH
                     WHERE [ID] = @ID";
+
+            private const string sqlExcluirMotorista =
+                @"DELETE FROM [TBMOTORISTA] 
+                            WHERE [ID] = @ID";
 
 
             #endregion
@@ -147,10 +168,10 @@ namespace Controladores.PessoaModule
             {
                 return Db.GetAll(sqlSelecionarTodosMotoristasEmpresa, ConverterEmEntidade, AdicionarParametro("ID_EMPRESA", id_empresa));
             }
-            public void Inserir(MotoristaEmpresa motorista)
+            public void Inserir(MotoristaEmpresa motorista,int idEmpresa)
             {
                 new ControladorCNH().Inserir(motorista.Cnh);
-                Db.Update(sqlInserirMotorista, ObterParametrosRegistro(motorista));
+                motorista.Id = Db.Insert(sqlInserirMotorista,ObterParametrosRegistro(motorista),AdicionarParametro("ID_EMPRESA", idEmpresa));
             }
             public void Editar(int id, MotoristaEmpresa motorista)
             {
@@ -189,6 +210,11 @@ namespace Controladores.PessoaModule
                 };
 
                 return dadosVeiculo;
+            }
+
+            public void Excluir(int id)
+            {
+                Db.Delete(sqlExcluirMotorista,AdicionarParametro("ID",id));
             }
         }
     }
