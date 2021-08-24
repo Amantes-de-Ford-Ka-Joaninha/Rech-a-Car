@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using WindowsApp.Shared;
 using WindowsApp.VeiculoModule;
+using WindowsApp.WindowsApp.ClienteModule;
 
 namespace WindowsApp.ClienteModule
 {
@@ -21,7 +22,12 @@ namespace WindowsApp.ClienteModule
 
         public override CadastroEntidade<ClientePJ> Editar(ClientePJ clientePJ)
         {
-            throw new NotImplementedException();
+            tbNome.Text = clientePJ.Nome;
+            tbTelefone.Text = clientePJ.Telefone;
+            tbEndereco.Text = clientePJ.Endereco;
+            tbCNPJ.Text = clientePJ.Documento;
+
+            return this;
         }
 
         public override ClientePJ GetNovaEntidade()
@@ -37,6 +43,11 @@ namespace WindowsApp.ClienteModule
         {
             if (Salva())
                 TelaPrincipal.Instancia.FormAtivo = new GerenciamentoCliente();
+        }
+
+        private void btMotorista_Click(object sender, EventArgs e)
+        {
+            TelaPrincipal.Instancia.FormAtivo = new CadastroMotorista(entidade);
         }
     }
 }

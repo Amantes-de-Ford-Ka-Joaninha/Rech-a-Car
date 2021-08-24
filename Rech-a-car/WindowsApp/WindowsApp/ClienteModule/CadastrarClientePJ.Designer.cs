@@ -39,6 +39,7 @@ namespace WindowsApp.ClienteModule
             this.tbEndereco = new System.Windows.Forms.TextBox();
             this.tbCNPJ = new System.Windows.Forms.TextBox();
             this.btAdicionar = new System.Windows.Forms.Button();
+            this.btMotorista = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbCNPJ
@@ -140,12 +141,28 @@ namespace WindowsApp.ClienteModule
             this.btAdicionar.UseVisualStyleBackColor = true;
             this.btAdicionar.Click += new System.EventHandler(this.btAdicionar_Click);
             // 
+            // btMotorista
+            // 
+            this.btMotorista.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(7)))), ((int)(((byte)(49)))));
+            this.btMotorista.FlatAppearance.BorderSize = 0;
+            this.btMotorista.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btMotorista.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btMotorista.ForeColor = System.Drawing.Color.White;
+            this.btMotorista.Location = new System.Drawing.Point(51, 442);
+            this.btMotorista.Name = "btMotorista";
+            this.btMotorista.Size = new System.Drawing.Size(108, 60);
+            this.btMotorista.TabIndex = 19;
+            this.btMotorista.Text = "Cadastrar Motorista";
+            this.btMotorista.UseVisualStyleBackColor = false;
+            this.btMotorista.Click += new System.EventHandler(this.btMotorista_Click);
+            // 
             // CadastrarClientePJ
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(33)))), ((int)(((byte)(34)))));
             this.ClientSize = new System.Drawing.Size(668, 522);
+            this.Controls.Add(this.btMotorista);
             this.Controls.Add(this.tbCNPJ);
             this.Controls.Add(this.tbEndereco);
             this.Controls.Add(this.tbTelefone);
@@ -175,5 +192,6 @@ namespace WindowsApp.ClienteModule
         private System.Windows.Forms.TextBox tbTelefone;
         private System.Windows.Forms.TextBox tbEndereco;
         private System.Windows.Forms.TextBox tbCNPJ;
+        private System.Windows.Forms.Button btMotorista;
     }
 }
