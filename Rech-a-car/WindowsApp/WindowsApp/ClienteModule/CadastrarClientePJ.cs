@@ -30,13 +30,13 @@ namespace WindowsApp.ClienteModule
             var telefone = tbTelefone.Text;
             var endereco = tbEndereco.Text;
             var documento = tbCNPJ.Text;
-            return new ClientePJ(nome, telefone, endereco, documento, null);
+            return new ClientePJ(nome, telefone, endereco, documento);
         }
 
         private void btAdicionar_Click(object sender, EventArgs e)
         {
-            Salva();
-            Close();
+            if (Salva())
+                TelaPrincipal.Instancia.FormAtivo = new GerenciamentoClientes();
         }
     }
 }

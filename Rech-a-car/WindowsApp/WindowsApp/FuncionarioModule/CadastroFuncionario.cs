@@ -46,8 +46,8 @@ namespace WindowsApp.WindowsApp.FuncionarioModule
 
         private void btAdicionar_Click(object sender, EventArgs e)
         {
-            Salva();
-            TelaPrincipal.Instancia.FormAtivo = new GerenciamentoFuncionario();
+            if (Salva())
+                TelaPrincipal.Instancia.FormAtivo = new GerenciamentoFuncionario();
         }
     }
 }

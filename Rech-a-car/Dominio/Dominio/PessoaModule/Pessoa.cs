@@ -5,7 +5,6 @@ namespace Dominio.PessoaModule
 {
     public abstract class Pessoa : Entidade
     {
-        Regex validaTelefone = new Regex(@"\b[1-9]{2}[1-9]{9}\b");
         public string Nome { get; set; }
         public string Telefone { get; set; }
         public string Endereco { get; set; }
@@ -17,7 +16,7 @@ namespace Dominio.PessoaModule
 
             if (Nome == string.Empty)
                 validador = "Insira um Nome.\n";
-            if (!validaTelefone.IsMatch(Telefone))
+            if (Telefone.Length!=11)
                 validador += "Telefone inválido.\n";
             if (Endereco == string.Empty)
                 validador += "Insira um endereço.\n";

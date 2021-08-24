@@ -77,8 +77,8 @@ namespace WindowsApp
 
         private void bt_adicionar_Click(object sender, EventArgs e)
         {
-            Salva();
-            TelaPrincipal.Instancia.FormAtivo = new GerenciamentoVeiculo();
+            if (Salva())
+                TelaPrincipal.Instancia.FormAtivo = new GerenciamentoVeiculo();
         }
         private void bt_foto_Click(object sender, EventArgs e)
         {

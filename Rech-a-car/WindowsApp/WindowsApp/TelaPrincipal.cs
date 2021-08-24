@@ -37,7 +37,6 @@ namespace WindowsApp
             if (formAtivo is GerenciamentoEntidade<ICliente>)
                 EsconderSubMenu();
 
-            //if (formAtivo is CadastroEntidade<IControlavel>)
             formAtivo?.Close();
 
             formAtivo = panelForm;

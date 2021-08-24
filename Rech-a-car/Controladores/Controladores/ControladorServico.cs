@@ -96,14 +96,9 @@ namespace Controladores
             return parametros;
         }
 
-<<<<<<< HEAD
         public List<Servico> GetServicosAlugados(int idAluguel)
         {
             throw new NotImplementedException();
         }
-=======
-       
-        
->>>>>>> main
     }
 }
