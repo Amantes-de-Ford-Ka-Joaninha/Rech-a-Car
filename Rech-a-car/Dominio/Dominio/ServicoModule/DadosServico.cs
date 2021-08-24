@@ -1,30 +1,30 @@
 ﻿using System;
 
+
 namespace Dominio.ServicoModule
 {
-    public class Servico : Entidade
+    public class DadosServico : Entidade
     {
-        public Servico(string nome, double taxa, DadosServico dadosServico)
+        public DadosServico(int nome, double taxa)
         {
             Nome = nome;
+
             Taxa = taxa;
-            DadosServico = dadosServico;
         }
 
-        public string Nome { get; set; }
-        public double Taxa { get; set; }
+        
+        public object Nome { get; set; }
 
-        public DadosServico DadosServico { get; set }
-       
+        public object Taxa { get; set; }
 
         public override string Validar()
         {
             string resultadoValidacao = "";
 
-            if (string.IsNullOrEmpty(Nome))
+            if (string.IsNullOrEmpty((string)Nome))
                 resultadoValidacao = "O Campo Nome é Obrigatorio";
 
-            if (Taxa <= 0)
+            if ((double)Taxa <= 0)
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O Campo Taxa é está inválido";  
 
             if (resultadoValidacao == "")
@@ -33,8 +33,6 @@ namespace Dominio.ServicoModule
             return resultadoValidacao;
         }
 
-       
-
     }
-
+    
 }
