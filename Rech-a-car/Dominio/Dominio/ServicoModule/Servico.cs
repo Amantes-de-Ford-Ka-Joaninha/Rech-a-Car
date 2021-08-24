@@ -28,7 +28,7 @@ namespace Dominio.ServicoModule
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O Campo Taxa é está inválido";  
 
             if (resultadoValidacao == "")
-                resultadoValidacao = "ESTA_VALIDO";
+                resultadoValidacao = Valido;
 
             return resultadoValidacao;
         }

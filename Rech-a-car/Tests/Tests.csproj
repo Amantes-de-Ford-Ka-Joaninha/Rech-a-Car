@@ -64,6 +64,8 @@
     <Compile Include="Tests\ClientePJ_Module\DominioClientePJ_Test.cs" />
     <Compile Include="Tests\FuncionarioModule\DominioFuncionario.cs" />
     <Compile Include="Tests\FuncionarioModule\ControladorFuncionario.cs" />
+    <Compile Include="Tests\ServicoModule\DominioServicoTest.cs" />
+    <Compile Include="Tests\ServicoModule\ControladorServicoTest.cs" />
     <Compile Include="Tests\VeiculoModule\ControladorVeiculoTest.cs" />
     <Compile Include="Tests\VeiculoModule\DominioVeiculoTest.cs" />
     <Compile Include="Tests\VeiculoModule\DominioDadosVeiculoTest.cs" />
