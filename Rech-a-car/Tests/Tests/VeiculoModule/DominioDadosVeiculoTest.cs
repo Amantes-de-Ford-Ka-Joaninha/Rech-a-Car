@@ -11,7 +11,7 @@ namespace Tests.VeiculoModule
         public void Deve_retornar_dadosveiculo_valido()
         {
             DadosVeiculo dadosVeiculo = new DadosVeiculo(10, 10, 10);
-            dadosVeiculo.Validar().Should().Be("VALIDO");
+            dadosVeiculo.Validar().Should().Be(string.Empty);
         }
 
         [TestMethod]

@@ -63,8 +63,8 @@
     <Build Include="dbo\Tables\TBVeiculo.sql" />
     <Build Include="dbo\Tables\TBMotorista.sql" />
     <Build Include="dbo\Tables\TBFuncionario.sql">
-      <AnsiNulls>Off</AnsiNulls>
-      <QuotedIdentifier>Off</QuotedIdentifier>
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
     <Build Include="dbo\Tables\TBDadosVeiculo.sql" />
     <Build Include="dbo\Tables\TBCnh.sql" />
