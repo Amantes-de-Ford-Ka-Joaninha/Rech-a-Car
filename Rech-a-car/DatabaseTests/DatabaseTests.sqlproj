@@ -70,5 +70,9 @@
     <Build Include="dbo\Tables\TBCnh.sql" />
     <Build Include="dbo\Tables\TBClientePJ.sql" />
     <Build Include="dbo\Tables\TBClientePF.sql" />
+    <Build Include="dbo\Tables\TBServico.sql">
+      <AnsiNulls>Off</AnsiNulls>
+      <QuotedIdentifier>Off</QuotedIdentifier>
+    </Build>
   </ItemGroup>
 </Project>
