@@ -44,7 +44,6 @@
   <ItemGroup>
     <Compile Include="Dominio\AluguelModule\Aluguel.cs" />
     <Compile Include="Dominio\AluguelModule\TipoAluguel.cs" />
-    <Compile Include="Dominio\ServicoModule\DadosServico.cs" />
     <Compile Include="Dominio\Shared\IControlavel.cs" />
     <Compile Include="Dominio\PessoaModule\CNH.cs" />
     <Compile Include="Dominio\PessoaModule\ClienteModule\ICliente.cs" />
