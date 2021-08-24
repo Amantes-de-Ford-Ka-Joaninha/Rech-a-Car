@@ -145,5 +145,6 @@
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
+    <Build Include="dbo\Tables\TBServicos.sql" />
   </ItemGroup>
 </Project>
