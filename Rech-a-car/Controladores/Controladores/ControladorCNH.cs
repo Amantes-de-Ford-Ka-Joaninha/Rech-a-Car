@@ -52,8 +52,9 @@ namespace Controladores
         {
             var parametros = new Dictionary<string, object>
                     {
+                    {"ID",cnh.Id },
                     { "NUMERO", cnh.NumeroCnh },
-                    { "TIPO", cnh.TipoCnh },
+                    { "TIPO", cnh.TipoCnh }
                     };
             return parametros;
         }
