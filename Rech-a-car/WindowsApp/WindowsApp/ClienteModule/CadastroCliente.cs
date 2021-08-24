@@ -15,9 +15,9 @@ namespace WindowsApp.ClienteModule
 
         public override Controlador<ICliente> Controlador => new ControladorCliente();
 
-        public override CadastroEntidade<ICliente> Editar(ICliente entidade)
+        public override CadastroEntidade<ICliente> Editar(ICliente cliente)
         {
-            throw new NotImplementedException();
+            throw new ArgumentException();
         }
 
         public override ICliente GetNovaEntidade()

@@ -24,7 +24,6 @@ namespace WindowsApp
         public Form FormAtivo { set { AbrirFormPanel(value); } }
         private void EsconderSubMenu()
         {
-            panelSubMenuAluguel.Visible = false;
             panelSubMenuClientes.Visible = false;
         }
         private void MostrarSubMenu(Panel subMenu)
@@ -50,12 +49,7 @@ namespace WindowsApp
 
         private void bt_Aluguel_Click(object sender, EventArgs e)
         {
-            MostrarSubMenu(panelSubMenuAluguel);
-        }
-        private void bt_RealizarAluguel_Click(object sender, EventArgs e)
-        {
-            FormAtivo = new CadastrarAluguel();
-            EsconderSubMenu();
+            FormAtivo = new GerenciamentoAluguel();
         }
         private void bt_GerenciarAlugueis_Click(object sender, EventArgs e)
         {

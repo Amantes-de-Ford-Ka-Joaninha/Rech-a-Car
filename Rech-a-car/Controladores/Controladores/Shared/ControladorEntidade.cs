@@ -17,7 +17,7 @@ namespace Controladores.Shared
         {
             return Db.Get(sqlSelecionarPorId, ConverterEmEntidade, AdicionarParametro("ID", id));
         }
-        public override void Inserir(T entidade)
+        public override void Inserir(T entidade, int id_chave_estrangeira = 0)
         {
             entidade.Id = Db.Insert(sqlInserir, ObterParametrosRegistro(entidade));
         }
@@ -38,12 +38,7 @@ namespace Controladores.Shared
         {
             return Db.Exists(sqlExists, AdicionarParametro("ID", id));
         }
-
         public abstract T ConverterEmEntidade(IDataReader reader);
         protected abstract Dictionary<string, object> ObterParametrosRegistro(T entidade);
-        public static Dictionary<string, object> AdicionarParametro(string campo, object valor)
-        {
-            return new Dictionary<string, object>() { { campo, valor } };
-        }
     }
 }

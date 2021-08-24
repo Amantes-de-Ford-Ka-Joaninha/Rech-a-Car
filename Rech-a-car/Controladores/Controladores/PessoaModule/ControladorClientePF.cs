@@ -70,7 +70,7 @@ namespace Controladores.PessoaModule
         public override string sqlEditar => sqlEditarClientePF;
         public override string sqlExcluir => sqlExcluirClientePF;
         public override string sqlExists => sqlExisteClientePF;
-        public override void Inserir(ClientePF cliente)
+        public override void Inserir(ClientePF cliente, int id_chave_estrangeira = 0)
         {
             new ControladorCNH().Inserir(cliente.Cnh);
             base.Inserir(cliente);

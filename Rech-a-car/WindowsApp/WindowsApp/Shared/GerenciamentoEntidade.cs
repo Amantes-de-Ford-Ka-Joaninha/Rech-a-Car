@@ -85,6 +85,10 @@ namespace WindowsApp.Shared
                 btFiltro.Left += 180;
             }
         }
+        private Type GetTipoEntidade()
+        {
+            return typeof(T);
+        }
 
         #region Eventos
         private void btAdicionar_Click(object sender, EventArgs e)
@@ -94,7 +98,7 @@ namespace WindowsApp.Shared
         }
         private void bt_editar_Click(object sender, EventArgs e)
         {
-            var entidade = Cadastro.Controlador.GetById(GetIdSelecionado());
+            var entidade = Cadastro.Controlador.GetById(GetIdSelecionado(), GetTipoEntidade());
             TelaPrincipal.Instancia.FormAtivo = Cadastro.Editar(entidade);
             AlternarBotoes(false);
             AtualizarRegistros();
@@ -106,10 +110,11 @@ namespace WindowsApp.Shared
             if (opcao == DialogResult.Cancel)
                 return;
 
-            Cadastro.Controlador.Excluir(GetIdSelecionado());
+            Cadastro.Controlador.Excluir(GetIdSelecionado(), GetTipoEntidade());
             AlternarBotoes(false);
             AtualizarRegistros();
         }
+
         private void dgvEntidade_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             TelaPrincipal.Instancia.FormAtivo = Visualizar;

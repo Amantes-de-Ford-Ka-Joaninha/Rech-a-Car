@@ -90,7 +90,7 @@ namespace Controladores.VeiculoModule
         public override string sqlExcluir => sqlExcluirVeiculo;
         public override string sqlExists => sqlExisteVeiculo;
 
-        public override void Inserir(Veiculo veiculo)
+        public override void Inserir(Veiculo veiculo, int id_chave_estrangeira = 0)
         {
             base.Inserir(veiculo);
             veiculo.DadosVeiculo.Id = veiculo.Id;

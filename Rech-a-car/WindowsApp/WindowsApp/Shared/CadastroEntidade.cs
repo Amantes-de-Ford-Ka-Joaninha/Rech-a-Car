@@ -13,7 +13,7 @@ namespace WindowsApp.Shared
         public abstract CadastroEntidade<T> Editar(T entidade);
         public abstract T GetNovaEntidade();
 
-        protected bool Salva()
+        protected bool Salva(int id_chave_estrangeira=0)
         {
             T entidade = GetNovaEntidade();
             var validacao = entidade.Validar();
@@ -25,7 +25,7 @@ namespace WindowsApp.Shared
             }
 
             if (this.entidade == null)
-                Controlador.Inserir(entidade);
+                Controlador.Inserir(entidade, id_chave_estrangeira);
             else
                 Controlador.Editar(this.entidade.Id, entidade);
 

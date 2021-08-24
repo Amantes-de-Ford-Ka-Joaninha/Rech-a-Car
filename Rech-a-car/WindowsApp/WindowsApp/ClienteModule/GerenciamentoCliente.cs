@@ -25,7 +25,6 @@ namespace WindowsApp.ClienteModule
             new DataGridViewTextBoxColumn { DataPropertyName = "Documento", HeaderText = "Documento"}
             };
         }
-
         public override object[] ObterCamposLinha(ICliente cliente)
         {
             List<object> linha = new List<object>()
