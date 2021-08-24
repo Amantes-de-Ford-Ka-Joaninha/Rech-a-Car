@@ -1,5 +1,4 @@
 ﻿using Dominio.PessoaModule.ClienteModule;
-using Dominio.Shared;
 using System;
 using System.Windows.Forms;
 using WindowsApp.AluguelModule;
@@ -34,9 +33,6 @@ namespace WindowsApp
         }
         private void AbrirFormPanel(Form panelForm)
         {
-            if (formAtivo is GerenciamentoEntidade<ICliente>)
-                EsconderSubMenu();
-
             formAtivo?.Close();
 
             formAtivo = panelForm;
@@ -58,11 +54,13 @@ namespace WindowsApp
         }
         private void bt_RealizarAluguel_Click(object sender, EventArgs e)
         {
-            FormAtivo = new RealizarAluguel();
+            FormAtivo = new CadastrarAluguel();
+            EsconderSubMenu();
         }
         private void bt_GerenciarAlugueis_Click(object sender, EventArgs e)
         {
             FormAtivo = new GerenciamentoAluguel();
+            EsconderSubMenu();
         }
         private void bt_Veiculos_Click(object sender, EventArgs e)
         {
@@ -79,16 +77,18 @@ namespace WindowsApp
         private void bt_clientes_Click(object sender, EventArgs e)
         {
             MostrarSubMenu(panelSubMenuClientes);
-            
+            FormAtivo = new GerenciamentoCliente();
         }
         private void btPessoaFisica_Click(object sender, EventArgs e)
         {
-            FormAtivo = new GerenciamentoClientes();
+            FormAtivo = new CadastrarClientePF();
+            EsconderSubMenu();
         }
 
         private void btPessoaJuridica_Click(object sender, EventArgs e)
         {
-            FormAtivo = new GerenciamentoClientes();
+            FormAtivo = new CadastrarClientePJ();
+            EsconderSubMenu();
         }
         private void bt_sair_Click(object sender, EventArgs e)
         {

@@ -6,6 +6,7 @@ using Controladores;
 using Controladores.PessoaModule;
 using FluentAssertions;
 using Tests.Shared;
+using Controladores.Shared;
 
 namespace Tests.Tests.ClientePF_Module
 {

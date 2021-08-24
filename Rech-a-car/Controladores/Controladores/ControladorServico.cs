@@ -1,11 +1,10 @@
 ﻿using Controladores.Shared;
 using Dominio.ServicoModule;
-using Dominio.Shared;
 using System;
 using System.Collections.Generic;
 using System.Data;
 
-namespace Controladores
+namespace Controladores.ServicoModule
 {
     public class ControladorServico : ControladorEntidade<Servico>
     {
@@ -68,7 +67,6 @@ namespace Controladores
         public override string sqlExcluir => sqlExcluirServico;
 
         public override string sqlExists => sqlExisteServico;
-
 
         public override Servico ConverterEmEntidade(IDataReader reader)
         {

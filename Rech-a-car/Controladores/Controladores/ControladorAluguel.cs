@@ -1,4 +1,5 @@
 ﻿using Controladores.PessoaModule;
+using Controladores.ServicoModule;
 using Controladores.Shared;
 using Controladores.VeiculoModule;
 using Dominio.AluguelModule;
@@ -8,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 
-namespace Controladores
+namespace Controladores.AluguelModule
 {
     public class ControladorAluguel : ControladorEntidade<Aluguel>
     {

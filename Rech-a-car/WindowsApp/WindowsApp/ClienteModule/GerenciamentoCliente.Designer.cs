@@ -1,7 +1,7 @@
 ﻿
 namespace WindowsApp.ClienteModule
 {
-    partial class GerenciamentoClientes
+    partial class GerenciamentoCliente
     {
         /// <summary>
         /// Required designer variable.

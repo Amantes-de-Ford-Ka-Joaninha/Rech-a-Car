@@ -5,10 +5,10 @@ using WindowsApp.Shared;
 
 namespace WindowsApp.ClienteModule
 {
-    public partial class GerenciamentoClientes : GerenciamentoEntidade<ICliente>
+    public partial class GerenciamentoCliente : GerenciamentoEntidade<ICliente>
     {
 
-        public GerenciamentoClientes() : base("Gerenciamento de Clientes")
+        public GerenciamentoCliente() : base("Gerenciamento de Clientes",false)
         {
         }
 

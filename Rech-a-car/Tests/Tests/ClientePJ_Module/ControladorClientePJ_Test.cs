@@ -7,6 +7,7 @@ using Controladores.PessoaModule;
 using FluentAssertions;
 using Tests.Shared;
 using System.Collections.Generic;
+using Controladores.Shared;
 
 namespace Tests.Tests.ClientePJ_Module
 {

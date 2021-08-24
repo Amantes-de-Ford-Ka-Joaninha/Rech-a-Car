@@ -1,4 +1,4 @@
-﻿using Controladores;
+﻿using Controladores.ServicoModule;
 using Controladores.Shared;
 using Dominio.ServicoModule;
 using System;
@@ -19,7 +19,6 @@ namespace WindowsApp.ServicoModule
         {
             tbNome.Text = servico.Nome;
             tbTaxa.Text = servico.Taxa.ToString();
-
             return this;
         }
 

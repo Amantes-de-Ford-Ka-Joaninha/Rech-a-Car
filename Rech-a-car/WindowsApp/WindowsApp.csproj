@@ -46,23 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="WindowsApp\AluguelModule\FecharAluguel.cs">
+    <Compile Include="WindowsApp\AluguelModule\CadastrarAluguel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WindowsApp\AluguelModule\FecharAluguel.Designer.cs">
-      <DependentUpon>FecharAluguel.cs</DependentUpon>
+    <Compile Include="WindowsApp\AluguelModule\CadastrarAluguel.Designer.cs">
+      <DependentUpon>CadastrarAluguel.cs</DependentUpon>
     </Compile>
     <Compile Include="WindowsApp\AluguelModule\GerenciamentoAluguel.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="WindowsApp\AluguelModule\GerenciamentoAluguel.Designer.cs">
       <DependentUpon>GerenciamentoAluguel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="WindowsApp\AluguelModule\RealizarAluguel.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WindowsApp\AluguelModule\RealizarAluguel.Designer.cs">
-      <DependentUpon>RealizarAluguel.cs</DependentUpon>
     </Compile>
     <Compile Include="WindowsApp\ClienteModule\CadastroCliente.cs">
       <SubType>Form</SubType>
@@ -88,11 +82,11 @@
     <Compile Include="WindowsApp\ClienteModule\CadastroMotorista.Designer.cs">
       <DependentUpon>CadastroMotorista.cs</DependentUpon>
     </Compile>
-    <Compile Include="WindowsApp\ClienteModule\GerenciamentoClientes.cs">
+    <Compile Include="WindowsApp\ClienteModule\GerenciamentoCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WindowsApp\ClienteModule\GerenciamentoClientes.Designer.cs">
-      <DependentUpon>GerenciamentoClientes.cs</DependentUpon>
+    <Compile Include="WindowsApp\ClienteModule\GerenciamentoCliente.Designer.cs">
+      <DependentUpon>GerenciamentoCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="WindowsApp\ClienteModule\VisualizarCliente.cs">
       <SubType>Form</SubType>
@@ -154,17 +148,11 @@
     <Compile Include="WindowsApp\VeiculoModule\VisualizarVeiculo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <EmbeddedResource Include="WindowsApp\AluguelModule\GerenciamentoAluguel.resx">
-      <DependentUpon>GerenciamentoAluguel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="WindowsApp\AluguelModule\RealizarAluguel.resx">
-      <DependentUpon>RealizarAluguel.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="WindowsApp\ClienteModule\CadastroMotorista.resx">
       <DependentUpon>CadastroMotorista.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WindowsApp\ClienteModule\GerenciamentoClientes.resx">
-      <DependentUpon>GerenciamentoClientes.cs</DependentUpon>
+    <EmbeddedResource Include="WindowsApp\ClienteModule\GerenciamentoCliente.resx">
+      <DependentUpon>GerenciamentoCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WindowsApp\FuncionarioModule\CadastroFuncionario.resx">
       <DependentUpon>CadastroFuncionario.cs</DependentUpon>

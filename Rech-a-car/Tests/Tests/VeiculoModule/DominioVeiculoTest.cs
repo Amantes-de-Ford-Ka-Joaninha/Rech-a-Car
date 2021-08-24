@@ -38,7 +38,7 @@ namespace Tests.VeiculoModule
         public void Deve_retornar_carro_valido()
         {
             Veiculo veiculo1 = new Veiculo("MODELO", "MARCA", 2001, "AAA1111", 4, 4, "ASDFGHJKLQWERTYUI", 0, imagem, false, "CATEGORIA", dadosVeiculo);
-            veiculo1.Validar().Should().Be(veiculo1.Valido);
+            veiculo1.Validar().Should().Be(string.Empty);
         }
 
         [TestMethod]

@@ -16,7 +16,7 @@ namespace Tests.Tests.ClientePJ_Module
         {
 
             ClientePJ clienteValido = new ClientePJ("nome", "99999999999", "endereco", "99999999999999");
-            clienteValido.Validar().Should().Be(clienteValido.Valido);
+            clienteValido.Validar().Should().Be(string.Empty);
         }
         [TestMethod]
         public void Deve_retornar_clientePJ_invalido()

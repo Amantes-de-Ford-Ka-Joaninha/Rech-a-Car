@@ -1,10 +1,9 @@
-﻿using Controladores.Shared;
-using Dominio.PessoaModule;
+﻿using Dominio.PessoaModule;
 using System;
 using System.Collections.Generic;
 using System.Data;
 
-namespace Controladores
+namespace Controladores.Shared
 {
     public class ControladorCNH
     {

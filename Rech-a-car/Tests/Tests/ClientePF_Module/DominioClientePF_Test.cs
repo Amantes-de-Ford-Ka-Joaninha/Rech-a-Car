@@ -14,7 +14,7 @@ namespace Tests.Tests.ClientePF_Module
         {
             CNH cnh = new CNH("36510896881",TipoCNH.C);
             ClientePF clienteValido = new ClientePF("nome", "99999999999", "endereco", "99999999999", cnh, new DateTime(2001,04,27));
-            clienteValido.Validar().Should().Be(clienteValido.Valido);
+            clienteValido.Validar().Should().Be(string.Empty);
         }
         [TestMethod]
         public void Deve_retornar_clientePF_invalido()

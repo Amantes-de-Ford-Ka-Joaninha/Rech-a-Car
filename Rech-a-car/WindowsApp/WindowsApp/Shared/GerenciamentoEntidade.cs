@@ -9,11 +9,14 @@ namespace WindowsApp.Shared
     {
         protected abstract CadastroEntidade<T> Cadastro { get; }
         protected abstract VisualizarEntidade<T> Visualizar { get; }
-        public GerenciamentoEntidade(String titulo)
+        public GerenciamentoEntidade(String titulo, bool botoes = true)
         {
             InitializeComponent();
             AtualizarRegistros();
             lbTitulo.Text = titulo;
+
+            if (!botoes)
+                EscondeBotoes();
         }
 
         public abstract object[] ObterCamposLinha(T item);
@@ -54,7 +57,17 @@ namespace WindowsApp.Shared
             bt_editar.Enabled = estado;
             bt_remover.Enabled = estado;
         }
+        private void EscondeBotoes()
+        {
+            bt_adicionar.Visible = false;
+            bt_editar.Visible = false;
+            bt_remover.Visible = false;
+            tbFiltro.Width += 180;
+            picLupa.Left += 180;
+            btFiltro.Left += 180;
+        }
 
+        #region Eventos
         private void btAdicionar_Click(object sender, EventArgs e)
         {
             TelaPrincipal.Instancia.FormAtivo = Cadastro.Inserir();
@@ -82,10 +95,15 @@ namespace WindowsApp.Shared
         {
             TelaPrincipal.Instancia.FormAtivo = Visualizar;
         }
-
         private void dgvEntidade_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             AlternarBotoes(true);
         }
+        private void btFiltro_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
     }
 }
