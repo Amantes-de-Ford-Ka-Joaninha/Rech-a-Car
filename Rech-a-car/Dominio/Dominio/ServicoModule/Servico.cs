@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Dominio.ServicoModule
+﻿namespace Dominio.ServicoModule
 {
     public class Servico : Entidade
     {
@@ -14,9 +12,6 @@ namespace Dominio.ServicoModule
         public string Nome { get; set; }
         public double Taxa { get; set; }
 
-       
-       
-
         public override string Validar()
         {
             string resultadoValidacao = "";
@@ -25,16 +20,9 @@ namespace Dominio.ServicoModule
                 resultadoValidacao = "O Campo Nome é Obrigatorio";
 
             if (Taxa <= 0)
-                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O Campo Taxa é está inválido";  
-
-            if (resultadoValidacao == "")
-                resultadoValidacao = "ESTA_VALIDO";
+                resultadoValidacao += "O Campo Taxa é está inválido";  
 
             return resultadoValidacao;
         }
-
-       
-
     }
-
 }
