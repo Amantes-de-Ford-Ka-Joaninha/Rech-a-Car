@@ -18,7 +18,6 @@ namespace WindowsApp.Shared
             if (entidade != null)
                 Editar();
         }
-
         protected bool Salva(int id_chave_estrangeira = 0)
         {
             T entidade = GetNovaEntidade();
