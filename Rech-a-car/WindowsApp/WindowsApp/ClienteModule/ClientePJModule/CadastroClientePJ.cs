@@ -2,6 +2,7 @@
 using Controladores.Shared;
 using Dominio.PessoaModule.ClienteModule;
 using System;
+using System.Windows.Forms;
 using WindowsApp.Shared;
 
 namespace WindowsApp.ClienteModule

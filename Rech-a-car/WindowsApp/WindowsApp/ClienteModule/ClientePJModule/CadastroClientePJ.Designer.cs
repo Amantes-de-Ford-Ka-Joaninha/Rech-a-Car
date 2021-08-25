@@ -29,6 +29,7 @@ namespace WindowsApp.ClienteModule
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lbCNPJ = new System.Windows.Forms.Label();
             this.lbTelefone = new System.Windows.Forms.Label();
             this.lbEndereco = new System.Windows.Forms.Label();
@@ -36,10 +37,11 @@ namespace WindowsApp.ClienteModule
             this.lbNome = new System.Windows.Forms.Label();
             this.tbNome = new System.Windows.Forms.TextBox();
             this.tbEndereco = new System.Windows.Forms.TextBox();
-            this.btAdicionar = new System.Windows.Forms.Button();
-            this.btMotorista = new System.Windows.Forms.Button();
             this.tbCNPJ = new System.Windows.Forms.MaskedTextBox();
             this.tbTelefone = new System.Windows.Forms.MaskedTextBox();
+            this.btMotorista = new System.Windows.Forms.Button();
+            this.btAdicionar = new System.Windows.Forms.Button();
+            this.tipMotoristas = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // lbCNPJ
@@ -113,33 +115,6 @@ namespace WindowsApp.ClienteModule
             this.tbEndereco.Size = new System.Drawing.Size(208, 29);
             this.tbEndereco.TabIndex = 3;
             // 
-            // btAdicionar
-            // 
-            this.btAdicionar.FlatAppearance.BorderSize = 0;
-            this.btAdicionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btAdicionar.Image = global::WindowsApp.Properties.Resources.adicionar;
-            this.btAdicionar.Location = new System.Drawing.Point(581, 440);
-            this.btAdicionar.Name = "btAdicionar";
-            this.btAdicionar.Size = new System.Drawing.Size(75, 70);
-            this.btAdicionar.TabIndex = 18;
-            this.btAdicionar.UseVisualStyleBackColor = true;
-            this.btAdicionar.Click += new System.EventHandler(this.btAdicionar_Click);
-            // 
-            // btMotorista
-            // 
-            this.btMotorista.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(7)))), ((int)(((byte)(49)))));
-            this.btMotorista.FlatAppearance.BorderSize = 0;
-            this.btMotorista.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btMotorista.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btMotorista.ForeColor = System.Drawing.Color.White;
-            this.btMotorista.Location = new System.Drawing.Point(51, 442);
-            this.btMotorista.Name = "btMotorista";
-            this.btMotorista.Size = new System.Drawing.Size(108, 60);
-            this.btMotorista.TabIndex = 19;
-            this.btMotorista.Text = "Cadastrar Motorista";
-            this.btMotorista.UseVisualStyleBackColor = false;
-            this.btMotorista.Click += new System.EventHandler(this.btMotorista_Click);
-            // 
             // tbCNPJ
             // 
             this.tbCNPJ.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -161,6 +136,33 @@ namespace WindowsApp.ClienteModule
             this.tbTelefone.TabIndex = 2;
             this.tbTelefone.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbTelefone.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            // 
+            // btMotorista
+            // 
+            this.btMotorista.FlatAppearance.BorderSize = 0;
+            this.btMotorista.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btMotorista.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btMotorista.ForeColor = System.Drawing.Color.White;
+            this.btMotorista.Image = global::WindowsApp.Properties.Resources.motora;
+            this.btMotorista.Location = new System.Drawing.Point(51, 396);
+            this.btMotorista.Name = "btMotorista";
+            this.btMotorista.Size = new System.Drawing.Size(108, 106);
+            this.btMotorista.TabIndex = 19;
+            this.tipMotoristas.SetToolTip(this.btMotorista, "Cadastrar Motoristas");
+            this.btMotorista.UseVisualStyleBackColor = false;
+            this.btMotorista.Click += new System.EventHandler(this.btMotorista_Click);
+            // 
+            // btAdicionar
+            // 
+            this.btAdicionar.FlatAppearance.BorderSize = 0;
+            this.btAdicionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btAdicionar.Image = global::WindowsApp.Properties.Resources.adicionar;
+            this.btAdicionar.Location = new System.Drawing.Point(581, 440);
+            this.btAdicionar.Name = "btAdicionar";
+            this.btAdicionar.Size = new System.Drawing.Size(75, 70);
+            this.btAdicionar.TabIndex = 18;
+            this.btAdicionar.UseVisualStyleBackColor = true;
+            this.btAdicionar.Click += new System.EventHandler(this.btAdicionar_Click);
             // 
             // CadastroClientePJ
             // 
@@ -199,5 +201,6 @@ namespace WindowsApp.ClienteModule
         private System.Windows.Forms.Button btMotorista;
         private System.Windows.Forms.MaskedTextBox tbCNPJ;
         private System.Windows.Forms.MaskedTextBox tbTelefone;
+        private System.Windows.Forms.ToolTip tipMotoristas;
     }
 }
