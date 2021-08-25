@@ -27,7 +27,7 @@ namespace WindowsApp.ClienteModule
             mtbNascimento.Text = entidade.DataNascimento.ToString();
 
             tbCNH.Text = entidade.Cnh.NumeroCnh;
-            cbTipoCNH.Text = entidade.Cnh.TipoCnh.ToString();
+            cbTipoCNH.SelectedIndex = (int)entidade.Cnh.TipoCnh;
         }
 
         public override ClientePF GetNovaEntidade()

@@ -10,5 +10,10 @@
             Documento = documento;
             Cnh = cnh;
         }
+
+        public override string ToString()
+        {
+            return $"{Nome} | {Telefone}";
+        }
     }
 }

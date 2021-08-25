@@ -1,5 +1,6 @@
 ﻿using Controladores.PessoaModule;
 using Controladores.Shared;
+using Dominio.PessoaModule;
 using Dominio.PessoaModule.ClienteModule;
 using System;
 using System.Windows.Forms;
@@ -15,6 +16,8 @@ namespace WindowsApp.ClienteModule
         {
             InitializeComponent();
             VerificarEditar(cliente);
+            HabilitarBotoes(false);
+            AtualizarListMotoristas();
         }
 
         public override void Editar()
@@ -23,6 +26,12 @@ namespace WindowsApp.ClienteModule
             tbTelefone.Text = entidade.Telefone;
             tbEndereco.Text = entidade.Endereco;
             tbCNPJ.Text = entidade.Documento;
+            listMotoristas.DataSource = entidade.Motoristas;
+        }
+
+        private void AtualizarListMotoristas()
+        {
+            listMotoristas.DataSource = new ControladorMotorista().SelecionarCondutoresPJ(entidade.Id);
         }
 
         public override ClientePJ GetNovaEntidade()
@@ -33,17 +42,45 @@ namespace WindowsApp.ClienteModule
             var documento = tbCNPJ.Text;
             return new ClientePJ(nome, telefone, endereco, documento);
         }
+        private MotoristaEmpresa GetMotoristaSelecionado()
+        {
+            return (MotoristaEmpresa)listMotoristas.SelectedItem;
+        }
 
+        private void HabilitarBotoes(bool estado)
+        {
+            bt_editar_motorista.Enabled = estado;
+            bt_remover_motorista.Enabled = estado;
+        }
+
+        #region Eventos
         private void btAdicionar_Click(object sender, EventArgs e)
         {
             if (Salva())
                 TelaPrincipal.Instancia.FormAtivo = new GerenciamentoCliente();
         }
-
-        private void btMotorista_Click(object sender, EventArgs e)
+        private void bt_add_motorista_click(object sender, EventArgs e)
         {
-            if (Salva())
-                TelaPrincipal.Instancia.FormAtivo = new CadastroMotorista(entidade);
+            TelaPrincipal.Instancia.FormAtivo = new CadastroMotorista(entidade);
+            AtualizarListMotoristas();
         }
+        private void bt_editar_motorista_Click(object sender, EventArgs e)
+        {
+            TelaPrincipal.Instancia.FormAtivo = new CadastroMotorista(entidade, GetMotoristaSelecionado());
+            HabilitarBotoes(false);
+            AtualizarListMotoristas();
+        }
+        private void bt_remover_motorista_Click(object sender, EventArgs e)
+        {
+            new ControladorMotorista().Excluir(GetMotoristaSelecionado().Id);
+            HabilitarBotoes(false);
+            AtualizarListMotoristas();
+        }
+        private void listMotoristas_SelectedValueChanged(object sender, EventArgs e)
+        {
+            HabilitarBotoes(true);
+        }
+
+        #endregion
     }
 }

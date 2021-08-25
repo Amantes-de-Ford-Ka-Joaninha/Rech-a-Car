@@ -95,18 +95,6 @@ namespace Controladores.PessoaModule
 
             return parametros;
         }
-        public void AdicionarMotorista(int idEmpresa,MotoristaEmpresa motorista)
-        {
-            new ControladorMotorista().Inserir(motorista,idEmpresa);            
-        }
-        public void RemoverMotorista(int idMotorista)
-        {
-            new ControladorMotorista().Excluir(idMotorista);
-        }
-        public void EditarMotorista(int idMotorista,MotoristaEmpresa motorista)
-        {
-            new ControladorMotorista().Editar(idMotorista, motorista);
-        }
     }
     public class ControladorMotorista : ControladorEntidade<MotoristaEmpresa>
     {
@@ -169,10 +157,10 @@ namespace Controladores.PessoaModule
         #endregion
 
         public override string sqlSelecionarPorId => sqlSelecionarMotoristaPorId;
-        public override string sqlSelecionarTodos => sqlSelecionarTodos;
-        public override string sqlInserir => sqlInserir;
-        public override string sqlEditar => sqlEditar;
-        public override string sqlExcluir => sqlEditar;
+        public override string sqlSelecionarTodos => sqlSelecionarTodosMotoristasEmpresa;
+        public override string sqlInserir => sqlInserirMotorista;
+        public override string sqlEditar => sqlEditarMotorista;
+        public override string sqlExcluir => sqlExcluirMotorista;
         public override string sqlExists => sqlExisteMotorista;
 
         public List<MotoristaEmpresa> SelecionarCondutoresPJ(int id_empresa)
@@ -186,7 +174,7 @@ namespace Controladores.PessoaModule
         }
         public override void Editar(int id, MotoristaEmpresa motorista)
         {
-            new ControladorCNH().Editar(motorista.Cnh.Id, motorista.Cnh);
+            var controladorCNH = new ControladorCNH();
             motorista.Id = id;
             Db.Update(sqlEditarMotorista, ObterParametrosRegistro(motorista));
         }
