@@ -174,7 +174,7 @@ namespace Controladores.PessoaModule
         }
         public override void Editar(int id, MotoristaEmpresa motorista)
         {
-            var controladorCNH = new ControladorCNH();
+            new ControladorCNH().Editar(motorista.Cnh.Id,motorista.Cnh);
             motorista.Id = id;
             Db.Update(sqlEditarMotorista, ObterParametrosRegistro(motorista));
         }

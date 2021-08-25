@@ -17,7 +17,6 @@ namespace WindowsApp.ClienteModule
             InitializeComponent();
             VerificarEditar(cliente);
             HabilitarBotoes(false);
-            AtualizarListMotoristas();
         }
 
         public override void Editar()
@@ -26,7 +25,7 @@ namespace WindowsApp.ClienteModule
             tbTelefone.Text = entidade.Telefone;
             tbEndereco.Text = entidade.Endereco;
             tbCNPJ.Text = entidade.Documento;
-            listMotoristas.DataSource = entidade.Motoristas;
+            AtualizarListMotoristas();
         }
 
         private void AtualizarListMotoristas()
