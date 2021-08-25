@@ -17,6 +17,7 @@ namespace WindowsApp.ClienteModule
         {
             InitializeComponent();
             VerificarEditar(motorista);
+            cbTipoCNH.SelectedIndex = 2;
             this.clientePJ = clientePJ;
         }
 
