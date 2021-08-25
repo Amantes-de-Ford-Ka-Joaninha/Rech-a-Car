@@ -42,6 +42,7 @@ namespace WindowsApp.ClienteModule
             this.btMotorista = new System.Windows.Forms.Button();
             this.btAdicionar = new System.Windows.Forms.Button();
             this.tipMotoristas = new System.Windows.Forms.ToolTip(this.components);
+            this.listMotoristas = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // lbCNPJ
@@ -49,7 +50,7 @@ namespace WindowsApp.ClienteModule
             this.lbCNPJ.AutoSize = true;
             this.lbCNPJ.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCNPJ.ForeColor = System.Drawing.Color.White;
-            this.lbCNPJ.Location = new System.Drawing.Point(371, 259);
+            this.lbCNPJ.Location = new System.Drawing.Point(43, 290);
             this.lbCNPJ.Name = "lbCNPJ";
             this.lbCNPJ.Size = new System.Drawing.Size(46, 21);
             this.lbCNPJ.TabIndex = 9;
@@ -60,7 +61,7 @@ namespace WindowsApp.ClienteModule
             this.lbTelefone.AutoSize = true;
             this.lbTelefone.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTelefone.ForeColor = System.Drawing.Color.White;
-            this.lbTelefone.Location = new System.Drawing.Point(33, 259);
+            this.lbTelefone.Location = new System.Drawing.Point(22, 193);
             this.lbTelefone.Name = "lbTelefone";
             this.lbTelefone.Size = new System.Drawing.Size(67, 21);
             this.lbTelefone.TabIndex = 12;
@@ -71,7 +72,7 @@ namespace WindowsApp.ClienteModule
             this.lbEndereco.AutoSize = true;
             this.lbEndereco.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbEndereco.ForeColor = System.Drawing.Color.White;
-            this.lbEndereco.Location = new System.Drawing.Point(343, 213);
+            this.lbEndereco.Location = new System.Drawing.Point(15, 244);
             this.lbEndereco.Name = "lbEndereco";
             this.lbEndereco.Size = new System.Drawing.Size(74, 21);
             this.lbEndereco.TabIndex = 13;
@@ -93,7 +94,7 @@ namespace WindowsApp.ClienteModule
             this.lbNome.AutoSize = true;
             this.lbNome.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNome.ForeColor = System.Drawing.Color.White;
-            this.lbNome.Location = new System.Drawing.Point(47, 213);
+            this.lbNome.Location = new System.Drawing.Point(36, 147);
             this.lbNome.Name = "lbNome";
             this.lbNome.Size = new System.Drawing.Size(53, 21);
             this.lbNome.TabIndex = 15;
@@ -102,7 +103,7 @@ namespace WindowsApp.ClienteModule
             // tbNome
             // 
             this.tbNome.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbNome.Location = new System.Drawing.Point(106, 210);
+            this.tbNome.Location = new System.Drawing.Point(95, 144);
             this.tbNome.Name = "tbNome";
             this.tbNome.Size = new System.Drawing.Size(208, 29);
             this.tbNome.TabIndex = 1;
@@ -110,7 +111,7 @@ namespace WindowsApp.ClienteModule
             // tbEndereco
             // 
             this.tbEndereco.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbEndereco.Location = new System.Drawing.Point(423, 210);
+            this.tbEndereco.Location = new System.Drawing.Point(95, 241);
             this.tbEndereco.Name = "tbEndereco";
             this.tbEndereco.Size = new System.Drawing.Size(208, 29);
             this.tbEndereco.TabIndex = 3;
@@ -118,7 +119,7 @@ namespace WindowsApp.ClienteModule
             // tbCNPJ
             // 
             this.tbCNPJ.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbCNPJ.Location = new System.Drawing.Point(423, 256);
+            this.tbCNPJ.Location = new System.Drawing.Point(95, 287);
             this.tbCNPJ.Mask = "00.000.000 /0000-00";
             this.tbCNPJ.Name = "tbCNPJ";
             this.tbCNPJ.Size = new System.Drawing.Size(208, 29);
@@ -129,7 +130,7 @@ namespace WindowsApp.ClienteModule
             // tbTelefone
             // 
             this.tbTelefone.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTelefone.Location = new System.Drawing.Point(106, 256);
+            this.tbTelefone.Location = new System.Drawing.Point(95, 190);
             this.tbTelefone.Mask = "(99) 00000-0000";
             this.tbTelefone.Name = "tbTelefone";
             this.tbTelefone.Size = new System.Drawing.Size(208, 29);
@@ -164,12 +165,24 @@ namespace WindowsApp.ClienteModule
             this.btAdicionar.UseVisualStyleBackColor = true;
             this.btAdicionar.Click += new System.EventHandler(this.btAdicionar_Click);
             // 
+            // listMotoristas
+            // 
+            this.listMotoristas.BackColor = System.Drawing.Color.White;
+            this.listMotoristas.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listMotoristas.FormattingEnabled = true;
+            this.listMotoristas.ItemHeight = 21;
+            this.listMotoristas.Location = new System.Drawing.Point(328, 144);
+            this.listMotoristas.Name = "listMotoristas";
+            this.listMotoristas.Size = new System.Drawing.Size(296, 172);
+            this.listMotoristas.TabIndex = 5;
+            // 
             // CadastroClientePJ
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(33)))), ((int)(((byte)(34)))));
             this.ClientSize = new System.Drawing.Size(668, 522);
+            this.Controls.Add(this.listMotoristas);
             this.Controls.Add(this.tbCNPJ);
             this.Controls.Add(this.tbTelefone);
             this.Controls.Add(this.btMotorista);
@@ -202,5 +215,6 @@ namespace WindowsApp.ClienteModule
         private System.Windows.Forms.MaskedTextBox tbCNPJ;
         private System.Windows.Forms.MaskedTextBox tbTelefone;
         private System.Windows.Forms.ToolTip tipMotoristas;
+        private System.Windows.Forms.ListBox listMotoristas;
     }
 }
