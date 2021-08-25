@@ -96,7 +96,7 @@ namespace Controladores.VeiculoModule
             veiculo.DadosVeiculo.Id = veiculo.Id;
             new ControladorDadosVeiculo().Inserir(veiculo.DadosVeiculo);
         }
-        public override void Editar(int id, Veiculo veiculo)
+        public override void Editar(int id, Veiculo veiculo, int id_chave_estrangeira = 0)
         {
             base.Editar(id, veiculo);
             new ControladorDadosVeiculo().Editar(id, veiculo.DadosVeiculo);

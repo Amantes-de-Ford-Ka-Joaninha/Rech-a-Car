@@ -172,9 +172,9 @@ namespace Controladores.PessoaModule
             new ControladorCNH().Inserir(motorista.Cnh);
             motorista.Id = Db.Insert(sqlInserirMotorista, ObterParametrosRegistro(motorista), AdicionarParametro("ID_EMPRESA", idEmpresa));
         }
-        public override void Editar(int id, MotoristaEmpresa motorista)
+        public override void Editar(int id, MotoristaEmpresa motorista, int id_cnh)
         {
-            new ControladorCNH().Editar(motorista.Cnh.Id,motorista.Cnh);
+            new ControladorCNH().Editar(id_cnh,motorista.Cnh);
             motorista.Id = id;
             Db.Update(sqlEditarMotorista, ObterParametrosRegistro(motorista));
         }
