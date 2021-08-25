@@ -15,10 +15,18 @@ namespace WindowsApp.ClienteModule
 
         public override Controlador<ICliente> Controlador => new ControladorCliente();
 
-        public override CadastroEntidade<ICliente> Editar(ICliente cliente)
+        public override dynamic Editar(ICliente cliente)
         {
-            throw new ArgumentException();
+            entidade = cliente;
+
+            if (cliente is ClientePF)
+                return new CadastroClientePF().Editar((ClientePF)cliente);
+            if (cliente is ClientePJ)
+                return new CadastroClientePJ().Editar((ClientePJ)cliente);
+            else
+                throw new ArgumentException();
         }
+
 
         public override ICliente GetNovaEntidade()
         {

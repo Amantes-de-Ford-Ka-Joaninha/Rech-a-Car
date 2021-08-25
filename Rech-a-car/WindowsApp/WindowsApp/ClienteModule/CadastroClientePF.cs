@@ -19,9 +19,18 @@ namespace WindowsApp.ClienteModule
             cbTipoCNH.SelectedIndex = 2;
         }
 
-        public override CadastroEntidade<ClientePF> Editar(ClientePF clientePF)
+        public override dynamic Editar(ClientePF clientePF)
         {
-            throw new NotImplementedException();
+            tbCPF.Text = clientePF.Documento;
+            tbNome.Text = clientePF.Nome;
+            tbTelefone.Text = clientePF.Telefone;
+            tbEndereco.Text = clientePF.Endereco;
+            mtbNascimento.Text = clientePF.DataNascimento.ToString();
+
+            tbCNH.Text = clientePF.Cnh.NumeroCnh;
+            cbTipoCNH.Text = clientePF.Cnh.TipoCnh.ToString();
+
+            return this;
         }
 
         public override ClientePF GetNovaEntidade()
@@ -31,10 +40,9 @@ namespace WindowsApp.ClienteModule
             var endereco = tbEndereco.Text;
             var documento = tbCPF.Text;
             var cnh = GetCNH();
-            DateTime dataNascimento = DateTime.ParseExact(mtbNascimento.Text, "dd / MM / yyyy", CultureInfo.CreateSpecificCulture("pt-BR"));
+            DateTime.TryParse(mtbNascimento.Text, out DateTime dataNascimento);
             return new ClientePF(nome, telefone, endereco, documento, cnh, dataNascimento);
         }
-
         public CNH GetCNH()
         {
             var numero = tbCNH.Text;
@@ -42,7 +50,6 @@ namespace WindowsApp.ClienteModule
 
             return new CNH(numero, (TipoCNH)tipo);
         }
-
         private void btAdicionar_Click(object sender, EventArgs e)
         {
             if (Salva())

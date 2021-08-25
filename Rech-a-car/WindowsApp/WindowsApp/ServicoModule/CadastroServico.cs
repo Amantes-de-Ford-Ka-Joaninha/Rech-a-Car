@@ -15,7 +15,7 @@ namespace WindowsApp.ServicoModule
             InitializeComponent();
         }
 
-        public override CadastroEntidade<Servico> Editar(Servico servico)
+        public override dynamic Editar(Servico servico)
         {
             tbNome.Text = servico.Nome;
             tbTaxa.Text = servico.Taxa.ToString();

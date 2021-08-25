@@ -24,7 +24,7 @@ namespace WindowsApp.WindowsApp.FuncionarioModule
 
         public override Controlador<Funcionario> Controlador => new ControladorFuncionario();
 
-        public override CadastroEntidade<Funcionario> Editar(Funcionario funcionario)
+        public override dynamic Editar(Funcionario funcionario)
         {
             tbNome.Text = funcionario.Nome;
             tbTelefone.Text = funcionario.Telefone;

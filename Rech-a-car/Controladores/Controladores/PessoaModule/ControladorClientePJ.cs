@@ -76,7 +76,7 @@ namespace Controladores.PessoaModule
             var documento = Convert.ToString(reader["DOCUMENTO"]);
             var endereco = Convert.ToString(reader["ENDERECO"]);
 
-            return new ClientePJ(nome, telefone, documento, endereco)
+            return new ClientePJ(nome, telefone, endereco, documento)
             {
                 Id = id,
                 Motoristas = new ControladorMotorista().SelecionarCondutoresPJ(id)

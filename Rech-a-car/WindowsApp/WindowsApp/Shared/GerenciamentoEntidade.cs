@@ -49,7 +49,9 @@ namespace WindowsApp.Shared
         }
         private int GetIdSelecionado()
         {
-            return dgvEntidade.GetIdSelecionado();
+            const int coluna_id = 0;
+            var linha = dgvEntidade.GetLinhaSelecionada();
+            return (int)linha.Cells[coluna_id].Value;
         }
         private void AlternarBotoes(bool estado)
         {
@@ -85,7 +87,7 @@ namespace WindowsApp.Shared
                 btFiltro.Left += 180;
             }
         }
-        private Type GetTipoEntidade()
+        protected virtual Type GetTipoEntidade()
         {
             return typeof(T);
         }
@@ -114,7 +116,6 @@ namespace WindowsApp.Shared
             AlternarBotoes(false);
             AtualizarRegistros();
         }
-
         private void dgvEntidade_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             TelaPrincipal.Instancia.FormAtivo = Visualizar;

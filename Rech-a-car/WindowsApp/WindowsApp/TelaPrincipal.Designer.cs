@@ -71,7 +71,7 @@ namespace WindowsApp
             this.PanelMenuLateral.Controls.Add(this.panel1);
             this.PanelMenuLateral.Dock = System.Windows.Forms.DockStyle.Left;
             this.PanelMenuLateral.Location = new System.Drawing.Point(0, 0);
-            this.PanelMenuLateral.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PanelMenuLateral.Margin = new System.Windows.Forms.Padding(4);
             this.PanelMenuLateral.Name = "PanelMenuLateral";
             this.PanelMenuLateral.Size = new System.Drawing.Size(333, 690);
             this.PanelMenuLateral.TabIndex = 0;
@@ -86,7 +86,7 @@ namespace WindowsApp
             this.bt_servicos.Image = global::WindowsApp.Properties.Resources.servicos;
             this.bt_servicos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bt_servicos.Location = new System.Drawing.Point(0, 494);
-            this.bt_servicos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_servicos.Margin = new System.Windows.Forms.Padding(4);
             this.bt_servicos.Name = "bt_servicos";
             this.bt_servicos.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.bt_servicos.Size = new System.Drawing.Size(333, 62);
@@ -107,7 +107,7 @@ namespace WindowsApp
             this.bt_funcionarios.Image = global::WindowsApp.Properties.Resources.funcionarios;
             this.bt_funcionarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bt_funcionarios.Location = new System.Drawing.Point(0, 432);
-            this.bt_funcionarios.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_funcionarios.Margin = new System.Windows.Forms.Padding(4);
             this.bt_funcionarios.Name = "bt_funcionarios";
             this.bt_funcionarios.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.bt_funcionarios.Size = new System.Drawing.Size(333, 62);
@@ -129,7 +129,7 @@ namespace WindowsApp
             this.bt_veiculos.Image = global::WindowsApp.Properties.Resources.veiculos;
             this.bt_veiculos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bt_veiculos.Location = new System.Drawing.Point(0, 370);
-            this.bt_veiculos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_veiculos.Margin = new System.Windows.Forms.Padding(4);
             this.bt_veiculos.Name = "bt_veiculos";
             this.bt_veiculos.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.bt_veiculos.Size = new System.Drawing.Size(333, 62);
@@ -147,7 +147,7 @@ namespace WindowsApp
             this.panelSubMenuClientes.Controls.Add(this.btPessoaFisica);
             this.panelSubMenuClientes.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSubMenuClientes.Location = new System.Drawing.Point(0, 247);
-            this.panelSubMenuClientes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelSubMenuClientes.Margin = new System.Windows.Forms.Padding(4);
             this.panelSubMenuClientes.Name = "panelSubMenuClientes";
             this.panelSubMenuClientes.Size = new System.Drawing.Size(333, 123);
             this.panelSubMenuClientes.TabIndex = 8;
@@ -160,7 +160,7 @@ namespace WindowsApp
             this.btPessoaJuridica.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btPessoaJuridica.ForeColor = System.Drawing.Color.White;
             this.btPessoaJuridica.Location = new System.Drawing.Point(0, 62);
-            this.btPessoaJuridica.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btPessoaJuridica.Margin = new System.Windows.Forms.Padding(4);
             this.btPessoaJuridica.Name = "btPessoaJuridica";
             this.btPessoaJuridica.Padding = new System.Windows.Forms.Padding(47, 0, 0, 0);
             this.btPessoaJuridica.Size = new System.Drawing.Size(333, 62);
@@ -179,7 +179,7 @@ namespace WindowsApp
             this.btPessoaFisica.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btPessoaFisica.ForeColor = System.Drawing.Color.White;
             this.btPessoaFisica.Location = new System.Drawing.Point(0, 0);
-            this.btPessoaFisica.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btPessoaFisica.Margin = new System.Windows.Forms.Padding(4);
             this.btPessoaFisica.Name = "btPessoaFisica";
             this.btPessoaFisica.Padding = new System.Windows.Forms.Padding(47, 0, 0, 0);
             this.btPessoaFisica.Size = new System.Drawing.Size(333, 62);
@@ -194,7 +194,7 @@ namespace WindowsApp
             this.panel3.Controls.Add(this.bt_sair);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 624);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(333, 66);
             this.panel3.TabIndex = 7;
@@ -209,7 +209,7 @@ namespace WindowsApp
             this.bt_sair.Image = global::WindowsApp.Properties.Resources.sair;
             this.bt_sair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bt_sair.Location = new System.Drawing.Point(0, 0);
-            this.bt_sair.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_sair.Margin = new System.Windows.Forms.Padding(4);
             this.bt_sair.Name = "bt_sair";
             this.bt_sair.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.bt_sair.Size = new System.Drawing.Size(333, 63);
@@ -230,7 +230,7 @@ namespace WindowsApp
             this.bt_clientes.Image = global::WindowsApp.Properties.Resources.clientes;
             this.bt_clientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bt_clientes.Location = new System.Drawing.Point(0, 185);
-            this.bt_clientes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_clientes.Margin = new System.Windows.Forms.Padding(4);
             this.bt_clientes.Name = "bt_clientes";
             this.bt_clientes.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.bt_clientes.Size = new System.Drawing.Size(333, 62);
@@ -252,7 +252,7 @@ namespace WindowsApp
             this.bt_aluguel.Image = global::WindowsApp.Properties.Resources.aluguel;
             this.bt_aluguel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bt_aluguel.Location = new System.Drawing.Point(0, 123);
-            this.bt_aluguel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_aluguel.Margin = new System.Windows.Forms.Padding(4);
             this.bt_aluguel.Name = "bt_aluguel";
             this.bt_aluguel.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.bt_aluguel.Size = new System.Drawing.Size(333, 62);
@@ -271,7 +271,7 @@ namespace WindowsApp
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(333, 123);
             this.panel1.TabIndex = 0;
@@ -281,7 +281,7 @@ namespace WindowsApp
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(39, 26);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(80, 74);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -319,13 +319,14 @@ namespace WindowsApp
             this.panelFormFilho.Controls.Add(this.pictureBox1);
             this.panelFormFilho.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelFormFilho.Location = new System.Drawing.Point(333, 0);
-            this.panelFormFilho.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelFormFilho.Margin = new System.Windows.Forms.Padding(4);
             this.panelFormFilho.Name = "panelFormFilho";
             this.panelFormFilho.Size = new System.Drawing.Size(912, 690);
             this.panelFormFilho.TabIndex = 1;
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
@@ -354,7 +355,7 @@ namespace WindowsApp
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(129, 124);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(651, 336);
             this.pictureBox1.TabIndex = 0;
@@ -369,7 +370,7 @@ namespace WindowsApp
             this.Controls.Add(this.panelFormFilho);
             this.Controls.Add(this.PanelMenuLateral);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(1261, 726);
             this.Name = "TelaPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

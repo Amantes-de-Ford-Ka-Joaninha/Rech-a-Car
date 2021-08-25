@@ -70,10 +70,10 @@
     <Compile Include="WindowsApp\ClienteModule\CadastroCliente.Designer.cs">
       <DependentUpon>CadastroCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="WindowsApp\ClienteModule\ClientePJModule\CadastroClientePF.cs">
+    <Compile Include="WindowsApp\ClienteModule\CadastroClientePF.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WindowsApp\ClienteModule\ClientePJModule\CadastroClientePF.Designer.cs">
+    <Compile Include="WindowsApp\ClienteModule\CadastroClientePF.Designer.cs">
       <DependentUpon>CadastroClientePF.cs</DependentUpon>
     </Compile>
     <Compile Include="WindowsApp\ClienteModule\ClientePJModule\CadastroClientePJ.cs">
@@ -166,7 +166,7 @@
     <EmbeddedResource Include="WindowsApp\ServicoModule\CadastroServico.resx">
       <DependentUpon>CadastroServico.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WindowsApp\ClienteModule\ClientePJModule\CadastroClientePF.resx">
+    <EmbeddedResource Include="WindowsApp\ClienteModule\CadastroClientePF.resx">
       <DependentUpon>CadastroClientePF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WindowsApp\ClienteModule\ClientePJModule\CadastroClientePJ.resx">

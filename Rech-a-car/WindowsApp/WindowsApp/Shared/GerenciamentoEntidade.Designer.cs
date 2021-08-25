@@ -239,7 +239,7 @@ namespace WindowsApp.Shared
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvEntidade;
+        protected System.Windows.Forms.DataGridView dgvEntidade;
         private System.Windows.Forms.Button bt_remover;
         private System.Windows.Forms.PictureBox picLupa;
         private System.Windows.Forms.TextBox tbFiltro;

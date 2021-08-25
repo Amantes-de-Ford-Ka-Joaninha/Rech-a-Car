@@ -22,7 +22,7 @@ namespace WindowsApp.WindowsApp.ClienteModule
             this.clientePJ = clientePJ;
         }
         
-        public override CadastroEntidade<MotoristaEmpresa> Editar(MotoristaEmpresa motorista)
+        public override dynamic Editar(MotoristaEmpresa motorista)
         {
             tbNome.Text = motorista.Nome;
             tbTelefone.Text = motorista.Telefone;

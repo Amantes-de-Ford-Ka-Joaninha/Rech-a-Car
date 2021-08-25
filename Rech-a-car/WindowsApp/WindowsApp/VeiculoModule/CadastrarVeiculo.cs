@@ -23,7 +23,7 @@ namespace WindowsApp
             cb_portas.SelectedIndex = 0;
         }
 
-        public override CadastroEntidade<Veiculo> Editar(Veiculo veiculo)
+        public override dynamic Editar(Veiculo veiculo)
         {
             entidade = veiculo;
 

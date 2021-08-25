@@ -17,10 +17,10 @@
             string resultadoValidacao = "";
 
             if (string.IsNullOrEmpty(Nome))
-                resultadoValidacao = "O Campo Nome é Obrigatorio";
+                resultadoValidacao = "O Campo Nome é Obrigatorio\n";
 
             if (Taxa <= 0)
-                resultadoValidacao += "O Campo Taxa é está inválido";  
+                resultadoValidacao += "O Campo Taxa está inválido";  
 
             return resultadoValidacao;
         }

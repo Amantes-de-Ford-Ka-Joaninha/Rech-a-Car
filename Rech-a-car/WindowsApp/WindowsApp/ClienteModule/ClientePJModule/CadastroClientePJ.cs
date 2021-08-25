@@ -1,12 +1,8 @@
 ﻿using Controladores.PessoaModule;
 using Controladores.Shared;
-using Dominio.PessoaModule;
 using Dominio.PessoaModule.ClienteModule;
 using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using WindowsApp.Shared;
-using WindowsApp.VeiculoModule;
 using WindowsApp.WindowsApp.ClienteModule;
 
 namespace WindowsApp.ClienteModule
@@ -20,7 +16,7 @@ namespace WindowsApp.ClienteModule
             InitializeComponent();
         }
 
-        public override CadastroEntidade<ClientePJ> Editar(ClientePJ clientePJ)
+        public override dynamic Editar(ClientePJ clientePJ)
         {
             tbNome.Text = clientePJ.Nome;
             tbTelefone.Text = clientePJ.Telefone;
@@ -47,7 +43,8 @@ namespace WindowsApp.ClienteModule
 
         private void btMotorista_Click(object sender, EventArgs e)
         {
-            TelaPrincipal.Instancia.FormAtivo = new CadastroMotorista(entidade);
+            if (Salva())
+                TelaPrincipal.Instancia.FormAtivo = new CadastroMotorista(entidade);
         }
     }
 }

@@ -8,9 +8,8 @@ namespace WindowsApp.Shared
     {
         public T entidade;
         public abstract Controlador<T> Controlador { get; }
-
         public virtual CadastroEntidade<T> Inserir() { return this; }
-        public abstract CadastroEntidade<T> Editar(T entidade);
+        public abstract dynamic Editar(T entidade);
         public abstract T GetNovaEntidade();
 
         protected bool Salva(int id_chave_estrangeira=0)

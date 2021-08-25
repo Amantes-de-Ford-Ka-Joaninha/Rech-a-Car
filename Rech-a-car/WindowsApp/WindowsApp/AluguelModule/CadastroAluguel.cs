@@ -15,7 +15,7 @@ namespace WindowsApp.AluguelModule
 
         public override Controlador<Aluguel> Controlador => new ControladorAluguel();
 
-        public override CadastroEntidade<Aluguel> Editar(Aluguel entidade)
+        public override dynamic Editar(Aluguel entidade)
         {
             throw new NotImplementedException();
         }
