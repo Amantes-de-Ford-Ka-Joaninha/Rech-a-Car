@@ -161,7 +161,7 @@ namespace WindowsApp.ClienteModule
             this.tbCNH.Mask = "00000000000";
             this.tbCNH.Name = "tbCNH";
             this.tbCNH.Size = new System.Drawing.Size(146, 29);
-            this.tbCNH.TabIndex = 35;
+            this.tbCNH.TabIndex = 5;
             this.tbCNH.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbCNH.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.tbCNH.ValidatingType = typeof(int);
@@ -173,7 +173,7 @@ namespace WindowsApp.ClienteModule
             this.tbCPF.Mask = "000.000.000-00";
             this.tbCPF.Name = "tbCPF";
             this.tbCPF.Size = new System.Drawing.Size(208, 29);
-            this.tbCPF.TabIndex = 34;
+            this.tbCPF.TabIndex = 4;
             this.tbCPF.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbCPF.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
@@ -184,7 +184,7 @@ namespace WindowsApp.ClienteModule
             this.tbTelefone.Mask = "(99) 00000-0000";
             this.tbTelefone.Name = "tbTelefone";
             this.tbTelefone.Size = new System.Drawing.Size(208, 29);
-            this.tbTelefone.TabIndex = 33;
+            this.tbTelefone.TabIndex = 2;
             this.tbTelefone.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbTelefone.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 

@@ -3,11 +3,12 @@ using Controladores.Shared;
 using Dominio.PessoaModule;
 using Dominio.PessoaModule.ClienteModule;
 using System;
+using System.Windows.Forms;
 using WindowsApp.Shared;
 
 namespace WindowsApp.ClienteModule
 {
-    public partial class CadastroMotorista : CadastroEntidade<MotoristaEmpresa>
+    public partial class CadastroMotorista : Form//CadastroEntidade<MotoristaEmpresa>
     {
         public override Controlador<MotoristaEmpresa> Controlador => new ControladorMotorista();
 
