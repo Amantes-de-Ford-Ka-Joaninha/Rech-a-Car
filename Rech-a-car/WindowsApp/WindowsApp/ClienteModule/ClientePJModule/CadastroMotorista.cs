@@ -8,7 +8,7 @@ using WindowsApp.Shared;
 
 namespace WindowsApp.ClienteModule
 {
-    public partial class CadastroMotorista : Form//CadastroEntidade<MotoristaEmpresa>
+    public partial class CadastroMotorista : CadastroEntidade<MotoristaEmpresa>
     {
         public override Controlador<MotoristaEmpresa> Controlador => new ControladorMotorista();
 
@@ -34,7 +34,7 @@ namespace WindowsApp.ClienteModule
             var nome = tbNome.Text;
             var telefone = tbTelefone.Text;
             var endereco = tbEndereco.Text;
-            var documento = lbCPF.Text;
+            var documento = tbCPF.Text;
             return new MotoristaEmpresa(nome, telefone, endereco, documento, GetCNH());
         }
         public CNH GetCNH()
