@@ -7,7 +7,7 @@ using System.Windows.Forms;
 using WindowsApp.ClienteModule;
 using WindowsApp.Shared;
 
-namespace WindowsApp.WindowsApp.ClienteModule
+namespace WindowsApp.ClienteModule
 {
     public partial class CadastroMotorista : CadastroEntidade<MotoristaEmpresa>
     {
@@ -18,18 +18,16 @@ namespace WindowsApp.WindowsApp.ClienteModule
         public CadastroMotorista(ClientePJ clientePJ, MotoristaEmpresa motorista = null)
         {
             InitializeComponent();
-            entidade = motorista;
+            VerificarEditar(motorista);
             this.clientePJ = clientePJ;
         }
-        
-        public override dynamic Editar(MotoristaEmpresa motorista)
-        {
-            tbNome.Text = motorista.Nome;
-            tbTelefone.Text = motorista.Telefone;
-            tbEndereco.Text = motorista.Endereco;
-            tbCPF.Text = motorista.Documento;
 
-            return this;
+        public override void Editar()
+        {
+            tbNome.Text = entidade.Nome;
+            tbTelefone.Text = entidade.Telefone;
+            tbEndereco.Text = entidade.Endereco;
+            tbCPF.Text = entidade.Documento;
         }
         public override MotoristaEmpresa GetNovaEntidade()
         {

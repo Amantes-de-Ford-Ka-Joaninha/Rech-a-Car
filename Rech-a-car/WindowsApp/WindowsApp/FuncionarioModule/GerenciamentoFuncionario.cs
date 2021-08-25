@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using WindowsApp.Shared;
-using WindowsApp.WindowsApp.FuncionarioModule;
 
 namespace WindowsApp.FuncionarioModule
 {

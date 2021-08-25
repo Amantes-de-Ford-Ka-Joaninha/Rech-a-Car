@@ -1,5 +1,5 @@
 ﻿
-namespace WindowsApp.WindowsApp.FuncionarioModule
+namespace WindowsApp.FuncionarioModule
 {
     partial class CadastroFuncionario
     {

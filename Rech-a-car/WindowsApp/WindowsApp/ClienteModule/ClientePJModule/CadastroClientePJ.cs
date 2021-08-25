@@ -3,7 +3,6 @@ using Controladores.Shared;
 using Dominio.PessoaModule.ClienteModule;
 using System;
 using WindowsApp.Shared;
-using WindowsApp.WindowsApp.ClienteModule;
 
 namespace WindowsApp.ClienteModule
 {
@@ -11,19 +10,18 @@ namespace WindowsApp.ClienteModule
     {
         public override Controlador<ClientePJ> Controlador { get => new ControladorClientePJ(); }
 
-        public CadastroClientePJ()
+        public CadastroClientePJ(ClientePJ cliente = default)
         {
             InitializeComponent();
+            VerificarEditar(cliente);
         }
 
-        public override dynamic Editar(ClientePJ clientePJ)
+        public override void Editar()
         {
-            tbNome.Text = clientePJ.Nome;
-            tbTelefone.Text = clientePJ.Telefone;
-            tbEndereco.Text = clientePJ.Endereco;
-            tbCNPJ.Text = clientePJ.Documento;
-
-            return this;
+            tbNome.Text = entidade.Nome;
+            tbTelefone.Text = entidade.Telefone;
+            tbEndereco.Text = entidade.Endereco;
+            tbCNPJ.Text = entidade.Documento;
         }
 
         public override ClientePJ GetNovaEntidade()

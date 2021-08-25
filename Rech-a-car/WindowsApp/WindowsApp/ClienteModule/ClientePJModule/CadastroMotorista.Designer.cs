@@ -1,5 +1,5 @@
 ﻿
-namespace WindowsApp.WindowsApp.ClienteModule
+namespace WindowsApp.ClienteModule
 {
     partial class CadastroMotorista
     {

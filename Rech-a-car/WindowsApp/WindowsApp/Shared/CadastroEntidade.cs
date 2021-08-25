@@ -8,11 +8,18 @@ namespace WindowsApp.Shared
     {
         public T entidade;
         public abstract Controlador<T> Controlador { get; }
-        public virtual CadastroEntidade<T> Inserir() { return this; }
-        public abstract dynamic Editar(T entidade);
-        public abstract T GetNovaEntidade();
 
-        protected bool Salva(int id_chave_estrangeira=0)
+        public virtual CadastroEntidade<T> Inserir() { return this; }
+        public abstract T GetNovaEntidade();
+        public abstract void Editar();
+        public void VerificarEditar(T entidade)
+        {
+            this.entidade = entidade;
+            if (entidade != null)
+                Editar();
+        }
+
+        protected bool Salva(int id_chave_estrangeira = 0)
         {
             T entidade = GetNovaEntidade();
             var validacao = entidade.Validar();

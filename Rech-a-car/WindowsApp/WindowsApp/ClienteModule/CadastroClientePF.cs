@@ -3,8 +3,6 @@ using Controladores.Shared;
 using Dominio.PessoaModule;
 using Dominio.PessoaModule.ClienteModule;
 using System;
-using System.Globalization;
-using System.Windows.Forms;
 using WindowsApp.Shared;
 
 namespace WindowsApp.ClienteModule
@@ -13,26 +11,24 @@ namespace WindowsApp.ClienteModule
     {
         public override Controlador<ClientePF> Controlador { get => new ControladorClientePF(); }
 
-        public CadastroClientePF()
+        public CadastroClientePF(ClientePF cliente = default)
         {
             InitializeComponent();
             cbTipoCNH.SelectedIndex = 2;
+            VerificarEditar(cliente);
         }
 
-        public override dynamic Editar(ClientePF clientePF)
+        public override void Editar()
         {
-            tbCPF.Text = clientePF.Documento;
-            tbNome.Text = clientePF.Nome;
-            tbTelefone.Text = clientePF.Telefone;
-            tbEndereco.Text = clientePF.Endereco;
-            mtbNascimento.Text = clientePF.DataNascimento.ToString();
+            tbCPF.Text = entidade.Documento;
+            tbNome.Text = entidade.Nome;
+            tbTelefone.Text = entidade.Telefone;
+            tbEndereco.Text = entidade.Endereco;
+            mtbNascimento.Text = entidade.DataNascimento.ToString();
 
-            tbCNH.Text = clientePF.Cnh.NumeroCnh;
-            cbTipoCNH.Text = clientePF.Cnh.TipoCnh.ToString();
-
-            return this;
+            tbCNH.Text = entidade.Cnh.NumeroCnh;
+            cbTipoCNH.Text = entidade.Cnh.TipoCnh.ToString();
         }
-
         public override ClientePF GetNovaEntidade()
         {
             var nome = tbNome.Text;

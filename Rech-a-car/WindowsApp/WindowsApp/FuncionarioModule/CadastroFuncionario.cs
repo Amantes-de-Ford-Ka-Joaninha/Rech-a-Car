@@ -2,36 +2,26 @@
 using Controladores.Shared;
 using Dominio.PessoaModule;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using WindowsApp.FuncionarioModule;
 using WindowsApp.Shared;
 
-namespace WindowsApp.WindowsApp.FuncionarioModule
+namespace WindowsApp.FuncionarioModule
 {
     public partial class CadastroFuncionario : CadastroEntidade<Funcionario>
     {
-        public CadastroFuncionario()
+        public CadastroFuncionario(Funcionario funcionario = default)
         {
             InitializeComponent();
+            VerificarEditar(funcionario);
         }
 
         public override Controlador<Funcionario> Controlador => new ControladorFuncionario();
 
-        public override dynamic Editar(Funcionario funcionario)
+        public override void Editar()
         {
-            tbNome.Text = funcionario.Nome;
-            tbTelefone.Text = funcionario.Telefone;
-            tbEndereco.Text = funcionario.Endereco;
-            tbCPF.Text = funcionario.Documento;
-
-            return this;
+            tbNome.Text = entidade.Nome;
+            tbTelefone.Text = entidade.Telefone;
+            tbEndereco.Text = entidade.Endereco;
+            tbCPF.Text = entidade.Documento;
         }
 
         public override Funcionario GetNovaEntidade()

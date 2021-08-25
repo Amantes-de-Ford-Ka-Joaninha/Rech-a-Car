@@ -10,16 +10,16 @@ namespace WindowsApp.ServicoModule
     {
         public override Controlador<Servico> Controlador { get => new ControladorServico(); }
 
-        public CadastroServico()
+        public CadastroServico(Servico servico = default)
         {
             InitializeComponent();
+            VerificarEditar(servico);
         }
 
-        public override dynamic Editar(Servico servico)
+        public override void Editar()
         {
-            tbNome.Text = servico.Nome;
-            tbTaxa.Text = servico.Taxa.ToString();
-            return this;
+            tbNome.Text = entidade.Nome;
+            tbTaxa.Text = entidade.Taxa.ToString();
         }
 
         public override Servico GetNovaEntidade()

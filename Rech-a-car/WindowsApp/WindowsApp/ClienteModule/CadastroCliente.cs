@@ -8,25 +8,23 @@ namespace WindowsApp.ClienteModule
 {
     public partial class CadastroCliente : CadastroEntidade<ICliente>
     {
-        public CadastroCliente()
+        public CadastroCliente(ICliente cliente = default)
         {
             InitializeComponent();
+            VerificarEditar(cliente);
         }
 
         public override Controlador<ICliente> Controlador => new ControladorCliente();
 
-        public override dynamic Editar(ICliente cliente)
+        public override void Editar()
         {
-            entidade = cliente;
-
-            if (cliente is ClientePF)
-                return new CadastroClientePF().Editar((ClientePF)cliente);
-            if (cliente is ClientePJ)
-                return new CadastroClientePJ().Editar((ClientePJ)cliente);
+            if (entidade is ClientePF)
+                TelaPrincipal.Instancia.FormAtivo = new CadastroClientePF((ClientePF)entidade);
+            if (entidade is ClientePJ)
+                TelaPrincipal.Instancia.FormAtivo = new CadastroClientePJ((ClientePJ)entidade);
             else
                 throw new ArgumentException();
         }
-
 
         public override ICliente GetNovaEntidade()
         {

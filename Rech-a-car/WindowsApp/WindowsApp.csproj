@@ -134,11 +134,11 @@
     <Compile Include="WindowsApp\Shared\VisualizarEntidade.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WindowsApp\VeiculoModule\CadastrarVeiculo.cs">
+    <Compile Include="WindowsApp\VeiculoModule\CadastroVeiculo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WindowsApp\VeiculoModule\CadastrarVeiculo.Designer.cs">
-      <DependentUpon>CadastrarVeiculo.cs</DependentUpon>
+    <Compile Include="WindowsApp\VeiculoModule\CadastroVeiculo.Designer.cs">
+      <DependentUpon>CadastroVeiculo.cs</DependentUpon>
     </Compile>
     <Compile Include="WindowsApp\TelaPrincipal.cs">
       <SubType>Form</SubType>
@@ -175,8 +175,8 @@
     <EmbeddedResource Include="WindowsApp\Shared\GerenciamentoEntidade.resx">
       <DependentUpon>GerenciamentoEntidade.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WindowsApp\VeiculoModule\CadastrarVeiculo.resx">
-      <DependentUpon>CadastrarVeiculo.cs</DependentUpon>
+    <EmbeddedResource Include="WindowsApp\VeiculoModule\CadastroVeiculo.resx">
+      <DependentUpon>CadastroVeiculo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WindowsApp\TelaPrincipal.resx">
       <DependentUpon>TelaPrincipal.cs</DependentUpon>
