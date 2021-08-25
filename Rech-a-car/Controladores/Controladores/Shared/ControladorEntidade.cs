@@ -21,7 +21,7 @@ namespace Controladores.Shared
         {
             entidade.Id = Db.Insert(sqlInserir, ObterParametrosRegistro(entidade));
         }
-        public override void Editar(int id, T entidade)
+        public override void Editar(int id, T entidade, int id_chave_estrangeira = 0)
         {
             entidade.Id = id;
             Db.Update(sqlEditar, ObterParametrosRegistro(entidade));

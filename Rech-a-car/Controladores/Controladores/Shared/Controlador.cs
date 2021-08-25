@@ -8,7 +8,7 @@ namespace Controladores.Shared
     {
         public List<T> Registros => ObterRegistros();
         public abstract void Inserir(T entidade, int id_chave_estrangeira = 0);
-        public abstract void Editar(int id, T entidade);
+        public abstract void Editar(int id, T entidade, int id_chave_estrangeira = 0);
         public abstract void Excluir(int id, Type tipo = null);
         public abstract T GetById(int id, Type tipo = null);
         protected abstract List<T> ObterRegistros();

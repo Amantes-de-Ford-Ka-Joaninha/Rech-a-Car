@@ -19,7 +19,7 @@ namespace Controladores.PessoaModule
             else
                 throw new ArgumentException();
         }
-        public override void Editar(int id, ICliente cliente)
+        public override void Editar(int id, ICliente cliente, int id_chave_estrangeira)
         {
             if (cliente is ClientePF)
                 ControladorPF.Editar(cliente.Id, (ClientePF)cliente);

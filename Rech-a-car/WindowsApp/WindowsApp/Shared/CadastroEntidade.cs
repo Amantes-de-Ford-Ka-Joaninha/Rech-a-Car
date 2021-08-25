@@ -18,7 +18,6 @@ namespace WindowsApp.Shared
             if (entidade != null)
                 Editar();
         }
-
         protected bool Salva(int id_chave_estrangeira = 0)
         {
             T entidade = GetNovaEntidade();
@@ -33,7 +32,7 @@ namespace WindowsApp.Shared
             if (this.entidade == null)
                 Controlador.Inserir(entidade, id_chave_estrangeira);
             else
-                Controlador.Editar(this.entidade.Id, entidade);
+                Controlador.Editar(this.entidade.Id, entidade, id_chave_estrangeira);
 
             MessageBox.Show("Realizado com sucesso!!!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             return true;

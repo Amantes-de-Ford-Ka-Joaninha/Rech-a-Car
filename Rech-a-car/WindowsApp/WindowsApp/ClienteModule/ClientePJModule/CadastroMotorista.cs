@@ -17,8 +17,8 @@ namespace WindowsApp.ClienteModule
         public CadastroMotorista(ClientePJ clientePJ, MotoristaEmpresa motorista = null)
         {
             InitializeComponent();
-            VerificarEditar(motorista);
             cbTipoCNH.SelectedIndex = 2;
+            VerificarEditar(motorista);
             this.clientePJ = clientePJ;
         }
 
@@ -28,6 +28,8 @@ namespace WindowsApp.ClienteModule
             tbTelefone.Text = entidade.Telefone;
             tbEndereco.Text = entidade.Endereco;
             tbCPF.Text = entidade.Documento;
+            tbCNH.Text = entidade.Cnh.NumeroCnh;
+            cbTipoCNH.SelectedIndex = (int)entidade.Cnh.TipoCnh;
         }
         public override MotoristaEmpresa GetNovaEntidade()
         {
@@ -46,8 +48,9 @@ namespace WindowsApp.ClienteModule
         }
         private void btAdicionarMotorista_Click(object sender, EventArgs e)
         {
-            if (Salva(clientePJ.Id))
-                TelaPrincipal.Instancia.FormAtivo = new GerenciamentoCliente();
+            var chave_estrangeira = entidade is null ? clientePJ.Id : entidade.Cnh.Id;
+            if (Salva(chave_estrangeira))
+                TelaPrincipal.Instancia.FormAtivo = new CadastroClientePJ(clientePJ);
         }
     }
 }
