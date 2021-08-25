@@ -2,6 +2,7 @@
 using Controladores.Shared;
 using Dominio.PessoaModule;
 using System;
+using System.Windows.Forms;
 using WindowsApp.Shared;
 
 namespace WindowsApp.FuncionarioModule

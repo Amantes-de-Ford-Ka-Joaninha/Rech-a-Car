@@ -35,11 +35,11 @@ namespace WindowsApp.ClienteModule
             this.label1 = new System.Windows.Forms.Label();
             this.lbNome = new System.Windows.Forms.Label();
             this.tbNome = new System.Windows.Forms.TextBox();
-            this.tbTelefone = new System.Windows.Forms.TextBox();
             this.tbEndereco = new System.Windows.Forms.TextBox();
-            this.tbCNPJ = new System.Windows.Forms.TextBox();
             this.btAdicionar = new System.Windows.Forms.Button();
             this.btMotorista = new System.Windows.Forms.Button();
+            this.tbCNPJ = new System.Windows.Forms.MaskedTextBox();
+            this.tbTelefone = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // lbCNPJ
@@ -105,14 +105,6 @@ namespace WindowsApp.ClienteModule
             this.tbNome.Size = new System.Drawing.Size(208, 29);
             this.tbNome.TabIndex = 1;
             // 
-            // tbTelefone
-            // 
-            this.tbTelefone.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTelefone.Location = new System.Drawing.Point(106, 256);
-            this.tbTelefone.Name = "tbTelefone";
-            this.tbTelefone.Size = new System.Drawing.Size(208, 29);
-            this.tbTelefone.TabIndex = 2;
-            // 
             // tbEndereco
             // 
             this.tbEndereco.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -120,14 +112,6 @@ namespace WindowsApp.ClienteModule
             this.tbEndereco.Name = "tbEndereco";
             this.tbEndereco.Size = new System.Drawing.Size(208, 29);
             this.tbEndereco.TabIndex = 3;
-            // 
-            // tbCNPJ
-            // 
-            this.tbCNPJ.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbCNPJ.Location = new System.Drawing.Point(423, 256);
-            this.tbCNPJ.Name = "tbCNPJ";
-            this.tbCNPJ.Size = new System.Drawing.Size(208, 29);
-            this.tbCNPJ.TabIndex = 4;
             // 
             // btAdicionar
             // 
@@ -156,16 +140,38 @@ namespace WindowsApp.ClienteModule
             this.btMotorista.UseVisualStyleBackColor = false;
             this.btMotorista.Click += new System.EventHandler(this.btMotorista_Click);
             // 
-            // CadastrarClientePJ
+            // tbCNPJ
+            // 
+            this.tbCNPJ.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbCNPJ.Location = new System.Drawing.Point(423, 256);
+            this.tbCNPJ.Mask = "00.000.000 /0000-00";
+            this.tbCNPJ.Name = "tbCNPJ";
+            this.tbCNPJ.Size = new System.Drawing.Size(208, 29);
+            this.tbCNPJ.TabIndex = 4;
+            this.tbCNPJ.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbCNPJ.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            // 
+            // tbTelefone
+            // 
+            this.tbTelefone.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTelefone.Location = new System.Drawing.Point(106, 256);
+            this.tbTelefone.Mask = "(99) 00000-0000";
+            this.tbTelefone.Name = "tbTelefone";
+            this.tbTelefone.Size = new System.Drawing.Size(208, 29);
+            this.tbTelefone.TabIndex = 2;
+            this.tbTelefone.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbTelefone.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            // 
+            // CadastroClientePJ
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(33)))), ((int)(((byte)(34)))));
             this.ClientSize = new System.Drawing.Size(668, 522);
-            this.Controls.Add(this.btMotorista);
             this.Controls.Add(this.tbCNPJ);
-            this.Controls.Add(this.tbEndereco);
             this.Controls.Add(this.tbTelefone);
+            this.Controls.Add(this.btMotorista);
+            this.Controls.Add(this.tbEndereco);
             this.Controls.Add(this.tbNome);
             this.Controls.Add(this.btAdicionar);
             this.Controls.Add(this.lbCNPJ);
@@ -173,7 +179,7 @@ namespace WindowsApp.ClienteModule
             this.Controls.Add(this.lbEndereco);
             this.Controls.Add(this.lbNome);
             this.Controls.Add(this.label1);
-            this.Name = "CadastrarClientePJ";
+            this.Name = "CadastroClientePJ";
             this.Text = "CadastrarClientePJ";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -189,9 +195,9 @@ namespace WindowsApp.ClienteModule
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbNome;
         private System.Windows.Forms.TextBox tbNome;
-        private System.Windows.Forms.TextBox tbTelefone;
         private System.Windows.Forms.TextBox tbEndereco;
-        private System.Windows.Forms.TextBox tbCNPJ;
         private System.Windows.Forms.Button btMotorista;
+        private System.Windows.Forms.MaskedTextBox tbCNPJ;
+        private System.Windows.Forms.MaskedTextBox tbTelefone;
     }
 }

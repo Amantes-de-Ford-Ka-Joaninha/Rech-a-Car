@@ -40,7 +40,7 @@ namespace WindowsApp.Shared
         private void ConfigurarGrid()
         {
             dgvEntidade.Columns.Clear();
-
+            
             var colunaID = new DataGridViewTextBoxColumn { DataPropertyName = "ID", HeaderText = "ID" };
             colunaID.Visible = false;
             dgvEntidade.Columns.Add(colunaID);
@@ -141,6 +141,11 @@ namespace WindowsApp.Shared
         }
 
         #endregion
+
+        private void GerenciamentoEntidade_Load(object sender, EventArgs e)
+        {
+            dgvEntidade.ClearSelection();
+        }
     }
     public enum TipoTela
     {

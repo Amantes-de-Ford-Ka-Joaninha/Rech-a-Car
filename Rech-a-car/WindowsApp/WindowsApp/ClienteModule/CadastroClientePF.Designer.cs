@@ -33,17 +33,17 @@ namespace WindowsApp.ClienteModule
             this.lbNome = new System.Windows.Forms.Label();
             this.tbNome = new System.Windows.Forms.TextBox();
             this.lbTelefone = new System.Windows.Forms.Label();
-            this.tbTelefone = new System.Windows.Forms.TextBox();
             this.lbEndereco = new System.Windows.Forms.Label();
             this.tbEndereco = new System.Windows.Forms.TextBox();
             this.lbCPF = new System.Windows.Forms.Label();
-            this.tbCPF = new System.Windows.Forms.TextBox();
             this.lbNascimento = new System.Windows.Forms.Label();
             this.lbCNH = new System.Windows.Forms.Label();
-            this.tbCNH = new System.Windows.Forms.TextBox();
             this.mtbNascimento = new System.Windows.Forms.MaskedTextBox();
             this.btAdicionar = new System.Windows.Forms.Button();
             this.cbTipoCNH = new System.Windows.Forms.ComboBox();
+            this.tbCPF = new System.Windows.Forms.MaskedTextBox();
+            this.tbTelefone = new System.Windows.Forms.MaskedTextBox();
+            this.tbCNH = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -87,14 +87,6 @@ namespace WindowsApp.ClienteModule
             this.lbTelefone.TabIndex = 1;
             this.lbTelefone.Text = "Telefone";
             // 
-            // tbTelefone
-            // 
-            this.tbTelefone.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTelefone.Location = new System.Drawing.Point(107, 223);
-            this.tbTelefone.Name = "tbTelefone";
-            this.tbTelefone.Size = new System.Drawing.Size(204, 29);
-            this.tbTelefone.TabIndex = 2;
-            // 
             // lbEndereco
             // 
             this.lbEndereco.AutoSize = true;
@@ -125,14 +117,6 @@ namespace WindowsApp.ClienteModule
             this.lbCPF.TabIndex = 1;
             this.lbCPF.Text = "CPF";
             // 
-            // tbCPF
-            // 
-            this.tbCPF.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbCPF.Location = new System.Drawing.Point(426, 177);
-            this.tbCPF.Name = "tbCPF";
-            this.tbCPF.Size = new System.Drawing.Size(211, 29);
-            this.tbCPF.TabIndex = 4;
-            // 
             // lbNascimento
             // 
             this.lbNascimento.AutoSize = true;
@@ -155,14 +139,6 @@ namespace WindowsApp.ClienteModule
             this.lbCNH.TabIndex = 1;
             this.lbCNH.Text = "CNH";
             // 
-            // tbCNH
-            // 
-            this.tbCNH.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbCNH.Location = new System.Drawing.Point(426, 223);
-            this.tbCNH.Name = "tbCNH";
-            this.tbCNH.Size = new System.Drawing.Size(151, 29);
-            this.tbCNH.TabIndex = 5;
-            // 
             // mtbNascimento
             // 
             this.mtbNascimento.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -182,7 +158,7 @@ namespace WindowsApp.ClienteModule
             this.btAdicionar.Location = new System.Drawing.Point(581, 440);
             this.btAdicionar.Name = "btAdicionar";
             this.btAdicionar.Size = new System.Drawing.Size(75, 70);
-            this.btAdicionar.TabIndex = 4;
+            this.btAdicionar.TabIndex = 12;
             this.btAdicionar.UseVisualStyleBackColor = true;
             this.btAdicionar.Click += new System.EventHandler(this.btAdicionar_Click);
             // 
@@ -202,19 +178,53 @@ namespace WindowsApp.ClienteModule
             this.cbTipoCNH.Size = new System.Drawing.Size(56, 29);
             this.cbTipoCNH.TabIndex = 6;
             // 
-            // CadastrarClientePF
+            // tbCPF
+            // 
+            this.tbCPF.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbCPF.Location = new System.Drawing.Point(426, 177);
+            this.tbCPF.Mask = "000.000.000-00";
+            this.tbCPF.Name = "tbCPF";
+            this.tbCPF.Size = new System.Drawing.Size(211, 29);
+            this.tbCPF.TabIndex = 4;
+            this.tbCPF.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbCPF.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            // 
+            // tbTelefone
+            // 
+            this.tbTelefone.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTelefone.Location = new System.Drawing.Point(107, 223);
+            this.tbTelefone.Mask = "(99) 00000-0000";
+            this.tbTelefone.Name = "tbTelefone";
+            this.tbTelefone.Size = new System.Drawing.Size(204, 29);
+            this.tbTelefone.TabIndex = 2;
+            this.tbTelefone.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbTelefone.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            // 
+            // tbCNH
+            // 
+            this.tbCNH.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbCNH.Location = new System.Drawing.Point(426, 223);
+            this.tbCNH.Mask = "00000000000";
+            this.tbCNH.Name = "tbCNH";
+            this.tbCNH.Size = new System.Drawing.Size(149, 29);
+            this.tbCNH.TabIndex = 5;
+            this.tbCNH.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbCNH.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.tbCNH.ValidatingType = typeof(int);
+            // 
+            // CadastroClientePF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(33)))), ((int)(((byte)(34)))));
             this.ClientSize = new System.Drawing.Size(668, 522);
+            this.Controls.Add(this.tbCNH);
+            this.Controls.Add(this.tbCPF);
+            this.Controls.Add(this.tbTelefone);
             this.Controls.Add(this.cbTipoCNH);
             this.Controls.Add(this.btAdicionar);
             this.Controls.Add(this.mtbNascimento);
-            this.Controls.Add(this.tbCPF);
             this.Controls.Add(this.lbCPF);
-            this.Controls.Add(this.tbCNH);
-            this.Controls.Add(this.tbTelefone);
             this.Controls.Add(this.lbCNH);
             this.Controls.Add(this.tbEndereco);
             this.Controls.Add(this.lbNascimento);
@@ -223,7 +233,7 @@ namespace WindowsApp.ClienteModule
             this.Controls.Add(this.tbNome);
             this.Controls.Add(this.lbNome);
             this.Controls.Add(this.label1);
-            this.Name = "CadastrarClientePF";
+            this.Name = "CadastroClientePF";
             this.Text = "CadastrarClientePF";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -236,16 +246,16 @@ namespace WindowsApp.ClienteModule
         private System.Windows.Forms.Label lbNome;
         private System.Windows.Forms.TextBox tbNome;
         private System.Windows.Forms.Label lbTelefone;
-        private System.Windows.Forms.TextBox tbTelefone;
         private System.Windows.Forms.Label lbEndereco;
         private System.Windows.Forms.TextBox tbEndereco;
         private System.Windows.Forms.Label lbCPF;
-        private System.Windows.Forms.TextBox tbCPF;
         private System.Windows.Forms.Label lbNascimento;
         private System.Windows.Forms.Label lbCNH;
-        private System.Windows.Forms.TextBox tbCNH;
         private System.Windows.Forms.MaskedTextBox mtbNascimento;
         private System.Windows.Forms.Button btAdicionar;
         private System.Windows.Forms.ComboBox cbTipoCNH;
+        private System.Windows.Forms.MaskedTextBox tbCPF;
+        private System.Windows.Forms.MaskedTextBox tbTelefone;
+        private System.Windows.Forms.MaskedTextBox tbCNH;
     }
 }

@@ -29,6 +29,7 @@ namespace WindowsApp.ClienteModule
             tbCNH.Text = entidade.Cnh.NumeroCnh;
             cbTipoCNH.Text = entidade.Cnh.TipoCnh.ToString();
         }
+
         public override ClientePF GetNovaEntidade()
         {
             var nome = tbNome.Text;
