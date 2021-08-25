@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 
-namespace Controladores
+namespace Controladores.Shared
 {
     public class ControladorCNH
     {

@@ -1,7 +1,7 @@
 ﻿
 namespace WindowsApp.ServicoModule
 {
-    partial class CadastrarServico
+    partial class CadastroServico
     {
         /// <summary>
         /// Required designer variable.
@@ -76,7 +76,7 @@ namespace WindowsApp.ServicoModule
             this.tbNome.Location = new System.Drawing.Point(268, 190);
             this.tbNome.Name = "tbNome";
             this.tbNome.Size = new System.Drawing.Size(163, 29);
-            this.tbNome.TabIndex = 3;
+            this.tbNome.TabIndex = 1;
             // 
             // tbTaxa
             // 
@@ -84,7 +84,7 @@ namespace WindowsApp.ServicoModule
             this.tbTaxa.Location = new System.Drawing.Point(268, 232);
             this.tbTaxa.Name = "tbTaxa";
             this.tbTaxa.Size = new System.Drawing.Size(163, 29);
-            this.tbTaxa.TabIndex = 3;
+            this.tbTaxa.TabIndex = 2;
             // 
             // btAdicionar
             // 
@@ -94,11 +94,11 @@ namespace WindowsApp.ServicoModule
             this.btAdicionar.Location = new System.Drawing.Point(291, 284);
             this.btAdicionar.Name = "btAdicionar";
             this.btAdicionar.Size = new System.Drawing.Size(67, 65);
-            this.btAdicionar.TabIndex = 4;
+            this.btAdicionar.TabIndex = 3;
             this.btAdicionar.UseVisualStyleBackColor = true;
             this.btAdicionar.Click += new System.EventHandler(this.btAdicionar_Click);
             // 
-            // CadastrarServico
+            // CadastroServico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -110,7 +110,7 @@ namespace WindowsApp.ServicoModule
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbTitulo);
-            this.Name = "CadastrarServico";
+            this.Name = "CadastroServico";
             this.Text = "CadastrarServico";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -5,46 +5,43 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using WindowsApp.Shared;
-using WindowsApp.VeiculoModule;
 
-namespace WindowsApp
+namespace WindowsApp.VeiculoModule
 {
-    public partial class CadastrarVeiculo : CadastroEntidade<Veiculo>
+    public partial class CadastroVeiculo : CadastroEntidade<Veiculo>
     {
         public override Controlador<Veiculo> Controlador { get => new ControladorVeiculo(); }
         private Bitmap imagem;
 
-        public CadastrarVeiculo()
+        public CadastroVeiculo(Veiculo veiculo = default)
         {
             InitializeComponent();
+            VerificarEditar(veiculo);
+
             cb_cambio.SelectedIndex = 0;
             cb_capacidade.SelectedIndex = 1;
             cb_portaMalas.SelectedIndex = 1;
             cb_portas.SelectedIndex = 0;
         }
 
-        public override CadastroEntidade<Veiculo> Editar(Veiculo veiculo)
+        public override void Editar()
         {
-            entidade = veiculo;
+            tb_modelo.Text = entidade.Modelo;
+            tb_marca.Text = entidade.Marca;
+            tb_placa.Text = entidade.Placa;
+            cb_portaMalas.SelectedItem = entidade.PortaMalaToString();
+            tb_chassi.Text = entidade.Chassi;
+            cb_capacidade.Text = entidade.Capacidade.ToString();
+            tb_ano.Text = entidade.Ano.ToString();
+            cb_portas.SelectedItem = entidade.Portas.ToString();
+            cb_cambio.SelectedItem = entidade.CambioToString();
+            tb_categoria.Text = entidade.Categoria;
+            AtualizarIcone((Bitmap)entidade.Foto);
 
-            tb_modelo.Text = veiculo.Modelo;
-            tb_marca.Text = veiculo.Marca;
-            tb_placa.Text = veiculo.Placa;
-            cb_portaMalas.SelectedItem = veiculo.PortaMalaToString();
-            tb_chassi.Text = veiculo.Chassi;
-            cb_capacidade.Text = veiculo.Capacidade.ToString();
-            tb_ano.Text = veiculo.Ano.ToString();
-            cb_portas.SelectedItem = veiculo.Portas.ToString();
-            cb_cambio.SelectedItem = veiculo.CambioToString();
-            tb_categoria.Text = veiculo.Categoria;
-            AtualizarIcone((Bitmap)veiculo.Foto);
-
-            var dadosVeiculo = veiculo.DadosVeiculo;
+            var dadosVeiculo = entidade.DadosVeiculo;
             tb_quilometragem.Text = dadosVeiculo.Quilometragem.ToString();
             tb_diaria.Text = dadosVeiculo.Diaria.ToString();
             tb_precoKm.Text = dadosVeiculo.PrecoKm.ToString();
-
-            return this;
         }
         public override Veiculo GetNovaEntidade()
         {
@@ -77,8 +74,8 @@ namespace WindowsApp
 
         private void bt_adicionar_Click(object sender, EventArgs e)
         {
-            Salva();
-            TelaPrincipal.Instancia.FormAtivo = new GerenciamentoVeiculo();
+            if (Salva())
+                TelaPrincipal.Instancia.FormAtivo = new GerenciamentoVeiculo();
         }
         private void bt_foto_Click(object sender, EventArgs e)
         {

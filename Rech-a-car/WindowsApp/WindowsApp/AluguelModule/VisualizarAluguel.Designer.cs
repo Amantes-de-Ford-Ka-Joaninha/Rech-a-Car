@@ -1,7 +1,7 @@
 ﻿
 namespace WindowsApp.AluguelModule
 {
-    partial class FecharAluguel
+    partial class VisualizarAluguel
     {
         /// <summary>
         /// Required designer variable.
@@ -32,7 +32,7 @@ namespace WindowsApp.AluguelModule
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "FecharAluguel";
+            this.Text = "VisualizarAluguel";
         }
 
         #endregion

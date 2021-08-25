@@ -1,4 +1,5 @@
 ﻿using Controladores;
+using Controladores.Shared;
 using Controladores.VeiculoModule;
 using Dominio.VeiculoModule;
 using FluentAssertions;

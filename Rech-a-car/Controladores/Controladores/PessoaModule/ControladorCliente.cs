@@ -10,7 +10,7 @@ namespace Controladores.PessoaModule
         private ControladorClientePF ControladorPF = new ControladorClientePF();
         private ControladorClientePJ ControladorPJ = new ControladorClientePJ();
 
-        public override void Inserir(ICliente cliente)
+        public override void Inserir(ICliente cliente, int id_chave_estrangeira = 0)
         {
             if (cliente is ClientePF)
                 ControladorPF.Inserir((ClientePF)cliente);
@@ -35,22 +35,20 @@ namespace Controladores.PessoaModule
             Clientes.AddRange(ControladorPJ.Registros);
             return Clientes;
         }
-
         public override void Excluir(int id, Type tipo = null)
         {
-            if (tipo == typeof(ClientePF))
+            if (tipo.IsAssignableFrom(typeof(ClientePF)))
                 ControladorPF.Excluir(id);
-            else if (tipo == typeof(ClientePJ))
+            else if (tipo.IsAssignableFrom(typeof(ClientePJ)))
                 ControladorPJ.Excluir(id);
             else
                 throw new ArgumentException();
         }
-
         public override ICliente GetById(int id, Type tipo = null)
         {
-            if (tipo == typeof(ClientePF))
+            if (tipo.IsAssignableFrom(typeof(ClientePF)))
                 return ControladorPF.GetById(id);
-            else if (tipo == typeof(ClientePJ))
+            else if (tipo.IsAssignableFrom(typeof(ClientePJ)))
                 return ControladorPJ.GetById(id);
             else
                 throw new ArgumentException();

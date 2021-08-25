@@ -11,7 +11,7 @@ namespace WindowsApp.ServicoModule
         {
         }
 
-        protected override CadastroEntidade<Servico> Cadastro => new CadastrarServico();
+        protected override CadastroEntidade<Servico> Cadastro => new CadastroServico();
         protected override VisualizarEntidade<Servico> Visualizar => new VisualizarServico();
 
         public override DataGridViewColumn[] ConfigurarColunas()

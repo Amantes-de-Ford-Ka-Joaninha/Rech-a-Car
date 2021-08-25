@@ -10,26 +10,33 @@ namespace WindowsApp.Shared
         public abstract Controlador<T> Controlador { get; }
 
         public virtual CadastroEntidade<T> Inserir() { return this; }
-        public abstract CadastroEntidade<T> Editar(T entidade);
         public abstract T GetNovaEntidade();
+        public abstract void Editar();
+        public void VerificarEditar(T entidade)
+        {
+            this.entidade = entidade;
+            if (entidade != null)
+                Editar();
+        }
 
-        protected void Salva()
+        protected bool Salva(int id_chave_estrangeira = 0)
         {
             T entidade = GetNovaEntidade();
             var validacao = entidade.Validar();
 
-            if (validacao != "VALIDO")
+            if (validacao != string.Empty)
             {
                 MessageBox.Show(validacao);
-                return;
+                return false;
             }
 
             if (this.entidade == null)
-                Controlador.Inserir(entidade);
+                Controlador.Inserir(entidade, id_chave_estrangeira);
             else
                 Controlador.Editar(this.entidade.Id, entidade);
 
             MessageBox.Show("Realizado com sucesso!!!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            return true;
         }
     }
 }

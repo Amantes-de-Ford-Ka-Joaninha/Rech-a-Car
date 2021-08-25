@@ -1,4 +1,4 @@
-﻿using Controladores;
+﻿using Controladores.ServicoModule;
 using Controladores.Shared;
 using Dominio.ServicoModule;
 using System;
@@ -6,22 +6,22 @@ using WindowsApp.Shared;
 
 namespace WindowsApp.ServicoModule
 {
-    public partial class CadastrarServico : CadastroEntidade<Servico>
+    public partial class CadastroServico : CadastroEntidade<Servico>
     {
         public override Controlador<Servico> Controlador { get => new ControladorServico(); }
 
-        public CadastrarServico()
+        public CadastroServico(Servico servico = default)
         {
             InitializeComponent();
+            VerificarEditar(servico);
         }
 
-        public override CadastroEntidade<Servico> Editar(Servico servico)
+        public override void Editar()
         {
-            tbNome.Text = servico.Nome;
-            tbTaxa.Text = servico.Taxa.ToString();
-
-            return this;
+            tbNome.Text = entidade.Nome;
+            tbTaxa.Text = entidade.Taxa.ToString();
         }
+
         public override Servico GetNovaEntidade()
         {
             var nome = tbNome.Text;
@@ -32,8 +32,8 @@ namespace WindowsApp.ServicoModule
 
         private void btAdicionar_Click(object sender, EventArgs e)
         {
-            Salva();
-            Close();
+            if (Salva())
+                TelaPrincipal.Instancia.FormAtivo = new GerenciamentoServico();
         }
     }
 }

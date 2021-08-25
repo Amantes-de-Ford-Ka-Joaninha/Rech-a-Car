@@ -1,11 +1,10 @@
 ﻿using Controladores.Shared;
 using Dominio.ServicoModule;
-using Dominio.Shared;
 using System;
 using System.Collections.Generic;
 using System.Data;
 
-namespace Controladores
+namespace Controladores.ServicoModule
 {
     public class ControladorServico : ControladorEntidade<Servico>
     {
@@ -69,7 +68,6 @@ namespace Controladores
 
         public override string sqlExists => sqlExisteServico;
 
-
         public override Servico ConverterEmEntidade(IDataReader reader)
         {
             var id = Convert.ToInt32(reader["ID"]);
@@ -96,7 +94,9 @@ namespace Controladores
             return parametros;
         }
 
-       
-        
+        public List<Servico> GetServicosAlugados(int idAluguel)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

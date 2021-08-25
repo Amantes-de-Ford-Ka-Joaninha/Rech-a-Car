@@ -13,13 +13,13 @@ namespace Tests.Tests.ServicoModule
         public void Deve_retornar_servico_valido()
         {
             servicoValido = new Servico("nome", 50);
-            servicoValido.Validar().Should().Be(servicoValido.Valido);
+            servicoValido.Validar().Should().Be(string.Empty);
         }
         [TestMethod]
         public void Deve_retornar_servico_invalido()
         {
             servicoValido = new Servico(string.Empty, 0);
-            servicoValido.Validar().Should().NotBe(servicoValido.Valido);
+            servicoValido.Validar().Should().NotBe(string.Empty);
         }
     }
 }

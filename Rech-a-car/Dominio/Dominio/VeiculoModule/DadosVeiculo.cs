@@ -25,9 +25,6 @@ namespace Dominio.VeiculoModule
             if (PrecoKm <= 0)
                 validacao += "Valor do preço por Km deve ser maior que 0\n";
 
-            if (validacao == String.Empty)
-                return Valido;
-
             return validacao;
         }
     }

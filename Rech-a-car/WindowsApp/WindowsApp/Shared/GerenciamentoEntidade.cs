@@ -2,6 +2,7 @@
 using System;
 using System.Linq;
 using System.Windows.Forms;
+using WindowsApp.VeiculoModule;
 
 namespace WindowsApp.Shared
 {
@@ -9,11 +10,13 @@ namespace WindowsApp.Shared
     {
         protected abstract CadastroEntidade<T> Cadastro { get; }
         protected abstract VisualizarEntidade<T> Visualizar { get; }
-        public GerenciamentoEntidade(String titulo)
+        public GerenciamentoEntidade(String titulo, TipoTela tipo = TipoTela.TodosBotoes)
         {
             InitializeComponent();
             AtualizarRegistros();
             lbTitulo.Text = titulo;
+
+            AtualizarBotoes(tipo);
         }
 
         public abstract object[] ObterCamposLinha(T item);
@@ -37,7 +40,7 @@ namespace WindowsApp.Shared
         private void ConfigurarGrid()
         {
             dgvEntidade.Columns.Clear();
-
+            
             var colunaID = new DataGridViewTextBoxColumn { DataPropertyName = "ID", HeaderText = "ID" };
             colunaID.Visible = false;
             dgvEntidade.Columns.Add(colunaID);
@@ -47,14 +50,50 @@ namespace WindowsApp.Shared
         }
         private int GetIdSelecionado()
         {
-            return dgvEntidade.GetIdSelecionado();
+            const int coluna_id = 0;
+            var linha = dgvEntidade.GetLinhaSelecionada();
+            return (int)linha.Cells[coluna_id].Value;
         }
         private void AlternarBotoes(bool estado)
         {
             bt_editar.Enabled = estado;
             bt_remover.Enabled = estado;
         }
+        private void AtualizarBotoes(TipoTela tipo)
+        {
+            if (tipo is TipoTela.SemBotoes)
+                RemoveTodos();
 
+            if (tipo is TipoTela.SemCadastrar)
+                RemoveCadastrar();
+
+
+            void RemoveCadastrar()
+            {
+                bt_adicionar.Visible = false;
+                tbFiltro.Width += 50;
+                picLupa.Left += 50;
+                btFiltro.Left += 50;
+                bt_editar.Left += 50;
+                bt_remover.Left += 50;
+            }
+
+            void RemoveTodos()
+            {
+                bt_adicionar.Visible = false;
+                bt_editar.Visible = false;
+                bt_remover.Visible = false;
+                tbFiltro.Width += 180;
+                picLupa.Left += 180;
+                btFiltro.Left += 180;
+            }
+        }
+        protected virtual Type GetTipoEntidade()
+        {
+            return typeof(T);
+        }
+
+        #region Eventos
         private void btAdicionar_Click(object sender, EventArgs e)
         {
             TelaPrincipal.Instancia.FormAtivo = Cadastro.Inserir();
@@ -62,11 +101,21 @@ namespace WindowsApp.Shared
         }
         private void bt_editar_Click(object sender, EventArgs e)
         {
-            var entidade = Cadastro.Controlador.GetById(GetIdSelecionado());
-            TelaPrincipal.Instancia.FormAtivo = Cadastro.Editar(entidade);
+            var entidade = Cadastro.Controlador.GetById(GetIdSelecionado(), GetTipoEntidade());
+            TelaPrincipal.Instancia.FormAtivo = GetTelaCadastro(entidade);
             AlternarBotoes(false);
             AtualizarRegistros();
         }
+
+        private Form GetTelaCadastro(T entidade)
+        {
+            var nome_entidade = entidade.GetType().Name;
+            var @namespace = nome_entidade.Contains("Cliente")? "Cliente": nome_entidade;
+            var classe = $"WindowsApp.{@namespace}Module.Cadastro{nome_entidade}";
+            var tipo = Type.GetType(classe);
+            return (Form)Activator.CreateInstance(tipo,entidade);
+        }
+
         private void bt_remover_Click(object sender, EventArgs e)
         {
             var opcao = MessageBox.Show("Tem certeza que deseja excluir?", "Atenção!", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
@@ -74,7 +123,7 @@ namespace WindowsApp.Shared
             if (opcao == DialogResult.Cancel)
                 return;
 
-            Cadastro.Controlador.Excluir(GetIdSelecionado());
+            Cadastro.Controlador.Excluir(GetIdSelecionado(), GetTipoEntidade());
             AlternarBotoes(false);
             AtualizarRegistros();
         }
@@ -82,10 +131,26 @@ namespace WindowsApp.Shared
         {
             TelaPrincipal.Instancia.FormAtivo = Visualizar;
         }
-
         private void dgvEntidade_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             AlternarBotoes(true);
         }
+        private void btFiltro_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
+
+        private void GerenciamentoEntidade_Load(object sender, EventArgs e)
+        {
+            dgvEntidade.ClearSelection();
+        }
+    }
+    public enum TipoTela
+    {
+        SemBotoes,
+        SemCadastrar,
+        TodosBotoes
     }
 }

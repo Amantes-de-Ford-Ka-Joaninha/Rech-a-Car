@@ -4,6 +4,8 @@ using Dominio.ServicoModule;
 using Controladores;
 using FluentAssertions;
 using Tests.Shared;
+using Controladores.ServicoModule;
+using Controladores.Shared;
 
 namespace Tests.Tests.ServicoModule
 {
@@ -46,5 +48,10 @@ namespace Tests.Tests.ServicoModule
             controlador.Registros.Count.Should().Be(0);
         }
 
+        [TestCleanup]
+        public void LimparTestes()
+        {
+            Db.Delete(TestExtensions.ResetId("TBServico"));
+        }
     }
 }

@@ -1,32 +1,21 @@
-﻿using Controladores;
-using Dominio.AluguelModule;
+﻿using Dominio.AluguelModule;
 using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 using WindowsApp.Shared;
 
 namespace WindowsApp.AluguelModule
 {
-    public partial class GerenciamentoAluguel : Form
+    public partial class GerenciamentoAluguel : GerenciamentoEntidade<Aluguel>
     {
-        private ControladorAluguel Controlador = new ControladorAluguel();
-        public GerenciamentoAluguel()
+        public GerenciamentoAluguel() : base("Gerenciamento de Aluguel")
         {
             InitializeComponent();
-            lbTitulo.Text = "Gerenciamento de Aluguel";
-            AtualizarRegistros();
         }
+        protected override CadastroEntidade<Aluguel> Cadastro => new CadastroAluguel();
 
-        public object[] ObterCamposLinha(Aluguel aluguel)
-        {
-            List<object> linha = new List<object>()
-            {
-                //aluguel.Nome,
-                //aluguel.Taxa,
-            };
-            return linha.ToArray();
-        }
-        public DataGridViewColumn[] ConfigurarColunas()
+        protected override VisualizarEntidade<Aluguel> Visualizar => new VisualizarAluguel();
+
+        public override DataGridViewColumn[] ConfigurarColunas()
         {
             return new DataGridViewColumn[]
             {
@@ -36,43 +25,17 @@ namespace WindowsApp.AluguelModule
             new DataGridViewTextBoxColumn { DataPropertyName = "TipoDeAluguel", HeaderText = "Tipo De Aluguel"},
             };
         }
-        public void AtualizarRegistros()
+        public override object[] ObterCamposLinha(Aluguel aluguel)
         {
-            ConfigurarGrid();
-
-            dgvAluguel.Rows.Clear();
-            var registros = Controlador.Registros;
-
-            foreach (var item in registros)
-                dgvAluguel.Rows.Add(GetDadosLinha(item));
-        }
-        private object[] GetDadosLinha(Aluguel aluguel)
-        {
-            var dadosLinha = new object[] { aluguel.Id }.ToList();
-            dadosLinha.AddRange(ObterCamposLinha(aluguel));
-            return dadosLinha.ToArray();
-        }
-        private void ConfigurarGrid()
-        {
-            dgvAluguel.Columns.Clear();
-
-            var colunaID = new DataGridViewTextBoxColumn { DataPropertyName = "ID", HeaderText = "ID" };
-            colunaID.Visible = false;
-            dgvAluguel.Columns.Add(colunaID);
-            dgvAluguel.Columns.AddRange(ConfigurarColunas());
-
-            dgvAluguel.ConfigurarGridSomenteLeitura();
-        }
-        private int GetIdSelecionado()
-        {
-            return dgvAluguel.GetIdSelecionado();
-        }
-
-        private void dgvAluguel_RowEnter(object sender, DataGridViewCellEventArgs e)
-        {
-            var entidade = Controlador.GetById(GetIdSelecionado());
-            TelaPrincipal.Instancia.FormAtivo = new FecharAluguel(entidade);
-            AtualizarRegistros();
+            List<object> linha = new List<object>()
+            {
+                aluguel.Cliente,
+                aluguel.Veiculo,
+                aluguel.Condutor,
+                aluguel.TipoAluguel,
+                aluguel.Servicos
+            };
+            return linha.ToArray();
         }
     }
 }

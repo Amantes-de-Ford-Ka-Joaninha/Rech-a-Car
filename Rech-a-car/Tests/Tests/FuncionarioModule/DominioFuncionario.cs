@@ -22,7 +22,6 @@ namespace Tests.Tests.FuncionarioModule
         {
             funcionario = new Funcionario("", "", "", "");
             funcionario.Validar().Should().NotBe(string.Empty);
-
         }
     }
 }

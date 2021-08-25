@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Dominio.PessoaModule.ClienteModule;
+using System;
 using System.Windows.Forms;
 using WindowsApp.AluguelModule;
 using WindowsApp.ClienteModule;
 using WindowsApp.FuncionarioModule;
 using WindowsApp.ServicoModule;
+using WindowsApp.Shared;
 using WindowsApp.VeiculoModule;
 
 namespace WindowsApp
@@ -22,7 +24,6 @@ namespace WindowsApp
         public Form FormAtivo { set { AbrirFormPanel(value); } }
         private void EsconderSubMenu()
         {
-            panelSubMenuAluguel.Visible = false;
             panelSubMenuClientes.Visible = false;
         }
         private void MostrarSubMenu(Panel subMenu)
@@ -31,7 +32,6 @@ namespace WindowsApp
         }
         private void AbrirFormPanel(Form panelForm)
         {
-            EsconderSubMenu();
             formAtivo?.Close();
 
             formAtivo = panelForm;
@@ -49,15 +49,12 @@ namespace WindowsApp
 
         private void bt_Aluguel_Click(object sender, EventArgs e)
         {
-            MostrarSubMenu(panelSubMenuAluguel);
-        }
-        private void bt_RealizarAluguel_Click(object sender, EventArgs e)
-        {
-            FormAtivo = new RealizarAluguel();
+            FormAtivo = new GerenciamentoAluguel();
         }
         private void bt_GerenciarAlugueis_Click(object sender, EventArgs e)
         {
             FormAtivo = new GerenciamentoAluguel();
+            EsconderSubMenu();
         }
         private void bt_Veiculos_Click(object sender, EventArgs e)
         {
@@ -74,7 +71,18 @@ namespace WindowsApp
         private void bt_clientes_Click(object sender, EventArgs e)
         {
             MostrarSubMenu(panelSubMenuClientes);
-            FormAtivo = new GerenciamentoClientes();
+            FormAtivo = new GerenciamentoCliente();
+        }
+        private void btPessoaFisica_Click(object sender, EventArgs e)
+        {
+            FormAtivo = new CadastroClientePF();
+            EsconderSubMenu();
+        }
+
+        private void btPessoaJuridica_Click(object sender, EventArgs e)
+        {
+            FormAtivo = new CadastroClientePJ();
+            EsconderSubMenu();
         }
         private void bt_sair_Click(object sender, EventArgs e)
         {
@@ -82,15 +90,5 @@ namespace WindowsApp
         }
 
         #endregion
-
-        private void btPessoaFisica_Click(object sender, EventArgs e)
-        {
-            FormAtivo = new CadastrarClientePF();
-        }
-
-        private void btPessoaJuridica_Click(object sender, EventArgs e)
-        {
-            FormAtivo = new CadastrarClientePJ();
-        }
     }
 }

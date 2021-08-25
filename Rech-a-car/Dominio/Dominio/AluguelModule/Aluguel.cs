@@ -12,24 +12,30 @@ namespace Dominio.AluguelModule
     {
         public Aluguel(Veiculo veiculo, ICliente cliente, List<Servico> servicos, Condutor condutor, TipoAluguel tipoAluguel)
         {
-            this.veiculo = veiculo;
-            this.cliente = cliente;
-            this.servicos = servicos;
-            this.condutor = condutor;
-            this.tipoAluguel = tipoAluguel;
+            Veiculo = veiculo;
+            Cliente = cliente;
+            Servicos = servicos;
+            Condutor = condutor;
+            TipoAluguel = tipoAluguel;
         }
 
-        public Veiculo veiculo { get; set; }
-        public ICliente cliente { get; set; }
-        public List<Servico> servicos { get; set; }
-        public Condutor condutor { get; set; }
-        public TipoAluguel tipoAluguel { get; set; }
+        public Veiculo Veiculo { get; set; }
+        public ICliente Cliente { get; set; }
+        public List<Servico> Servicos { get; set; }
+        public Condutor Condutor { get; set; }
+        public TipoAluguel TipoAluguel { get; set; }
 
         public override string Validar()
         {
             string validacao = String.Empty;
-            if (true)
-                throw new NotImplementedException();
+            throw new NotImplementedException();
+            //if (condutor.Cnh > )
         }
+    }
+    public enum TipoAluguel
+    {
+        kmcontrolado = 1,
+        kmlivre = 2,
+        diária = 3
     }
 }

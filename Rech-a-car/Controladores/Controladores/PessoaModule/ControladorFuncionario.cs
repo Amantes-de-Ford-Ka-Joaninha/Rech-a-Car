@@ -15,14 +15,14 @@ namespace Controladores.PessoaModule
                     [NOME],       
                     [TELEFONE],             
                     [ENDERECO],
-                    [DOCUMENTO],
+                    [DOCUMENTO]
                 )
             VALUES
                 (
                     @NOME,       
                     @TELEFONE,             
                     @ENDERECO,
-                    @DOCUMENTO,
+                    @DOCUMENTO
                 )";
 
         private const string sqlEditarFuncionario =
@@ -31,7 +31,7 @@ namespace Controladores.PessoaModule
                     [NOME] = @NOME,       
                     [TELEFONE] = @TELEFONE,             
                     [ENDERECO] = @ENDERECO,
-                    [DOCUMENTO] = @DOCUMENTO,
+                    [DOCUMENTO] = @DOCUMENTO
                 WHERE [ID] = @ID";
 
         private const string sqlExcluirFuncionario =
@@ -83,10 +83,10 @@ namespace Controladores.PessoaModule
             var parametros = new Dictionary<string, object>
             {
                 { "ID", funcionario.Id },
-                { "MODELO", funcionario.Nome },
-                { "MARCA", funcionario.Endereco },
-                { "ANO", funcionario.Telefone },
+                { "NOME", funcionario.Nome },
                 { "ENDERECO", funcionario.Endereco },
+                { "TELEFONE", funcionario.Telefone },
+                { "DOCUMENTO", funcionario.Documento }
             };
 
             return parametros;

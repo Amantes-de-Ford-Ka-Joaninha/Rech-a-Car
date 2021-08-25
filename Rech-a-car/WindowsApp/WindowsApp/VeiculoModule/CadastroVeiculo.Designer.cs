@@ -1,7 +1,7 @@
 ﻿
-namespace WindowsApp
+namespace WindowsApp.VeiculoModule
 {
-    partial class CadastrarVeiculo
+    partial class CadastroVeiculo
     {
         /// <summary>
         /// Required designer variable.

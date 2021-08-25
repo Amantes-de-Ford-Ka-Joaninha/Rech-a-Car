@@ -57,7 +57,6 @@ namespace Dominio.VeiculoModule
             Regex templatePlacaAntiga = new Regex(@"\b[A-Z]{3}[0-9]{4}\b");
 
             string validacao = "";
-            string validacaoDados;
 
             if (String.IsNullOrEmpty(Modelo))
                 validacao += "Modelo do veículo é obrigatório\n";
@@ -86,15 +85,7 @@ namespace Dominio.VeiculoModule
             if (Ano > DateTime.Now.Year + 1)
                 validacao += "Ano do carro inválido\n";
 
-            validacaoDados = DadosVeiculo.Validar();
-
-            if (validacaoDados != Valido)
-                validacao += validacaoDados;
-
-            if (validacao == String.Empty)
-                return Valido;
-
-            return validacao;
+            return validacao += DadosVeiculo.Validar();
         }
     }
 }

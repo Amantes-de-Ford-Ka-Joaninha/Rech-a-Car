@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace WindowsApp.Shared
@@ -57,13 +58,11 @@ namespace WindowsApp.Shared
                 grid.ClearSelection();
             };
         }
-        public static int GetIdSelecionado(this DataGridView grid)
+        public static DataGridViewRow GetLinhaSelecionada(this DataGridView grid)
         {
             const int primeira = 0;
 
-            var id = grid.SelectedRows[primeira].Cells[0].Value;
-
-            return (int)id;
+            return grid.SelectedRows[primeira];
         }
     }
 }

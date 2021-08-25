@@ -40,9 +40,6 @@ namespace WindowsApp
             this.panel3 = new System.Windows.Forms.Panel();
             this.bt_sair = new System.Windows.Forms.Button();
             this.bt_clientes = new System.Windows.Forms.Button();
-            this.panelSubMenuAluguel = new System.Windows.Forms.Panel();
-            this.bt_gerenciarAlugueis = new System.Windows.Forms.Button();
-            this.bt_realizarAluguel = new System.Windows.Forms.Button();
             this.bt_aluguel = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -55,7 +52,6 @@ namespace WindowsApp
             this.PanelMenuLateral.SuspendLayout();
             this.panelSubMenuClientes.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panelSubMenuAluguel.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panelFormFilho.SuspendLayout();
@@ -71,13 +67,13 @@ namespace WindowsApp
             this.PanelMenuLateral.Controls.Add(this.panelSubMenuClientes);
             this.PanelMenuLateral.Controls.Add(this.panel3);
             this.PanelMenuLateral.Controls.Add(this.bt_clientes);
-            this.PanelMenuLateral.Controls.Add(this.panelSubMenuAluguel);
             this.PanelMenuLateral.Controls.Add(this.bt_aluguel);
             this.PanelMenuLateral.Controls.Add(this.panel1);
             this.PanelMenuLateral.Dock = System.Windows.Forms.DockStyle.Left;
             this.PanelMenuLateral.Location = new System.Drawing.Point(0, 0);
+            this.PanelMenuLateral.Margin = new System.Windows.Forms.Padding(4);
             this.PanelMenuLateral.Name = "PanelMenuLateral";
-            this.PanelMenuLateral.Size = new System.Drawing.Size(250, 561);
+            this.PanelMenuLateral.Size = new System.Drawing.Size(333, 690);
             this.PanelMenuLateral.TabIndex = 0;
             // 
             // bt_servicos
@@ -89,10 +85,11 @@ namespace WindowsApp
             this.bt_servicos.ForeColor = System.Drawing.Color.White;
             this.bt_servicos.Image = global::WindowsApp.Properties.Resources.servicos;
             this.bt_servicos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bt_servicos.Location = new System.Drawing.Point(0, 503);
+            this.bt_servicos.Location = new System.Drawing.Point(0, 494);
+            this.bt_servicos.Margin = new System.Windows.Forms.Padding(4);
             this.bt_servicos.Name = "bt_servicos";
-            this.bt_servicos.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.bt_servicos.Size = new System.Drawing.Size(250, 50);
+            this.bt_servicos.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.bt_servicos.Size = new System.Drawing.Size(333, 62);
             this.bt_servicos.TabIndex = 11;
             this.bt_servicos.Text = " Serviços";
             this.bt_servicos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -109,10 +106,11 @@ namespace WindowsApp
             this.bt_funcionarios.ForeColor = System.Drawing.Color.White;
             this.bt_funcionarios.Image = global::WindowsApp.Properties.Resources.funcionarios;
             this.bt_funcionarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bt_funcionarios.Location = new System.Drawing.Point(0, 453);
+            this.bt_funcionarios.Location = new System.Drawing.Point(0, 432);
+            this.bt_funcionarios.Margin = new System.Windows.Forms.Padding(4);
             this.bt_funcionarios.Name = "bt_funcionarios";
-            this.bt_funcionarios.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.bt_funcionarios.Size = new System.Drawing.Size(250, 50);
+            this.bt_funcionarios.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.bt_funcionarios.Size = new System.Drawing.Size(333, 62);
             this.bt_funcionarios.TabIndex = 10;
             this.bt_funcionarios.Text = " Funcionários";
             this.bt_funcionarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -130,10 +128,11 @@ namespace WindowsApp
             this.bt_veiculos.ForeColor = System.Drawing.Color.White;
             this.bt_veiculos.Image = global::WindowsApp.Properties.Resources.veiculos;
             this.bt_veiculos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bt_veiculos.Location = new System.Drawing.Point(0, 403);
+            this.bt_veiculos.Location = new System.Drawing.Point(0, 370);
+            this.bt_veiculos.Margin = new System.Windows.Forms.Padding(4);
             this.bt_veiculos.Name = "bt_veiculos";
-            this.bt_veiculos.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.bt_veiculos.Size = new System.Drawing.Size(250, 50);
+            this.bt_veiculos.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.bt_veiculos.Size = new System.Drawing.Size(333, 62);
             this.bt_veiculos.TabIndex = 9;
             this.bt_veiculos.Text = " Veículos";
             this.bt_veiculos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -147,9 +146,10 @@ namespace WindowsApp
             this.panelSubMenuClientes.Controls.Add(this.btPessoaJuridica);
             this.panelSubMenuClientes.Controls.Add(this.btPessoaFisica);
             this.panelSubMenuClientes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubMenuClientes.Location = new System.Drawing.Point(0, 303);
+            this.panelSubMenuClientes.Location = new System.Drawing.Point(0, 247);
+            this.panelSubMenuClientes.Margin = new System.Windows.Forms.Padding(4);
             this.panelSubMenuClientes.Name = "panelSubMenuClientes";
-            this.panelSubMenuClientes.Size = new System.Drawing.Size(250, 100);
+            this.panelSubMenuClientes.Size = new System.Drawing.Size(333, 123);
             this.panelSubMenuClientes.TabIndex = 8;
             // 
             // btPessoaJuridica
@@ -159,10 +159,11 @@ namespace WindowsApp
             this.btPessoaJuridica.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btPessoaJuridica.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btPessoaJuridica.ForeColor = System.Drawing.Color.White;
-            this.btPessoaJuridica.Location = new System.Drawing.Point(0, 50);
+            this.btPessoaJuridica.Location = new System.Drawing.Point(0, 62);
+            this.btPessoaJuridica.Margin = new System.Windows.Forms.Padding(4);
             this.btPessoaJuridica.Name = "btPessoaJuridica";
-            this.btPessoaJuridica.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btPessoaJuridica.Size = new System.Drawing.Size(250, 50);
+            this.btPessoaJuridica.Padding = new System.Windows.Forms.Padding(47, 0, 0, 0);
+            this.btPessoaJuridica.Size = new System.Drawing.Size(333, 62);
             this.btPessoaJuridica.TabIndex = 3;
             this.btPessoaJuridica.Text = "Pessoa Jurídica";
             this.btPessoaJuridica.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -178,9 +179,10 @@ namespace WindowsApp
             this.btPessoaFisica.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btPessoaFisica.ForeColor = System.Drawing.Color.White;
             this.btPessoaFisica.Location = new System.Drawing.Point(0, 0);
+            this.btPessoaFisica.Margin = new System.Windows.Forms.Padding(4);
             this.btPessoaFisica.Name = "btPessoaFisica";
-            this.btPessoaFisica.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btPessoaFisica.Size = new System.Drawing.Size(250, 50);
+            this.btPessoaFisica.Padding = new System.Windows.Forms.Padding(47, 0, 0, 0);
+            this.btPessoaFisica.Size = new System.Drawing.Size(333, 62);
             this.btPessoaFisica.TabIndex = 2;
             this.btPessoaFisica.Text = "Pessoa Física";
             this.btPessoaFisica.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -191,9 +193,10 @@ namespace WindowsApp
             // 
             this.panel3.Controls.Add(this.bt_sair);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 507);
+            this.panel3.Location = new System.Drawing.Point(0, 624);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(250, 54);
+            this.panel3.Size = new System.Drawing.Size(333, 66);
             this.panel3.TabIndex = 7;
             // 
             // bt_sair
@@ -206,9 +209,10 @@ namespace WindowsApp
             this.bt_sair.Image = global::WindowsApp.Properties.Resources.sair;
             this.bt_sair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bt_sair.Location = new System.Drawing.Point(0, 0);
+            this.bt_sair.Margin = new System.Windows.Forms.Padding(4);
             this.bt_sair.Name = "bt_sair";
-            this.bt_sair.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.bt_sair.Size = new System.Drawing.Size(250, 51);
+            this.bt_sair.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.bt_sair.Size = new System.Drawing.Size(333, 63);
             this.bt_sair.TabIndex = 9;
             this.bt_sair.Text = " Sair";
             this.bt_sair.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -225,62 +229,17 @@ namespace WindowsApp
             this.bt_clientes.ForeColor = System.Drawing.Color.White;
             this.bt_clientes.Image = global::WindowsApp.Properties.Resources.clientes;
             this.bt_clientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bt_clientes.Location = new System.Drawing.Point(0, 253);
+            this.bt_clientes.Location = new System.Drawing.Point(0, 185);
+            this.bt_clientes.Margin = new System.Windows.Forms.Padding(4);
             this.bt_clientes.Name = "bt_clientes";
-            this.bt_clientes.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.bt_clientes.Size = new System.Drawing.Size(250, 50);
+            this.bt_clientes.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.bt_clientes.Size = new System.Drawing.Size(333, 62);
             this.bt_clientes.TabIndex = 3;
             this.bt_clientes.Text = " Clientes";
             this.bt_clientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bt_clientes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bt_clientes.UseVisualStyleBackColor = true;
             this.bt_clientes.Click += new System.EventHandler(this.bt_clientes_Click);
-            // 
-            // panelSubMenuAluguel
-            // 
-            this.panelSubMenuAluguel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(40)))), ((int)(((byte)(41)))));
-            this.panelSubMenuAluguel.Controls.Add(this.bt_gerenciarAlugueis);
-            this.panelSubMenuAluguel.Controls.Add(this.bt_realizarAluguel);
-            this.panelSubMenuAluguel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubMenuAluguel.Location = new System.Drawing.Point(0, 150);
-            this.panelSubMenuAluguel.Name = "panelSubMenuAluguel";
-            this.panelSubMenuAluguel.Size = new System.Drawing.Size(250, 103);
-            this.panelSubMenuAluguel.TabIndex = 2;
-            // 
-            // bt_gerenciarAlugueis
-            // 
-            this.bt_gerenciarAlugueis.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bt_gerenciarAlugueis.FlatAppearance.BorderSize = 0;
-            this.bt_gerenciarAlugueis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_gerenciarAlugueis.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_gerenciarAlugueis.ForeColor = System.Drawing.Color.White;
-            this.bt_gerenciarAlugueis.Location = new System.Drawing.Point(0, 50);
-            this.bt_gerenciarAlugueis.Name = "bt_gerenciarAlugueis";
-            this.bt_gerenciarAlugueis.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.bt_gerenciarAlugueis.Size = new System.Drawing.Size(250, 50);
-            this.bt_gerenciarAlugueis.TabIndex = 1;
-            this.bt_gerenciarAlugueis.Text = "Gerenciar Aluguéis";
-            this.bt_gerenciarAlugueis.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bt_gerenciarAlugueis.UseVisualStyleBackColor = true;
-            this.bt_gerenciarAlugueis.Click += new System.EventHandler(this.bt_GerenciarAlugueis_Click);
-            // 
-            // bt_realizarAluguel
-            // 
-            this.bt_realizarAluguel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.bt_realizarAluguel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bt_realizarAluguel.FlatAppearance.BorderSize = 0;
-            this.bt_realizarAluguel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_realizarAluguel.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_realizarAluguel.ForeColor = System.Drawing.Color.White;
-            this.bt_realizarAluguel.Location = new System.Drawing.Point(0, 0);
-            this.bt_realizarAluguel.Name = "bt_realizarAluguel";
-            this.bt_realizarAluguel.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.bt_realizarAluguel.Size = new System.Drawing.Size(250, 50);
-            this.bt_realizarAluguel.TabIndex = 0;
-            this.bt_realizarAluguel.Text = "Realizar Aluguel";
-            this.bt_realizarAluguel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bt_realizarAluguel.UseVisualStyleBackColor = true;
-            this.bt_realizarAluguel.Click += new System.EventHandler(this.bt_RealizarAluguel_Click);
             // 
             // bt_aluguel
             // 
@@ -292,10 +251,11 @@ namespace WindowsApp
             this.bt_aluguel.ForeColor = System.Drawing.Color.White;
             this.bt_aluguel.Image = global::WindowsApp.Properties.Resources.aluguel;
             this.bt_aluguel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bt_aluguel.Location = new System.Drawing.Point(0, 100);
+            this.bt_aluguel.Location = new System.Drawing.Point(0, 123);
+            this.bt_aluguel.Margin = new System.Windows.Forms.Padding(4);
             this.bt_aluguel.Name = "bt_aluguel";
-            this.bt_aluguel.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.bt_aluguel.Size = new System.Drawing.Size(250, 50);
+            this.bt_aluguel.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.bt_aluguel.Size = new System.Drawing.Size(333, 62);
             this.bt_aluguel.TabIndex = 1;
             this.bt_aluguel.Text = " Aluguel de Veículos";
             this.bt_aluguel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -311,17 +271,19 @@ namespace WindowsApp
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(250, 100);
+            this.panel1.Size = new System.Drawing.Size(333, 123);
             this.panel1.TabIndex = 0;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(29, 21);
+            this.pictureBox2.Location = new System.Drawing.Point(39, 26);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(60, 60);
+            this.pictureBox2.Size = new System.Drawing.Size(80, 74);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
@@ -331,9 +293,10 @@ namespace WindowsApp
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(95, 51);
+            this.label2.Location = new System.Drawing.Point(127, 63);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 17);
+            this.label2.Size = new System.Drawing.Size(52, 23);
             this.label2.TabIndex = 2;
             this.label2.Text = "Dono";
             // 
@@ -342,9 +305,10 @@ namespace WindowsApp
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(94, 30);
+            this.label1.Location = new System.Drawing.Point(125, 37);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(124, 21);
+            this.label1.Size = new System.Drawing.Size(152, 28);
             this.label1.TabIndex = 1;
             this.label1.Text = "Alexandre Rech";
             // 
@@ -354,19 +318,22 @@ namespace WindowsApp
             this.panelFormFilho.Controls.Add(this.labelTitulo);
             this.panelFormFilho.Controls.Add(this.pictureBox1);
             this.panelFormFilho.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelFormFilho.Location = new System.Drawing.Point(250, 0);
+            this.panelFormFilho.Location = new System.Drawing.Point(333, 0);
+            this.panelFormFilho.Margin = new System.Windows.Forms.Padding(4);
             this.panelFormFilho.Name = "panelFormFilho";
-            this.panelFormFilho.Size = new System.Drawing.Size(684, 561);
+            this.panelFormFilho.Size = new System.Drawing.Size(912, 690);
             this.panelFormFilho.TabIndex = 1;
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(646, 546);
+            this.label3.Location = new System.Drawing.Point(861, 672);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 15);
+            this.label3.Size = new System.Drawing.Size(48, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "V1.0.0";
             // 
@@ -376,9 +343,10 @@ namespace WindowsApp
             this.labelTitulo.AutoSize = true;
             this.labelTitulo.Font = new System.Drawing.Font("LEMON MILK Bold", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitulo.ForeColor = System.Drawing.Color.White;
-            this.labelTitulo.Location = new System.Drawing.Point(100, 374);
+            this.labelTitulo.Location = new System.Drawing.Point(133, 460);
+            this.labelTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTitulo.Name = "labelTitulo";
-            this.labelTitulo.Size = new System.Drawing.Size(485, 91);
+            this.labelTitulo.Size = new System.Drawing.Size(605, 114);
             this.labelTitulo.TabIndex = 1;
             this.labelTitulo.Text = "Rech-a-Car";
             // 
@@ -386,29 +354,30 @@ namespace WindowsApp
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(97, 101);
+            this.pictureBox1.Location = new System.Drawing.Point(129, 124);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(488, 273);
+            this.pictureBox1.Size = new System.Drawing.Size(651, 336);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // TelaPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(33)))), ((int)(((byte)(34)))));
-            this.ClientSize = new System.Drawing.Size(934, 561);
+            this.ClientSize = new System.Drawing.Size(1245, 690);
             this.Controls.Add(this.panelFormFilho);
             this.Controls.Add(this.PanelMenuLateral);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(950, 599);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimumSize = new System.Drawing.Size(1261, 726);
             this.Name = "TelaPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Rech-a-Car";
             this.PanelMenuLateral.ResumeLayout(false);
             this.panelSubMenuClientes.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            this.panelSubMenuAluguel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -422,13 +391,10 @@ namespace WindowsApp
         #endregion
 
         private System.Windows.Forms.Panel PanelMenuLateral;
-        private System.Windows.Forms.Panel panelSubMenuAluguel;
-        private System.Windows.Forms.Button bt_realizarAluguel;
         private System.Windows.Forms.Button bt_aluguel;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button bt_sair;
-        private System.Windows.Forms.Button bt_gerenciarAlugueis;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panelFormFilho;
