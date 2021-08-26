@@ -22,7 +22,7 @@ namespace WindowsApp.VeiculoModule
             cb_portas.SelectedIndex = 0;
         }
 
-        protected override ITelaEditar Editar()
+        protected override IEditavel ConfigurarEditar()
         {
             tb_modelo.Text = entidade.Modelo;
             tb_marca.Text = entidade.Marca;

@@ -18,7 +18,7 @@ namespace WindowsApp.ClienteModule
             HabilitarBotoes(false);
         }
 
-        protected override ITelaEditar Editar()
+        protected override IEditavel ConfigurarEditar()
         {
             tbNome.Text = entidade.Nome;
             tbTelefone.Text = entidade.Telefone;
@@ -65,7 +65,7 @@ namespace WindowsApp.ClienteModule
         }
         private void bt_editar_motorista_Click(object sender, EventArgs e)
         {
-            TelaPrincipal.Instancia.FormAtivo = (Form)new CadastroMotorista(entidade).Editar(GetMotoristaSelecionado());
+            TelaPrincipal.Instancia.FormAtivo = (Form)new CadastroMotorista(entidade).ConfigurarEditar(GetMotoristaSelecionado());
             HabilitarBotoes(false);
             AtualizarListMotoristas();
         }
