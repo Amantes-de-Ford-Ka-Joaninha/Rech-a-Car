@@ -11,14 +11,13 @@ namespace WindowsApp.ClienteModule
     {
         public override Controlador<ClientePF> Controlador { get => new ControladorClientePF(); }
 
-        public CadastroClientePF(ClientePF cliente = default)
+        public CadastroClientePF()
         {
             InitializeComponent();
             cbTipoCNH.SelectedIndex = 2;
-            VerificarEditar(cliente);
         }
 
-        public override void Editar()
+        protected override ITelaEditar Editar()
         {
             tbCPF.Text = entidade.Documento;
             tbNome.Text = entidade.Nome;
@@ -28,6 +27,8 @@ namespace WindowsApp.ClienteModule
 
             tbCNH.Text = entidade.Cnh.NumeroCnh;
             cbTipoCNH.SelectedIndex = (int)entidade.Cnh.TipoCnh;
+
+            return this;
         }
 
         public override ClientePF GetNovaEntidade()

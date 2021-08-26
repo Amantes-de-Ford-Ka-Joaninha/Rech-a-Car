@@ -102,20 +102,10 @@ namespace WindowsApp.Shared
         private void bt_editar_Click(object sender, EventArgs e)
         {
             var entidade = Cadastro.Controlador.GetById(GetIdSelecionado(), GetTipoEntidade());
-            TelaPrincipal.Instancia.FormAtivo = GetTelaCadastro(entidade);
+            TelaPrincipal.Instancia.FormAtivo = (Form)Cadastro.Editar(entidade);
             AlternarBotoes(false);
             AtualizarRegistros();
         }
-
-        private Form GetTelaCadastro(T entidade)
-        {
-            var nome_entidade = entidade.GetType().Name;
-            var @namespace = nome_entidade.Contains("Cliente")? "Cliente": nome_entidade;
-            var classe = $"WindowsApp.{@namespace}Module.Cadastro{nome_entidade}";
-            var tipo = Type.GetType(classe);
-            return (Form)Activator.CreateInstance(tipo,entidade);
-        }
-
         private void bt_remover_Click(object sender, EventArgs e)
         {
             var opcao = MessageBox.Show("Tem certeza que deseja excluir?", "Atenção!", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
