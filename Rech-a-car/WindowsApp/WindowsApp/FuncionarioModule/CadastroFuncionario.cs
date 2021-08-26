@@ -9,20 +9,21 @@ namespace WindowsApp.FuncionarioModule
 {
     public partial class CadastroFuncionario : CadastroEntidade<Funcionario>
     {
-        public CadastroFuncionario(Funcionario funcionario = default)
+        public CadastroFuncionario()
         {
             InitializeComponent();
-            VerificarEditar(funcionario);
         }
 
         public override Controlador<Funcionario> Controlador => new ControladorFuncionario();
 
-        public override void Editar()
+        protected override ITelaEditar Editar()
         {
             tbNome.Text = entidade.Nome;
             tbTelefone.Text = entidade.Telefone;
             tbEndereco.Text = entidade.Endereco;
             tbCPF.Text = entidade.Documento;
+
+            return this;
         }
 
         public override Funcionario GetNovaEntidade()

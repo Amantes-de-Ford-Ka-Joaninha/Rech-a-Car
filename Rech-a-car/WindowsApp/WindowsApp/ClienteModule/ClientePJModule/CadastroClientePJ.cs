@@ -3,6 +3,7 @@ using Controladores.Shared;
 using Dominio.PessoaModule;
 using Dominio.PessoaModule.ClienteModule;
 using System;
+using System.Windows.Forms;
 using WindowsApp.Shared;
 
 namespace WindowsApp.ClienteModule
@@ -11,20 +12,20 @@ namespace WindowsApp.ClienteModule
     {
         public override Controlador<ClientePJ> Controlador { get => new ControladorClientePJ(); }
 
-        public CadastroClientePJ(ClientePJ cliente = default)
+        public CadastroClientePJ()
         {
             InitializeComponent();
-            VerificarEditar(cliente);
             HabilitarBotoes(false);
         }
 
-        public override void Editar()
+        protected override ITelaEditar Editar()
         {
             tbNome.Text = entidade.Nome;
             tbTelefone.Text = entidade.Telefone;
             tbEndereco.Text = entidade.Endereco;
             tbCNPJ.Text = entidade.Documento;
             AtualizarListMotoristas();
+            return this;
         }
 
         private void AtualizarListMotoristas()
@@ -64,7 +65,7 @@ namespace WindowsApp.ClienteModule
         }
         private void bt_editar_motorista_Click(object sender, EventArgs e)
         {
-            TelaPrincipal.Instancia.FormAtivo = new CadastroMotorista(entidade, GetMotoristaSelecionado());
+            TelaPrincipal.Instancia.FormAtivo = (Form)new CadastroMotorista(entidade).Editar(GetMotoristaSelecionado());
             HabilitarBotoes(false);
             AtualizarListMotoristas();
         }

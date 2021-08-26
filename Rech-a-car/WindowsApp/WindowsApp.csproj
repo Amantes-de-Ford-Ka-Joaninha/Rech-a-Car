@@ -131,6 +131,7 @@
     <Compile Include="WindowsApp\Shared\CadastroEntidade.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="WindowsApp\Shared\ITelaEditar.cs" />
     <Compile Include="WindowsApp\Shared\VisualizarEntidade.cs">
       <SubType>Form</SubType>
     </Compile>

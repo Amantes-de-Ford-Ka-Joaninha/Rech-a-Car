@@ -8,15 +8,14 @@ namespace WindowsApp.AluguelModule
 {
     public partial class CadastroAluguel : CadastroEntidade<Aluguel>
     {
-        public CadastroAluguel(Aluguel aluguel = default)
+        public CadastroAluguel()
         {
             InitializeComponent();
-            VerificarEditar(aluguel);
         }
 
         public override Controlador<Aluguel> Controlador => new ControladorAluguel();
 
-        public override void Editar()
+        protected override ITelaEditar Editar()
         {
             throw new NotImplementedException();
         }

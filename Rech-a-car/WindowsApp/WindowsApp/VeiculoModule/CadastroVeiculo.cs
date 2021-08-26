@@ -13,18 +13,16 @@ namespace WindowsApp.VeiculoModule
         public override Controlador<Veiculo> Controlador { get => new ControladorVeiculo(); }
         private Bitmap imagem;
 
-        public CadastroVeiculo(Veiculo veiculo = default)
+        public CadastroVeiculo()
         {
             InitializeComponent();
-            VerificarEditar(veiculo);
-
             cb_cambio.SelectedIndex = 0;
             cb_capacidade.SelectedIndex = 1;
             cb_portaMalas.SelectedIndex = 1;
             cb_portas.SelectedIndex = 0;
         }
 
-        public override void Editar()
+        protected override ITelaEditar Editar()
         {
             tb_modelo.Text = entidade.Modelo;
             tb_marca.Text = entidade.Marca;
@@ -42,6 +40,8 @@ namespace WindowsApp.VeiculoModule
             tb_quilometragem.Text = dadosVeiculo.Quilometragem.ToString();
             tb_diaria.Text = dadosVeiculo.Diaria.ToString();
             tb_precoKm.Text = dadosVeiculo.PrecoKm.ToString();
+
+            return this;
         }
         public override Veiculo GetNovaEntidade()
         {
