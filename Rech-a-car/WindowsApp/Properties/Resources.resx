@@ -160,10 +160,13 @@
   <data name="adicionar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\adicionar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="motora" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\motora.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="filtro1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\filtro1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="motora" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\motora.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\settings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
