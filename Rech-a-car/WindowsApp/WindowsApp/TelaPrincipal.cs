@@ -7,6 +7,7 @@ using WindowsApp.FuncionarioModule;
 using WindowsApp.ServicoModule;
 using WindowsApp.Shared;
 using WindowsApp.VeiculoModule;
+using WindowsApp.WindowsApp;
 
 namespace WindowsApp
 {
@@ -87,6 +88,7 @@ namespace WindowsApp
         private void bt_sair_Click(object sender, EventArgs e)
         {
             Close();
+            new Login().Show();
         }
 
         #endregion
