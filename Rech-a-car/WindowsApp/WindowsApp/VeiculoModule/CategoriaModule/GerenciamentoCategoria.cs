@@ -10,16 +10,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsApp.Shared;
 
-namespace WindowsApp.WindowsApp.VeiculoModule.GrupoModule
+namespace WindowsApp.VeiculoModule.CategoriaModule
 {
-    public partial class GerenciamentoGrupo : GerenciamentoEntidade<Grupo>
+    public partial class GerenciamentoCategoria : GerenciamentoEntidade<Categoria>
     {
-        public GerenciamentoGrupo() : base("Gerenciamento de Grupos")
+        public GerenciamentoCategoria() : base("Gerenciamento de Grupos")
         {
         }
 
-        protected override CadastroEntidade<Grupo> Cadastro => new CadastroGrupo();
-        protected override VisualizarEntidade<Grupo> Visualizar => new VisualizarGrupo();
+        protected override CadastroEntidade<Categoria> Cadastro => new CadastroCategoria();
+        protected override VisualizarEntidade<Categoria> Visualizar => new VisualizarCategoria();
 
         public override DataGridViewColumn[] ConfigurarColunas()
         {
@@ -33,16 +33,16 @@ namespace WindowsApp.WindowsApp.VeiculoModule.GrupoModule
                 new DataGridViewTextBoxColumn { DataPropertyName = "TipoDeCnh", HeaderText = "Tipo CNH"}
             };
         }
-        public override object[] ObterCamposLinha(Grupo grupo)
+        public override object[] ObterCamposLinha(Categoria categoria)
         {
             List<object> linha = new List<object>()
             {
-                grupo.Nome,
-                grupo.PrecoDiaria,
-                grupo.PrecoKm,
-                grupo.PrecoLivre,
-                grupo.QuilometragemFranquia,
-                grupo.TipoDeCnh
+                categoria.Nome,
+                categoria.PrecoDiaria,
+                categoria.PrecoKm,
+                categoria.PrecoLivre,
+                categoria.QuilometragemFranquia,
+                categoria.TipoDeCnh
             };
             return linha.ToArray();
         }

@@ -46,7 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="WindowsApp\VeiculoModule\GrupoModule\VisualizarGrupo.cs">
+    <Compile Include="WindowsApp\VeiculoModule\CategoriaModule\VisualizarCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="WindowsApp\AluguelModule\CadastroAluguel.cs">
@@ -161,17 +161,17 @@
     <Compile Include="WindowsApp\VeiculoModule\GerenciamentoVeiculo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WindowsApp\VeiculoModule\GrupoModule\CadastroGrupo.cs">
+    <Compile Include="WindowsApp\VeiculoModule\CategoriaModule\CadastroCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WindowsApp\VeiculoModule\GrupoModule\CadastroGrupo.Designer.cs">
-      <DependentUpon>CadastroGrupo.cs</DependentUpon>
+    <Compile Include="WindowsApp\VeiculoModule\CategoriaModule\CadastroCategoria.Designer.cs">
+      <DependentUpon>CadastroCategoria.cs</DependentUpon>
     </Compile>
-    <Compile Include="WindowsApp\VeiculoModule\GrupoModule\GerenciamentoGrupo.cs">
+    <Compile Include="WindowsApp\VeiculoModule\CategoriaModule\GerenciamentoCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WindowsApp\VeiculoModule\GrupoModule\GerenciamentoGrupo.Designer.cs">
-      <DependentUpon>GerenciamentoGrupo.cs</DependentUpon>
+    <Compile Include="WindowsApp\VeiculoModule\CategoriaModule\GerenciamentoCategoria.Designer.cs">
+      <DependentUpon>GerenciamentoCategoria.cs</DependentUpon>
     </Compile>
     <Compile Include="WindowsApp\VeiculoModule\VisualizarVeiculo.cs">
       <SubType>Form</SubType>
@@ -216,11 +216,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="WindowsApp\VeiculoModule\GrupoModule\CadastroGrupo.resx">
-      <DependentUpon>CadastroGrupo.cs</DependentUpon>
+    <EmbeddedResource Include="WindowsApp\VeiculoModule\CategoriaModule\CadastroCategoria.resx">
+      <DependentUpon>CadastroCategoria.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WindowsApp\VeiculoModule\GrupoModule\GerenciamentoGrupo.resx">
-      <DependentUpon>GerenciamentoGrupo.cs</DependentUpon>
+    <EmbeddedResource Include="WindowsApp\VeiculoModule\CategoriaModule\GerenciamentoCategoria.resx">
+      <DependentUpon>GerenciamentoCategoria.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

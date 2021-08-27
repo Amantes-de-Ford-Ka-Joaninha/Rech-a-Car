@@ -13,13 +13,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsApp.Shared;
 
-namespace WindowsApp.WindowsApp.VeiculoModule.GrupoModule
+namespace WindowsApp.VeiculoModule.CategoriaModule
 {
-    public partial class CadastroGrupo : CadastroEntidade<Grupo>
+    public partial class CadastroCategoria : CadastroEntidade<Categoria>
     {
-        public override Controlador<Grupo> Controlador { get => new ControladorGrupo(); }
+        public override Controlador<Categoria> Controlador { get => new ControladorCategoria(); }
 
-        public CadastroGrupo()
+        public CadastroCategoria()
         {
             InitializeComponent();
         }
@@ -35,7 +35,7 @@ namespace WindowsApp.WindowsApp.VeiculoModule.GrupoModule
 
             return this;
         }
-        public override Grupo GetNovaEntidade()
+        public override Categoria GetNovaEntidade()
         {
             var nome = tbNome.Text;
             Double.TryParse(tbDiaria.Text, out double diaria);
@@ -44,13 +44,13 @@ namespace WindowsApp.WindowsApp.VeiculoModule.GrupoModule
             Double.TryParse(tbKm.Text, out double livre);
             var tipocnh = cbCNH.SelectedIndex;
 
-            return new Grupo(nome, diaria, km, franquia, livre, (TipoCNH)tipocnh);
+            return new Categoria(nome, diaria, km, franquia, livre, (TipoCNH)tipocnh);
         }
 
         private void btAdicionar_Click(object sender, EventArgs e)
         {
             if (Salva())
-                TelaPrincipal.Instancia.FormAtivo = new GerenciamentoGrupo();
+                TelaPrincipal.Instancia.FormAtivo = new GerenciamentoCategoria();
         }
     }
 }
