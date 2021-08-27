@@ -66,7 +66,6 @@
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
-    <Build Include="dbo\Tables\TBDadosVeiculo.sql" />
     <Build Include="dbo\Tables\TBCnh.sql" />
     <Build Include="dbo\Tables\TBClientePJ.sql" />
     <Build Include="dbo\Tables\TBClientePF.sql" />
@@ -74,5 +73,6 @@
       <AnsiNulls>Off</AnsiNulls>
       <QuotedIdentifier>Off</QuotedIdentifier>
     </Build>
+    <Build Include="dbo\Tables\TBCategoria.sql" />
   </ItemGroup>
 </Project>
