@@ -39,6 +39,8 @@ namespace WindowsApp.FuncionarioModule
             this.btAdicionar = new System.Windows.Forms.Button();
             this.tbTelefone = new System.Windows.Forms.MaskedTextBox();
             this.tbCPF = new System.Windows.Forms.MaskedTextBox();
+            this.bt_foto = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -57,7 +59,7 @@ namespace WindowsApp.FuncionarioModule
             this.lbNome.AutoSize = true;
             this.lbNome.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNome.ForeColor = System.Drawing.Color.White;
-            this.lbNome.Location = new System.Drawing.Point(27, 215);
+            this.lbNome.Location = new System.Drawing.Point(174, 118);
             this.lbNome.Name = "lbNome";
             this.lbNome.Size = new System.Drawing.Size(53, 21);
             this.lbNome.TabIndex = 1;
@@ -66,7 +68,7 @@ namespace WindowsApp.FuncionarioModule
             // tbNome
             // 
             this.tbNome.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbNome.Location = new System.Drawing.Point(86, 212);
+            this.tbNome.Location = new System.Drawing.Point(233, 115);
             this.tbNome.Name = "tbNome";
             this.tbNome.Size = new System.Drawing.Size(234, 29);
             this.tbNome.TabIndex = 1;
@@ -76,7 +78,7 @@ namespace WindowsApp.FuncionarioModule
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(13, 250);
+            this.label2.Location = new System.Drawing.Point(160, 153);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 21);
             this.label2.TabIndex = 1;
@@ -87,7 +89,7 @@ namespace WindowsApp.FuncionarioModule
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(329, 215);
+            this.label3.Location = new System.Drawing.Point(153, 187);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(74, 21);
             this.label3.TabIndex = 1;
@@ -96,7 +98,7 @@ namespace WindowsApp.FuncionarioModule
             // tbEndereco
             // 
             this.tbEndereco.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbEndereco.Location = new System.Drawing.Point(409, 212);
+            this.tbEndereco.Location = new System.Drawing.Point(233, 184);
             this.tbEndereco.Name = "tbEndereco";
             this.tbEndereco.Size = new System.Drawing.Size(234, 29);
             this.tbEndereco.TabIndex = 3;
@@ -106,7 +108,7 @@ namespace WindowsApp.FuncionarioModule
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(366, 250);
+            this.label4.Location = new System.Drawing.Point(190, 222);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(37, 21);
             this.label4.TabIndex = 1;
@@ -127,7 +129,7 @@ namespace WindowsApp.FuncionarioModule
             // tbTelefone
             // 
             this.tbTelefone.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTelefone.Location = new System.Drawing.Point(86, 247);
+            this.tbTelefone.Location = new System.Drawing.Point(233, 150);
             this.tbTelefone.Mask = "(99) 00000-0000";
             this.tbTelefone.Name = "tbTelefone";
             this.tbTelefone.Size = new System.Drawing.Size(234, 29);
@@ -138,7 +140,7 @@ namespace WindowsApp.FuncionarioModule
             // tbCPF
             // 
             this.tbCPF.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbCPF.Location = new System.Drawing.Point(409, 247);
+            this.tbCPF.Location = new System.Drawing.Point(233, 219);
             this.tbCPF.Mask = "000.000.000-00";
             this.tbCPF.Name = "tbCPF";
             this.tbCPF.Size = new System.Drawing.Size(234, 29);
@@ -146,12 +148,39 @@ namespace WindowsApp.FuncionarioModule
             this.tbCPF.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbCPF.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
+            // bt_foto
+            // 
+            this.bt_foto.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.bt_foto.FlatAppearance.BorderSize = 0;
+            this.bt_foto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_foto.Image = global::WindowsApp.Properties.Resources.inserir_icone_de_imagem;
+            this.bt_foto.Location = new System.Drawing.Point(292, 274);
+            this.bt_foto.Name = "bt_foto";
+            this.bt_foto.Size = new System.Drawing.Size(105, 95);
+            this.bt_foto.TabIndex = 17;
+            this.bt_foto.UseVisualStyleBackColor = true;
+            this.bt_foto.Click += new System.EventHandler(this.bt_foto_Click);
+            // 
+            // label15
+            // 
+            this.label15.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.White;
+            this.label15.Location = new System.Drawing.Point(186, 309);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(41, 21);
+            this.label15.TabIndex = 18;
+            this.label15.Text = "Foto";
+            // 
             // CadastroFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(33)))), ((int)(((byte)(34)))));
             this.ClientSize = new System.Drawing.Size(668, 522);
+            this.Controls.Add(this.bt_foto);
+            this.Controls.Add(this.label15);
             this.Controls.Add(this.tbCPF);
             this.Controls.Add(this.tbTelefone);
             this.Controls.Add(this.btAdicionar);
@@ -181,5 +210,7 @@ namespace WindowsApp.FuncionarioModule
         private System.Windows.Forms.Button btAdicionar;
         private System.Windows.Forms.MaskedTextBox tbTelefone;
         private System.Windows.Forms.MaskedTextBox tbCPF;
+        private System.Windows.Forms.Button bt_foto;
+        private System.Windows.Forms.Label label15;
     }
 }

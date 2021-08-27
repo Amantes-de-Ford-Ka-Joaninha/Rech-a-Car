@@ -8,6 +8,7 @@ using WindowsApp.ServicoModule;
 using WindowsApp.VeiculoModule;
 using WindowsApp.VeiculoModule.CategoriaModule;
 using WindowsApp.WindowsApp;
+using WindowsApp.ConfiguracoesModule;
 
 namespace WindowsApp
 {
@@ -20,6 +21,8 @@ namespace WindowsApp
             Instancia = this;
             InitializeComponent();
             EsconderSubMenu();
+            lbUsuario.Text = funcionario.Nome;
+            //lbCargo.Text = funcionario.Cargo;
         }
 
         public Form FormAtivo { set { AbrirFormPanel(value); } }
@@ -101,6 +104,10 @@ namespace WindowsApp
         {
             FormAtivo = new GerenciamentoCategoria();
             EsconderSubMenu();
+        }
+        private void btConfiguracoes_Click(object sender, EventArgs e)
+        {
+            FormAtivo = new Configuracoes();
         }
 
         #endregion

@@ -7,7 +7,7 @@ using WindowsApp.Shared;
 
 namespace WindowsApp.FuncionarioModule
 {
-    public partial class CadastroFuncionario : CadastroEntidade<Funcionario>
+    public partial class CadastroFuncionario : Form//CadastroEntidade<Funcionario>
     {
         public CadastroFuncionario()
         {
@@ -32,14 +32,20 @@ namespace WindowsApp.FuncionarioModule
             var telefone = tbTelefone.Text;
             var endereco = tbEndereco.Text;
             var cpf = tbCPF.Text;
+            imagem = (Bitmap)bt_foto.Image;
 
-            return new Funcionario(nome, telefone, endereco, cpf);
+            return new Funcionario(nome, telefone, endereco, cpf, );
         }
 
         private void btAdicionar_Click(object sender, EventArgs e)
         {
             if (Salva())
                 TelaPrincipal.Instancia.FormAtivo = new GerenciamentoFuncionario();
+        }
+
+        private void bt_foto_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
