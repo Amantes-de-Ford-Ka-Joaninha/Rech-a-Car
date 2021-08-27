@@ -1,6 +1,4 @@
-﻿using Dominio.Shared;
-
-namespace Dominio
+﻿namespace Dominio.Shared
 {
     public abstract class Entidade : IControlavel
     {

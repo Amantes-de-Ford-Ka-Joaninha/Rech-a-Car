@@ -17,7 +17,7 @@ namespace WindowsApp.ClienteModule
             cbTipoCNH.SelectedIndex = 2;
         }
 
-        protected override ITelaEditar Editar()
+        protected override IEditavel ConfigurarEditar()
         {
             tbCPF.Text = entidade.Documento;
             tbNome.Text = entidade.Nome;

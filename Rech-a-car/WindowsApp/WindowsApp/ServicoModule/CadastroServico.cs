@@ -15,7 +15,7 @@ namespace WindowsApp.ServicoModule
             InitializeComponent();
         }
 
-        protected override ITelaEditar Editar()
+        protected override IEditavel ConfigurarEditar()
         {
             tbNome.Text = entidade.Nome;
             tbTaxa.Text = entidade.Taxa.ToString();

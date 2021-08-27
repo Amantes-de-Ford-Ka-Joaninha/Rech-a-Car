@@ -1,4 +1,6 @@
-﻿namespace Dominio.ServicoModule
+﻿using Dominio.Shared;
+
+namespace Dominio.ServicoModule
 {
     public class Servico : Entidade
     {

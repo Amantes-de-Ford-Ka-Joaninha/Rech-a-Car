@@ -1,6 +1,6 @@
 ﻿namespace WindowsApp.Shared
 {
-    public interface ITelaEditar
+    public interface IEditavel
     {
     }
 }

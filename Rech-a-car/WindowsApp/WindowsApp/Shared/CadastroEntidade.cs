@@ -4,19 +4,19 @@ using System.Windows.Forms;
 
 namespace WindowsApp.Shared
 {
-    public abstract class CadastroEntidade<T> : Form, ITelaEditar where T : IControlavel
+    public abstract class CadastroEntidade<T> : Form, IEditavel where T : IControlavel
     {
         public T entidade;
         public abstract Controlador<T> Controlador { get; }
 
         public virtual CadastroEntidade<T> Inserir() { return this; }
         public abstract T GetNovaEntidade();
-        public ITelaEditar Editar(T entidade)
+        public IEditavel ConfigurarEditar(T entidade)
         {
             this.entidade = entidade;
-            return Editar();
+            return ConfigurarEditar();
         }
-        protected abstract ITelaEditar Editar();
+        protected abstract IEditavel ConfigurarEditar();
         protected bool Salva(int id_chave_estrangeira = 0)
         {
             T entidade = GetNovaEntidade();

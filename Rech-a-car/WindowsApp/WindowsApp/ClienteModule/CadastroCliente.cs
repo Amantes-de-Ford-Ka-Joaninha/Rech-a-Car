@@ -15,12 +15,12 @@ namespace WindowsApp.ClienteModule
 
         public override Controlador<ICliente> Controlador => new ControladorCliente();
 
-        protected override ITelaEditar Editar()
+        protected override IEditavel ConfigurarEditar()
         {
             if (entidade is ClientePF)
-                return new CadastroClientePF().Editar((ClientePF)entidade);
+                return new CadastroClientePF().ConfigurarEditar((ClientePF)entidade);
             if (entidade is ClientePJ)
-                return new CadastroClientePJ().Editar((ClientePJ)entidade);
+                return new CadastroClientePJ().ConfigurarEditar((ClientePJ)entidade);
             else
                 throw new ArgumentException();
         }
