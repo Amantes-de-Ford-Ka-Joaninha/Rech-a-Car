@@ -74,5 +74,6 @@
       <QuotedIdentifier>Off</QuotedIdentifier>
     </Build>
     <Build Include="dbo\Tables\TBCategoria.sql" />
+    <Build Include="dbo\Tables\TBAluguel.sql" />
   </ItemGroup>
 </Project>
