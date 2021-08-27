@@ -21,6 +21,8 @@ namespace WindowsApp
             Instancia = this;
             InitializeComponent();
             EsconderSubMenu();
+            lbUsuario.Text = funcionario.Nome;
+            //lbCargo.Text = funcionario.Cargo;
         }
 
         public Form FormAtivo { set { AbrirFormPanel(value); } }

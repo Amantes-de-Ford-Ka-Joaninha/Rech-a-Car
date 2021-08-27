@@ -40,9 +40,9 @@ namespace WindowsApp.ConfiguracoesModule
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.panelColorido1 = new WindowsApp.Shared.PanelColorido();
+            this.panelColorido1 = new Shared.PanelColorido();
             this.label7 = new System.Windows.Forms.Label();
-            this.panelColorido2 = new WindowsApp.Shared.PanelColorido();
+            this.panelColorido2 = new Shared.PanelColorido();
             this.label8 = new System.Windows.Forms.Label();
             this.panelColorido1.SuspendLayout();
             this.panelColorido2.SuspendLayout();
@@ -237,8 +237,8 @@ namespace WindowsApp.ConfiguracoesModule
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox4;
-        private WindowsApp.Shared.PanelColorido panelColorido1;
-        private WindowsApp.Shared.PanelColorido panelColorido2;
+        private Shared.PanelColorido panelColorido1;
+        private Shared.PanelColorido panelColorido2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
     }

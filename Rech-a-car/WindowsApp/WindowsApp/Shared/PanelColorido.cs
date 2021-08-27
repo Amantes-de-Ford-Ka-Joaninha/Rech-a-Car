@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsApp.WindowsApp.Shared
+namespace WindowsApp.Shared
 {
     [ToolboxItem(true)]
     public class PanelColorido : Panel
