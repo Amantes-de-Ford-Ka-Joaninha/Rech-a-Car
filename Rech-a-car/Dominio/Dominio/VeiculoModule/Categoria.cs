@@ -15,12 +15,12 @@ namespace Dominio.VeiculoModule
             QuilometragemFranquia = quilometragemFranquia;
             TipoDeCnh = tipoCnh;
         }
-        public string Nome { get; }
-        public double PrecoDiaria { get; }
-        public double PrecoKm { get; }
-        public double PrecoLivre { get; }
-        public int QuilometragemFranquia { get; }
-        public TipoCNH TipoDeCnh { get; }
+        public string Nome { get; set; }
+        public double PrecoDiaria { get; set; }
+        public double PrecoKm { get; set; }
+        public double PrecoLivre { get; set; }
+        public int QuilometragemFranquia { get; set; }
+        public TipoCNH TipoDeCnh { get; set; }
         public override string Validar()
         {
             string validacao = String.Empty;

@@ -42,7 +42,7 @@ namespace Tests.Tests.CategoriaModule
         {
             var diariaAnterior = categoria.PrecoDiaria;
 
-            categoria.PrecoDiaria = "3";
+            categoria.PrecoDiaria = 3;
 
             controladorCategoria.Editar(categoria.Id, categoria);
 
@@ -64,7 +64,7 @@ namespace Tests.Tests.CategoriaModule
         {
             var franquiaAnterior = categoria.QuilometragemFranquia;
 
-            categoria.QuilometragemFranquia = "2";
+            categoria.QuilometragemFranquia = 3;
 
             controladorCategoria.Editar(categoria.Id, categoria);
 
@@ -72,9 +72,11 @@ namespace Tests.Tests.CategoriaModule
         }
 
         [TestMethod]
-        public void Deve_editar_cnh_cliente()
+        public void Deve_editar_precoLivre_categoria()
         {
             var precoLivreAnterior = categoria.PrecoLivre;
+
+            categoria.PrecoLivre = 5;
 
             controladorCategoria.Editar(categoria.Id, categoria);
 
