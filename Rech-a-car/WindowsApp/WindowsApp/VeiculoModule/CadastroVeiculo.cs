@@ -54,7 +54,7 @@ namespace WindowsApp.VeiculoModule
             var cambio = cb_cambio.SelectedItem?.ToString() == "Automático";
             imagem = (Bitmap)bt_foto.Image;
 
-            var categoria = (Grupo)cb_categoria.SelectedItem;
+            var categoria = (Categoria)cb_categoria.SelectedItem;
             return new Veiculo(modelo, marca, ano, placa, capacidade, portas, chassi, portaMalas, imagem, cambio, categoria, (TipoCombustivel)tipoCombustivel);
         }
         private void AtualizarIcone(Bitmap imagem)

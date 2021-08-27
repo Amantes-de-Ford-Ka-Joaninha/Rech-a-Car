@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Controladores.VeiculoModule
 {
-    public class ControladorGrupo : ControladorEntidade<Grupo>
+    public class ControladorGrupo : ControladorEntidade<Categoria>
     {
         #region Queries
         private const string sqlSelecionarGrupoPorId =
@@ -76,7 +76,7 @@ namespace Controladores.VeiculoModule
         public override string sqlExcluir => sqlExcluirGrupo;
         public override string sqlExists => sqlExisteGrupo;
 
-        protected override Dictionary<string, object> ObterParametrosRegistro(Grupo grupo)
+        protected override Dictionary<string, object> ObterParametrosRegistro(Categoria grupo)
         {
             var parametros = new Dictionary<string, object>
                 {
@@ -91,7 +91,7 @@ namespace Controladores.VeiculoModule
 
             return parametros;
         }
-        public override Grupo ConverterEmEntidade(IDataReader reader)
+        public override Categoria ConverterEmEntidade(IDataReader reader)
         {
             var id = Convert.ToInt32(reader["ID"]);
             var franquia = Convert.ToInt32(reader["QUILOMETRAGEM_FRANQUIA"]);
@@ -101,7 +101,7 @@ namespace Controladores.VeiculoModule
             var precoLivre = Convert.ToDouble(reader["PRECO_LIVRE"]);
             var nome = Convert.ToString(reader["NOME"]);
 
-            return new Grupo(nome, diaria, precokm, franquia, precoLivre, (TipoCNH)tipoCnh)
+            return new Categoria(nome, diaria, precokm, franquia, precoLivre, (TipoCNH)tipoCnh)
             {
                 Id = id
             };
