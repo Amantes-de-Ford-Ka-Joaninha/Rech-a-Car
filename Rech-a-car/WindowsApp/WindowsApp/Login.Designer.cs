@@ -33,8 +33,8 @@ namespace WindowsApp.WindowsApp
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelTitulo = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbUsuario = new System.Windows.Forms.TextBox();
+            this.tbSenha = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.bt_entrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -72,21 +72,21 @@ namespace WindowsApp.WindowsApp
             this.label1.TabIndex = 3;
             this.label1.Text = "Usuário";
             // 
-            // textBox1
+            // tbUsuario
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(26, 347);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(367, 43);
-            this.textBox1.TabIndex = 4;
+            this.tbUsuario.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbUsuario.Location = new System.Drawing.Point(26, 347);
+            this.tbUsuario.Name = "tbUsuario";
+            this.tbUsuario.Size = new System.Drawing.Size(367, 43);
+            this.tbUsuario.TabIndex = 4;
             // 
-            // textBox2
+            // tbSenha
             // 
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(26, 441);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(367, 43);
-            this.textBox2.TabIndex = 6;
+            this.tbSenha.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbSenha.Location = new System.Drawing.Point(26, 441);
+            this.tbSenha.Name = "tbSenha";
+            this.tbSenha.Size = new System.Drawing.Size(367, 43);
+            this.tbSenha.TabIndex = 6;
             // 
             // label2
             // 
@@ -122,9 +122,9 @@ namespace WindowsApp.WindowsApp
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(33)))), ((int)(((byte)(34)))));
             this.ClientSize = new System.Drawing.Size(421, 594);
             this.Controls.Add(this.bt_entrar);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.tbSenha);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbUsuario);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.labelTitulo);
             this.Controls.Add(this.pictureBox1);
@@ -143,8 +143,8 @@ namespace WindowsApp.WindowsApp
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label labelTitulo;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbUsuario;
+        private System.Windows.Forms.TextBox tbSenha;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button bt_entrar;
     }

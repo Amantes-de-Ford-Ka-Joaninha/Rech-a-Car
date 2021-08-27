@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Controladores.PessoaModule;
+using Controladores.Shared;
+using Dominio.PessoaModule;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,10 +20,30 @@ namespace WindowsApp.WindowsApp
             InitializeComponent();
         }
 
+        public bool LoginUsuario()
+        {
+            return true;//if (tbSenha.Text = getFuncionario().Senha) return true;
+            //else return false;
+        }
+
+        private Funcionario getFuncionario()
+        {
+            var usuario = tbUsuario.Text;
+            Funcionario funcionario = null;//SelecionarPorUsuario();
+            return funcionario;
+        }
+
         private void bt_entrar_Click(object sender, EventArgs e)
         {
-            Hide();
-            new TelaPrincipal().Show();
+            if (LoginUsuario())
+            {
+                Hide();
+                new TelaPrincipal(getFuncionario()).Show();
+            }
+            else
+            {
+                MessageBox.Show("Usuário e/ou senha incorretos", "Erro");
+            }
         }
     }
 }

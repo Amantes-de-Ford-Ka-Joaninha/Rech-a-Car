@@ -1,4 +1,5 @@
-﻿using Dominio.PessoaModule.ClienteModule;
+﻿using Dominio.PessoaModule;
+using Dominio.PessoaModule.ClienteModule;
 using System;
 using System.Windows.Forms;
 using WindowsApp.AluguelModule;
@@ -15,7 +16,7 @@ namespace WindowsApp
     {
         public static TelaPrincipal Instancia;
         private Form formAtivo;
-        public TelaPrincipal()
+        public TelaPrincipal(Funcionario funcionario)
         {
             Instancia = this;
             InitializeComponent();
