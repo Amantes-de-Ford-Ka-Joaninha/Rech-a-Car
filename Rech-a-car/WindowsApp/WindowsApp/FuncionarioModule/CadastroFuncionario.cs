@@ -2,12 +2,13 @@
 using Controladores.Shared;
 using Dominio.PessoaModule;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 using WindowsApp.Shared;
 
 namespace WindowsApp.FuncionarioModule
 {
-    public partial class CadastroFuncionario : Form//CadastroEntidade<Funcionario>
+    public partial class CadastroFuncionario : CadastroEntidade<Funcionario>
     {
         public CadastroFuncionario()
         {
@@ -32,9 +33,10 @@ namespace WindowsApp.FuncionarioModule
             var telefone = tbTelefone.Text;
             var endereco = tbEndereco.Text;
             var cpf = tbCPF.Text;
-            imagem = (Bitmap)bt_foto.Image;
+            var imagem = (Bitmap)bt_foto.Image;
+            var usuario = usu
 
-            return new Funcionario(nome, telefone, endereco, cpf, );
+            return new Funcionario(nome, telefone, endereco, cpf, imagem);
         }
 
         private void btAdicionar_Click(object sender, EventArgs e)

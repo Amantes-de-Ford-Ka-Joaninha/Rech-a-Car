@@ -13,7 +13,7 @@ namespace Dominio.PessoaModule
             Foto = foto;
             Usuario = usuario;
         }
-        public Image Foto { get; private set; }
-        public string Usuario { get; private set; }
+        public Image Foto { get; set; }
+        public string NomeUsuario { get; set; }
     }
 }
