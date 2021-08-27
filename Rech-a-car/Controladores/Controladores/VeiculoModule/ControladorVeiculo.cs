@@ -96,7 +96,6 @@ namespace Controladores.VeiculoModule
             var id = Convert.ToInt32(reader["ID"]);
             var modelo = Convert.ToString(reader["MODELO"]);
             var marca = Convert.ToString(reader["MARCA"]);
-            var categoria = Convert.ToString(reader["CATEGORIA"]);
             var placa = Convert.ToString(reader["PLACA"]);
             var chassi = Convert.ToString(reader["CHASSI"]);
             var portas = Convert.ToInt32(reader["PORTAS"]);
@@ -109,9 +108,9 @@ namespace Controladores.VeiculoModule
 
             var foto = RecuperarImagem((byte[])reader["FOTO"]);
 
-            var grupo = new ControladorGrupo().GetById(id_grupo);
+            var categoria = new ControladorGrupo().GetById(id_grupo);
 
-            Veiculo veiculo = new Veiculo(modelo, marca, ano, placa, capacidade, portas, chassi, porta_malas, foto, automatico, categoria, grupo, (TipoCombustivel)tipoCombustivel)
+            Veiculo veiculo = new Veiculo(modelo, marca, ano, placa, capacidade, portas, chassi, porta_malas, foto, automatico, categoria, (TipoCombustivel)tipoCombustivel)
             {
                 Id = id
             };

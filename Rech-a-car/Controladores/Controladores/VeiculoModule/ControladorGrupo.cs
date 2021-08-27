@@ -16,17 +16,17 @@ namespace Controladores.VeiculoModule
         private const string sqlSelecionarGrupoPorId =
             @"SELECT *
              FROM
-                [TBGRUPO]
+                [TBCATEGORIA]
              WHERE 
                 [ID] = @ID";
 
         private const string sqlSelecionarTodosGrupos =
             @"SELECT *
              FROM
-                [TBGRUPO]";
+                [TBCATEGORIA]";
 
         private const string sqlInserirGrupo =
-            @"INSERT INTO [TBGRUPO]
+            @"INSERT INTO [TBCATEGORIA]
                 (
                     [QUILOMETRAGEM_FRANQUIA],
                     [PRECO_KM],
@@ -46,7 +46,7 @@ namespace Controladores.VeiculoModule
                 )";
 
         private const string sqlEditarGrupo =
-                @" UPDATE [TBGRUPO]
+                @" UPDATE [TBCATEGORIA]
                 SET     
                     [QUILOMETRAGEM_FRANQUIA] = @QUILOMETRAGEM_FRANQUIA,             
                     [PRECO_KM] = @PRECO_KM,
@@ -57,13 +57,13 @@ namespace Controladores.VeiculoModule
                 WHERE [ID] = @ID";
 
         private const string sqlExcluirGrupo =
-                @" DELETE * FROM [TBGRUPO] WHERE [ID] = @ID";
+                @" DELETE * FROM [TBCATEGORIA] WHERE [ID] = @ID";
 
         private const string sqlExisteGrupo =
             @"SELECT 
                 COUNT(*) 
             FROM 
-                [TBGRUPO]
+                [TBCATEGORIA]
             WHERE 
                 [ID] = @ID";
 

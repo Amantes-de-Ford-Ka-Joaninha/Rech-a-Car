@@ -63,7 +63,7 @@ namespace WindowsApp.VeiculoModule
             this.cb_tipoCombustivel = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.cb_grupo = new System.Windows.Forms.ComboBox();
+            this.cb_categoria = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // tb_modelo
@@ -492,18 +492,18 @@ namespace WindowsApp.VeiculoModule
             // 
             // cb_grupo
             // 
-            this.cb_grupo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cb_grupo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_grupo.FormattingEnabled = true;
-            this.cb_grupo.Items.AddRange(new object[] {
+            this.cb_categoria.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cb_categoria.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_categoria.FormattingEnabled = true;
+            this.cb_categoria.Items.AddRange(new object[] {
             "2",
             "5",
             "8"});
-            this.cb_grupo.Location = new System.Drawing.Point(556, 430);
-            this.cb_grupo.Margin = new System.Windows.Forms.Padding(4);
-            this.cb_grupo.Name = "cb_grupo";
-            this.cb_grupo.Size = new System.Drawing.Size(205, 29);
-            this.cb_grupo.TabIndex = 22;
+            this.cb_categoria.Location = new System.Drawing.Point(556, 430);
+            this.cb_categoria.Margin = new System.Windows.Forms.Padding(4);
+            this.cb_categoria.Name = "cb_grupo";
+            this.cb_categoria.Size = new System.Drawing.Size(205, 29);
+            this.cb_categoria.TabIndex = 22;
             // 
             // CadastroVeiculo
             // 
@@ -512,7 +512,7 @@ namespace WindowsApp.VeiculoModule
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(33)))), ((int)(((byte)(34)))));
             this.ClientSize = new System.Drawing.Size(891, 642);
             this.Controls.Add(this.label16);
-            this.Controls.Add(this.cb_grupo);
+            this.Controls.Add(this.cb_categoria);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.cb_tipoCombustivel);
             this.Controls.Add(this.tb_chassi);
@@ -589,6 +589,6 @@ namespace WindowsApp.VeiculoModule
         private System.Windows.Forms.ComboBox cb_tipoCombustivel;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.ComboBox cb_grupo;
+        private System.Windows.Forms.ComboBox cb_categoria;
     }
 }

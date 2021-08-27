@@ -7,7 +7,7 @@ namespace Dominio.VeiculoModule
 {
     public class Veiculo : Entidade
     {
-        public Veiculo(string modelo, string marca, int ano, string placa, int capacidade, int portas, string chassi, int porta_malas, Image foto, bool automatico, string categoria, Grupo grupo, TipoCombustivel tipoCombustivel)
+        public Veiculo(string modelo, string marca, int ano, string placa, int capacidade, int portas, string chassi, int porta_malas, Image foto, bool automatico, Grupo grupo, TipoCombustivel tipoCombustivel)
         {
             Modelo = modelo;
             Marca = marca;
