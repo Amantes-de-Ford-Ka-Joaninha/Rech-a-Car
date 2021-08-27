@@ -19,7 +19,7 @@ namespace Tests.VeiculoModule
         public void Deve_retornar_dadosveiculo_invalido()
         {
             Categoria categoria = new Categoria(string.Empty, -1, -1, -1, -1, TipoCNH.E);
-            categoria.Validar().Should().Be("Quilometragem inválida\nValor da diária deve ser maior que 0\nValor do preço por Km deve ser maior que 0\n");
+            categoria.Validar().Should().NotBe(string.Empty);
         }
     }
 }

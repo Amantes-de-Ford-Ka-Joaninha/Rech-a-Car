@@ -166,12 +166,7 @@ namespace Controladores.Shared
         }
         private static string GetUltimoIdInserido(this string sql)
         {
-            switch (bancoSelecionado)
-            {
-                case "SQLServer": return sql + ";SELECT SCOPE_IDENTITY()";
-                case "SQLite": return sql + ";SELECT LAST_INSERT_ROWID()";
-                default: throw new ArgumentException(message: "Invalid providerName");
-            }
+            return sql + ";SELECT SCOPE_IDENTITY()";
         }
     }
 }

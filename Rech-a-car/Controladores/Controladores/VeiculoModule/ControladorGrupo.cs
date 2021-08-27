@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Controladores.VeiculoModule
 {
-    public class ControladorGrupo : ControladorEntidade<Categoria>
+    public class ControladorCategoria : ControladorEntidade<Categoria>
     {
         #region Queries
         private const string sqlSelecionarGrupoPorId =
@@ -37,12 +37,12 @@ namespace Controladores.VeiculoModule
                 )
             VALUES
                 (
-                    @QUILOMETRAGEM_FRANQUIA
+                    @QUILOMETRAGEM_FRANQUIA,
                     @PRECO_KM,
                     @PRECO_DIARIA,
                     @TIPO_CNH,
                     @PRECO_LIVRE,
-                    @NOME,
+                    @NOME
                 )";
 
         private const string sqlEditarGrupo =
@@ -53,7 +53,7 @@ namespace Controladores.VeiculoModule
                     [PRECO_DIARIA] = @PRECO_DIARIA,
                     [TIPO_CNH] = @TIPO_CNH,
                     [PRECO_LIVRE] = @PRECO_LIVRE,
-                    [NOME] = @NOME,
+                    [NOME] = @NOME
                 WHERE [ID] = @ID";
 
         private const string sqlExcluirGrupo =
@@ -76,17 +76,17 @@ namespace Controladores.VeiculoModule
         public override string sqlExcluir => sqlExcluirGrupo;
         public override string sqlExists => sqlExisteGrupo;
 
-        protected override Dictionary<string, object> ObterParametrosRegistro(Categoria grupo)
+        protected override Dictionary<string, object> ObterParametrosRegistro(Categoria categoria)
         {
             var parametros = new Dictionary<string, object>
                 {
-                { "ID", grupo.Id },
-                { "QUILOMETRAGEM_FRANQUIA", grupo.QuilometragemFranquia },
-                { "PRECO_KM", grupo.PrecoKm },
-                { "PRECO_DIARIA", grupo.PrecoDiaria },
-                { "NOME", grupo.Nome },
-                { "PRECO_LIVRE", grupo.PrecoLivre },
-                { "TIPO_CNH", grupo.TipoDeCnh },
+                { "ID", categoria.Id },
+                { "QUILOMETRAGEM_FRANQUIA", categoria.QuilometragemFranquia },
+                { "PRECO_KM", categoria.PrecoKm },
+                { "PRECO_DIARIA", categoria.PrecoDiaria },
+                { "NOME", categoria.Nome },
+                { "PRECO_LIVRE", categoria.PrecoLivre },
+                { "TIPO_CNH", categoria.TipoDeCnh },
                 };
 
             return parametros;
