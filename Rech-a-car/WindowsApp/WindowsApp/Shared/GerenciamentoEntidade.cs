@@ -23,7 +23,7 @@ namespace WindowsApp.Shared
         public abstract DataGridViewColumn[] ConfigurarColunas();
         public void AtualizarRegistros()
         {
-            ConfigurarGrid();
+            dgvEntidade.ConfigurarGrid(ConfigurarColunas());
 
             dgvEntidade.Rows.Clear();
             var registros = Cadastro.Controlador.Registros;
@@ -36,23 +36,6 @@ namespace WindowsApp.Shared
             var dadosLinha = new object[] { item.Id }.ToList();
             dadosLinha.AddRange(ObterCamposLinha(item));
             return dadosLinha.ToArray();
-        }
-        private void ConfigurarGrid()
-        {
-            dgvEntidade.Columns.Clear();
-            
-            var colunaID = new DataGridViewTextBoxColumn { DataPropertyName = "ID", HeaderText = "ID" };
-            colunaID.Visible = false;
-            dgvEntidade.Columns.Add(colunaID);
-            dgvEntidade.Columns.AddRange(ConfigurarColunas());
-
-            dgvEntidade.ConfigurarGridSomenteLeitura();
-        }
-        private int GetIdSelecionado()
-        {
-            const int coluna_id = 0;
-            var linha = dgvEntidade.GetLinhaSelecionada();
-            return (int)linha.Cells[coluna_id].Value;
         }
         private void AlternarBotoes(bool estado)
         {
@@ -101,7 +84,7 @@ namespace WindowsApp.Shared
         }
         private void bt_editar_Click(object sender, EventArgs e)
         {
-            var entidade = Cadastro.Controlador.GetById(GetIdSelecionado(), GetTipoEntidade());
+            var entidade = Cadastro.Controlador.GetById(dgvEntidade.GetIdSelecionado(), GetTipoEntidade());
             TelaPrincipal.Instancia.FormAtivo = (Form)Cadastro.Editar(entidade);
             AlternarBotoes(false);
             AtualizarRegistros();
@@ -113,7 +96,7 @@ namespace WindowsApp.Shared
             if (opcao == DialogResult.Cancel)
                 return;
 
-            Cadastro.Controlador.Excluir(GetIdSelecionado(), GetTipoEntidade());
+            Cadastro.Controlador.Excluir(dgvEntidade.GetIdSelecionado(), GetTipoEntidade());
             AlternarBotoes(false);
             AtualizarRegistros();
         }
@@ -129,13 +112,13 @@ namespace WindowsApp.Shared
         {
             throw new NotImplementedException();
         }
-
-        #endregion
-
         private void GerenciamentoEntidade_Load(object sender, EventArgs e)
         {
             dgvEntidade.ClearSelection();
         }
+
+        #endregion
+
     }
     public enum TipoTela
     {

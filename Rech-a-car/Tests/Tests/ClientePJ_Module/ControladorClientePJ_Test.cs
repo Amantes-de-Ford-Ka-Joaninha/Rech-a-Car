@@ -15,6 +15,7 @@ namespace Tests.Tests.ClientePJ_Module
     public class ControladorClientePJ_Test
     {
         ControladorClientePJ controladorClientePJ = new ControladorClientePJ();
+        ControladorMotorista controladorMotorista = new ControladorMotorista();
         ClientePJ cliente;
         MotoristaEmpresa motorista;
 
@@ -25,7 +26,7 @@ namespace Tests.Tests.ClientePJ_Module
             cliente = new ClientePJ("nome", "99999999999", "endereco", "99999999999999");
             controladorClientePJ.Inserir(cliente);
             motorista = new MotoristaEmpresa("nomeMotorista", "99999999999", "endereco", "99999999999999",new CNH("59778304921",TipoCNH.A));
-            controladorClientePJ.AdicionarMotorista(cliente.Id, motorista);
+            controladorMotorista.Inserir(motorista,cliente.Id);
             cliente = controladorClientePJ.GetById(cliente.Id);
         }
         [TestMethod]
@@ -41,7 +42,7 @@ namespace Tests.Tests.ClientePJ_Module
         [TestMethod]
         public void Deve_remover_motorista()
         {
-            controladorClientePJ.RemoverMotorista(cliente.Motoristas[0].Id);
+            controladorMotorista.Excluir(cliente.Motoristas[0].Id);
             cliente = controladorClientePJ.GetById(cliente.Id);
             cliente.Motoristas.Count.Should().Be(0);
         }
@@ -50,7 +51,7 @@ namespace Tests.Tests.ClientePJ_Module
         {
             string nomeAntigo = cliente.Motoristas[0].Nome;
             cliente.Motoristas[0].Nome = "NOME EDITADO";
-            controladorClientePJ.EditarMotorista(cliente.Motoristas[0].Id, cliente.Motoristas[0]);
+            controladorMotorista.Editar(cliente.Motoristas[0].Id, cliente.Motoristas[0], cliente.Motoristas[0].Cnh.Id);
             cliente = controladorClientePJ.GetById(cliente.Id);
             nomeAntigo.Should().NotBe(cliente.Motoristas[0].Nome);
         }

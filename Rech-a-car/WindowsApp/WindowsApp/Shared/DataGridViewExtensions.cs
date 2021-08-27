@@ -64,5 +64,22 @@ namespace WindowsApp.Shared
 
             return grid.SelectedRows[primeira];
         }
+        public static int GetIdSelecionado(this DataGridView grid)
+        {
+            const int coluna_id = 0;
+            var linha = grid.GetLinhaSelecionada();
+            return (int)linha.Cells[coluna_id].Value;
+        }
+        public static void ConfigurarGrid(this DataGridView grid, DataGridViewColumn[] colunas)
+        {
+            grid.Columns.Clear();
+
+            var colunaID = new DataGridViewTextBoxColumn { DataPropertyName = "ID", HeaderText = "ID" };
+            colunaID.Visible = false;
+            grid.Columns.Add(colunaID);
+            grid.Columns.AddRange(colunas);
+
+            grid.ConfigurarGridSomenteLeitura();
+        }
     }
 }

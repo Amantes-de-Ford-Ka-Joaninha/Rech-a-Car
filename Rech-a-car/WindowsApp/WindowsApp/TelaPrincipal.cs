@@ -1,4 +1,5 @@
-﻿using Dominio.PessoaModule.ClienteModule;
+﻿using Dominio.PessoaModule;
+using Dominio.PessoaModule.ClienteModule;
 using System;
 using System.Windows.Forms;
 using WindowsApp.AluguelModule;
@@ -7,6 +8,7 @@ using WindowsApp.FuncionarioModule;
 using WindowsApp.ServicoModule;
 using WindowsApp.Shared;
 using WindowsApp.VeiculoModule;
+using WindowsApp.WindowsApp;
 
 namespace WindowsApp
 {
@@ -14,7 +16,7 @@ namespace WindowsApp
     {
         public static TelaPrincipal Instancia;
         private Form formAtivo;
-        public TelaPrincipal()
+        public TelaPrincipal(Funcionario funcionario)
         {
             Instancia = this;
             InitializeComponent();
@@ -86,7 +88,8 @@ namespace WindowsApp
         }
         private void bt_sair_Click(object sender, EventArgs e)
         {
-            Close();
+            Close(); 
+            new Login().Show();
         }
 
         #endregion

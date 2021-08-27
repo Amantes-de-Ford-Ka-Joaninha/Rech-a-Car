@@ -11,11 +11,12 @@ namespace WindowsApp.ClienteModule
     public partial class CadastroClientePJ : CadastroEntidade<ClientePJ>
     {
         public override Controlador<ClientePJ> Controlador { get => new ControladorClientePJ(); }
+        public ControladorMotorista ControladorMotorista { get => new ControladorMotorista(); }
 
         public CadastroClientePJ()
         {
             InitializeComponent();
-            HabilitarBotoes(false);
+            dgvMotoristas.ConfigurarGrid(ConfigurarColunas());
         }
 
         protected override ITelaEditar Editar()
@@ -28,9 +29,18 @@ namespace WindowsApp.ClienteModule
             return this;
         }
 
+        public DataGridViewColumn[] ConfigurarColunas()
+        {
+            return new DataGridViewColumn[]
+            {
+            new DataGridViewTextBoxColumn { DataPropertyName = "Nome", HeaderText = "Nome"},
+            new DataGridViewTextBoxColumn { DataPropertyName = "Telefone", HeaderText = "Telefone"}
+            };
+        }
+
         private void AtualizarListMotoristas()
         {
-            listMotoristas.DataSource = new ControladorMotorista().SelecionarCondutoresPJ(entidade.Id);
+            dgvMotoristas.DataSource = new ControladorMotorista().SelecionarCondutoresPJ(entidade.Id);
         }
 
         public override ClientePJ GetNovaEntidade()
@@ -43,7 +53,7 @@ namespace WindowsApp.ClienteModule
         }
         private MotoristaEmpresa GetMotoristaSelecionado()
         {
-            return (MotoristaEmpresa)listMotoristas.SelectedItem;
+            return ControladorMotorista.GetById(dgvMotoristas.GetIdSelecionado());
         }
 
         private void HabilitarBotoes(bool estado)
@@ -75,11 +85,17 @@ namespace WindowsApp.ClienteModule
             HabilitarBotoes(false);
             AtualizarListMotoristas();
         }
-        private void listMotoristas_SelectedValueChanged(object sender, EventArgs e)
+        private void CadastroClientePJ_Load(object sender, EventArgs e)
+        {
+            dgvMotoristas.ClearSelection();
+            HabilitarBotoes(false);
+        }
+
+        private void dgvMotoristas_SelectionChanged(object sender, EventArgs e)
         {
             HabilitarBotoes(true);
         }
-
         #endregion
+
     }
 }
