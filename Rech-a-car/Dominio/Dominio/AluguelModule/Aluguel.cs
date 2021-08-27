@@ -10,8 +10,9 @@ namespace Dominio.AluguelModule
 {
     public class Aluguel : Entidade
     {
-        public Aluguel(Veiculo veiculo, List<Servico> servicos, Plano tipoPlano, DateTime dataAluguel, ICliente cliente, Condutor condutor = null)
+        public Aluguel(Veiculo veiculo, List<Servico> servicos, Plano tipoPlano, DateTime dataAluguel, ICliente cliente, Funcionario funcionario, Condutor condutor = null)
         {
+            Funcionario = funcionario;
             Veiculo = veiculo;
             Servicos = servicos;
             TipoPlano = tipoPlano;
@@ -23,6 +24,7 @@ namespace Dominio.AluguelModule
         }
         public Aluguel(Aluguel aluguel)
         {
+            Funcionario = aluguel.Funcionario;
             Veiculo = aluguel.Veiculo;
             Servicos = aluguel.Servicos;
             TipoPlano = aluguel.TipoPlano;
@@ -32,7 +34,7 @@ namespace Dominio.AluguelModule
             if (aluguel.Condutor == null)
                 Condutor = (Condutor)aluguel.Cliente;
         }
-
+        public Funcionario Funcionario { get; set; }
         public Veiculo Veiculo { get; set; }
         public ICliente Cliente { get; set; }
         public List<Servico> Servicos { get; set; }

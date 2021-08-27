@@ -28,42 +28,53 @@ namespace Controladores.VeiculoModule
         private const string sqlInserirGrupo =
             @"INSERT INTO [TBGRUPO]
                 (
-                    [ID],
                     [QUILOMETRAGEM_FRANQUIA],
                     [PRECO_KM],
                     [PRECO_DIARIA],
                     [TIPO_CNH],
                     [PRECO_LIVRE],
-                    [PRECO_KM],
                     [NOME]
                 )
             VALUES
                 (
-                    @ID,
-                    @QUILOMETRAGEM,
+                    @QUILOMETRAGEM_FRANQUIA
                     @PRECO_KM,
-                    @DIARIA
+                    @PRECO_DIARIA,
+                    @TIPO_CNH,
+                    @PRECO_LIVRE,
+                    @NOME,
                 )";
 
         private const string sqlEditarGrupo =
                 @" UPDATE [TBGRUPO]
                 SET     
-                    [QUILOMETRAGEM] = @QUILOMETRAGEM,             
+                    [QUILOMETRAGEM_FRANQUIA] = @QUILOMETRAGEM_FRANQUIA,             
                     [PRECO_KM] = @PRECO_KM,
-                    [DIARIA] = @DIARIA
-                    WHERE [ID] = @ID";
+                    [PRECO_DIARIA] = @PRECO_DIARIA,
+                    [TIPO_CNH] = @TIPO_CNH,
+                    [PRECO_LIVRE] = @PRECO_LIVRE,
+                    [NOME] = @NOME,
+                WHERE [ID] = @ID";
 
         private const string sqlExcluirGrupo =
                 @" DELETE * FROM [TBGRUPO] WHERE [ID] = @ID";
 
+        private const string sqlExisteGrupo =
+            @"SELECT 
+                COUNT(*) 
+            FROM 
+                [TBGRUPO]
+            WHERE 
+                [ID] = @ID";
+
         #endregion
 
-        public override string sqlSelecionarPorId => throw new NotImplementedException();
-        public override string sqlSelecionarTodos => throw new NotImplementedException();
-        public override string sqlInserir => throw new NotImplementedException();
-        public override string sqlEditar => throw new NotImplementedException();
-        public override string sqlExcluir => throw new NotImplementedException();
-        public override string sqlExists => throw new NotImplementedException();
+        public override string sqlSelecionarPorId => sqlSelecionarGrupoPorId;
+        public override string sqlSelecionarTodos => sqlSelecionarTodosGrupos;
+        public override string sqlInserir => sqlInserirGrupo;
+        public override string sqlEditar => sqlEditarGrupo;
+        public override string sqlExcluir => sqlExcluirGrupo;
+        public override string sqlExists => sqlExisteGrupo;
 
         protected override Dictionary<string, object> ObterParametrosRegistro(Grupo grupo)
         {

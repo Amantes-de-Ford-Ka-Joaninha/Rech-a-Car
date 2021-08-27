@@ -35,5 +35,10 @@ namespace Dominio.VeiculoModule
 
             return validacao;
         }
+
+        public override string ToString()
+        {
+            return Nome;
+        }
     }
 }

@@ -20,6 +20,8 @@ namespace WindowsApp.VeiculoModule
             cb_capacidade.SelectedIndex = 1;
             cb_portaMalas.SelectedIndex = 1;
             cb_portas.SelectedIndex = 0;
+            cb_tipoCombustivel.SelectedIndex = 0;
+            cb_grupo.DataSource = new ControladorGrupo().Registros;
         }
 
         protected override ITelaEditar Editar()
@@ -33,13 +35,8 @@ namespace WindowsApp.VeiculoModule
             tb_ano.Text = entidade.Ano.ToString();
             cb_portas.SelectedItem = entidade.Portas.ToString();
             cb_cambio.SelectedItem = entidade.CambioToString();
-            tb_categoria.Text = entidade.Categoria;
+            cb_grupo.SelectedItem = entidade.Grupo;
             AtualizarIcone((Bitmap)entidade.Foto);
-
-            var dadosVeiculo = entidade.DadosVeiculo;
-            tb_quilometragem.Text = dadosVeiculo.Quilometragem.ToString();
-            tb_diaria.Text = dadosVeiculo.Diaria.ToString();
-            tb_precoKm.Text = dadosVeiculo.PrecoKm.ToString();
 
             return this;
         }
@@ -53,19 +50,13 @@ namespace WindowsApp.VeiculoModule
             var capacidade = cb_capacidade.SelectedIndex;
             Int32.TryParse(tb_ano.Text, out int ano);
             Int32.TryParse(cb_portas.SelectedItem?.ToString(), out int portas);
+            Int32.TryParse(cb_tipoCombustivel?.ToString(), out int tipoCombustivel);
             var cambio = cb_cambio.SelectedItem?.ToString() == "Automático";
             var categoria = tb_categoria.Text;
             imagem = (Bitmap)bt_foto.Image;
 
-            var dadosVeiculo = GetDadosVeiculo();
-            return new Veiculo(modelo, marca, ano, placa, capacidade, portas, chassi, portaMalas, imagem, cambio, categoria, dadosVeiculo);
-        }
-        private DadosVeiculo GetDadosVeiculo()
-        {
-            Int32.TryParse(tb_quilometragem.Text, out int quilometragem);
-            Int32.TryParse(tb_diaria.Text, out int diaria);
-            Int32.TryParse(tb_precoKm.Text, out int precoKm);
-            return new DadosVeiculo(quilometragem, diaria, precoKm);
+            var grupo = (Grupo)cb_grupo.SelectedItem;
+            return new Veiculo(modelo, marca, ano, placa, capacidade, portas, chassi, portaMalas, imagem, cambio, categoria, grupo, (TipoCombustivel)tipoCombustivel);
         }
         private void AtualizarIcone(Bitmap imagem)
         {

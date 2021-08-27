@@ -60,6 +60,10 @@ namespace WindowsApp.VeiculoModule
             this.tb_quilometragem = new System.Windows.Forms.TextBox();
             this.tb_ano = new System.Windows.Forms.MaskedTextBox();
             this.tb_chassi = new System.Windows.Forms.MaskedTextBox();
+            this.cb_tipoCombustivel = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.cb_grupo = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // tb_modelo
@@ -281,7 +285,7 @@ namespace WindowsApp.VeiculoModule
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(500, 446);
+            this.label15.Location = new System.Drawing.Point(504, 496);
             this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(44, 23);
@@ -314,7 +318,7 @@ namespace WindowsApp.VeiculoModule
             this.bt_foto.FlatAppearance.BorderSize = 0;
             this.bt_foto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_foto.Image = global::WindowsApp.Properties.Resources.inserir_icone_de_imagem;
-            this.bt_foto.Location = new System.Drawing.Point(584, 399);
+            this.bt_foto.Location = new System.Drawing.Point(596, 462);
             this.bt_foto.Margin = new System.Windows.Forms.Padding(4);
             this.bt_foto.Name = "bt_foto";
             this.bt_foto.Size = new System.Drawing.Size(140, 117);
@@ -445,12 +449,72 @@ namespace WindowsApp.VeiculoModule
             this.tb_chassi.TabIndex = 3;
             this.tb_chassi.ValidatingType = typeof(int);
             // 
-            // CadastrarVeiculo
+            // cb_tipoCombustivel
+            // 
+            this.cb_tipoCombustivel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cb_tipoCombustivel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_tipoCombustivel.FormattingEnabled = true;
+            this.cb_tipoCombustivel.Items.AddRange(new object[] {
+            "2",
+            "5",
+            "8"});
+            this.cb_tipoCombustivel.Location = new System.Drawing.Point(556, 393);
+            this.cb_tipoCombustivel.Margin = new System.Windows.Forms.Padding(4);
+            this.cb_tipoCombustivel.Name = "cb_tipoCombustivel";
+            this.cb_tipoCombustivel.Size = new System.Drawing.Size(205, 29);
+            this.cb_tipoCombustivel.TabIndex = 20;
+            // 
+            // label14
+            // 
+            this.label14.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(402, 393);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(146, 23);
+            this.label14.TabIndex = 21;
+            this.label14.Text = "Tipo Combustível:";
+            // 
+            // label16
+            // 
+            this.label16.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.White;
+            this.label16.Location = new System.Drawing.Point(480, 430);
+            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(62, 23);
+            this.label16.TabIndex = 23;
+            this.label16.Text = "Grupo:";
+            // 
+            // cb_grupo
+            // 
+            this.cb_grupo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cb_grupo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_grupo.FormattingEnabled = true;
+            this.cb_grupo.Items.AddRange(new object[] {
+            "2",
+            "5",
+            "8"});
+            this.cb_grupo.Location = new System.Drawing.Point(556, 430);
+            this.cb_grupo.Margin = new System.Windows.Forms.Padding(4);
+            this.cb_grupo.Name = "cb_grupo";
+            this.cb_grupo.Size = new System.Drawing.Size(205, 29);
+            this.cb_grupo.TabIndex = 22;
+            // 
+            // CadastroVeiculo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(33)))), ((int)(((byte)(34)))));
             this.ClientSize = new System.Drawing.Size(891, 642);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.cb_grupo);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.cb_tipoCombustivel);
             this.Controls.Add(this.tb_chassi);
             this.Controls.Add(this.tb_ano);
             this.Controls.Add(this.tb_quilometragem);
@@ -482,7 +546,7 @@ namespace WindowsApp.VeiculoModule
             this.Controls.Add(this.tb_modelo);
             this.Controls.Add(this.lbTitulo);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "CadastrarVeiculo";
+            this.Name = "CadastroVeiculo";
             this.Text = "FormCadastrarVeiculo";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -522,5 +586,9 @@ namespace WindowsApp.VeiculoModule
         private System.Windows.Forms.TextBox tb_quilometragem;
         private System.Windows.Forms.MaskedTextBox tb_ano;
         private System.Windows.Forms.MaskedTextBox tb_chassi;
+        private System.Windows.Forms.ComboBox cb_tipoCombustivel;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.ComboBox cb_grupo;
     }
 }

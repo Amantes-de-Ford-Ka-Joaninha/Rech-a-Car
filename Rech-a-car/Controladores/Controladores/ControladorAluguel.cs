@@ -76,28 +76,40 @@ namespace Controladores.AluguelModule
             var id_veiculo = Convert.ToInt32(reader["ID_VEICULO"]);
             var id_cliente = Convert.ToInt32(reader["ID_CLIENTE"]);
             var id_condutor = Convert.ToInt32(reader["ID_CONDUTOR"]);
+            var id_funcionario = Convert.ToInt32(reader["ID_FUNCIONARIO"]);
 
-            var tipo_aluguel = Convert.ToInt32(reader["TIPO_ALUGUEL"]);
+            var dataAluguel = Convert.ToDateTime(reader["DATA_ALUGUEL"]);
+            var tipoPlano = Convert.ToInt32(reader["TIPO_PLANO"]);
 
+            var funcionario = new ControladorFuncionario().GetById(id_funcionario);
             var veiculo = new ControladorVeiculo().GetById(id_veiculo);
-            var cliente = new ControladorCliente().GetById(id_cliente);
-            var servicos = new ControladorServico().GetServicosAlugados(id);
-            Condutor condutor = GetCondutor(id_condutor, cliente);
 
-            return new Aluguel(veiculo, cliente, servicos, condutor, (Plano)tipo_aluguel)
+            Condutor condutor = GetCondutor(id_condutor, id_cliente);
+
+            var cliente = new ControladorCliente().GetById(id_cliente, GetTipoCliente(condutor));
+
+            var servicos = new ControladorServico().GetServicosAlugados(id);
+
+            return new Aluguel(veiculo, servicos, (Plano)tipoPlano, dataAluguel, cliente, funcionario, condutor)
             {
                 Id = id
             };
         }
 
-        private Condutor GetCondutor(int id_condutor, ICliente cliente)
+        private Type GetTipoCliente(Condutor condutor)
         {
-            if (cliente is ClientePJ)
-                return ((ClientePJ)cliente).Motoristas.Find(x => x.Id == id_condutor);
-            else if (cliente is ClientePF)
-                return (ClientePF)cliente;
+            if (condutor == null)
+                return typeof(ClientePF);
             else
-                throw new ArgumentException();
+                return typeof(ClientePJ);
+        }
+
+        private Condutor GetCondutor(int id_condutor, int id_cliente)
+        {
+            if (id_condutor == id_cliente)
+                return null;
+            else
+                return new ControladorMotorista().GetMotoristaEmpresa(id_cliente, id_condutor);
         }
         protected override Dictionary<string, object> ObterParametrosRegistro(Aluguel aluguel)
         {
@@ -107,7 +119,7 @@ namespace Controladores.AluguelModule
                 { "ID_CLIENTE", aluguel.Cliente.Id },
                 { "ID_CONDUTOR", aluguel.Condutor.Id },
                 { "ID_VEICULO", aluguel.Veiculo.Id },
-                { "TIPO_ALUGUEL", aluguel.TipoAluguel },
+                { "TIPO_ALUGUEL", aluguel.TipoPlano },
             };
             return parametros;
         }
