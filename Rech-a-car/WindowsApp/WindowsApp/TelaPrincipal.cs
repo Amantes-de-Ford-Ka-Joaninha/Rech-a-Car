@@ -8,6 +8,7 @@ using WindowsApp.ServicoModule;
 using WindowsApp.VeiculoModule;
 using WindowsApp.VeiculoModule.CategoriaModule;
 using WindowsApp.WindowsApp;
+using WindowsApp.ConfiguracoesModule;
 
 namespace WindowsApp
 {
@@ -101,6 +102,10 @@ namespace WindowsApp
         {
             FormAtivo = new GerenciamentoCategoria();
             EsconderSubMenu();
+        }
+        private void btConfiguracoes_Click(object sender, EventArgs e)
+        {
+            FormAtivo = new Configuracoes();
         }
 
         #endregion

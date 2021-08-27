@@ -31,36 +31,36 @@ namespace WindowsApp
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaPrincipal));
             this.PanelMenuLateral = new System.Windows.Forms.Panel();
-            this.btConfiguracoes = new System.Windows.Forms.Button();
-            this.bt_servicos = new System.Windows.Forms.Button();
-            this.bt_funcionarios = new System.Windows.Forms.Button();
             this.panelSubMenuVeiculos = new System.Windows.Forms.Panel();
             this.btGrupos = new System.Windows.Forms.Button();
             this.btVeiculosSubMenu = new System.Windows.Forms.Button();
-            this.bt_veiculos = new System.Windows.Forms.Button();
             this.panelSubMenuClientes = new System.Windows.Forms.Panel();
             this.btPessoaJuridica = new System.Windows.Forms.Button();
             this.btPessoaFisica = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.bt_sair = new System.Windows.Forms.Button();
-            this.bt_clientes = new System.Windows.Forms.Button();
-            this.bt_aluguel = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panelFormFilho = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.labelTitulo = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btConfiguracoes = new System.Windows.Forms.Button();
+            this.bt_servicos = new System.Windows.Forms.Button();
+            this.bt_funcionarios = new System.Windows.Forms.Button();
+            this.bt_veiculos = new System.Windows.Forms.Button();
+            this.bt_sair = new System.Windows.Forms.Button();
+            this.bt_clientes = new System.Windows.Forms.Button();
+            this.bt_aluguel = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.PanelMenuLateral.SuspendLayout();
             this.panelSubMenuVeiculos.SuspendLayout();
             this.panelSubMenuClientes.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panelFormFilho.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelMenuLateral
@@ -81,63 +81,6 @@ namespace WindowsApp
             this.PanelMenuLateral.Name = "PanelMenuLateral";
             this.PanelMenuLateral.Size = new System.Drawing.Size(250, 561);
             this.PanelMenuLateral.TabIndex = 0;
-            // 
-            // btConfiguracoes
-            // 
-            this.btConfiguracoes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btConfiguracoes.FlatAppearance.BorderSize = 0;
-            this.btConfiguracoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btConfiguracoes.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btConfiguracoes.ForeColor = System.Drawing.Color.White;
-            this.btConfiguracoes.Image = global::WindowsApp.Properties.Resources.settings;
-            this.btConfiguracoes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btConfiguracoes.Location = new System.Drawing.Point(0, 550);
-            this.btConfiguracoes.Name = "btConfiguracoes";
-            this.btConfiguracoes.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btConfiguracoes.Size = new System.Drawing.Size(250, 50);
-            this.btConfiguracoes.TabIndex = 19;
-            this.btConfiguracoes.Text = " Configurações";
-            this.btConfiguracoes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btConfiguracoes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btConfiguracoes.UseVisualStyleBackColor = true;
-            // 
-            // bt_servicos
-            // 
-            this.bt_servicos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bt_servicos.FlatAppearance.BorderSize = 0;
-            this.bt_servicos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_servicos.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_servicos.ForeColor = System.Drawing.Color.White;
-            this.bt_servicos.Image = global::WindowsApp.Properties.Resources.servicos;
-            this.bt_servicos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bt_servicos.Location = new System.Drawing.Point(0, 500);
-            this.bt_servicos.Name = "bt_servicos";
-            this.bt_servicos.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.bt_servicos.Size = new System.Drawing.Size(250, 50);
-            this.bt_servicos.TabIndex = 18;
-            this.bt_servicos.Text = " Serviços";
-            this.bt_servicos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bt_servicos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.bt_servicos.UseVisualStyleBackColor = true;
-            // 
-            // bt_funcionarios
-            // 
-            this.bt_funcionarios.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bt_funcionarios.FlatAppearance.BorderSize = 0;
-            this.bt_funcionarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_funcionarios.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_funcionarios.ForeColor = System.Drawing.Color.White;
-            this.bt_funcionarios.Image = global::WindowsApp.Properties.Resources.funcionarios;
-            this.bt_funcionarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bt_funcionarios.Location = new System.Drawing.Point(0, 450);
-            this.bt_funcionarios.Name = "bt_funcionarios";
-            this.bt_funcionarios.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.bt_funcionarios.Size = new System.Drawing.Size(250, 50);
-            this.bt_funcionarios.TabIndex = 17;
-            this.bt_funcionarios.Text = " Funcionários";
-            this.bt_funcionarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bt_funcionarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.bt_funcionarios.UseVisualStyleBackColor = true;
             // 
             // panelSubMenuVeiculos
             // 
@@ -184,27 +127,6 @@ namespace WindowsApp
             this.btVeiculosSubMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btVeiculosSubMenu.UseVisualStyleBackColor = true;
             this.btVeiculosSubMenu.Click += new System.EventHandler(this.btVeiculosSubMenu_Click);
-            // 
-            // bt_veiculos
-            // 
-            this.bt_veiculos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.bt_veiculos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bt_veiculos.FlatAppearance.BorderSize = 0;
-            this.bt_veiculos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_veiculos.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_veiculos.ForeColor = System.Drawing.Color.White;
-            this.bt_veiculos.Image = global::WindowsApp.Properties.Resources.veiculos;
-            this.bt_veiculos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bt_veiculos.Location = new System.Drawing.Point(0, 300);
-            this.bt_veiculos.Name = "bt_veiculos";
-            this.bt_veiculos.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.bt_veiculos.Size = new System.Drawing.Size(250, 50);
-            this.bt_veiculos.TabIndex = 9;
-            this.bt_veiculos.Text = " Veículos";
-            this.bt_veiculos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bt_veiculos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.bt_veiculos.UseVisualStyleBackColor = true;
-            this.bt_veiculos.Click += new System.EventHandler(this.bt_Veiculos_Click);
             // 
             // panelSubMenuClientes
             // 
@@ -261,67 +183,6 @@ namespace WindowsApp
             this.panel3.Size = new System.Drawing.Size(250, 54);
             this.panel3.TabIndex = 7;
             // 
-            // bt_sair
-            // 
-            this.bt_sair.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bt_sair.FlatAppearance.BorderSize = 0;
-            this.bt_sair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_sair.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_sair.ForeColor = System.Drawing.Color.White;
-            this.bt_sair.Image = global::WindowsApp.Properties.Resources.sair;
-            this.bt_sair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bt_sair.Location = new System.Drawing.Point(0, 0);
-            this.bt_sair.Name = "bt_sair";
-            this.bt_sair.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.bt_sair.Size = new System.Drawing.Size(250, 51);
-            this.bt_sair.TabIndex = 9;
-            this.bt_sair.Text = " Sair";
-            this.bt_sair.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bt_sair.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.bt_sair.UseVisualStyleBackColor = true;
-            this.bt_sair.Click += new System.EventHandler(this.bt_sair_Click);
-            // 
-            // bt_clientes
-            // 
-            this.bt_clientes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bt_clientes.FlatAppearance.BorderSize = 0;
-            this.bt_clientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_clientes.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_clientes.ForeColor = System.Drawing.Color.White;
-            this.bt_clientes.Image = global::WindowsApp.Properties.Resources.clientes;
-            this.bt_clientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bt_clientes.Location = new System.Drawing.Point(0, 150);
-            this.bt_clientes.Name = "bt_clientes";
-            this.bt_clientes.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.bt_clientes.Size = new System.Drawing.Size(250, 50);
-            this.bt_clientes.TabIndex = 3;
-            this.bt_clientes.Text = " Clientes";
-            this.bt_clientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bt_clientes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.bt_clientes.UseVisualStyleBackColor = true;
-            this.bt_clientes.Click += new System.EventHandler(this.bt_clientes_Click);
-            // 
-            // bt_aluguel
-            // 
-            this.bt_aluguel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.bt_aluguel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bt_aluguel.FlatAppearance.BorderSize = 0;
-            this.bt_aluguel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_aluguel.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_aluguel.ForeColor = System.Drawing.Color.White;
-            this.bt_aluguel.Image = global::WindowsApp.Properties.Resources.aluguel;
-            this.bt_aluguel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bt_aluguel.Location = new System.Drawing.Point(0, 100);
-            this.bt_aluguel.Name = "bt_aluguel";
-            this.bt_aluguel.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.bt_aluguel.Size = new System.Drawing.Size(250, 50);
-            this.bt_aluguel.TabIndex = 1;
-            this.bt_aluguel.Text = " Aluguel de Veículos";
-            this.bt_aluguel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bt_aluguel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.bt_aluguel.UseVisualStyleBackColor = true;
-            this.bt_aluguel.Click += new System.EventHandler(this.bt_Aluguel_Click);
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(33)))), ((int)(((byte)(34)))));
@@ -333,17 +194,6 @@ namespace WindowsApp
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(250, 100);
             this.panel1.TabIndex = 0;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(29, 21);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(60, 60);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 2;
-            this.pictureBox2.TabStop = false;
             // 
             // label2
             // 
@@ -412,6 +262,157 @@ namespace WindowsApp
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // btConfiguracoes
+            // 
+            this.btConfiguracoes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btConfiguracoes.FlatAppearance.BorderSize = 0;
+            this.btConfiguracoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btConfiguracoes.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btConfiguracoes.ForeColor = System.Drawing.Color.White;
+            this.btConfiguracoes.Image = global::WindowsApp.Properties.Resources.settings;
+            this.btConfiguracoes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btConfiguracoes.Location = new System.Drawing.Point(0, 550);
+            this.btConfiguracoes.Name = "btConfiguracoes";
+            this.btConfiguracoes.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btConfiguracoes.Size = new System.Drawing.Size(250, 50);
+            this.btConfiguracoes.TabIndex = 19;
+            this.btConfiguracoes.Text = " Configurações";
+            this.btConfiguracoes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btConfiguracoes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btConfiguracoes.UseVisualStyleBackColor = true;
+            this.btConfiguracoes.Click += new System.EventHandler(this.btConfiguracoes_Click);
+            // 
+            // bt_servicos
+            // 
+            this.bt_servicos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bt_servicos.FlatAppearance.BorderSize = 0;
+            this.bt_servicos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_servicos.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_servicos.ForeColor = System.Drawing.Color.White;
+            this.bt_servicos.Image = global::WindowsApp.Properties.Resources.servicos;
+            this.bt_servicos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bt_servicos.Location = new System.Drawing.Point(0, 500);
+            this.bt_servicos.Name = "bt_servicos";
+            this.bt_servicos.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.bt_servicos.Size = new System.Drawing.Size(250, 50);
+            this.bt_servicos.TabIndex = 18;
+            this.bt_servicos.Text = " Serviços";
+            this.bt_servicos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bt_servicos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.bt_servicos.UseVisualStyleBackColor = true;
+            // 
+            // bt_funcionarios
+            // 
+            this.bt_funcionarios.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bt_funcionarios.FlatAppearance.BorderSize = 0;
+            this.bt_funcionarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_funcionarios.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_funcionarios.ForeColor = System.Drawing.Color.White;
+            this.bt_funcionarios.Image = global::WindowsApp.Properties.Resources.funcionarios;
+            this.bt_funcionarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bt_funcionarios.Location = new System.Drawing.Point(0, 450);
+            this.bt_funcionarios.Name = "bt_funcionarios";
+            this.bt_funcionarios.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.bt_funcionarios.Size = new System.Drawing.Size(250, 50);
+            this.bt_funcionarios.TabIndex = 17;
+            this.bt_funcionarios.Text = " Funcionários";
+            this.bt_funcionarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bt_funcionarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.bt_funcionarios.UseVisualStyleBackColor = true;
+            // 
+            // bt_veiculos
+            // 
+            this.bt_veiculos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.bt_veiculos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bt_veiculos.FlatAppearance.BorderSize = 0;
+            this.bt_veiculos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_veiculos.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_veiculos.ForeColor = System.Drawing.Color.White;
+            this.bt_veiculos.Image = global::WindowsApp.Properties.Resources.veiculos;
+            this.bt_veiculos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bt_veiculos.Location = new System.Drawing.Point(0, 300);
+            this.bt_veiculos.Name = "bt_veiculos";
+            this.bt_veiculos.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.bt_veiculos.Size = new System.Drawing.Size(250, 50);
+            this.bt_veiculos.TabIndex = 9;
+            this.bt_veiculos.Text = " Veículos";
+            this.bt_veiculos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bt_veiculos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.bt_veiculos.UseVisualStyleBackColor = true;
+            this.bt_veiculos.Click += new System.EventHandler(this.bt_Veiculos_Click);
+            // 
+            // bt_sair
+            // 
+            this.bt_sair.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bt_sair.FlatAppearance.BorderSize = 0;
+            this.bt_sair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_sair.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_sair.ForeColor = System.Drawing.Color.White;
+            this.bt_sair.Image = global::WindowsApp.Properties.Resources.sair;
+            this.bt_sair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bt_sair.Location = new System.Drawing.Point(0, 0);
+            this.bt_sair.Name = "bt_sair";
+            this.bt_sair.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.bt_sair.Size = new System.Drawing.Size(250, 51);
+            this.bt_sair.TabIndex = 9;
+            this.bt_sair.Text = " Sair";
+            this.bt_sair.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bt_sair.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.bt_sair.UseVisualStyleBackColor = true;
+            this.bt_sair.Click += new System.EventHandler(this.bt_sair_Click);
+            // 
+            // bt_clientes
+            // 
+            this.bt_clientes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bt_clientes.FlatAppearance.BorderSize = 0;
+            this.bt_clientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_clientes.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_clientes.ForeColor = System.Drawing.Color.White;
+            this.bt_clientes.Image = global::WindowsApp.Properties.Resources.clientes;
+            this.bt_clientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bt_clientes.Location = new System.Drawing.Point(0, 150);
+            this.bt_clientes.Name = "bt_clientes";
+            this.bt_clientes.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.bt_clientes.Size = new System.Drawing.Size(250, 50);
+            this.bt_clientes.TabIndex = 3;
+            this.bt_clientes.Text = " Clientes";
+            this.bt_clientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bt_clientes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.bt_clientes.UseVisualStyleBackColor = true;
+            this.bt_clientes.Click += new System.EventHandler(this.bt_clientes_Click);
+            // 
+            // bt_aluguel
+            // 
+            this.bt_aluguel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.bt_aluguel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bt_aluguel.FlatAppearance.BorderSize = 0;
+            this.bt_aluguel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_aluguel.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_aluguel.ForeColor = System.Drawing.Color.White;
+            this.bt_aluguel.Image = global::WindowsApp.Properties.Resources.aluguel;
+            this.bt_aluguel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bt_aluguel.Location = new System.Drawing.Point(0, 100);
+            this.bt_aluguel.Name = "bt_aluguel";
+            this.bt_aluguel.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.bt_aluguel.Size = new System.Drawing.Size(250, 50);
+            this.bt_aluguel.TabIndex = 1;
+            this.bt_aluguel.Text = " Aluguel de Veículos";
+            this.bt_aluguel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bt_aluguel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.bt_aluguel.UseVisualStyleBackColor = true;
+            this.bt_aluguel.Click += new System.EventHandler(this.bt_Aluguel_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(29, 21);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(60, 60);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 2;
+            this.pictureBox2.TabStop = false;
+            // 
             // TelaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -431,10 +432,10 @@ namespace WindowsApp
             this.panel3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panelFormFilho.ResumeLayout(false);
             this.panelFormFilho.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
