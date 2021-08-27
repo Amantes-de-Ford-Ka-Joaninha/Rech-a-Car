@@ -87,7 +87,7 @@ namespace WindowsApp
         }
         private void bt_sair_Click(object sender, EventArgs e)
         {
-            Close();
+            Close(); 
             new Login().Show();
         }
 
