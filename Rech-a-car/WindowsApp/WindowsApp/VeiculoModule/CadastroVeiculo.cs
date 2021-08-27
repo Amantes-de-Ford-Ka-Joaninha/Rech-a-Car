@@ -21,7 +21,7 @@ namespace WindowsApp.VeiculoModule
             cb_portaMalas.SelectedIndex = 1;
             cb_portas.SelectedIndex = 0;
             cb_tipoCombustivel.SelectedIndex = 4;
-            cb_categoria.DataSource = new ControladorGrupo().Registros;
+            cb_categoria.DataSource = new ControladorCategoria().Registros;
         }
 
         protected override IEditavel ConfigurarEditar()

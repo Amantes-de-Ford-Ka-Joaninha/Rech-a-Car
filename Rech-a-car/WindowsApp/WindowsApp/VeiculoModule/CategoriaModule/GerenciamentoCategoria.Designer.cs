@@ -1,7 +1,7 @@
 ﻿
-namespace WindowsApp.WindowsApp.VeiculoModule.GrupoModule
+namespace WindowsApp.VeiculoModule.CategoriaModule
 {
-    partial class GerenciamentoGrupo
+    partial class GerenciamentoCategoria
     {
         /// <summary>
         /// Required designer variable.

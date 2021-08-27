@@ -1,15 +1,13 @@
 ﻿using Dominio.PessoaModule;
-using Dominio.PessoaModule.ClienteModule;
 using System;
 using System.Windows.Forms;
 using WindowsApp.AluguelModule;
 using WindowsApp.ClienteModule;
 using WindowsApp.FuncionarioModule;
 using WindowsApp.ServicoModule;
-using WindowsApp.Shared;
 using WindowsApp.VeiculoModule;
+using WindowsApp.VeiculoModule.CategoriaModule;
 using WindowsApp.WindowsApp;
-using WindowsApp.WindowsApp.VeiculoModule.GrupoModule;
 
 namespace WindowsApp
 {
@@ -101,7 +99,7 @@ namespace WindowsApp
 
         private void btGrupos_Click(object sender, EventArgs e)
         {
-            FormAtivo = new GerenciamentoGrupo();
+            FormAtivo = new GerenciamentoCategoria();
             EsconderSubMenu();
         }
 
