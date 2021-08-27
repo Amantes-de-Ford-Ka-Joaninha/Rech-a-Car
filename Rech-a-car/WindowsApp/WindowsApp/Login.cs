@@ -22,14 +22,16 @@ namespace WindowsApp.WindowsApp
 
         public bool LoginUsuario()
         {
-            return true;//if (tbSenha.Text = getFuncionario().Senha) return true;
+            if (tbUsuario.Text != "" && tbSenha.Text != "") return true;
+            else return false;
+            //if (tbSenha.Text = getFuncionario().Senha) return true;
             //else return false;
         }
 
         private Funcionario getFuncionario()
         {
             var usuario = tbUsuario.Text;
-            Funcionario funcionario = null;//SelecionarPorUsuario();
+            Funcionario funcionario = new Funcionario(tbUsuario.Text, "4999999999", "Teste", "01201201212");//SelecionarPorUsuario();
             return funcionario;
         }
 

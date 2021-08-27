@@ -87,6 +87,7 @@ namespace WindowsApp.WindowsApp
             this.tbSenha.Name = "tbSenha";
             this.tbSenha.Size = new System.Drawing.Size(367, 43);
             this.tbSenha.TabIndex = 6;
+            this.tbSenha.UseSystemPasswordChar = true;
             // 
             // label2
             // 
