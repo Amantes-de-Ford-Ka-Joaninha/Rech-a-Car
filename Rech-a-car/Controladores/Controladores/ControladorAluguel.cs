@@ -84,7 +84,7 @@ namespace Controladores.AluguelModule
             var servicos = new ControladorServico().GetServicosAlugados(id);
             Condutor condutor = GetCondutor(id_condutor, cliente);
 
-            return new Aluguel(veiculo, cliente, servicos, condutor, (TipoAluguel)tipo_aluguel)
+            return new Aluguel(veiculo, cliente, servicos, condutor, (Plano)tipo_aluguel)
             {
                 Id = id
             };

@@ -42,7 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dominio\AluguelModule\DadosDevolucao.cs" />
     <Compile Include="Dominio\AluguelModule\Aluguel.cs" />
+    <Compile Include="Dominio\AluguelModule\AluguelFechado.cs" />
     <Compile Include="Dominio\Shared\IControlavel.cs" />
     <Compile Include="Dominio\PessoaModule\CNH.cs" />
     <Compile Include="Dominio\PessoaModule\ClienteModule\ICliente.cs" />
@@ -55,9 +57,9 @@
     <Compile Include="Dominio\Shared\Entidade.cs" />
     <Compile Include="Dominio\PessoaModule\Funcionario.cs" />
     <Compile Include="Dominio\PessoaModule\Pessoa.cs" />
+    <Compile Include="Dominio\VeiculoModule\Grupo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Dominio\ServicoModule\Servico.cs" />
-    <Compile Include="Dominio\VeiculoModule\DadosVeiculo.cs" />
     <Compile Include="Dominio\VeiculoModule\Veiculo.cs" />
   </ItemGroup>
   <ItemGroup />
