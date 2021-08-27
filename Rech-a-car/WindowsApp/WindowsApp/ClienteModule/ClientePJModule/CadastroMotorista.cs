@@ -21,7 +21,7 @@ namespace WindowsApp.ClienteModule
             this.clientePJ = clientePJ;
         }
 
-        protected override ITelaEditar Editar()
+        protected override IEditavel ConfigurarEditar()
         {
             tbNome.Text = entidade.Nome;
             tbTelefone.Text = entidade.Telefone;
@@ -50,7 +50,7 @@ namespace WindowsApp.ClienteModule
         {
             var chave_estrangeira = entidade is null ? clientePJ.Id : entidade.Cnh.Id;
             if (Salva(chave_estrangeira))
-                TelaPrincipal.Instancia.FormAtivo = (Form)new CadastroClientePJ().Editar(clientePJ);
+                TelaPrincipal.Instancia.FormAtivo = (Form)new CadastroClientePJ().ConfigurarEditar(clientePJ);
         }
     }
 }

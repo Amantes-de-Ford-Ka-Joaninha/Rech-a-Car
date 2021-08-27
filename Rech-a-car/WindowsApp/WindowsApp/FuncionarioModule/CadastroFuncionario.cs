@@ -16,7 +16,7 @@ namespace WindowsApp.FuncionarioModule
 
         public override Controlador<Funcionario> Controlador => new ControladorFuncionario();
 
-        protected override ITelaEditar Editar()
+        protected override IEditavel ConfigurarEditar()
         {
             tbNome.Text = entidade.Nome;
             tbTelefone.Text = entidade.Telefone;

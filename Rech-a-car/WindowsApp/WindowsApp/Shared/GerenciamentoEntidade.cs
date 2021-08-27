@@ -84,8 +84,13 @@ namespace WindowsApp.Shared
         }
         private void bt_editar_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             var entidade = Cadastro.Controlador.GetById(dgvEntidade.GetIdSelecionado(), GetTipoEntidade());
             TelaPrincipal.Instancia.FormAtivo = (Form)Cadastro.Editar(entidade);
+=======
+            var entidade = Cadastro.Controlador.GetById(GetIdSelecionado(), GetTipoEntidade());
+            TelaPrincipal.Instancia.FormAtivo = (Form)Cadastro.ConfigurarEditar(entidade);
+>>>>>>> feature/telaPrincipal3.0
             AlternarBotoes(false);
             AtualizarRegistros();
         }

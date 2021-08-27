@@ -52,6 +52,7 @@
     <Compile Include="Controladores\Shared\Controlador.cs" />
     <Compile Include="Controladores\Shared\ControladorEntidade.cs" />
     <Compile Include="Controladores\ControladorServico.cs" />
+    <Compile Include="Controladores\VeiculoModule\ControladorGrupo.cs" />
     <Compile Include="Controladores\VeiculoModule\ControladorVeiculo.cs" />
     <Compile Include="Controladores\Shared\Db.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -15,7 +15,7 @@ namespace WindowsApp.AluguelModule
 
         public override Controlador<Aluguel> Controlador => new ControladorAluguel();
 
-        protected override ITelaEditar Editar()
+        protected override IEditavel ConfigurarEditar()
         {
             throw new NotImplementedException();
         }

@@ -1,4 +1,6 @@
-﻿namespace Dominio.ServicoModule
+﻿using Dominio.Shared;
+
+namespace Dominio.ServicoModule
 {
     public class Servico : Entidade
     {
@@ -6,7 +8,6 @@
         {
             Nome = nome;
             Taxa = taxa;
-            
         }
 
         public string Nome { get; set; }
@@ -20,7 +21,7 @@
                 resultadoValidacao = "O Campo Nome é Obrigatorio\n";
 
             if (Taxa <= 0)
-                resultadoValidacao += "O Campo Taxa está inválido";  
+                resultadoValidacao += "O Campo Taxa está inválido";
 
             return resultadoValidacao;
         }
