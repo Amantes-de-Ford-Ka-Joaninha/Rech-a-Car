@@ -43,6 +43,7 @@ namespace WindowsApp.FuncionarioModule
             this.label15 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tbUsuario = new System.Windows.Forms.TextBox();
+            this.ofdImagem = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // label1
@@ -194,6 +195,10 @@ namespace WindowsApp.FuncionarioModule
             this.tbUsuario.Size = new System.Drawing.Size(234, 29);
             this.tbUsuario.TabIndex = 1;
             // 
+            // ofdImagem
+            // 
+            this.ofdImagem.FileName = "ofdImagem";
+            // 
             // CadastroFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -237,5 +242,6 @@ namespace WindowsApp.FuncionarioModule
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbUsuario;
+        private System.Windows.Forms.OpenFileDialog ofdImagem;
     }
 }

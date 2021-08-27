@@ -320,5 +320,8 @@
   <ItemGroup>
     <None Include="Resources\ford_ka_login.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
