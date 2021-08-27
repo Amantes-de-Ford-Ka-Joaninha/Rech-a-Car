@@ -31,7 +31,7 @@ namespace WindowsApp.WindowsApp
         private Funcionario getFuncionario()
         {
             var usuario = tbUsuario.Text;
-            Funcionario funcionario = new Funcionario(tbUsuario.Text, "4999999999", "Teste", "01201201212");//SelecionarPorUsuario();
+            Funcionario funcionario = new Funcionario(tbUsuario.Text, "4999999999", "Teste", "01201201212");//GetByUsuario();
             return funcionario;
         }
 
