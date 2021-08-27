@@ -22,6 +22,7 @@ namespace WindowsApp.FuncionarioModule
             tbTelefone.Text = entidade.Telefone;
             tbEndereco.Text = entidade.Endereco;
             tbCPF.Text = entidade.Documento;
+            tbUsuario.Text = entidade.Usuario;
 
             return this;
         }
@@ -32,9 +33,10 @@ namespace WindowsApp.FuncionarioModule
             var telefone = tbTelefone.Text;
             var endereco = tbEndereco.Text;
             var cpf = tbCPF.Text;
+            var usuario = tbUsuario.Text;
             imagem = (Bitmap)bt_foto.Image;
 
-            return new Funcionario(nome, telefone, endereco, cpf, );
+            return new Funcionario(nome, telefone, endereco, cpf, imagem, usuario);
         }
 
         private void btAdicionar_Click(object sender, EventArgs e)
