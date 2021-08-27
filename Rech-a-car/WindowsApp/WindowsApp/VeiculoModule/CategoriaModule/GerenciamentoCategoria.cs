@@ -1,0 +1,50 @@
+﻿using Dominio.VeiculoModule;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using WindowsApp.Shared;
+
+namespace WindowsApp.VeiculoModule.CategoriaModule
+{
+    public partial class GerenciamentoCategoria : GerenciamentoEntidade<Categoria>
+    {
+        public GerenciamentoCategoria() : base("Gerenciamento de Grupos")
+        {
+        }
+
+        protected override CadastroEntidade<Categoria> Cadastro => new CadastroCategoria();
+        protected override VisualizarEntidade<Categoria> Visualizar => new VisualizarCategoria();
+
+        public override DataGridViewColumn[] ConfigurarColunas()
+        {
+            return new DataGridViewColumn[]
+            {
+                new DataGridViewTextBoxColumn { DataPropertyName = "Nome", HeaderText = "Nome"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "PrecoDiaria", HeaderText = "Diária"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "PrecoKm", HeaderText = "Preço/Km"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "PrecoLivre", HeaderText = "Preco Livre"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "QuilometragemFranquia", HeaderText = "Franquia(Km)"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "TipoDeCnh", HeaderText = "Tipo CNH"}
+            };
+        }
+        public override object[] ObterCamposLinha(Categoria categoria)
+        {
+            List<object> linha = new List<object>()
+            {
+                categoria.Nome,
+                categoria.PrecoDiaria,
+                categoria.PrecoKm,
+                categoria.PrecoLivre,
+                categoria.QuilometragemFranquia,
+                categoria.TipoDeCnh
+            };
+            return linha.ToArray();
+        }
+    }
+}
