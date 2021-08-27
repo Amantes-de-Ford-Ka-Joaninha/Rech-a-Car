@@ -21,7 +21,7 @@ namespace Tests.Tests.ClientePF_Module
         {
             CNH cnh = new CNH("36510896881", TipoCNH.C);
             ClientePF clienteInvalido = new ClientePF(string.Empty, string.Empty, string.Empty, string.Empty, cnh, new DateTime(2001, 04, 27));
-            clienteInvalido.Validar().Should().Be("Insira um Nome.\nTelefone inválido.\nInsira um endereço.\nO cliente necessita de um CPF válido.\n");
+            clienteInvalido.Validar().Should().NotBe(string.Empty);
         }
     }
 }

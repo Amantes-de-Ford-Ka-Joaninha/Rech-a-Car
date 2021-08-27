@@ -33,9 +33,9 @@ namespace WindowsApp.VeiculoModule
                 veiculo.Marca,
                 veiculo.Modelo,
                 veiculo.Ano,
-                veiculo.Grupo,
-                veiculo.Grupo.PrecoDiaria,
-                veiculo.Grupo.PrecoKm
+                veiculo.Categoria,
+                veiculo.Categoria.PrecoDiaria,
+                veiculo.Categoria.PrecoKm
             };
             return linha.ToArray();
         }

@@ -1,14 +1,14 @@
 ﻿using Dominio.PessoaModule;
-using Dominio.PessoaModule.ClienteModule;
 using System;
 using System.Windows.Forms;
 using WindowsApp.AluguelModule;
 using WindowsApp.ClienteModule;
 using WindowsApp.FuncionarioModule;
 using WindowsApp.ServicoModule;
-using WindowsApp.Shared;
 using WindowsApp.VeiculoModule;
+using WindowsApp.VeiculoModule.CategoriaModule;
 using WindowsApp.WindowsApp;
+using WindowsApp.ConfiguracoesModule;
 
 namespace WindowsApp
 {
@@ -21,12 +21,15 @@ namespace WindowsApp
             Instancia = this;
             InitializeComponent();
             EsconderSubMenu();
+            lbUsuario.Text = funcionario.Nome;
+            //lbCargo.Text = funcionario.Cargo;
         }
 
         public Form FormAtivo { set { AbrirFormPanel(value); } }
         private void EsconderSubMenu()
         {
             panelSubMenuClientes.Visible = false;
+            panelSubMenuVeiculos.Visible = false;
         }
         private void MostrarSubMenu(Panel subMenu)
         {
@@ -60,7 +63,7 @@ namespace WindowsApp
         }
         private void bt_Veiculos_Click(object sender, EventArgs e)
         {
-            FormAtivo = new GerenciamentoVeiculo();
+            MostrarSubMenu(panelSubMenuVeiculos);
         }
         private void bt_Servicos_Click(object sender, EventArgs e)
         {
@@ -91,7 +94,23 @@ namespace WindowsApp
             Close(); 
             new Login().Show();
         }
+        private void btVeiculosSubMenu_Click(object sender, EventArgs e)
+        {
+            FormAtivo = new GerenciamentoVeiculo();
+            EsconderSubMenu();
+        }
+
+        private void btGrupos_Click(object sender, EventArgs e)
+        {
+            FormAtivo = new GerenciamentoCategoria();
+            EsconderSubMenu();
+        }
+        private void btConfiguracoes_Click(object sender, EventArgs e)
+        {
+            FormAtivo = new Configuracoes();
+        }
 
         #endregion
+
     }
 }

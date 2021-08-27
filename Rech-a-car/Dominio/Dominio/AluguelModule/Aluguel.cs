@@ -45,7 +45,7 @@ namespace Dominio.AluguelModule
         public override string Validar()
         {
             string validacao = String.Empty;
-            if (Condutor.Cnh.TipoCnh < Veiculo.Grupo.TipoDeCnh)
+            if (Condutor.Cnh.TipoCnh < Veiculo.Categoria.TipoDeCnh)
                 validacao += "Condutor não tem a carteira necessária para dirigir o veículo selecionado";
 
             if (DataAluguel < DateTime.Now)

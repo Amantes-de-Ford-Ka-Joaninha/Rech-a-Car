@@ -22,7 +22,7 @@ namespace Tests.Tests.ClientePJ_Module
         public void Deve_retornar_clientePJ_invalido()
         {
             ClientePJ clienteValido = new ClientePJ(string.Empty, string.Empty, string.Empty, string.Empty);
-            clienteValido.Validar().Should().Be("Insira um Nome.\nTelefone inválido.\nInsira um endereço.\nO cliente necessita de um CNPJ válido.\n");
+            clienteValido.Validar().Should().NotBe(string.Empty);
         }
     }
 }
