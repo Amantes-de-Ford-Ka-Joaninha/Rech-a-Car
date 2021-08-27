@@ -7,7 +7,7 @@ namespace Dominio.VeiculoModule
 {
     public class Veiculo : Entidade
     {
-        public Veiculo(string modelo, string marca, int ano, string placa, int capacidade, int portas, string chassi, int porta_malas, Image foto, bool automatico, Grupo grupo, TipoCombustivel tipoCombustivel)
+        public Veiculo(string modelo, string marca, int ano, string placa, int quilometragem, int capacidade, int portas, string chassi, int porta_malas, Image foto, bool automatico, Categoria categoria, TipoCombustivel tipoCombustivel)
         {
             Modelo = modelo;
             Marca = marca;
@@ -19,12 +19,13 @@ namespace Dominio.VeiculoModule
             Porta_malas = porta_malas;
             Foto = foto;
             Automatico = automatico;
-            Grupo = grupo;
+            Categoria = categoria;
             TipoDeCombustivel = tipoCombustivel;
+            Quilometragem = quilometragem;
         }
         public string Modelo { get; set; }
         public string Marca { get; set; }
-        public Grupo Grupo { get; set; }
+        public Categoria Categoria { get; set; }
         public string Placa { get; set; }
         public string Chassi { get; set; }
         public int Capacidade { get; set; }
@@ -34,6 +35,8 @@ namespace Dominio.VeiculoModule
         public Image Foto { get; set; }
         public TipoCombustivel TipoDeCombustivel { get; set; }
         public bool Automatico { get; set; }
+        public int Quilometragem { get; set; }
+
         public string PortaMalaToString()
         {
             if (Porta_malas == 0)

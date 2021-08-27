@@ -84,11 +84,8 @@ namespace WindowsApp.Shared
         }
         private void bt_editar_Click(object sender, EventArgs e)
         {
-
             var entidade = Cadastro.Controlador.GetById(dgvEntidade.GetIdSelecionado(), GetTipoEntidade());
-            
             TelaPrincipal.Instancia.FormAtivo = (Form)Cadastro.ConfigurarEditar(entidade);
-
             AlternarBotoes(false);
             AtualizarRegistros();
         }

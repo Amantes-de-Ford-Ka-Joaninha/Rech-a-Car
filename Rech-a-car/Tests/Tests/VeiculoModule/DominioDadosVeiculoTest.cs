@@ -1,24 +1,25 @@
-﻿using Dominio.VeiculoModule;
+﻿using Dominio.PessoaModule;
+using Dominio.VeiculoModule;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Tests.VeiculoModule
 {
     [TestClass]
-    public class DominioDadosVeiculoTest
+    public class DominioCategoriaTest
     {
         [TestMethod]
         public void Deve_retornar_dadosveiculo_valido()
         {
-            DadosVeiculo dadosVeiculo = new DadosVeiculo(10, 10, 10);
-            dadosVeiculo.Validar().Should().Be(string.Empty);
+            Categoria categoria = new Categoria("Economico", 100, 10, 400, 800, TipoCNH.B);
+            categoria.Validar().Should().Be(string.Empty);
         }
 
         [TestMethod]
         public void Deve_retornar_dadosveiculo_invalido()
         {
-            DadosVeiculo dadosVeiculo = new DadosVeiculo(-1, -1, -1);
-            dadosVeiculo.Validar().Should().Be("Quilometragem inválida\nValor da diária deve ser maior que 0\nValor do preço por Km deve ser maior que 0\n");
+            Categoria categoria = new Categoria(string.Empty, -1, -1, -1, -1, TipoCNH.E);
+            categoria.Validar().Should().NotBe(string.Empty);
         }
     }
 }
