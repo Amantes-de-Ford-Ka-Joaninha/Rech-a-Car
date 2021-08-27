@@ -9,6 +9,7 @@ using WindowsApp.ServicoModule;
 using WindowsApp.Shared;
 using WindowsApp.VeiculoModule;
 using WindowsApp.WindowsApp;
+using WindowsApp.WindowsApp.VeiculoModule.GrupoModule;
 
 namespace WindowsApp
 {
@@ -27,6 +28,7 @@ namespace WindowsApp
         private void EsconderSubMenu()
         {
             panelSubMenuClientes.Visible = false;
+            panelSubMenuVeiculos.Visible = false;
         }
         private void MostrarSubMenu(Panel subMenu)
         {
@@ -60,7 +62,7 @@ namespace WindowsApp
         }
         private void bt_Veiculos_Click(object sender, EventArgs e)
         {
-            FormAtivo = new GerenciamentoVeiculo();
+            MostrarSubMenu(panelSubMenuVeiculos);
         }
         private void bt_Servicos_Click(object sender, EventArgs e)
         {
@@ -91,7 +93,19 @@ namespace WindowsApp
             Close(); 
             new Login().Show();
         }
+        private void btVeiculosSubMenu_Click(object sender, EventArgs e)
+        {
+            FormAtivo = new GerenciamentoVeiculo();
+            EsconderSubMenu();
+        }
+
+        private void btGrupos_Click(object sender, EventArgs e)
+        {
+            FormAtivo = new GerenciamentoGrupo();
+            EsconderSubMenu();
+        }
 
         #endregion
+
     }
 }

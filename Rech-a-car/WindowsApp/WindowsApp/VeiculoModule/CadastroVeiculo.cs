@@ -20,7 +20,7 @@ namespace WindowsApp.VeiculoModule
             cb_capacidade.SelectedIndex = 1;
             cb_portaMalas.SelectedIndex = 1;
             cb_portas.SelectedIndex = 0;
-            cb_tipoCombustivel.SelectedIndex = 0;
+            cb_tipoCombustivel.SelectedIndex = 4;
             cb_categoria.DataSource = new ControladorGrupo().Registros;
         }
 
@@ -59,7 +59,7 @@ namespace WindowsApp.VeiculoModule
         }
         private void AtualizarIcone(Bitmap imagem)
         {
-            bt_foto.Image = new Bitmap(imagem, new Size(120, 120));
+            bt_foto.Image = new Bitmap(imagem);
         }
 
         private void bt_adicionar_Click(object sender, EventArgs e)

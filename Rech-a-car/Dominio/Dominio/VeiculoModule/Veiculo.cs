@@ -84,5 +84,5 @@ namespace Dominio.VeiculoModule
             return validacao;
         }
     }
-    public enum TipoCombustivel { Gasolina, Diesel, Flex, Alcool }
+    public enum TipoCombustivel { Alcool, Diesel, Etanol, Flex, Gasolina }
 }

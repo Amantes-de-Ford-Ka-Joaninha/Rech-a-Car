@@ -31,8 +31,12 @@ namespace WindowsApp
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaPrincipal));
             this.PanelMenuLateral = new System.Windows.Forms.Panel();
+            this.btConfiguracoes = new System.Windows.Forms.Button();
             this.bt_servicos = new System.Windows.Forms.Button();
             this.bt_funcionarios = new System.Windows.Forms.Button();
+            this.panelSubMenuVeiculos = new System.Windows.Forms.Panel();
+            this.btGrupos = new System.Windows.Forms.Button();
+            this.btVeiculosSubMenu = new System.Windows.Forms.Button();
             this.bt_veiculos = new System.Windows.Forms.Button();
             this.panelSubMenuClientes = new System.Windows.Forms.Panel();
             this.btPessoaJuridica = new System.Windows.Forms.Button();
@@ -49,8 +53,8 @@ namespace WindowsApp
             this.label3 = new System.Windows.Forms.Label();
             this.labelTitulo = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btConfiguracoes = new System.Windows.Forms.Button();
             this.PanelMenuLateral.SuspendLayout();
+            this.panelSubMenuVeiculos.SuspendLayout();
             this.panelSubMenuClientes.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -65,6 +69,7 @@ namespace WindowsApp
             this.PanelMenuLateral.Controls.Add(this.btConfiguracoes);
             this.PanelMenuLateral.Controls.Add(this.bt_servicos);
             this.PanelMenuLateral.Controls.Add(this.bt_funcionarios);
+            this.PanelMenuLateral.Controls.Add(this.panelSubMenuVeiculos);
             this.PanelMenuLateral.Controls.Add(this.bt_veiculos);
             this.PanelMenuLateral.Controls.Add(this.panelSubMenuClientes);
             this.PanelMenuLateral.Controls.Add(this.panel3);
@@ -77,6 +82,25 @@ namespace WindowsApp
             this.PanelMenuLateral.Size = new System.Drawing.Size(250, 561);
             this.PanelMenuLateral.TabIndex = 0;
             // 
+            // btConfiguracoes
+            // 
+            this.btConfiguracoes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btConfiguracoes.FlatAppearance.BorderSize = 0;
+            this.btConfiguracoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btConfiguracoes.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btConfiguracoes.ForeColor = System.Drawing.Color.White;
+            this.btConfiguracoes.Image = global::WindowsApp.Properties.Resources.settings;
+            this.btConfiguracoes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btConfiguracoes.Location = new System.Drawing.Point(0, 550);
+            this.btConfiguracoes.Name = "btConfiguracoes";
+            this.btConfiguracoes.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btConfiguracoes.Size = new System.Drawing.Size(250, 50);
+            this.btConfiguracoes.TabIndex = 19;
+            this.btConfiguracoes.Text = " Configurações";
+            this.btConfiguracoes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btConfiguracoes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btConfiguracoes.UseVisualStyleBackColor = true;
+            // 
             // bt_servicos
             // 
             this.bt_servicos.Dock = System.Windows.Forms.DockStyle.Top;
@@ -86,16 +110,15 @@ namespace WindowsApp
             this.bt_servicos.ForeColor = System.Drawing.Color.White;
             this.bt_servicos.Image = global::WindowsApp.Properties.Resources.servicos;
             this.bt_servicos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bt_servicos.Location = new System.Drawing.Point(0, 400);
+            this.bt_servicos.Location = new System.Drawing.Point(0, 500);
             this.bt_servicos.Name = "bt_servicos";
             this.bt_servicos.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.bt_servicos.Size = new System.Drawing.Size(250, 50);
-            this.bt_servicos.TabIndex = 11;
+            this.bt_servicos.TabIndex = 18;
             this.bt_servicos.Text = " Serviços";
             this.bt_servicos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bt_servicos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bt_servicos.UseVisualStyleBackColor = true;
-            this.bt_servicos.Click += new System.EventHandler(this.bt_Servicos_Click);
             // 
             // bt_funcionarios
             // 
@@ -106,16 +129,61 @@ namespace WindowsApp
             this.bt_funcionarios.ForeColor = System.Drawing.Color.White;
             this.bt_funcionarios.Image = global::WindowsApp.Properties.Resources.funcionarios;
             this.bt_funcionarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bt_funcionarios.Location = new System.Drawing.Point(0, 350);
+            this.bt_funcionarios.Location = new System.Drawing.Point(0, 450);
             this.bt_funcionarios.Name = "bt_funcionarios";
             this.bt_funcionarios.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.bt_funcionarios.Size = new System.Drawing.Size(250, 50);
-            this.bt_funcionarios.TabIndex = 10;
+            this.bt_funcionarios.TabIndex = 17;
             this.bt_funcionarios.Text = " Funcionários";
             this.bt_funcionarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bt_funcionarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bt_funcionarios.UseVisualStyleBackColor = true;
-            this.bt_funcionarios.Click += new System.EventHandler(this.bt_funcionarios_Click);
+            // 
+            // panelSubMenuVeiculos
+            // 
+            this.panelSubMenuVeiculos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(40)))), ((int)(((byte)(41)))));
+            this.panelSubMenuVeiculos.Controls.Add(this.btGrupos);
+            this.panelSubMenuVeiculos.Controls.Add(this.btVeiculosSubMenu);
+            this.panelSubMenuVeiculos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelSubMenuVeiculos.Location = new System.Drawing.Point(0, 350);
+            this.panelSubMenuVeiculos.Name = "panelSubMenuVeiculos";
+            this.panelSubMenuVeiculos.Size = new System.Drawing.Size(250, 100);
+            this.panelSubMenuVeiculos.TabIndex = 16;
+            // 
+            // btGrupos
+            // 
+            this.btGrupos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btGrupos.FlatAppearance.BorderSize = 0;
+            this.btGrupos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btGrupos.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btGrupos.ForeColor = System.Drawing.Color.White;
+            this.btGrupos.Location = new System.Drawing.Point(0, 50);
+            this.btGrupos.Name = "btGrupos";
+            this.btGrupos.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btGrupos.Size = new System.Drawing.Size(250, 50);
+            this.btGrupos.TabIndex = 3;
+            this.btGrupos.Text = "Grupos";
+            this.btGrupos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btGrupos.UseVisualStyleBackColor = true;
+            this.btGrupos.Click += new System.EventHandler(this.btGrupos_Click);
+            // 
+            // btVeiculosSubMenu
+            // 
+            this.btVeiculosSubMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btVeiculosSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btVeiculosSubMenu.FlatAppearance.BorderSize = 0;
+            this.btVeiculosSubMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btVeiculosSubMenu.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btVeiculosSubMenu.ForeColor = System.Drawing.Color.White;
+            this.btVeiculosSubMenu.Location = new System.Drawing.Point(0, 0);
+            this.btVeiculosSubMenu.Name = "btVeiculosSubMenu";
+            this.btVeiculosSubMenu.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btVeiculosSubMenu.Size = new System.Drawing.Size(250, 50);
+            this.btVeiculosSubMenu.TabIndex = 2;
+            this.btVeiculosSubMenu.Text = "Veículos";
+            this.btVeiculosSubMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btVeiculosSubMenu.UseVisualStyleBackColor = true;
+            this.btVeiculosSubMenu.Click += new System.EventHandler(this.btVeiculosSubMenu_Click);
             // 
             // bt_veiculos
             // 
@@ -344,25 +412,6 @@ namespace WindowsApp
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // btConfiguracoes
-            // 
-            this.btConfiguracoes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btConfiguracoes.FlatAppearance.BorderSize = 0;
-            this.btConfiguracoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btConfiguracoes.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btConfiguracoes.ForeColor = System.Drawing.Color.White;
-            this.btConfiguracoes.Image = global::WindowsApp.Properties.Resources.settings;
-            this.btConfiguracoes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btConfiguracoes.Location = new System.Drawing.Point(0, 450);
-            this.btConfiguracoes.Name = "btConfiguracoes";
-            this.btConfiguracoes.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btConfiguracoes.Size = new System.Drawing.Size(250, 50);
-            this.btConfiguracoes.TabIndex = 12;
-            this.btConfiguracoes.Text = " Configurações";
-            this.btConfiguracoes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btConfiguracoes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btConfiguracoes.UseVisualStyleBackColor = true;
-            // 
             // TelaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -377,6 +426,7 @@ namespace WindowsApp
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Rech-a-Car";
             this.PanelMenuLateral.ResumeLayout(false);
+            this.panelSubMenuVeiculos.ResumeLayout(false);
             this.panelSubMenuClientes.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -403,14 +453,17 @@ namespace WindowsApp
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label labelTitulo;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button bt_servicos;
-        private System.Windows.Forms.Button bt_funcionarios;
         private System.Windows.Forms.Button bt_veiculos;
         private System.Windows.Forms.Panel panelSubMenuClientes;
         private System.Windows.Forms.Button bt_clientes;
         private System.Windows.Forms.Button btPessoaFisica;
         private System.Windows.Forms.Button btPessoaJuridica;
         private System.Windows.Forms.Button btConfiguracoes;
+        private System.Windows.Forms.Button bt_servicos;
+        private System.Windows.Forms.Button bt_funcionarios;
+        private System.Windows.Forms.Panel panelSubMenuVeiculos;
+        private System.Windows.Forms.Button btGrupos;
+        private System.Windows.Forms.Button btVeiculosSubMenu;
     }
 }
 
