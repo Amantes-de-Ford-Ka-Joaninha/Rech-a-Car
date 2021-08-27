@@ -20,13 +20,8 @@ namespace WindowsApp.VeiculoModule
             cb_capacidade.SelectedIndex = 1;
             cb_portaMalas.SelectedIndex = 1;
             cb_portas.SelectedIndex = 0;
-<<<<<<< HEAD
             cb_tipoCombustivel.SelectedIndex = 4;
             cb_categoria.DataSource = new ControladorGrupo().Registros;
-=======
-            cb_tipoCombustivel.SelectedIndex = 0;
-            cb_categoria.DataSource = new ControladorCategoria().Registros;
->>>>>>> 1e4248d33cef2ae22b4a69e2e0d8f36097874dac
         }
 
         protected override IEditavel ConfigurarEditar()
