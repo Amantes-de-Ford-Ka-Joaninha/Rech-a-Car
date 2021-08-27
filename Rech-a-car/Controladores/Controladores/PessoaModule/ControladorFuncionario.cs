@@ -73,7 +73,7 @@ namespace Controladores.PessoaModule
             var documento = Convert.ToString(reader["DOCUMENTO"]);
             var endereco = Convert.ToString(reader["ENDERECO"]);
 
-            return new Funcionario(nome, telefone, documento, endereco)
+            return new Funcionario(nome, telefone, endereco, documento)
             {
                 Id = id
             };

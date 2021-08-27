@@ -8,7 +8,6 @@ namespace Dominio.ServicoModule
         {
             Nome = nome;
             Taxa = taxa;
-            
         }
 
         public string Nome { get; set; }
@@ -22,7 +21,7 @@ namespace Dominio.ServicoModule
                 resultadoValidacao = "O Campo Nome é Obrigatorio\n";
 
             if (Taxa <= 0)
-                resultadoValidacao += "O Campo Taxa está inválido";  
+                resultadoValidacao += "O Campo Taxa está inválido";
 
             return resultadoValidacao;
         }

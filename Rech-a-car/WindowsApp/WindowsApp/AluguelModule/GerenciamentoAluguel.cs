@@ -32,7 +32,7 @@ namespace WindowsApp.AluguelModule
                 aluguel.Cliente,
                 aluguel.Veiculo,
                 aluguel.Condutor,
-                aluguel.TipoAluguel,
+                aluguel.TipoPlano,
                 aluguel.Servicos
             };
             return linha.ToArray();

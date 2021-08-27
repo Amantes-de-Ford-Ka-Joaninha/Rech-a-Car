@@ -132,6 +132,11 @@ namespace Controladores.PessoaModule
                     @ID_CNH
                 )";
 
+        internal Condutor GetMotoristaEmpresa(int id_cliente, int id_condutor)
+        {
+            throw new NotImplementedException();
+        }
+
         private const string sqlEditarMotorista =
                 @"UPDATE [TBMOTORISTA]
                     SET     

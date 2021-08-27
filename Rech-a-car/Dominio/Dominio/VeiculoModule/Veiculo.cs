@@ -7,7 +7,7 @@ namespace Dominio.VeiculoModule
 {
     public class Veiculo : Entidade
     {
-        public Veiculo(string modelo, string marca, int ano, string placa, int capacidade, int portas, string chassi, int porta_malas, Image foto, bool automatico, string categoria, DadosVeiculo dadosVeiculo)
+        public Veiculo(string modelo, string marca, int ano, string placa, int capacidade, int portas, string chassi, int porta_malas, Image foto, bool automatico, Grupo grupo, TipoCombustivel tipoCombustivel)
         {
             Modelo = modelo;
             Marca = marca;
@@ -19,12 +19,12 @@ namespace Dominio.VeiculoModule
             Porta_malas = porta_malas;
             Foto = foto;
             Automatico = automatico;
-            Categoria = categoria;
-            DadosVeiculo = dadosVeiculo;
+            Grupo = grupo;
+            TipoDeCombustivel = tipoCombustivel;
         }
         public string Modelo { get; set; }
         public string Marca { get; set; }
-        public string Categoria { get; set; }
+        public Grupo Grupo { get; set; }
         public string Placa { get; set; }
         public string Chassi { get; set; }
         public int Capacidade { get; set; }
@@ -32,9 +32,8 @@ namespace Dominio.VeiculoModule
         public int Porta_malas { get; set; }
         public int Ano { get; set; }
         public Image Foto { get; set; }
+        public TipoCombustivel TipoDeCombustivel { get; set; }
         public bool Automatico { get; set; }
-        public DadosVeiculo DadosVeiculo { get; set; }
-
         public string PortaMalaToString()
         {
             if (Porta_malas == 0)
@@ -64,9 +63,6 @@ namespace Dominio.VeiculoModule
             if (String.IsNullOrEmpty(Marca))
                 validacao += "Marca do veículo é obrigatória\n";
 
-            if (String.IsNullOrEmpty(Categoria))
-                validacao += "Categoria do veículo é obrigatória\n";
-
             if (!templatePlacaAntiga.IsMatch(Placa) && !templatePlacaMercoSul.IsMatch(Placa))
                 validacao += "Placa do veículo inválida\n";
 
@@ -85,7 +81,8 @@ namespace Dominio.VeiculoModule
             if (Ano > DateTime.Now.Year + 1)
                 validacao += "Ano do carro inválido\n";
 
-            return validacao += DadosVeiculo.Validar();
+            return validacao;
         }
     }
+    public enum TipoCombustivel { Gasolina, Diesel, Flex, Alcool }
 }

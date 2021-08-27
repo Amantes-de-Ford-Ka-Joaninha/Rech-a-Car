@@ -44,7 +44,7 @@ namespace Controladores.PessoaModule
             else
                 throw new ArgumentException();
         }
-        public override ICliente GetById(int id, Type tipo = null)
+        public override ICliente GetById(int id, Type tipo)
         {
             if (tipo.IsAssignableFrom(typeof(ClientePF)))
                 return ControladorPF.GetById(id);
