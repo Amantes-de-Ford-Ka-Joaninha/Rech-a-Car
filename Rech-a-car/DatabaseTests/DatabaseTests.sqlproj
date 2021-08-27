@@ -63,8 +63,8 @@
     <Build Include="dbo\Tables\TBVeiculo.sql" />
     <Build Include="dbo\Tables\TBMotorista.sql" />
     <Build Include="dbo\Tables\TBFuncionario.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
+      <AnsiNulls>Off</AnsiNulls>
+      <QuotedIdentifier>Off</QuotedIdentifier>
     </Build>
     <Build Include="dbo\Tables\TBCnh.sql" />
     <Build Include="dbo\Tables\TBClientePJ.sql" />
@@ -74,5 +74,6 @@
       <QuotedIdentifier>Off</QuotedIdentifier>
     </Build>
     <Build Include="dbo\Tables\TBCategoria.sql" />
+    <Build Include="dbo\Tables\TBSenha.sql" />
   </ItemGroup>
 </Project>
