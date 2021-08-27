@@ -4,9 +4,9 @@ using System;
 
 namespace Dominio.VeiculoModule
 {
-    public class Grupo : Entidade
+    public class Categoria : Entidade
     {
-        public Grupo(string nome, double diaria, double precoKm, int quilometragemFranquia, double precoLivre, TipoCNH tipoCnh)
+        public Categoria(string nome, double diaria, double precoKm, int quilometragemFranquia, double precoLivre, TipoCNH tipoCnh)
         {
             Nome = nome;
             PrecoDiaria = diaria;

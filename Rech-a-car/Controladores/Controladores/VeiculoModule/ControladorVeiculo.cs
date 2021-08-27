@@ -18,7 +18,7 @@ namespace Controladores.VeiculoModule
                 (
                     [MODELO],       
                     [MARCA],             
-                    [CATEGORIA],
+                    [ID_CATEGORIA],
                     [ANO],
                     [PLACA],
                     [CAPACIDADE],
@@ -26,13 +26,15 @@ namespace Controladores.VeiculoModule
                     [CHASSI],
                     [PORTA_MALAS],
                     [FOTO],
-                    [AUTOMATICO]
+                    [AUTOMATICO],
+                    [QUILOMETRAGEM],
+                    [TIPO_COMBUSTIVEL]
                 )
             VALUES
                 (
                     @MODELO,       
                     @MARCA,             
-                    @CATEGORIA,
+                    @ID_CATEGORIA,
                     @ANO,
                     @PLACA,
                     @CAPACIDADE,
@@ -40,7 +42,9 @@ namespace Controladores.VeiculoModule
                     @CHASSI,
                     @PORTA_MALAS,
                     @FOTO,
-                    @AUTOMATICO
+                    @AUTOMATICO,
+                    @QUILOMETRAGEM,
+                    @TIPO_COMBUSTIVEL
                 )";
 
         private const string sqlEditarVeiculo =
@@ -48,7 +52,7 @@ namespace Controladores.VeiculoModule
                 SET 
                     [MODELO] = @MODELO,       
                     [MARCA] = @MARCA,             
-                    [CATEGORIA] = @CATEGORIA,
+                    [ID_CATEGORIA] = @ID_CATEGORIA,
                     [ANO] = @ANO,
                     [PLACA] = @PLACA,
                     [CAPACIDADE] = @CAPACIDADE,
@@ -56,7 +60,9 @@ namespace Controladores.VeiculoModule
                     [CHASSI] = @CHASSI,
                     [PORTA_MALAS] = @PORTA_MALAS,
                     [FOTO] = @FOTO,
-                    [AUTOMATICO] = @AUTOMATICO
+                    [AUTOMATICO] = @AUTOMATICO,
+                    [QUILOMETRAGEM] = @QUILOMETRAGEM,
+                    [TIPO_COMBUSTIVEL] = @TIPO_COMBUSTIVEL
                 WHERE [ID] = @ID";
 
         private const string sqlExcluirVeiculo =
@@ -103,14 +109,15 @@ namespace Controladores.VeiculoModule
             var porta_malas = Convert.ToInt32(reader["PORTA_MALAS"]);
             var capacidade = Convert.ToInt32(reader["CAPACIDADE"]);
             var automatico = Convert.ToBoolean(reader["AUTOMATICO"]);
-            var id_grupo = Convert.ToInt32(reader["ID_GRUPO"]);
+            var id_categoria = Convert.ToInt32(reader["ID_CATEGORIA"]);
             var tipoCombustivel = Convert.ToInt32(reader["TIPO_COMBUSTIVEL"]);
+            var quilometragem = Convert.ToInt32(reader["QUILOMETRAGEM"]);
 
             var foto = RecuperarImagem((byte[])reader["FOTO"]);
 
-            var categoria = new ControladorGrupo().GetById(id_grupo);
+            var categoria = new ControladorCategoria().GetById(id_categoria);
 
-            Veiculo veiculo = new Veiculo(modelo, marca, ano, placa, capacidade, portas, chassi, porta_malas, foto, automatico, categoria, (TipoCombustivel)tipoCombustivel)
+            Veiculo veiculo = new Veiculo(modelo, marca, ano, placa,quilometragem, capacidade, portas, chassi, porta_malas, foto, automatico, categoria, (TipoCombustivel)tipoCombustivel)
             {
                 Id = id
             };
@@ -132,7 +139,9 @@ namespace Controladores.VeiculoModule
                 { "PORTA_MALAS", veiculo.Porta_malas },
                 { "FOTO", SalvarImagem(veiculo.Foto)  },
                 { "AUTOMATICO", veiculo.Automatico },
-                { "GRUPO", veiculo.Grupo.Id }
+                { "ID_CATEGORIA", veiculo.Categoria.Id },
+                { "QUILOMETRAGEM", veiculo.Quilometragem },
+                { "TIPO_COMBUSTIVEL", veiculo.TipoDeCombustivel }
             };
 
             return parametros;

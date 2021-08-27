@@ -21,7 +21,7 @@ namespace WindowsApp.VeiculoModule
             cb_portaMalas.SelectedIndex = 1;
             cb_portas.SelectedIndex = 0;
             cb_tipoCombustivel.SelectedIndex = 0;
-            cb_categoria.DataSource = new ControladorGrupo().Registros;
+            cb_categoria.DataSource = new ControladorCategoria().Registros;
         }
 
         protected override IEditavel ConfigurarEditar()
@@ -35,7 +35,7 @@ namespace WindowsApp.VeiculoModule
             tb_ano.Text = entidade.Ano.ToString();
             cb_portas.SelectedItem = entidade.Portas.ToString();
             cb_cambio.SelectedItem = entidade.CambioToString();
-            cb_categoria.SelectedItem = entidade.Grupo;
+            cb_categoria.SelectedItem = entidade.Categoria;
             AtualizarIcone((Bitmap)entidade.Foto);
 
             return this;
@@ -51,11 +51,12 @@ namespace WindowsApp.VeiculoModule
             Int32.TryParse(tb_ano.Text, out int ano);
             Int32.TryParse(cb_portas.SelectedItem?.ToString(), out int portas);
             Int32.TryParse(cb_tipoCombustivel?.ToString(), out int tipoCombustivel);
+            Int32.TryParse(tb_quilometragem.Text, out int quilometragem);
             var cambio = cb_cambio.SelectedItem?.ToString() == "Automático";
             imagem = (Bitmap)bt_foto.Image;
 
-            var categoria = (Grupo)cb_categoria.SelectedItem;
-            return new Veiculo(modelo, marca, ano, placa, capacidade, portas, chassi, portaMalas, imagem, cambio, categoria, (TipoCombustivel)tipoCombustivel);
+            var categoria = (Categoria)cb_categoria.SelectedItem;
+            return new Veiculo(modelo, marca, ano, placa, quilometragem, capacidade, portas, chassi, portaMalas, imagem, cambio, categoria, (TipoCombustivel)tipoCombustivel);
         }
         private void AtualizarIcone(Bitmap imagem)
         {

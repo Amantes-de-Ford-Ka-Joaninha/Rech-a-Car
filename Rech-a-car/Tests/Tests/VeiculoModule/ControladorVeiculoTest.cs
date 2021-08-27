@@ -1,6 +1,7 @@
 ﻿using Controladores;
 using Controladores.Shared;
 using Controladores.VeiculoModule;
+using Dominio.PessoaModule;
 using Dominio.VeiculoModule;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -19,8 +20,9 @@ namespace Tests.VeiculoModule
         public void Inserir_Veiculo()
         {
             Image imagem = Image.FromFile(@"..\..\Resources\ford_ka_gay.jpg");
-            DadosVeiculo dadosVeiculo = new DadosVeiculo(50000, 50, 10);
-            veiculo1 = new Veiculo("Ka", "Ford", 2001, "ABC1024", 4, 4, "ASDFGHJKLQWERTYUI", 0, imagem, false, "Compacto", dadosVeiculo);
+            Categoria categoria = new Categoria("Economico", 100, 10, 400, 800, TipoCNH.B);
+            veiculo1 = new Veiculo("Ka", "Ford", 2001, "ABC1024", 50000, 4, 4, "ASDFGHJKLQWERTYUI", 0, imagem, false, categoria, TipoCombustivel.Gasolina);
+            new ControladorCategoria().Inserir(categoria);
             controladorVeiculo.Inserir(veiculo1);
         }
 
