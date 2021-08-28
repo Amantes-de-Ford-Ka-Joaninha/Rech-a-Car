@@ -3,12 +3,12 @@ using System;
 using System.Windows.Forms;
 using WindowsApp.AluguelModule;
 using WindowsApp.ClienteModule;
+using WindowsApp.ConfiguracoesModule;
 using WindowsApp.FuncionarioModule;
 using WindowsApp.ServicoModule;
 using WindowsApp.VeiculoModule;
 using WindowsApp.VeiculoModule.CategoriaModule;
 using WindowsApp.WindowsApp;
-using WindowsApp.ConfiguracoesModule;
 
 namespace WindowsApp
 {
@@ -91,7 +91,7 @@ namespace WindowsApp
         }
         private void bt_sair_Click(object sender, EventArgs e)
         {
-            Close(); 
+            Close();
             new Login().Show();
         }
         private void btVeiculosSubMenu_Click(object sender, EventArgs e)

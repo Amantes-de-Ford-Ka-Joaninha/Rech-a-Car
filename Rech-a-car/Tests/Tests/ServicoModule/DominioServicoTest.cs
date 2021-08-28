@@ -1,7 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using Dominio.ServicoModule;
+﻿using Dominio.ServicoModule;
 using FluentAssertions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Tests.Tests.ServicoModule
 {

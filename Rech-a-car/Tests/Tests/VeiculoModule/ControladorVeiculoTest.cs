@@ -1,5 +1,4 @@
-﻿using Controladores;
-using Controladores.Shared;
+﻿using Controladores.Shared;
 using Controladores.VeiculoModule;
 using Dominio.PessoaModule;
 using Dominio.VeiculoModule;

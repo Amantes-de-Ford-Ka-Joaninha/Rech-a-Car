@@ -1,5 +1,4 @@
 ﻿using Controladores.Shared;
-using Dominio.PessoaModule;
 using Dominio.VeiculoModule;
 using System;
 using System.Collections.Generic;
@@ -114,7 +113,7 @@ namespace Controladores.VeiculoModule
 
             var categoria = new ControladorCategoria().GetById(id_categoria);
 
-            Veiculo veiculo = new Veiculo(modelo, marca, ano, placa,quilometragem, capacidade, portas, chassi, porta_malas, foto, automatico, categoria, (TipoCombustivel)tipoCombustivel)
+            Veiculo veiculo = new Veiculo(modelo, marca, ano, placa, quilometragem, capacidade, portas, chassi, porta_malas, foto, automatico, categoria, (TipoCombustivel)tipoCombustivel)
             {
                 Id = id
             };

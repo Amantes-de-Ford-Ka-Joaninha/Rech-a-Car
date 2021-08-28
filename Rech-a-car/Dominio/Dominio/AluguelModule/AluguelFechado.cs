@@ -1,13 +1,4 @@
-﻿using Dominio.AluguelModule;
-using Dominio.PessoaModule;
-using Dominio.PessoaModule.ClienteModule;
-using Dominio.ServicoModule;
-using Dominio.VeiculoModule;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 
 namespace Dominio.AluguelModule
 {

@@ -1,6 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Dominio.PessoaModule;
+﻿using Dominio.PessoaModule;
 using FluentAssertions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Drawing;
 
 namespace Tests.Tests.FuncionarioModule

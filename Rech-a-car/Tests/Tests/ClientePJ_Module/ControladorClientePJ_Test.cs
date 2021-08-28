@@ -1,13 +1,10 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using Dominio.PessoaModule.ClienteModule;
-using Dominio.PessoaModule;
-using Controladores;
-using Controladores.PessoaModule;
-using FluentAssertions;
-using Tests.Shared;
-using System.Collections.Generic;
+﻿using Controladores.PessoaModule;
 using Controladores.Shared;
+using Dominio.PessoaModule;
+using Dominio.PessoaModule.ClienteModule;
+using FluentAssertions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Tests.Shared;
 
 namespace Tests.Tests.ClientePJ_Module
 {
@@ -25,8 +22,8 @@ namespace Tests.Tests.ClientePJ_Module
         {
             cliente = new ClientePJ("nome", "99999999999", "endereco", "99999999999999");
             controladorClientePJ.Inserir(cliente);
-            motorista = new MotoristaEmpresa("nomeMotorista", "99999999999", "endereco", "99999999999999",new CNH("59778304921",TipoCNH.A));
-            controladorMotorista.Inserir(motorista,cliente.Id);
+            motorista = new MotoristaEmpresa("nomeMotorista", "99999999999", "endereco", "99999999999999", new CNH("59778304921", TipoCNH.A));
+            controladorMotorista.Inserir(motorista, cliente.Id);
             cliente = controladorClientePJ.GetById(cliente.Id);
         }
         [TestMethod]

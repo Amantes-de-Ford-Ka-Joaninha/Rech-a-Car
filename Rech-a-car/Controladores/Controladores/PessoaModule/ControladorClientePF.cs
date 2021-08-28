@@ -87,7 +87,7 @@ namespace Controladores.PessoaModule
             var id_cnh = Convert.ToInt32(reader["ID_CNH"]);
             var cnh = new ControladorCNH().GetByIdCondutor(id_cnh);
 
-            return new ClientePF(nome, telefone, endereco, documento, cnh,data_nascimento)
+            return new ClientePF(nome, telefone, endereco, documento, cnh, data_nascimento)
             {
                 Id = id
             };

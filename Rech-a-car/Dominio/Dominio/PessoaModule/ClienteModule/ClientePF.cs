@@ -16,7 +16,7 @@ namespace Dominio.PessoaModule.ClienteModule
         }
         public int GetIdade()
         {
-            return (DateTime.Now-DataNascimento).Days / 365;
+            return (DateTime.Now - DataNascimento).Days / 365;
         }
 
         public override string Validar()

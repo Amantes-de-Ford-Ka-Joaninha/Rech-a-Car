@@ -1,8 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using Dominio.PessoaModule;
 using Dominio.VeiculoModule;
-using Dominio.PessoaModule;
 using FluentAssertions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Tests.Tests.CategoriaModule
 {

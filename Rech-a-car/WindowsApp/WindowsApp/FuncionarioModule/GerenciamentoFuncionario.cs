@@ -35,6 +35,6 @@ namespace WindowsApp.FuncionarioModule
             return linha.ToArray();
         }
 
-        
+
     }
 }

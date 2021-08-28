@@ -1,12 +1,11 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using Dominio.AluguelModule;
-using Dominio.VeiculoModule;
-using Dominio.PessoaModule.ClienteModule;
+﻿using Dominio.AluguelModule;
 using Dominio.PessoaModule;
+using Dominio.PessoaModule.ClienteModule;
 using Dominio.ServicoModule;
-using Dominio.Shared;
+using Dominio.VeiculoModule;
 using FluentAssertions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 
@@ -22,7 +21,7 @@ namespace Tests.Tests.AlguelModule
         CNH cnh;
         MotoristaEmpresa motoristaEmpresa;
         ClientePF clientepf;
-        ClientePJ clientepj;        
+        ClientePJ clientepj;
         Image imagem = Image.FromFile(@"..\..\Resources\ford_ka_gay.jpg");
         Categoria categoria;
         List<Servico> servicos;
@@ -59,14 +58,14 @@ namespace Tests.Tests.AlguelModule
             clientepj = new ClientePJ("nome", "4999915522", "endereço", "0131038190371");
             motoristaEmpresa = new MotoristaEmpresa("nome", "123123123", "endereço", "d12398127", cnh);
             funcionario = new Funcionario("nome", "49999155922", "endereco", "01308174983", imagem, "usuario");
-            aluguel = new Aluguel(veiculo, servicos, Plano.diario, new DateTime(2001, 09, 10), clientepj, funcionario,motoristaEmpresa);
+            aluguel = new Aluguel(veiculo, servicos, Plano.diario, new DateTime(2001, 09, 10), clientepj, funcionario, motoristaEmpresa);
 
             aluguel.Validar().Should().NotBe(string.Empty);
         }
         [TestMethod]
         public void Deve_retornar_aluguel_clientePJ_invalido()
         {
-            aluguel = new Aluguel(null, null, Plano.controlado, new DateTime(), null, null,null);
+            aluguel = new Aluguel(null, null, Plano.controlado, new DateTime(), null, null, null);
 
             aluguel.Validar().Should().NotBe(string.Empty);
         }

@@ -1,12 +1,11 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using Dominio.PessoaModule.ClienteModule;
-using Dominio.PessoaModule;
-using Controladores;
-using Controladores.PessoaModule;
-using FluentAssertions;
-using Tests.Shared;
+﻿using Controladores.PessoaModule;
 using Controladores.Shared;
+using Dominio.PessoaModule;
+using Dominio.PessoaModule.ClienteModule;
+using FluentAssertions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using Tests.Shared;
 
 namespace Tests.Tests.ClientePF_Module
 {
@@ -20,7 +19,7 @@ namespace Tests.Tests.ClientePF_Module
         public void Inserir_clientePF()
         {
             CNH cnh = new CNH("36510896881", TipoCNH.A);
-            cliente = new ClientePF("nome", "999999999", "endereco", "99999999999", cnh, new DateTime(2001,04,27));
+            cliente = new ClientePF("nome", "999999999", "endereco", "99999999999", cnh, new DateTime(2001, 04, 27));
             controladorClientePF.Inserir(cliente);
         }
         [TestMethod]

@@ -73,7 +73,7 @@ namespace Controladores.ServicoModule
             var id = Convert.ToInt32(reader["ID"]);
             string nome = Convert.ToString(reader["NOME"]);
             double taxa = Convert.ToDouble(reader["TAXA"]);
-           
+
             Servico servico = new Servico(nome, taxa)
             {
                 Id = id

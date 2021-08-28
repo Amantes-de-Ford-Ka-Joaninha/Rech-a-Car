@@ -44,8 +44,8 @@ namespace WindowsApp.ClienteModule
         {
             const int coluna_tipo_cliente = 1;
             var linha = dgvEntidade.GetLinhaSelecionada();
-            
-           var tipo_cliente = linha.Cells[coluna_tipo_cliente].Value.ToString();
+
+            var tipo_cliente = linha.Cells[coluna_tipo_cliente].Value.ToString();
 
             if (tipo_cliente == "CNPJ")
                 return typeof(ClientePJ);

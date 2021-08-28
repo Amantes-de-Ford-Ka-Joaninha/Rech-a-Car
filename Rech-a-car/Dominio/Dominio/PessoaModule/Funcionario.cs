@@ -2,7 +2,7 @@
 
 namespace Dominio.PessoaModule
 {
-    public class Funcionario : PessoaFisica , Usuario
+    public class Funcionario : PessoaFisica, Usuario
     {
         public Funcionario(string nome, string telefone, string endereco, string documento, Image foto, string usuario)
         {
