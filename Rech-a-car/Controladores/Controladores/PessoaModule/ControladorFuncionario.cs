@@ -64,6 +64,21 @@ namespace Controladores.PessoaModule
             WHERE 
                 [ID] = @ID";
 
+        private const string sqlExisteFuncionarioPorUser =
+            @"SELECT 
+                COUNT(*) 
+            FROM 
+                [TBFUNCIONARIO]
+            WHERE 
+                [USER] = @USER";
+
+        private const string sqlGetFuncionarioPorUser =
+            @"SELECT * 
+            FROM 
+                [TBFUNCIONARIO]
+            WHERE 
+                [USER] = @USER";
+
         #endregion
         public override string sqlSelecionarPorId => sqlSelecionarFuncionario;
         public override string sqlSelecionarTodos => sqlSelecionarTodosFuncionarios;
@@ -96,10 +111,20 @@ namespace Controladores.PessoaModule
                 { "TELEFONE", funcionario.Telefone },
                 { "DOCUMENTO", funcionario.Documento },
                 { "USER", funcionario.NomeUsuario },
-                { "FOTO", funcionario.Foto }
+                { "FOTO", SalvarImagem(funcionario.Foto) }
             };
 
             return parametros;
+        }
+
+        public bool ExisteUsuario(string usuario)
+        {
+            return Db.Exists(sqlExisteFuncionarioPorUser, AdicionarParametro("USER", usuario));
+        }
+
+        public Funcionario GetByUserName(string usuario)
+        {
+            return Db.Get(sqlGetFuncionarioPorUser, ConverterEmEntidade, AdicionarParametro("USER", usuario));
         }
     }
 }

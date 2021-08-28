@@ -11,7 +11,7 @@ namespace Dominio.PessoaModule
             Endereco = endereco;
             Documento = documento;
             Foto = foto;
-            Usuario = usuario;
+            NomeUsuario = usuario;
         }
         public Image Foto { get; set; }
         public string NomeUsuario { get; set; }

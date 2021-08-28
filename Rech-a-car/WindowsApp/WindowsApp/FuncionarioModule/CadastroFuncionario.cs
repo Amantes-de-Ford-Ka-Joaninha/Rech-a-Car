@@ -27,7 +27,7 @@ namespace WindowsApp.FuncionarioModule
             tbTelefone.Text = entidade.Telefone;
             tbEndereco.Text = entidade.Endereco;
             tbCPF.Text = entidade.Documento;
-            tbUsuario.Text = entidade.Usuario;
+            tbUsuario.Text = entidade.NomeUsuario;
             bt_foto.Image = entidade.Foto;
 
             return this;

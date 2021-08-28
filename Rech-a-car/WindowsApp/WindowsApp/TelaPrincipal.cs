@@ -21,7 +21,7 @@ namespace WindowsApp
             Instancia = this;
             InitializeComponent();
             EsconderSubMenu();
-            lbUsuario.Text = funcionario.Nome;
+            lbUsuario.Text = "ADMIN DA SEXOLOGIA";//funcionario.Nome;
             //lbCargo.Text = funcionario.Cargo;
         }
 
