@@ -20,7 +20,7 @@ namespace Controladores.Shared
             string nomeProvedor = ConfigurationManager.ConnectionStrings[bancoSelecionado].ProviderName;
             factory = DbProviderFactories.GetFactory(nomeProvedor);
         }
-        public static int Insert(string sql, Dictionary<string, object> parameters, Dictionary<string, object> parametrosAdicionais = null)
+        public static int Insert(string sql, Dictionary<string, object> parameters)
         {
             using (DbConnection connection = factory.CreateConnection())
             {
@@ -32,8 +32,6 @@ namespace Controladores.Shared
                     command.Connection = connection;
 
                     command.SetParameters(parameters);
-                    command.SetParameters(parametrosAdicionais);
-
                     connection.Open();
 
                     int id = Convert.ToInt32(command.ExecuteScalar());

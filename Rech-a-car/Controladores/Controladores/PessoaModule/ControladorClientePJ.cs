@@ -80,7 +80,7 @@ namespace Controladores.PessoaModule
             {
                 Id = id,
                 Motoristas = new ControladorMotorista().SelecionarCondutoresPJ(id)
-        };
+            };
         }
         protected override Dictionary<string, object> ObterParametrosRegistro(ClientePJ cliente)
         {
@@ -175,11 +175,11 @@ namespace Controladores.PessoaModule
         public override void Inserir(MotoristaEmpresa motorista, int idEmpresa)
         {
             new ControladorCNH().Inserir(motorista.Cnh);
-            motorista.Id = Db.Insert(sqlInserirMotorista, ObterParametrosRegistro(motorista), AdicionarParametro("ID_EMPRESA", idEmpresa));
+            motorista.Id = Db.Insert(sqlInserirMotorista, AdicionarParametro("ID_EMPRESA", idEmpresa, ObterParametrosRegistro(motorista)));
         }
         public override void Editar(int id, MotoristaEmpresa motorista, int id_cnh)
         {
-            new ControladorCNH().Editar(id_cnh,motorista.Cnh);
+            new ControladorCNH().Editar(id_cnh, motorista.Cnh);
             motorista.Id = id;
             Db.Update(sqlEditarMotorista, ObterParametrosRegistro(motorista));
         }
