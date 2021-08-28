@@ -1,5 +1,4 @@
 ﻿using Controladores.Shared;
-using Dominio.PessoaModule;
 using Dominio.PessoaModule.ClienteModule;
 using System;
 using System.Collections.Generic;

@@ -113,12 +113,10 @@ namespace Controladores.VeiculoModule
 
             var categoria = new ControladorCategoria().GetById(id_categoria);
 
-            Veiculo veiculo = new Veiculo(modelo, marca, ano, placa, quilometragem, capacidade, portas, chassi, porta_malas, foto, automatico, categoria, (TipoCombustivel)tipoCombustivel)
+            return new Veiculo(modelo, marca, ano, placa, quilometragem, capacidade, portas, chassi, porta_malas, foto, automatico, categoria, (TipoCombustivel)tipoCombustivel)
             {
                 Id = id
             };
-
-            return veiculo;
         }
         protected override Dictionary<string, object> ObterParametrosRegistro(Veiculo veiculo)
         {
