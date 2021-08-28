@@ -1,51 +1,87 @@
 ﻿using Controladores.PessoaModule;
-using Controladores.Shared;
 using Dominio.PessoaModule;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsApp.WindowsApp
 {
     public partial class Login : Form
     {
+
+        private ControladorFuncionario ControladorFuncionario = new ControladorFuncionario();
+        private Funcionario funcionario;
+
         public Login()
         {
             InitializeComponent();
+            bt_entrar.Enabled = false;
         }
 
-        public bool LoginUsuario()
-        {
-            if (tbUsuario.Text != "" && tbSenha.Text != "") return true;
-            else return false;
-            //if (tbSenha.Text = getFuncionario().Senha) return true;
-            //else return false;
-        }
-
-        private Funcionario getFuncionario()
+        private ResultadoLogin LoginUsuario()
         {
             var usuario = tbUsuario.Text;
-            Funcionario funcionario = new Funcionario(tbUsuario.Text, "4999999999", "Teste", "01201201212");//SelecionarPorUsuario();
-            return funcionario;
-        }
+            var senha = tbSenha.Text;
 
+            if (!ExisteUsuario(usuario))
+                return ResultadoLogin.UsuarioNaoCadastrado;
+
+            getFuncionario();
+
+            if (!Logar(funcionario.Id, senha))
+                return ResultadoLogin.SenhaErrada;
+
+            return ResultadoLogin.Sucesso;
+        }
+        private bool Logar(int id_funcionario, string senha)
+        {
+            return new ControladorSenha().Validar(id_funcionario, senha);
+        }
+        private bool ExisteUsuario(string usuario)
+        {
+            return ControladorFuncionario.ExisteUsuario(usuario);
+        }
+        private void getFuncionario()
+        {
+            funcionario = ControladorFuncionario.GetByUserName(tbUsuario.Text);
+        }
+        private string mostraResultado(ResultadoLogin resultado)
+        {
+            switch (resultado)
+            {
+                case ResultadoLogin.SenhaErrada: return "Senha errada!";
+                case ResultadoLogin.UsuarioNaoCadastrado: return "Usuário não está cadastrado!";
+                case ResultadoLogin.Sucesso: return "Sucesso!";
+                default: return "Error";
+            }
+        }
         private void bt_entrar_Click(object sender, EventArgs e)
         {
-            if (LoginUsuario())
-            {
-                Hide();
-                new TelaPrincipal(getFuncionario()).Show();
-            }
+            //var resultadoLogin = LoginUsuario();
+            //MessageBox.Show(mostraResultado(resultadoLogin));
+            //if (resultadoLogin != ResultadoLogin.Sucesso)
+            //    return;
+            //Hide();
+            new TelaPrincipal(funcionario).Show();
+        }
+        private void tbUsuario_TextChanged(object sender, EventArgs e)
+        {
+            BloquearBotaoLogin();
+        }
+        private void tbSenha_TextChanged(object sender, EventArgs e)
+        {
+            BloquearBotaoLogin();
+        }
+        private void BloquearBotaoLogin()
+        {
+            if (LoginInvalido())
+                bt_entrar.Enabled = false;
             else
-            {
-                MessageBox.Show("Usuário e/ou senha incorretos", "Erro");
-            }
+                bt_entrar.Enabled = true;
+        }
+        private bool LoginInvalido()
+        {
+            return tbSenha.Text == string.Empty || tbUsuario.Text == string.Empty;
         }
     }
+    public enum ResultadoLogin { Sucesso, SenhaErrada, UsuarioNaoCadastrado }
 }

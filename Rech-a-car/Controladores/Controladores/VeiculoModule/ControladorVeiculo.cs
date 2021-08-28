@@ -4,9 +4,6 @@ using Dominio.VeiculoModule;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
 
 namespace Controladores.VeiculoModule
 {
@@ -145,22 +142,6 @@ namespace Controladores.VeiculoModule
             };
 
             return parametros;
-        }
-        private static byte[] SalvarImagem(Image foto)
-        {
-            using (var ms = new MemoryStream())
-            {
-                foto = new Bitmap(foto);
-                foto.Save(ms, ImageFormat.Bmp);
-                return ms.ToArray();
-            }
-        }
-        private static Image RecuperarImagem(byte[] imageBytes)
-        {
-            using (var ms = new MemoryStream(imageBytes))
-            {
-                return Image.FromStream(ms);
-            }
         }
     }
 }

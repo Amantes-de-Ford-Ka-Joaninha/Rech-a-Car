@@ -15,14 +15,18 @@ namespace Controladores.PessoaModule
                     [NOME],       
                     [TELEFONE],             
                     [ENDERECO],
-                    [DOCUMENTO]
+                    [DOCUMENTO],
+                    [FOTO],
+                    [USER]
                 )
             VALUES
                 (
                     @NOME,       
                     @TELEFONE,             
                     @ENDERECO,
-                    @DOCUMENTO
+                    @DOCUMENTO,
+                    @FOTO,
+                    @USER
                 )";
 
         private const string sqlEditarFuncionario =
@@ -31,7 +35,9 @@ namespace Controladores.PessoaModule
                     [NOME] = @NOME,       
                     [TELEFONE] = @TELEFONE,             
                     [ENDERECO] = @ENDERECO,
-                    [DOCUMENTO] = @DOCUMENTO
+                    [DOCUMENTO] = @DOCUMENTO,
+                    [FOTO] = @FOTO,
+                    [USER] = @USER
                 WHERE [ID] = @ID";
 
         private const string sqlExcluirFuncionario =
@@ -58,6 +64,21 @@ namespace Controladores.PessoaModule
             WHERE 
                 [ID] = @ID";
 
+        private const string sqlExisteFuncionarioPorUser =
+            @"SELECT 
+                COUNT(*) 
+            FROM 
+                [TBFUNCIONARIO]
+            WHERE 
+                [USER] = @USER";
+
+        private const string sqlGetFuncionarioPorUser =
+            @"SELECT * 
+            FROM 
+                [TBFUNCIONARIO]
+            WHERE 
+                [USER] = @USER";
+
         #endregion
         public override string sqlSelecionarPorId => sqlSelecionarFuncionario;
         public override string sqlSelecionarTodos => sqlSelecionarTodosFuncionarios;
@@ -72,8 +93,10 @@ namespace Controladores.PessoaModule
             var telefone = Convert.ToString(reader["TELEFONE"]);
             var documento = Convert.ToString(reader["DOCUMENTO"]);
             var endereco = Convert.ToString(reader["ENDERECO"]);
+            var user = Convert.ToString(reader["USER"]);
+            var foto = RecuperarImagem((byte[])reader["FOTO"]);
 
-            return new Funcionario(nome, telefone, endereco, documento)
+            return new Funcionario(nome, telefone, endereco, documento, foto, user)
             {
                 Id = id
             };
@@ -86,10 +109,22 @@ namespace Controladores.PessoaModule
                 { "NOME", funcionario.Nome },
                 { "ENDERECO", funcionario.Endereco },
                 { "TELEFONE", funcionario.Telefone },
-                { "DOCUMENTO", funcionario.Documento }
+                { "DOCUMENTO", funcionario.Documento },
+                { "USER", funcionario.NomeUsuario },
+                { "FOTO", SalvarImagem(funcionario.Foto) }
             };
 
             return parametros;
+        }
+
+        public bool ExisteUsuario(string usuario)
+        {
+            return Db.Exists(sqlExisteFuncionarioPorUser, AdicionarParametro("USER", usuario));
+        }
+
+        public Funcionario GetByUserName(string usuario)
+        {
+            return Db.Get(sqlGetFuncionarioPorUser, ConverterEmEntidade, AdicionarParametro("USER", usuario));
         }
     }
 }

@@ -63,8 +63,12 @@
     <Build Include="dbo\Tables\TBVeiculo.sql" />
     <Build Include="dbo\Tables\TBMotorista.sql" />
     <Build Include="dbo\Tables\TBFuncionario.sql">
-      <AnsiNulls>On</AnsiNulls>
+      <AnsiNulls>Off</AnsiNulls>
+<<<<<<< HEAD
+      <QuotedIdentifier>Off</QuotedIdentifier>
+=======
       <QuotedIdentifier>On</QuotedIdentifier>
+>>>>>>> fixes/TBDadosVeiculo
     </Build>
     <Build Include="dbo\Tables\TBCnh.sql" />
     <Build Include="dbo\Tables\TBClientePJ.sql" />
@@ -74,5 +78,10 @@
       <QuotedIdentifier>Off</QuotedIdentifier>
     </Build>
     <Build Include="dbo\Tables\TBCategoria.sql" />
+<<<<<<< HEAD
+    <Build Include="dbo\Tables\TBSenha.sql" />
+=======
+    <Build Include="dbo\Tables\TBAluguel.sql" />
+>>>>>>> fixes/TBDadosVeiculo
   </ItemGroup>
 </Project>

@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shared\TestExtensions.cs" />
+    <Compile Include="Tests\AlguelModule\DominioAluguelTest.cs" />
     <Compile Include="Tests\CategoriaModule\DominioCategoria_Test.cs" />
     <Compile Include="Tests\CategoriaModule\ControladorCategoria_Test.cs" />
     <Compile Include="Tests\ClientePF_Module\DominioClientePF_Test.cs" />
