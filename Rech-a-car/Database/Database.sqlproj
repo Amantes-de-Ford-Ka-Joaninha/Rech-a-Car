@@ -120,9 +120,7 @@
     <Folder Include="dbo\Tables\" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dbo\Tables\TBFuncionarios.sql">
-      <AnsiNulls>Off</AnsiNulls>
-    </Build>
+    <Build Include="dbo\Tables\TBFuncionarios.sql" />
     <Build Include="dbo\Tables\TBMotorista.sql">
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
@@ -150,11 +148,11 @@
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
-<<<<<<< HEAD
     <Build Include="dbo\Tables\TBSenha.sql">
-=======
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
     <Build Include="dbo\Tables\TBAluguel.sql">
->>>>>>> fixes/TBDadosVeiculo
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
