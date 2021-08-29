@@ -109,7 +109,7 @@ namespace Controladores.AluguelModule
             if (id_condutor == id_cliente)
                 return null;
             else
-                return new ControladorMotorista().GetMotoristaEmpresa(id_cliente, id_condutor);
+                return null;//new ControladorMotorista().GetMotoristaEmpresa(id_cliente, id_condutor);
         }
         protected override Dictionary<string, object> ObterParametrosRegistro(Aluguel aluguel)
         {

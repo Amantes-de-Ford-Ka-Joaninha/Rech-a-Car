@@ -17,7 +17,7 @@ namespace WindowsApp.FuncionarioModule
         public CadastroFuncionario()
         {
             InitializeComponent();
-            bt_foto.Image = Resources.user;
+            bt_foto.Image = new Bitmap(Resources.user);
         }
 
 
@@ -40,7 +40,7 @@ namespace WindowsApp.FuncionarioModule
             var endereco = tbEndereco.Text;
             var cpf = tbCPF.Text;
             var usuario = tbUsuario.Text;
-            var imagem = (Bitmap)bt_foto.Image;
+            var imagem = (Bitmap)bt_foto.BackgroundImage;
 
             return new Funcionario(nome, telefone, endereco, cpf, imagem, usuario);
         }
@@ -48,6 +48,7 @@ namespace WindowsApp.FuncionarioModule
         private void AtualizarIcone(Bitmap imagem)
         {
             bt_foto.Image = new Bitmap(imagem);
+
         }
 
         private void btAdicionar_Click(object sender, EventArgs e)

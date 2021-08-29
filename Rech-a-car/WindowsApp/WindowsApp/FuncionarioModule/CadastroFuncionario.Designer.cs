@@ -29,6 +29,7 @@ namespace WindowsApp.FuncionarioModule
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadastroFuncionario));
             this.label1 = new System.Windows.Forms.Label();
             this.lbNome = new System.Windows.Forms.Label();
             this.tbNome = new System.Windows.Forms.TextBox();
@@ -39,13 +40,13 @@ namespace WindowsApp.FuncionarioModule
             this.btAdicionar = new System.Windows.Forms.Button();
             this.tbTelefone = new System.Windows.Forms.MaskedTextBox();
             this.tbCPF = new System.Windows.Forms.MaskedTextBox();
-            this.bt_foto = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tbUsuario = new System.Windows.Forms.TextBox();
             this.ofdImagem = new System.Windows.Forms.OpenFileDialog();
             this.label6 = new System.Windows.Forms.Label();
             this.tbSenha = new System.Windows.Forms.TextBox();
+            this.bt_foto = new WindowsApp.Shared.ImageButton();
             this.SuspendLayout();
             // 
             // label1
@@ -153,19 +154,6 @@ namespace WindowsApp.FuncionarioModule
             this.tbCPF.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbCPF.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
-            // bt_foto
-            // 
-            this.bt_foto.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.bt_foto.FlatAppearance.BorderSize = 0;
-            this.bt_foto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_foto.Image = global::WindowsApp.Properties.Resources.inserir_icone_de_imagem;
-            this.bt_foto.Location = new System.Drawing.Point(291, 326);
-            this.bt_foto.Name = "bt_foto";
-            this.bt_foto.Size = new System.Drawing.Size(105, 95);
-            this.bt_foto.TabIndex = 17;
-            this.bt_foto.UseVisualStyleBackColor = true;
-            this.bt_foto.Click += new System.EventHandler(this.bt_foto_Click);
-            // 
             // label15
             // 
             this.label15.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -220,6 +208,18 @@ namespace WindowsApp.FuncionarioModule
             this.tbSenha.Size = new System.Drawing.Size(234, 29);
             this.tbSenha.TabIndex = 1;
             // 
+            // bt_foto
+            // 
+            this.bt_foto.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.bt_foto.FlatAppearance.BorderSize = 0;
+            this.bt_foto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_foto.Location = new System.Drawing.Point(291, 326);
+            this.bt_foto.Name = "bt_foto";
+            this.bt_foto.Size = new System.Drawing.Size(98, 92);
+            this.bt_foto.TabIndex = 17;
+            this.bt_foto.UseVisualStyleBackColor = true;
+            this.bt_foto.Click += new System.EventHandler(this.bt_foto_Click);
+            // 
             // CadastroFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -261,12 +261,12 @@ namespace WindowsApp.FuncionarioModule
         private System.Windows.Forms.Button btAdicionar;
         private System.Windows.Forms.MaskedTextBox tbTelefone;
         private System.Windows.Forms.MaskedTextBox tbCPF;
-        private System.Windows.Forms.Button bt_foto;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbUsuario;
         private System.Windows.Forms.OpenFileDialog ofdImagem;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbSenha;
+        private WindowsApp.Shared.ImageButton bt_foto;
     }
 }
