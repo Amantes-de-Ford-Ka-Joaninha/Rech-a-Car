@@ -44,6 +44,8 @@ namespace WindowsApp.FuncionarioModule
             this.label5 = new System.Windows.Forms.Label();
             this.tbUsuario = new System.Windows.Forms.TextBox();
             this.ofdImagem = new System.Windows.Forms.OpenFileDialog();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tbSenha = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -157,7 +159,7 @@ namespace WindowsApp.FuncionarioModule
             this.bt_foto.FlatAppearance.BorderSize = 0;
             this.bt_foto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_foto.Image = global::WindowsApp.Properties.Resources.inserir_icone_de_imagem;
-            this.bt_foto.Location = new System.Drawing.Point(291, 289);
+            this.bt_foto.Location = new System.Drawing.Point(291, 326);
             this.bt_foto.Name = "bt_foto";
             this.bt_foto.Size = new System.Drawing.Size(105, 95);
             this.bt_foto.TabIndex = 17;
@@ -170,7 +172,7 @@ namespace WindowsApp.FuncionarioModule
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(185, 324);
+            this.label15.Location = new System.Drawing.Point(185, 361);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(41, 21);
             this.label15.TabIndex = 18;
@@ -199,6 +201,25 @@ namespace WindowsApp.FuncionarioModule
             // 
             this.ofdImagem.FileName = "ofdImagem";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(163, 292);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 21);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Senha";
+            // 
+            // tbSenha
+            // 
+            this.tbSenha.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbSenha.Location = new System.Drawing.Point(233, 289);
+            this.tbSenha.Name = "tbSenha";
+            this.tbSenha.Size = new System.Drawing.Size(234, 29);
+            this.tbSenha.TabIndex = 1;
+            // 
             // CadastroFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -214,6 +235,8 @@ namespace WindowsApp.FuncionarioModule
             this.Controls.Add(this.tbEndereco);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.tbSenha);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.tbUsuario);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.tbNome);
@@ -243,5 +266,7 @@ namespace WindowsApp.FuncionarioModule
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbUsuario;
         private System.Windows.Forms.OpenFileDialog ofdImagem;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox tbSenha;
     }
 }

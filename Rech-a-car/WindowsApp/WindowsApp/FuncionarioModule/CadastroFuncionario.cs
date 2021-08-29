@@ -11,6 +11,7 @@ namespace WindowsApp.FuncionarioModule
 {
     public partial class CadastroFuncionario : CadastroEntidade<Funcionario>
     {
+        public override Controlador<Funcionario> Controlador => new ControladorFuncionario();
         private Bitmap imagem;
 
         public CadastroFuncionario()
@@ -19,7 +20,6 @@ namespace WindowsApp.FuncionarioModule
             bt_foto.Image = Resources.user;
         }
 
-        public override Controlador<Funcionario> Controlador => new ControladorFuncionario();
 
         protected override IEditavel ConfigurarEditar()
         {
