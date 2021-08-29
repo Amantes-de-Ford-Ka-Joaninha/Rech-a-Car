@@ -52,7 +52,7 @@
     <Compile Include="WindowsApp\ConfiguracoesModule\Configuracoes.Designer.cs">
       <DependentUpon>Configuracoes.cs</DependentUpon>
     </Compile>
-    <Compile Include="WindowsApp\Shared\ImageButton.cs">
+    <Compile Include="WindowsApp\Shared\BotaoComImagem.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="WindowsApp\Shared\PanelColorido.cs">

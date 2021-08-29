@@ -45,7 +45,7 @@ namespace WindowsApp.VeiculoModule
             this.label15 = new System.Windows.Forms.Label();
             this.cb_portas = new System.Windows.Forms.ComboBox();
             this.ofdImagem = new System.Windows.Forms.OpenFileDialog();
-            this.bt_foto = new WindowsApp.Shared.ImageButton();
+            this.bt_foto = new Shared.BotaoComImagem();
             this.bt_adicionar = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.tb_marca = new System.Windows.Forms.TextBox();
@@ -467,7 +467,7 @@ namespace WindowsApp.VeiculoModule
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ComboBox cb_portas;
         private System.Windows.Forms.OpenFileDialog ofdImagem;
-        private WindowsApp.Shared.ImageButton bt_foto;
+        private Shared.BotaoComImagem bt_foto;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox tb_marca;
         private System.Windows.Forms.ComboBox cb_capacidade;

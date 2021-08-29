@@ -7,10 +7,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsApp.WindowsApp.Shared
+namespace WindowsApp.Shared
 {
     [ToolboxItem(true)]
-    public class ImageButton : Button
+    public class BotaoComImagem : Button
     {
 
         public new Image Image
