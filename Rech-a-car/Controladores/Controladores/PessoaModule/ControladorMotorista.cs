@@ -67,6 +67,14 @@ namespace Controladores.PessoaModule
             WHERE 
                 [ID] = @ID";
 
+        private const string sqlSelecionarMotoristasEmpresa =
+            @"SELECT *
+             FROM
+                [TBMOTORISTA]
+             WHERE 
+                [ID_EMPRESA] = @ID_EMPRESA
+            AND 
+                [ID] = @ID";
         #endregion
 
         public override string sqlSelecionarPorId => sqlSelecionarMotoristaPorId;
@@ -90,6 +98,10 @@ namespace Controladores.PessoaModule
             new ControladorCNH().Editar(id_cnh, motorista.Cnh);
             motorista.Id = id;
             Db.Update(sqlEditarMotorista, ObterParametrosRegistro(motorista));
+        }
+        public MotoristaEmpresa GetMotoristaEmpresa(int id_cliente, int id_condutor)
+        {
+            return Db.Get(sqlSelecionarMotoristasEmpresa, ConverterEmEntidade, AdicionarParametro("ID", id_condutor, AdicionarParametro("ID_EMPRESA", id_cliente)));
         }
         protected override Dictionary<string, object> ObterParametrosRegistro(MotoristaEmpresa motorista)
         {
@@ -124,5 +136,4 @@ namespace Controladores.PessoaModule
             return dadosVeiculo;
         }
     }
-
 }
