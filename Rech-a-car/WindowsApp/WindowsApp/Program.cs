@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using WindowsApp.WindowsApp;
+using WindowsApp;
 
 namespace WindowsApp
 {

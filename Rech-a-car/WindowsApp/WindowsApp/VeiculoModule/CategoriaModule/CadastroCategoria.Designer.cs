@@ -166,10 +166,10 @@ namespace WindowsApp.VeiculoModule.CategoriaModule
             // 
             this.btAdicionar.FlatAppearance.BorderSize = 0;
             this.btAdicionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btAdicionar.Image = global::WindowsApp.Properties.Resources.adicionar;
-            this.btAdicionar.Location = new System.Drawing.Point(581, 440);
+            this.btAdicionar.Image = global::WindowsApp.Properties.Resources.check;
+            this.btAdicionar.Location = new System.Drawing.Point(577, 435);
             this.btAdicionar.Name = "btAdicionar";
-            this.btAdicionar.Size = new System.Drawing.Size(75, 70);
+            this.btAdicionar.Size = new System.Drawing.Size(79, 75);
             this.btAdicionar.TabIndex = 7;
             this.btAdicionar.UseVisualStyleBackColor = true;
             this.btAdicionar.Click += new System.EventHandler(this.btAdicionar_Click);
@@ -190,7 +190,7 @@ namespace WindowsApp.VeiculoModule.CategoriaModule
             this.cbCNH.Size = new System.Drawing.Size(212, 29);
             this.cbCNH.TabIndex = 3;
             // 
-            // CadastroGrupo
+            // CadastroCategoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -210,7 +210,7 @@ namespace WindowsApp.VeiculoModule.CategoriaModule
             this.Controls.Add(this.tbNome);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "CadastroGrupo";
+            this.Name = "CadastroCategoria";
             this.Text = "CadastroGrupo";
             this.ResumeLayout(false);
             this.PerformLayout();

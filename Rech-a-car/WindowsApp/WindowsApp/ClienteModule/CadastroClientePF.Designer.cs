@@ -154,10 +154,10 @@ namespace WindowsApp.ClienteModule
             // 
             this.btAdicionar.FlatAppearance.BorderSize = 0;
             this.btAdicionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btAdicionar.Image = global::WindowsApp.Properties.Resources.adicionar;
-            this.btAdicionar.Location = new System.Drawing.Point(581, 440);
+            this.btAdicionar.Image = global::WindowsApp.Properties.Resources.check;
+            this.btAdicionar.Location = new System.Drawing.Point(581, 430);
             this.btAdicionar.Name = "btAdicionar";
-            this.btAdicionar.Size = new System.Drawing.Size(75, 70);
+            this.btAdicionar.Size = new System.Drawing.Size(75, 80);
             this.btAdicionar.TabIndex = 12;
             this.btAdicionar.UseVisualStyleBackColor = true;
             this.btAdicionar.Click += new System.EventHandler(this.btAdicionar_Click);

@@ -45,7 +45,7 @@ namespace WindowsApp.FuncionarioModule
             this.ofdImagem = new System.Windows.Forms.OpenFileDialog();
             this.label6 = new System.Windows.Forms.Label();
             this.tbSenha = new System.Windows.Forms.TextBox();
-            this.bt_foto = new Shared.BotaoComImagem();
+            this.bt_foto = new WindowsApp.Shared.BotaoComImagem();
             this.SuspendLayout();
             // 
             // label1
@@ -123,10 +123,10 @@ namespace WindowsApp.FuncionarioModule
             // 
             this.btAdicionar.FlatAppearance.BorderSize = 0;
             this.btAdicionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btAdicionar.Image = global::WindowsApp.Properties.Resources.adicionar;
-            this.btAdicionar.Location = new System.Drawing.Point(581, 439);
+            this.btAdicionar.Image = global::WindowsApp.Properties.Resources.check;
+            this.btAdicionar.Location = new System.Drawing.Point(581, 434);
             this.btAdicionar.Name = "btAdicionar";
-            this.btAdicionar.Size = new System.Drawing.Size(75, 71);
+            this.btAdicionar.Size = new System.Drawing.Size(75, 76);
             this.btAdicionar.TabIndex = 8;
             this.btAdicionar.UseVisualStyleBackColor = true;
             this.btAdicionar.Click += new System.EventHandler(this.btAdicionar_Click);
@@ -212,6 +212,7 @@ namespace WindowsApp.FuncionarioModule
             this.bt_foto.FlatAppearance.BorderSize = 0;
             this.bt_foto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_foto.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_foto.Image = null;
             this.bt_foto.Location = new System.Drawing.Point(296, 334);
             this.bt_foto.Name = "bt_foto";
             this.bt_foto.Size = new System.Drawing.Size(98, 90);

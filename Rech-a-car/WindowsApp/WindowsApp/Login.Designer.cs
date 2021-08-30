@@ -1,5 +1,5 @@
 ﻿
-namespace WindowsApp.WindowsApp
+namespace WindowsApp
 {
     partial class Login
     {

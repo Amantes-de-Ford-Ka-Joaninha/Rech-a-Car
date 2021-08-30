@@ -45,7 +45,7 @@ namespace WindowsApp.VeiculoModule
             this.label15 = new System.Windows.Forms.Label();
             this.cb_portas = new System.Windows.Forms.ComboBox();
             this.ofdImagem = new System.Windows.Forms.OpenFileDialog();
-            this.bt_foto = new Shared.BotaoComImagem();
+            this.bt_foto = new WindowsApp.Shared.BotaoComImagem();
             this.bt_adicionar = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.tb_marca = new System.Windows.Forms.TextBox();
@@ -248,6 +248,7 @@ namespace WindowsApp.VeiculoModule
             this.bt_foto.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.bt_foto.FlatAppearance.BorderSize = 0;
             this.bt_foto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_foto.Image = null;
             this.bt_foto.Location = new System.Drawing.Point(465, 331);
             this.bt_foto.Name = "bt_foto";
             this.bt_foto.Size = new System.Drawing.Size(105, 95);
@@ -261,10 +262,10 @@ namespace WindowsApp.VeiculoModule
             this.bt_adicionar.FlatAppearance.BorderSize = 0;
             this.bt_adicionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_adicionar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(33)))), ((int)(((byte)(34)))));
-            this.bt_adicionar.Image = global::WindowsApp.Properties.Resources.adicionar;
-            this.bt_adicionar.Location = new System.Drawing.Point(596, 450);
+            this.bt_adicionar.Image = global::WindowsApp.Properties.Resources.check;
+            this.bt_adicionar.Location = new System.Drawing.Point(577, 430);
             this.bt_adicionar.Name = "bt_adicionar";
-            this.bt_adicionar.Size = new System.Drawing.Size(60, 60);
+            this.bt_adicionar.Size = new System.Drawing.Size(79, 80);
             this.bt_adicionar.TabIndex = 14;
             this.bt_adicionar.UseVisualStyleBackColor = true;
             this.bt_adicionar.Click += new System.EventHandler(this.bt_adicionar_Click);
