@@ -1,4 +1,6 @@
 ﻿
+using WindowsApp.Shared;
+
 namespace WindowsApp.AluguelModule
 {
     partial class CadastroAluguel
@@ -30,7 +32,7 @@ namespace WindowsApp.AluguelModule
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new WindowsApp.Shared.PanelColorido();
+            this.panel1 = new PanelColorido();
             this.cbCondutor = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -43,7 +45,7 @@ namespace WindowsApp.AluguelModule
             this.tbEndereço = new System.Windows.Forms.TextBox();
             this.tbCliente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel2 = new WindowsApp.Shared.PanelColorido();
+            this.panel2 = new PanelColorido();
             this.label13 = new System.Windows.Forms.Label();
             this.tbPlaca = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -51,7 +53,7 @@ namespace WindowsApp.AluguelModule
             this.label10 = new System.Windows.Forms.Label();
             this.tbMarca = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.panel3 = new WindowsApp.Shared.PanelColorido();
+            this.panel3 = new PanelColorido();
             this.cbPlano = new System.Windows.Forms.ComboBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -61,14 +63,14 @@ namespace WindowsApp.AluguelModule
             this.label3 = new System.Windows.Forms.Label();
             this.lbValor = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.panelColorido1 = new WindowsApp.Shared.PanelColorido();
+            this.panelColorido1 = new PanelColorido();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.cbOpcionais = new System.Windows.Forms.ComboBox();
             this.label18 = new System.Windows.Forms.Label();
             this.btFecharAluguel = new System.Windows.Forms.Button();
-            this.panelColorido2 = new WindowsApp.Shared.PanelColorido();
+            this.panelColorido2 = new PanelColorido();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();

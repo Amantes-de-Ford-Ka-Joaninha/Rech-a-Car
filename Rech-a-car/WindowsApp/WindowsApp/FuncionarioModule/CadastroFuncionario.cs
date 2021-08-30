@@ -37,9 +37,10 @@ namespace WindowsApp.FuncionarioModule
             var endereco = tbEndereco.Text;
             var cpf = tbCPF.Text;
             var usuario = tbUsuario.Text;
-            var imagem = (Bitmap)bt_foto.BackgroundImage;
+            var imagem = (Bitmap)bt_foto.Image;
+            var senha = tbSenha.Text;
 
-            return new Funcionario(nome, telefone, endereco, cpf, imagem, usuario);
+            return new Funcionario(nome, telefone, endereco, cpf, imagem, usuario, senha);
         }
         private void AtualizarIcone(Bitmap imagem)
         {
@@ -50,12 +51,7 @@ namespace WindowsApp.FuncionarioModule
         {
             if (!Salva())
                 return;
-            var validacaoSenha = entidade.ValidarSenha(tbSenha.Text);
 
-            if (validacaoSenha != "")
-                MessageBox.Show(validacaoSenha);
-
-            ControladorSenha.InserirSenha(entidade.Id, tbSenha.Text);
             TelaPrincipal.Instancia.FormAtivo = new GerenciamentoFuncionario();
         }
         private void bt_foto_Click(object sender, EventArgs e)

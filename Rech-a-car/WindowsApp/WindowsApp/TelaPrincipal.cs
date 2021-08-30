@@ -22,7 +22,8 @@ namespace WindowsApp
             InitializeComponent();
             EsconderSubMenu();
             lbUsuario.Text = funcionario.Nome;
-            lbCargo.Text = "Funcionário";
+            lbCargo.Text = funcionario.Cargo;
+            foto_perfil.Image = funcionario.Foto;
         }
 
         public Form FormAtivo { set { AbrirFormPanel(value); } }

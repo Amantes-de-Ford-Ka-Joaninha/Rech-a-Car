@@ -46,7 +46,7 @@ namespace WindowsApp
             this.bt_clientes = new System.Windows.Forms.Button();
             this.bt_aluguel = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.foto_perfil = new System.Windows.Forms.PictureBox();
             this.lbCargo = new System.Windows.Forms.Label();
             this.lbUsuario = new System.Windows.Forms.Label();
             this.panelFormFilho = new System.Windows.Forms.Panel();
@@ -58,7 +58,7 @@ namespace WindowsApp
             this.panelSubMenuClientes.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.foto_perfil)).BeginInit();
             this.panelFormFilho.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -343,7 +343,7 @@ namespace WindowsApp
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(33)))), ((int)(((byte)(34)))));
-            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Controls.Add(this.foto_perfil);
             this.panel1.Controls.Add(this.lbCargo);
             this.panel1.Controls.Add(this.lbUsuario);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -353,17 +353,17 @@ namespace WindowsApp
             this.panel1.Size = new System.Drawing.Size(333, 123);
             this.panel1.TabIndex = 0;
             // 
-            // pictureBox2
+            // foto_perfil
             // 
-            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(39, 26);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(80, 74);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 2;
-            this.pictureBox2.TabStop = false;
+            this.foto_perfil.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.foto_perfil.Image = ((System.Drawing.Image)(resources.GetObject("foto_perfil.Image")));
+            this.foto_perfil.Location = new System.Drawing.Point(39, 26);
+            this.foto_perfil.Margin = new System.Windows.Forms.Padding(4);
+            this.foto_perfil.Name = "foto_perfil";
+            this.foto_perfil.Size = new System.Drawing.Size(80, 74);
+            this.foto_perfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.foto_perfil.TabIndex = 2;
+            this.foto_perfil.TabStop = false;
             // 
             // lbCargo
             // 
@@ -459,7 +459,7 @@ namespace WindowsApp
             this.panel3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.foto_perfil)).EndInit();
             this.panelFormFilho.ResumeLayout(false);
             this.panelFormFilho.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -478,7 +478,7 @@ namespace WindowsApp
         private System.Windows.Forms.Label lbCargo;
         private System.Windows.Forms.Panel panelFormFilho;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox foto_perfil;
         private System.Windows.Forms.Label labelTitulo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button bt_veiculos;

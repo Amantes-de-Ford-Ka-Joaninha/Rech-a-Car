@@ -86,6 +86,16 @@ namespace Controladores.PessoaModule
         public override string sqlEditar => sqlEditarFuncionario;
         public override string sqlExcluir => sqlExcluirFuncionario;
         public override string sqlExists => sqlExisteFuncionario;
+        public override void Inserir(Funcionario entidade, int id_chave_estrangeira = 0)
+        {
+            base.Inserir(entidade, id_chave_estrangeira);
+            ControladorSenha.Inserir(entidade.Id, entidade.Senha);
+        }
+        public override void Editar(int id, Funcionario entidade, int id_chave_estrangeira = 0)
+        {
+            base.Editar(id, entidade, id_chave_estrangeira);
+            ControladorSenha.Editar(entidade.Id, entidade.Senha);
+        }
         public override Funcionario ConverterEmEntidade(IDataReader reader)
         {
             var id = Convert.ToInt32(reader["ID"]);
@@ -111,6 +121,7 @@ namespace Controladores.PessoaModule
                 { "TELEFONE", funcionario.Telefone },
                 { "DOCUMENTO", funcionario.Documento },
                 { "USER", funcionario.NomeUsuario },
+                { "SENHA", funcionario.Senha},
                 { "FOTO", SalvarImagem(funcionario.Foto) }
             };
 

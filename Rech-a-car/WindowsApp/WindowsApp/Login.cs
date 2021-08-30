@@ -27,14 +27,14 @@ namespace WindowsApp.WindowsApp
 
             GetFuncionario();
 
-            if (!Logar(funcionario.NomeUsuario, senha))
+            if (!Logar(funcionario.Id, senha))
                 return ResultadoLogin.SenhaErrada;
 
             return ResultadoLogin.Sucesso;
         }
-        private bool Logar(string user, string senha)
+        private bool Logar(int id_funcionario, string senha)
         {
-            return ControladorSenha.SenhaCorreta(user, senha);
+            return ControladorSenha.SenhaCorreta(id_funcionario, senha);
         }
         private bool ExisteUsuario(string usuario)
         {
@@ -56,11 +56,11 @@ namespace WindowsApp.WindowsApp
         }
         private void bt_entrar_Click(object sender, EventArgs e)
         {
-            new TelaPrincipal(funcionario).Show();
             var resultadoLogin = LoginUsuario();
             MessageBox.Show(mostraResultado(resultadoLogin));
             if (resultadoLogin != ResultadoLogin.Sucesso)
                 return;
+            new TelaPrincipal(funcionario).Show();
             Close();
         }
         private void tbUsuario_TextChanged(object sender, EventArgs e)

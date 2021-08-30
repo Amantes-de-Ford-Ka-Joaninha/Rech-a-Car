@@ -7,7 +7,7 @@ using WindowsApp.Shared;
 
 namespace WindowsApp.AluguelModule
 {
-    public partial class CadastroAluguel : Form//CadastroEntidade<Aluguel>
+    public partial class CadastroAluguel : CadastroEntidade<Aluguel>
     {
         public CadastroAluguel()
         {
