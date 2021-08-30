@@ -89,7 +89,6 @@ namespace Controladores.PessoaModule
                                         numBytesRequested: 256 / 8));
         }
 
-
         public class Senha
         {
             public Senha(byte[] salt, string hash)
