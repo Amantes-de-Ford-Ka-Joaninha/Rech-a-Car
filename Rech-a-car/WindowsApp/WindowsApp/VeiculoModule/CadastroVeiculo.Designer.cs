@@ -156,6 +156,7 @@ namespace WindowsApp.VeiculoModule
             // cb_cambio
             // 
             this.cb_cambio.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cb_cambio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_cambio.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_cambio.FormattingEnabled = true;
             this.cb_cambio.Items.AddRange(new object[] {
@@ -229,6 +230,7 @@ namespace WindowsApp.VeiculoModule
             // cb_portas
             // 
             this.cb_portas.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cb_portas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_portas.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_portas.FormattingEnabled = true;
             this.cb_portas.Items.AddRange(new object[] {
@@ -250,6 +252,7 @@ namespace WindowsApp.VeiculoModule
             this.bt_foto.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.bt_foto.FlatAppearance.BorderSize = 0;
             this.bt_foto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_foto.Image = null;
             this.bt_foto.Location = new System.Drawing.Point(465, 331);
             this.bt_foto.Name = "bt_foto";
             this.bt_foto.Size = new System.Drawing.Size(105, 95);
@@ -295,6 +298,7 @@ namespace WindowsApp.VeiculoModule
             // cb_capacidade
             // 
             this.cb_capacidade.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cb_capacidade.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_capacidade.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_capacidade.FormattingEnabled = true;
             this.cb_capacidade.Items.AddRange(new object[] {
@@ -309,6 +313,7 @@ namespace WindowsApp.VeiculoModule
             // cb_portaMalas
             // 
             this.cb_portaMalas.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cb_portaMalas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_portaMalas.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_portaMalas.FormattingEnabled = true;
             this.cb_portaMalas.Items.AddRange(new object[] {
@@ -358,6 +363,7 @@ namespace WindowsApp.VeiculoModule
             // cb_tipoCombustivel
             // 
             this.cb_tipoCombustivel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cb_tipoCombustivel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_tipoCombustivel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_tipoCombustivel.FormattingEnabled = true;
             this.cb_tipoCombustivel.Items.AddRange(new object[] {
@@ -398,6 +404,7 @@ namespace WindowsApp.VeiculoModule
             // cb_categoria
             // 
             this.cb_categoria.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cb_categoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_categoria.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_categoria.FormattingEnabled = true;
             this.cb_categoria.Items.AddRange(new object[] {

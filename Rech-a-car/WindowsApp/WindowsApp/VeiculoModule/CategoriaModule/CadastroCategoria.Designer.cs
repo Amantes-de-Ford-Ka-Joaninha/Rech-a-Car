@@ -176,6 +176,7 @@ namespace WindowsApp.VeiculoModule.CategoriaModule
             // 
             // cbCNH
             // 
+            this.cbCNH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCNH.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCNH.FormattingEnabled = true;
             this.cbCNH.Items.AddRange(new object[] {
