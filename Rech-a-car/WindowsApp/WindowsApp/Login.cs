@@ -47,6 +47,7 @@ namespace WindowsApp
                 return false;
             if (senhaAdmin == senha)
                 return false;
+            funcionario = new Funcionario("Alexandre Rech", "99999999999", "Rua do Flamengo", "", Properties.Resources.rech, "Admin");
             return true;
         }
 
