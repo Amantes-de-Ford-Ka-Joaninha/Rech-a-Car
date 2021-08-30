@@ -7,13 +7,12 @@ namespace WindowsApp.VeiculoModule
 {
     public class GerenciamentoVeiculo : GerenciamentoEntidade<Veiculo>
     {
-        public GerenciamentoVeiculo() : base("Gerenciamento de Veículos")
+        public GerenciamentoVeiculo(string titulo = "Gerenciamento de Veículo", TipoTela tipo = TipoTela.TodosBotoes) : base(titulo, tipo)
         {
         }
 
         protected override CadastroEntidade<Veiculo> Cadastro => new CadastroVeiculo();
-        protected override VisualizarEntidade<Veiculo> Visualizar => new VisualizarVeiculo();
-
+        protected override ISelecionavel Selecionar => new VisualizarVeiculo();
         public override DataGridViewColumn[] ConfigurarColunas()
         {
             return new DataGridViewColumn[]

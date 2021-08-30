@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace WindowsApp.Shared
 {
-    public class VisualizarEntidade<T> : Form where T : IControlavel
+    public class VisualizarEntidade<T> : Form, ISelecionavel where T : IControlavel
     {
 
     }

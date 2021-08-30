@@ -12,7 +12,7 @@ namespace WindowsApp.VeiculoModule.CategoriaModule
         }
 
         protected override CadastroEntidade<Categoria> Cadastro => new CadastroCategoria();
-        protected override VisualizarEntidade<Categoria> Visualizar => new VisualizarCategoria();
+        protected override ISelecionavel Selecionar => new VisualizarCategoria();
 
         public override DataGridViewColumn[] ConfigurarColunas()
         {

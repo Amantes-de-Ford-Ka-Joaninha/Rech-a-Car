@@ -8,13 +8,12 @@ namespace WindowsApp.ClienteModule
 {
     public partial class GerenciamentoCliente : GerenciamentoEntidade<ICliente>
     {
-
-        public GerenciamentoCliente() : base("Gerenciamento de Clientes", TipoTela.SemCadastrar)
+        public GerenciamentoCliente(string titulo = "Gerenciamento de Cliente", TipoTela tipo = TipoTela.SemCadastrar) : base(titulo, tipo)
         {
         }
 
         protected override CadastroEntidade<ICliente> Cadastro => new CadastroCliente();
-        protected override VisualizarEntidade<ICliente> Visualizar => new VisualizarCliente();
+        protected override ISelecionavel Selecionar => new VisualizarCliente();
 
         public override DataGridViewColumn[] ConfigurarColunas()
         {

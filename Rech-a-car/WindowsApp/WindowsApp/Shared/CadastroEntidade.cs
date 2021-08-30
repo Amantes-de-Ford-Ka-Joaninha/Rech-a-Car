@@ -16,6 +16,7 @@ namespace WindowsApp.Shared
             this.entidade = entidade;
             return ConfigurarEditar();
         }
+
         protected abstract IEditavel ConfigurarEditar();
         protected bool Salva(int id_chave_estrangeira = 0)
         {

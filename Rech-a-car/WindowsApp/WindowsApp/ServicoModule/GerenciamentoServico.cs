@@ -7,12 +7,12 @@ namespace WindowsApp.ServicoModule
 {
     public class GerenciamentoServico : GerenciamentoEntidade<Servico>
     {
-        public GerenciamentoServico() : base("Gerenciamento de Serviços")
+        public GerenciamentoServico(string titulo = "Gerenciamento de Serviços", TipoTela tipo = TipoTela.TodosBotoes) : base(titulo, tipo)
         {
         }
 
         protected override CadastroEntidade<Servico> Cadastro => new CadastroServico();
-        protected override VisualizarEntidade<Servico> Visualizar => new VisualizarServico();
+        protected override ISelecionavel Selecionar => new VisualizarServico();
 
         public override DataGridViewColumn[] ConfigurarColunas()
         {

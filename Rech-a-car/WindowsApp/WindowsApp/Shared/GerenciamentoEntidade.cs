@@ -5,10 +5,10 @@ using System.Windows.Forms;
 
 namespace WindowsApp.Shared
 {
-    public abstract partial class GerenciamentoEntidade<T> : Form where T : IControlavel
+    public abstract partial class GerenciamentoEntidade<T> : Form, ISelecionavel where T : IControlavel
     {
         protected abstract CadastroEntidade<T> Cadastro { get; }
-        protected abstract VisualizarEntidade<T> Visualizar { get; }
+        protected abstract ISelecionavel Selecionar { get; }
         public GerenciamentoEntidade(String titulo, TipoTela tipo = TipoTela.TodosBotoes)
         {
             InitializeComponent();
@@ -17,7 +17,7 @@ namespace WindowsApp.Shared
 
             AtualizarBotoes(tipo);
         }
-
+        
         public abstract object[] ObterCamposLinha(T item);
         public abstract DataGridViewColumn[] ConfigurarColunas();
         public void AtualizarRegistros()
@@ -101,7 +101,7 @@ namespace WindowsApp.Shared
         }
         private void dgvEntidade_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            TelaPrincipal.Instancia.FormAtivo = Visualizar;
+            TelaPrincipal.Instancia.FormAtivo = (Form)Selecionar;
         }
         private void dgvEntidade_CellClick(object sender, DataGridViewCellEventArgs e)
         {

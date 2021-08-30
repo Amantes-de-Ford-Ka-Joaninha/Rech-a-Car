@@ -11,7 +11,7 @@ namespace WindowsApp.AluguelModule
 {
     public partial class ResumoAluguel : CadastroEntidade<Aluguel>    
     {
-        public override Controlador<Aluguel> Controlador => throw new System.NotImplementedException();
+        public override Controlador<Aluguel> Controlador => new ControladorAluguel();
         public Controlador<ClientePF> Controlador_PF { get; set; }
         public Controlador<ClientePJ> Controlador_PJ { get; set; }
 

@@ -7,12 +7,12 @@ namespace WindowsApp.FuncionarioModule
 {
     public class GerenciamentoFuncionario : GerenciamentoEntidade<Funcionario>
     {
-        public GerenciamentoFuncionario() : base("Gerenciamento de Funcionários")
+        public GerenciamentoFuncionario(string titulo = "Gerenciamento de Funcionário", TipoTela tipo = TipoTela.TodosBotoes) : base(titulo, tipo)
         {
         }
 
         protected override CadastroEntidade<Funcionario> Cadastro => new CadastroFuncionario();
-        protected override VisualizarEntidade<Funcionario> Visualizar => new VisualizarFuncionario();
+        protected override ISelecionavel Selecionar => new VisualizarFuncionario();
         public override DataGridViewColumn[] ConfigurarColunas()
         {
             return new DataGridViewColumn[]

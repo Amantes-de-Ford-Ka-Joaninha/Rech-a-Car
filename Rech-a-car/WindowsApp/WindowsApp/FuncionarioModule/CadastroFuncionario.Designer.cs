@@ -212,7 +212,6 @@ namespace WindowsApp.FuncionarioModule
             this.bt_foto.FlatAppearance.BorderSize = 0;
             this.bt_foto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_foto.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_foto.Image = null;
             this.bt_foto.Location = new System.Drawing.Point(296, 334);
             this.bt_foto.Name = "bt_foto";
             this.bt_foto.Size = new System.Drawing.Size(98, 90);

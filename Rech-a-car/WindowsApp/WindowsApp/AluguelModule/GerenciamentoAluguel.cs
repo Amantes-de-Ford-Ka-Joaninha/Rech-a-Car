@@ -7,12 +7,12 @@ namespace WindowsApp.AluguelModule
 {
     public partial class GerenciamentoAluguel : GerenciamentoEntidade<Aluguel>
     {
-        public GerenciamentoAluguel() : base("Gerenciamento de Aluguel")
+        public GerenciamentoAluguel(string titulo = "Gerenciamento de Aluguel", TipoTela tipo = TipoTela.TodosBotoes) : base(titulo, tipo)
         {
             InitializeComponent();
         }
         protected override CadastroEntidade<Aluguel> Cadastro => new ResumoAluguel();
-        protected override VisualizarEntidade<Aluguel> Visualizar => new VisualizarAluguel();
+        protected override ISelecionavel Selecionar => new VisualizarAluguel();
 
         public override DataGridViewColumn[] ConfigurarColunas()
         {
