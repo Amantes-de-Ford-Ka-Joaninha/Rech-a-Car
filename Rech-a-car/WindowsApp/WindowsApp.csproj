@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="WindowsApp\AluguelModule\FechamentoAluguel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowsApp\AluguelModule\FechamentoAluguel.Designer.cs">
+      <DependentUpon>FechamentoAluguel.cs</DependentUpon>
+    </Compile>
     <Compile Include="WindowsApp\ConfiguracoesModule\Configuracoes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,6 +196,9 @@
     <Compile Include="WindowsApp\VeiculoModule\VisualizarVeiculo.cs">
       <SubType>Form</SubType>
     </Compile>
+    <EmbeddedResource Include="WindowsApp\AluguelModule\FechamentoAluguel.resx">
+      <DependentUpon>FechamentoAluguel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WindowsApp\AluguelModule\ResumoAluguel.resx">
       <DependentUpon>ResumoAluguel.cs</DependentUpon>
     </EmbeddedResource>
