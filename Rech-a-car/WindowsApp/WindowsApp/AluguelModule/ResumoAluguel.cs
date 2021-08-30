@@ -9,6 +9,7 @@ using Dominio.PessoaModule.ClienteModule;
 using Dominio.PessoaModule;
 using Dominio.ServicoModule;
 using Controladores.ServicoModule;
+using System.Windows.Forms;
 
 namespace WindowsApp.AluguelModule
 {
@@ -115,5 +116,10 @@ namespace WindowsApp.AluguelModule
         }
 
         #endregion
+
+        private void pictureBox1_MouseHover(object sender, EventArgs e)
+        {
+            tipAluguel.SetToolTip(pictureBox1, "Clique duas vezes nos painéis para adicionar as informações necessárias.");
+        }
     }
 }
