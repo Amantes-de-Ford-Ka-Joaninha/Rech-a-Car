@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace WindowsApp.AluguelModule
 {
-    public partial class ResumoAluguel : Form//CadastroEntidade<Aluguel>
+    public partial class ResumoAluguel : CadastroEntidade<Aluguel>
     {
         public static new Aluguel entidade = new Aluguel();
 
