@@ -3,6 +3,7 @@ using Controladores.VeiculoModule;
 using Dominio.PessoaModule;
 using Dominio.VeiculoModule;
 using System;
+using System.Windows.Forms;
 using WindowsApp.Shared;
 
 namespace WindowsApp.VeiculoModule.CategoriaModule

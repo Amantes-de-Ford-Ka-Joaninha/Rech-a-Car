@@ -485,7 +485,7 @@ namespace WindowsApp.AluguelModule
             // 
             this.btFecharAluguel.FlatAppearance.BorderSize = 0;
             this.btFecharAluguel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btFecharAluguel.Image = global::WindowsApp.Properties.Resources.adicionar;
+            this.btFecharAluguel.Image = global::WindowsApp.Properties.Resources.check;
             this.btFecharAluguel.Location = new System.Drawing.Point(581, 438);
             this.btFecharAluguel.Name = "btFecharAluguel";
             this.btFecharAluguel.Size = new System.Drawing.Size(75, 72);

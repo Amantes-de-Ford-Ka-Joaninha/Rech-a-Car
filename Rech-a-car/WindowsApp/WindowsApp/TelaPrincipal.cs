@@ -8,7 +8,6 @@ using WindowsApp.FuncionarioModule;
 using WindowsApp.ServicoModule;
 using WindowsApp.VeiculoModule;
 using WindowsApp.VeiculoModule.CategoriaModule;
-using WindowsApp.WindowsApp;
 
 namespace WindowsApp
 {

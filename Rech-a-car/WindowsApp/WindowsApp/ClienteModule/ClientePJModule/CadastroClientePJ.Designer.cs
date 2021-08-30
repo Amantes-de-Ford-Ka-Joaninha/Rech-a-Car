@@ -198,10 +198,10 @@ namespace WindowsApp.ClienteModule
             // 
             this.btAdicionar.FlatAppearance.BorderSize = 0;
             this.btAdicionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btAdicionar.Image = global::WindowsApp.Properties.Resources.adicionar;
-            this.btAdicionar.Location = new System.Drawing.Point(581, 440);
+            this.btAdicionar.Image = global::WindowsApp.Properties.Resources.check;
+            this.btAdicionar.Location = new System.Drawing.Point(581, 431);
             this.btAdicionar.Name = "btAdicionar";
-            this.btAdicionar.Size = new System.Drawing.Size(75, 70);
+            this.btAdicionar.Size = new System.Drawing.Size(75, 79);
             this.btAdicionar.TabIndex = 18;
             this.btAdicionar.UseVisualStyleBackColor = true;
             this.btAdicionar.Click += new System.EventHandler(this.btAdicionar_Click);
@@ -224,6 +224,7 @@ namespace WindowsApp.ClienteModule
             this.dgvMotoristas.Name = "dgvMotoristas";
             this.dgvMotoristas.RowHeadersVisible = false;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(58)))), ((int)(((byte)(54)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(58)))), ((int)(((byte)(54)))));

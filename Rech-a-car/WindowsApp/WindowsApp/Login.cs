@@ -3,7 +3,7 @@ using Dominio.PessoaModule;
 using System;
 using System.Windows.Forms;
 
-namespace WindowsApp.WindowsApp
+namespace WindowsApp
 {
     public partial class Login : Form
     {

@@ -92,10 +92,10 @@ namespace WindowsApp.ServicoModule
             // 
             this.btAdicionar.FlatAppearance.BorderSize = 0;
             this.btAdicionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btAdicionar.Image = global::WindowsApp.Properties.Resources.adicionar;
-            this.btAdicionar.Location = new System.Drawing.Point(290, 325);
+            this.btAdicionar.Image = global::WindowsApp.Properties.Resources.check;
+            this.btAdicionar.Location = new System.Drawing.Point(575, 431);
             this.btAdicionar.Name = "btAdicionar";
-            this.btAdicionar.Size = new System.Drawing.Size(67, 65);
+            this.btAdicionar.Size = new System.Drawing.Size(81, 79);
             this.btAdicionar.TabIndex = 4;
             this.btAdicionar.UseVisualStyleBackColor = true;
             this.btAdicionar.Click += new System.EventHandler(this.btAdicionar_Click);
@@ -105,7 +105,7 @@ namespace WindowsApp.ServicoModule
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(170, 279);
+            this.label3.Location = new System.Drawing.Point(170, 278);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(91, 21);
             this.label3.TabIndex = 2;
@@ -114,7 +114,7 @@ namespace WindowsApp.ServicoModule
             // tbQuantidade
             // 
             this.tbQuantidade.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbQuantidade.Location = new System.Drawing.Point(268, 276);
+            this.tbQuantidade.Location = new System.Drawing.Point(268, 275);
             this.tbQuantidade.Name = "tbQuantidade";
             this.tbQuantidade.Size = new System.Drawing.Size(163, 29);
             this.tbQuantidade.TabIndex = 3;
