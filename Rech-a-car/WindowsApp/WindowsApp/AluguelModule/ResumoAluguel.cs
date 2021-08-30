@@ -10,13 +10,14 @@ using Dominio.PessoaModule;
 using Dominio.ServicoModule;
 using Controladores.ServicoModule;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace WindowsApp.AluguelModule
 {
     public partial class ResumoAluguel : CadastroEntidade<Aluguel> //Form //  
     {
         public static new Aluguel entidade = new Aluguel();
-        private decimal PrecoParcial;
+        private double PrecoParcial;
         public ResumoAluguel()
         {
             InitializeComponent();
@@ -90,7 +91,50 @@ namespace WindowsApp.AluguelModule
         private void AdicionarServico()
         {
             entidade.Servicos.Add((Servico)listServicos.SelectedItem);
+            lbValor.Text = CalcularPrecoParcial().ToString();
         }
+
+        private double CalcularPrecoParcial()
+        {
+            entidade.Servicos.ForEach(x => PrecoParcial += x.Taxa);
+
+            switch (entidade.TipoPlano)
+            {
+                case Plano.diario:
+                    CalculaPlanoDiario();
+                    break;
+                case Plano.controlado:
+                    CalculaPlanoControlado();
+                    break;
+                case Plano.livre:
+                    break;
+                default:
+                    break;
+            }
+
+            PrecoParcial += entidade.Veiculo.Categoria.PrecoDiaria;
+
+            return PrecoParcial;
+        }
+
+        private void CalculaPlanoControlado()
+        {
+            return GetQtdDias * entidade.Veiculo.Categoria.
+        }
+
+        private void CalculaPlanoDiario()
+        {
+            PrecoParcial += entidade.Veiculo.Categoria.PrecoDiaria * GetQtdDias();
+        }
+
+        private int GetQtdDias()
+        {
+            DateTime.TryParse(tbDt_Devolucao.Text, out DateTime dtDevolucao);
+            DateTime.TryParse(tbDt_Emprestimo.Text, out DateTime dtEmprestimo);
+
+            return (dtEmprestimo - dtDevolucao).Days;
+        }
+
         private void RemoverServico()
         {
             if (entidade.Servicos.Contains((Servico)listServicos.SelectedItem));
