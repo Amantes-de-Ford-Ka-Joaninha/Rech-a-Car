@@ -164,6 +164,7 @@ namespace WindowsApp.ClienteModule
             // 
             // cbTipoCNH
             // 
+            this.cbTipoCNH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTipoCNH.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbTipoCNH.FormattingEnabled = true;
             this.cbTipoCNH.Items.AddRange(new object[] {
