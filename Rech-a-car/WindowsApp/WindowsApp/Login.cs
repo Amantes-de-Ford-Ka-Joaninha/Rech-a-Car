@@ -43,9 +43,9 @@ namespace WindowsApp
             var userAdmin = ConfigurationManager.AppSettings["userAdmin"];
             var senhaAdmin = ConfigurationManager.AppSettings["senhaAdmin"];
 
-            if (userAdmin == usuario)
+            if (userAdmin != usuario)
                 return false;
-            if (senhaAdmin == senha)
+            if (senhaAdmin != senha)
                 return false;
             funcionario = new Funcionario("Alexandre Rech", "99999999999", "Rua do Flamengo", "", Properties.Resources.rech, "Admin");
             return true;
