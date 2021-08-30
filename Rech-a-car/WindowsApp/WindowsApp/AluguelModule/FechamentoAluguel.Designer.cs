@@ -1,7 +1,7 @@
 ﻿
 using WindowsApp.Shared;
 
-namespace WindowsApp.WindowsApp.AluguelModule
+namespace WindowsApp.AluguelModule
 {
     partial class FechamentoAluguel
     {

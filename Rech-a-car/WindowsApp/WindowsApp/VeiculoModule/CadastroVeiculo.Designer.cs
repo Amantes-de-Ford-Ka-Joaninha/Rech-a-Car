@@ -252,7 +252,6 @@ namespace WindowsApp.VeiculoModule
             this.bt_foto.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.bt_foto.FlatAppearance.BorderSize = 0;
             this.bt_foto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_foto.Image = null;
             this.bt_foto.Location = new System.Drawing.Point(465, 331);
             this.bt_foto.Name = "bt_foto";
             this.bt_foto.Size = new System.Drawing.Size(105, 95);

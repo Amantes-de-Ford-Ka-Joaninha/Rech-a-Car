@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsApp.WindowsApp.AluguelModule
+namespace WindowsApp.AluguelModule
 {
     public partial class FechamentoAluguel : Form
     {

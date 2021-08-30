@@ -15,13 +15,15 @@ namespace WindowsApp.AluguelModule
         public static Aluguel Aluguel = new Aluguel();
         public ResumoAluguel()
         {
-            if (CadastrarAluguel())
-                PopularDados();
             InitializeComponent();
         }
 
         private void PopularDados()
         {
+            if (CadastrarAluguel())
+                PopularDados();
+
+
             tbCliente.Text = entidade.Cliente.Nome;
 
             tbDocumento.Text = entidade.Cliente.Documento;
