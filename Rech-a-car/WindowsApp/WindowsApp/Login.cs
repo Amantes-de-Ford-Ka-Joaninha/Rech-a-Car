@@ -60,7 +60,7 @@ namespace WindowsApp.WindowsApp
             //MessageBox.Show(mostraResultado(resultadoLogin));
             //if (resultadoLogin != ResultadoLogin.Sucesso)
             //    return;
-            //Hide();
+            Close();
             new TelaPrincipal(funcionario).Show();
         }
         private void tbUsuario_TextChanged(object sender, EventArgs e)
