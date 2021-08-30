@@ -67,13 +67,13 @@ namespace WindowsApp.AluguelModule
             this.lbValor = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panelColorido1 = new WindowsApp.Shared.PanelColorido();
+            this.bt_RemoveServico = new System.Windows.Forms.Button();
+            this.bt_AddServico = new System.Windows.Forms.Button();
             this.listServicos = new System.Windows.Forms.ListBox();
             this.label18 = new System.Windows.Forms.Label();
             this.panelColorido2 = new WindowsApp.Shared.PanelColorido();
             this.tipAluguel = new System.Windows.Forms.ToolTip(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.btFecharAluguel = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -440,14 +440,38 @@ namespace WindowsApp.AluguelModule
             // panelColorido1
             // 
             this.panelColorido1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(7)))), ((int)(((byte)(49)))));
-            this.panelColorido1.Controls.Add(this.button2);
-            this.panelColorido1.Controls.Add(this.button1);
+            this.panelColorido1.Controls.Add(this.bt_RemoveServico);
+            this.panelColorido1.Controls.Add(this.bt_AddServico);
             this.panelColorido1.Controls.Add(this.listServicos);
             this.panelColorido1.Controls.Add(this.label18);
             this.panelColorido1.Location = new System.Drawing.Point(31, 351);
             this.panelColorido1.Name = "panelColorido1";
             this.panelColorido1.Size = new System.Drawing.Size(215, 160);
             this.panelColorido1.TabIndex = 8;
+            // 
+            // bt_RemoveServico
+            // 
+            this.bt_RemoveServico.FlatAppearance.BorderSize = 0;
+            this.bt_RemoveServico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_RemoveServico.Image = global::WindowsApp.Properties.Resources.removemini;
+            this.bt_RemoveServico.Location = new System.Drawing.Point(168, 97);
+            this.bt_RemoveServico.Name = "bt_RemoveServico";
+            this.bt_RemoveServico.Size = new System.Drawing.Size(36, 35);
+            this.bt_RemoveServico.TabIndex = 16;
+            this.bt_RemoveServico.UseVisualStyleBackColor = true;
+            this.bt_RemoveServico.Click += new System.EventHandler(this.bt_RemoveServico_Click);
+            // 
+            // bt_AddServico
+            // 
+            this.bt_AddServico.FlatAppearance.BorderSize = 0;
+            this.bt_AddServico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_AddServico.Image = global::WindowsApp.Properties.Resources.addmini;
+            this.bt_AddServico.Location = new System.Drawing.Point(168, 46);
+            this.bt_AddServico.Name = "bt_AddServico";
+            this.bt_AddServico.Size = new System.Drawing.Size(36, 36);
+            this.bt_AddServico.TabIndex = 15;
+            this.bt_AddServico.UseVisualStyleBackColor = true;
+            this.bt_AddServico.Click += new System.EventHandler(this.bt_AddServico_Click);
             // 
             // listServicos
             // 
@@ -487,28 +511,6 @@ namespace WindowsApp.AluguelModule
             this.pictureBox1.TabIndex = 14;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.MouseHover += new System.EventHandler(this.pictureBox1_MouseHover);
-            // 
-            // button2
-            // 
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Image = global::WindowsApp.Properties.Resources.removemini;
-            this.button2.Location = new System.Drawing.Point(168, 97);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(36, 35);
-            this.button2.TabIndex = 16;
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = global::WindowsApp.Properties.Resources.addmini;
-            this.button1.Location = new System.Drawing.Point(168, 46);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(36, 36);
-            this.button1.TabIndex = 15;
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // btFecharAluguel
             // 
@@ -595,7 +597,7 @@ namespace WindowsApp.AluguelModule
         private System.Windows.Forms.ComboBox cb_motoristas;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolTip tipAluguel;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button bt_RemoveServico;
+        private System.Windows.Forms.Button bt_AddServico;
     }
 }

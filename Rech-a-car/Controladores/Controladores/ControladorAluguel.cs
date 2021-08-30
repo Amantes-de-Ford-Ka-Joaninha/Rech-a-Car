@@ -27,7 +27,7 @@ namespace Controladores.AluguelModule
                     @ID_CLIENTE,       
                     @ID_CONDUTOR,             
                     @ID_VEICULO,
-                    @TIPO_ALUGUEL,
+                    @TIPO_ALUGUEL
                 )";
 
         private const string sqlEditarAluguel =

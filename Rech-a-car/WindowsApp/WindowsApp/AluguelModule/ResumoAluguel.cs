@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace WindowsApp.AluguelModule
 {
-    public partial class ResumoAluguel : CadastroEntidade<Aluguel>
+    public partial class ResumoAluguel : CadastroEntidade<Aluguel> //Form //  
     {
         public static new Aluguel entidade = new Aluguel();
 
@@ -92,6 +92,11 @@ namespace WindowsApp.AluguelModule
         {
             entidade.Servicos.Add((Servico)listServicos.SelectedItem);
         }
+        private void RemoverServico()
+        {
+            if (entidade.Servicos.Contains((Servico)listServicos.SelectedItem));
+                entidade.Servicos.Remove((Servico)listServicos.SelectedItem);
+        }
         private void CarregarOpcionais()
         {
             listServicos.DataSource = new ControladorServico().Registros;
@@ -114,6 +119,15 @@ namespace WindowsApp.AluguelModule
         {
             TelaPrincipal.Instancia.FormAtivo = new GerenciamentoVeiculo("Selecione um Veículo", TipoTela.ApenasConfirma);
         }
+        private void bt_AddServico_Click(object sender, EventArgs e)
+        {
+            AdicionarServico();
+        }
+        private void bt_RemoveServico_Click(object sender, EventArgs e)
+        {
+            RemoverServico();
+        }
+
 
         #endregion
 
@@ -121,5 +135,7 @@ namespace WindowsApp.AluguelModule
         {
             tipAluguel.SetToolTip(pictureBox1, "Clique duas vezes nos painéis para adicionar as informações necessárias.");
         }
+
+
     }
 }
