@@ -70,11 +70,11 @@ namespace WindowsApp.AluguelModule
             this.listServicos = new System.Windows.Forms.ListBox();
             this.label18 = new System.Windows.Forms.Label();
             this.panelColorido2 = new WindowsApp.Shared.PanelColorido();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btFecharAluguel = new System.Windows.Forms.Button();
             this.tipAluguel = new System.Windows.Forms.ToolTip(this.components);
-            this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btFecharAluguel = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -480,25 +480,24 @@ namespace WindowsApp.AluguelModule
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::WindowsApp.Properties.Resources.socorro;
-            this.pictureBox1.Location = new System.Drawing.Point(634, 12);
+            this.pictureBox1.Image = global::WindowsApp.Properties.Resources.help;
+            this.pictureBox1.Location = new System.Drawing.Point(623, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(22, 22);
+            this.pictureBox1.Size = new System.Drawing.Size(33, 35);
             this.pictureBox1.TabIndex = 14;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.MouseHover += new System.EventHandler(this.pictureBox1_MouseHover);
             // 
-            // btFecharAluguel
+            // button2
             // 
-            this.btFecharAluguel.FlatAppearance.BorderSize = 0;
-            this.btFecharAluguel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btFecharAluguel.Image = global::WindowsApp.Properties.Resources.check;
-            this.btFecharAluguel.Location = new System.Drawing.Point(581, 438);
-            this.btFecharAluguel.Name = "btFecharAluguel";
-            this.btFecharAluguel.Size = new System.Drawing.Size(75, 72);
-            this.btFecharAluguel.TabIndex = 13;
-            this.btFecharAluguel.UseVisualStyleBackColor = true;
-            this.btFecharAluguel.Click += new System.EventHandler(this.btFecharAluguel_Click);
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Image = global::WindowsApp.Properties.Resources.removemini;
+            this.button2.Location = new System.Drawing.Point(168, 97);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(36, 35);
+            this.button2.TabIndex = 16;
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -511,16 +510,17 @@ namespace WindowsApp.AluguelModule
             this.button1.TabIndex = 15;
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btFecharAluguel
             // 
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Image = global::WindowsApp.Properties.Resources.removemini;
-            this.button2.Location = new System.Drawing.Point(168, 97);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(36, 35);
-            this.button2.TabIndex = 16;
-            this.button2.UseVisualStyleBackColor = true;
+            this.btFecharAluguel.FlatAppearance.BorderSize = 0;
+            this.btFecharAluguel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btFecharAluguel.Image = global::WindowsApp.Properties.Resources.check;
+            this.btFecharAluguel.Location = new System.Drawing.Point(581, 438);
+            this.btFecharAluguel.Name = "btFecharAluguel";
+            this.btFecharAluguel.Size = new System.Drawing.Size(75, 72);
+            this.btFecharAluguel.TabIndex = 13;
+            this.btFecharAluguel.UseVisualStyleBackColor = true;
+            this.btFecharAluguel.Click += new System.EventHandler(this.btFecharAluguel_Click);
             // 
             // ResumoAluguel
             // 
