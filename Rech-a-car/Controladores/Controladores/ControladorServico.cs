@@ -13,12 +13,14 @@ namespace Controladores.ServicoModule
            @"INSERT INTO [TBServico]
              (   
                 [NOME],            
-                [Taxa]
+                [TAXA],
+                [ESTOQUE]
              )
           VALUES
              (            
                 @NOME,            
                 @TAXA
+                @ESTOQUE
 
              )";
 
@@ -26,7 +28,8 @@ namespace Controladores.ServicoModule
            @"UPDATE [TBServico]
             SET
                 [NOME] = @NOME,          
-                [TAXA] = @TAXA
+                [TAXA] = @TAXA,
+                [ESTOQUE] = @ESTOQUE,
             WHERE
                 [ID] = @ID";
 
@@ -73,8 +76,9 @@ namespace Controladores.ServicoModule
             var id = Convert.ToInt32(reader["ID"]);
             string nome = Convert.ToString(reader["NOME"]);
             double taxa = Convert.ToDouble(reader["TAXA"]);
+            int estoque = Convert.ToInt32(reader["ESTOQUE"]);
 
-            Servico servico = new Servico(nome, taxa)
+            Servico servico = new Servico(nome, taxa, estoque)
             {
                 Id = id
             };
@@ -88,7 +92,8 @@ namespace Controladores.ServicoModule
             {
                 { "ID", servico.Id },
                 { "NOME", servico.Nome },
-                { "TAXA", servico.Taxa }
+                { "TAXA", servico.Taxa },
+                { "ESTOQUE", servico.Estoque }
 
             };
             return parametros;

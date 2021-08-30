@@ -52,6 +52,9 @@
     <Compile Include="WindowsApp\ConfiguracoesModule\Configuracoes.Designer.cs">
       <DependentUpon>Configuracoes.cs</DependentUpon>
     </Compile>
+    <Compile Include="WindowsApp\Shared\BotaoComImagem.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="WindowsApp\Shared\PanelColorido.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -185,6 +188,9 @@
     <Compile Include="WindowsApp\VeiculoModule\VisualizarVeiculo.cs">
       <SubType>Form</SubType>
     </Compile>
+    <EmbeddedResource Include="WindowsApp\AluguelModule\CadastroAluguel.resx">
+      <DependentUpon>CadastroAluguel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WindowsApp\ClienteModule\ClientePJModule\CadastroMotorista.resx">
       <DependentUpon>CadastroMotorista.cs</DependentUpon>
     </EmbeddedResource>

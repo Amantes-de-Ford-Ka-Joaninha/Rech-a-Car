@@ -2,6 +2,7 @@
 using Controladores.Shared;
 using Dominio.AluguelModule;
 using System;
+using System.Windows.Forms;
 using WindowsApp.Shared;
 
 namespace WindowsApp.AluguelModule

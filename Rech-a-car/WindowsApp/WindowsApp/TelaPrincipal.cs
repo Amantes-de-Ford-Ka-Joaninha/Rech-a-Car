@@ -54,40 +54,45 @@ namespace WindowsApp
 
         private void bt_Aluguel_Click(object sender, EventArgs e)
         {
+            EsconderSubMenu();
             FormAtivo = new GerenciamentoAluguel();
         }
         private void bt_GerenciarAlugueis_Click(object sender, EventArgs e)
         {
-            FormAtivo = new GerenciamentoAluguel();
             EsconderSubMenu();
+            FormAtivo = new GerenciamentoAluguel();
         }
         private void bt_Veiculos_Click(object sender, EventArgs e)
         {
+            panelSubMenuClientes.Visible = false;
             MostrarSubMenu(panelSubMenuVeiculos);
         }
         private void bt_Servicos_Click(object sender, EventArgs e)
         {
+            EsconderSubMenu();
             FormAtivo = new GerenciamentoServico();
         }
         private void bt_funcionarios_Click(object sender, EventArgs e)
         {
+            EsconderSubMenu();
             FormAtivo = new GerenciamentoFuncionario();
         }
         private void bt_clientes_Click(object sender, EventArgs e)
         {
+            panelSubMenuVeiculos.Visible = false;
             MostrarSubMenu(panelSubMenuClientes);
             FormAtivo = new GerenciamentoCliente();
         }
         private void btPessoaFisica_Click(object sender, EventArgs e)
         {
-            FormAtivo = new CadastroClientePF();
             EsconderSubMenu();
+            FormAtivo = new CadastroClientePF();
         }
 
         private void btPessoaJuridica_Click(object sender, EventArgs e)
         {
-            FormAtivo = new CadastroClientePJ();
             EsconderSubMenu();
+            FormAtivo = new CadastroClientePJ();
         }
         private void bt_sair_Click(object sender, EventArgs e)
         {
@@ -96,17 +101,18 @@ namespace WindowsApp
         }
         private void btVeiculosSubMenu_Click(object sender, EventArgs e)
         {
-            FormAtivo = new GerenciamentoVeiculo();
             EsconderSubMenu();
+            FormAtivo = new GerenciamentoVeiculo();
         }
 
         private void btGrupos_Click(object sender, EventArgs e)
         {
-            FormAtivo = new GerenciamentoCategoria();
             EsconderSubMenu();
+            FormAtivo = new GerenciamentoCategoria();
         }
         private void btConfiguracoes_Click(object sender, EventArgs e)
         {
+            EsconderSubMenu();
             FormAtivo = new Configuracoes();
         }
 

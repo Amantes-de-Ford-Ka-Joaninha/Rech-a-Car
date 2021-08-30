@@ -35,6 +35,8 @@ namespace WindowsApp.ServicoModule
             this.tbNome = new System.Windows.Forms.TextBox();
             this.tbTaxa = new System.Windows.Forms.TextBox();
             this.btAdicionar = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tbQuantidade = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lbTitulo
@@ -91,12 +93,31 @@ namespace WindowsApp.ServicoModule
             this.btAdicionar.FlatAppearance.BorderSize = 0;
             this.btAdicionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btAdicionar.Image = global::WindowsApp.Properties.Resources.adicionar;
-            this.btAdicionar.Location = new System.Drawing.Point(291, 284);
+            this.btAdicionar.Location = new System.Drawing.Point(290, 325);
             this.btAdicionar.Name = "btAdicionar";
             this.btAdicionar.Size = new System.Drawing.Size(67, 65);
-            this.btAdicionar.TabIndex = 3;
+            this.btAdicionar.TabIndex = 4;
             this.btAdicionar.UseVisualStyleBackColor = true;
             this.btAdicionar.Click += new System.EventHandler(this.btAdicionar_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(170, 279);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(91, 21);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Quantidade";
+            // 
+            // tbQuantidade
+            // 
+            this.tbQuantidade.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbQuantidade.Location = new System.Drawing.Point(268, 276);
+            this.tbQuantidade.Name = "tbQuantidade";
+            this.tbQuantidade.Size = new System.Drawing.Size(163, 29);
+            this.tbQuantidade.TabIndex = 3;
             // 
             // CadastroServico
             // 
@@ -105,7 +126,9 @@ namespace WindowsApp.ServicoModule
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(33)))), ((int)(((byte)(34)))));
             this.ClientSize = new System.Drawing.Size(668, 522);
             this.Controls.Add(this.btAdicionar);
+            this.Controls.Add(this.tbQuantidade);
             this.Controls.Add(this.tbTaxa);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.tbNome);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -125,5 +148,7 @@ namespace WindowsApp.ServicoModule
         private System.Windows.Forms.TextBox tbNome;
         private System.Windows.Forms.TextBox tbTaxa;
         private System.Windows.Forms.Button btAdicionar;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox tbQuantidade;
     }
 }

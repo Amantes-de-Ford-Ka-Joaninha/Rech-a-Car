@@ -45,7 +45,7 @@ namespace WindowsApp.VeiculoModule
             this.label15 = new System.Windows.Forms.Label();
             this.cb_portas = new System.Windows.Forms.ComboBox();
             this.ofdImagem = new System.Windows.Forms.OpenFileDialog();
-            this.bt_foto = new System.Windows.Forms.Button();
+            this.bt_foto = new Shared.BotaoComImagem();
             this.bt_adicionar = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.tb_marca = new System.Windows.Forms.TextBox();
@@ -248,7 +248,6 @@ namespace WindowsApp.VeiculoModule
             this.bt_foto.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.bt_foto.FlatAppearance.BorderSize = 0;
             this.bt_foto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_foto.Image = global::WindowsApp.Properties.Resources.inserir_icone_de_imagem;
             this.bt_foto.Location = new System.Drawing.Point(465, 331);
             this.bt_foto.Name = "bt_foto";
             this.bt_foto.Size = new System.Drawing.Size(105, 95);
@@ -468,7 +467,7 @@ namespace WindowsApp.VeiculoModule
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ComboBox cb_portas;
         private System.Windows.Forms.OpenFileDialog ofdImagem;
-        private System.Windows.Forms.Button bt_foto;
+        private Shared.BotaoComImagem bt_foto;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox tb_marca;
         private System.Windows.Forms.ComboBox cb_capacidade;
