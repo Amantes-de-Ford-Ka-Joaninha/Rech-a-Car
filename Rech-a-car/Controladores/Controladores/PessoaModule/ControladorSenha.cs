@@ -8,10 +8,21 @@ using System.Text;
 
 namespace Controladores.PessoaModule
 {
-    public class ControladorSenha
+    public static class ControladorSenha
     {
         private const string sqlInsereSenha =
-            @"INSERT";
+            @"INSERT INTO [TBSenha]
+             (   
+                [HASH_SENHA],            
+                [HASH],
+                [ID_FUNCIONARIO]
+             )
+          VALUES
+             (            
+                @HASH_SENHA,            
+                @HASH,
+                @ID_FUNCIONARIO
+             )";
 
         private const string sqlRecuperarSenha =
             @"SELECT 
@@ -21,24 +32,24 @@ namespace Controladores.PessoaModule
             WHERE 
                 [USER] = @USER";
 
-        public Senha GetDadosSenha(string user)
+        public static Senha GetDadosSenha(string user)
         {
             return Db.Get(sqlRecuperarSenha, ConverterEmSenha, new Dictionary<string, object>() { { "USER", user } });
         }
-        public bool SenhaCorreta(string user, string senha)
+        public static bool SenhaCorreta(string user, string senha)
         {
             var dadosSenha = GetDadosSenha(user);
             var hash = GerarHash(senha, dadosSenha.Salt);
 
             return hash == dadosSenha.Hash;
         }
-        public void InserirSenha(int id_funcionario, string senha)
+        public static void InserirSenha(int id_funcionario, string senha)
         {
             var salt = GerarSalt();
             var hash = GerarHash(senha, salt);
             Db.Insert(sqlInsereSenha, new Dictionary<string, object>() { { "HASH_SENHA", hash }, { "SALT", salt }, { "ID_FUNCIONARIO", id_funcionario } });
         }
-        private byte[] GerarSalt()
+        private static byte[] GerarSalt()
         {
             byte[] salt = new byte[128 / 8];
             using (var rngCsp = new RNGCryptoServiceProvider())
@@ -49,7 +60,7 @@ namespace Controladores.PessoaModule
             return salt;
         }
 
-        private string GerarHash(string senha, byte[] salt)
+        private static string GerarHash(string senha, byte[] salt)
         {
             return Convert.ToBase64String(KeyDerivation.Pbkdf2(
                                         password: senha,
@@ -59,7 +70,7 @@ namespace Controladores.PessoaModule
                                         numBytesRequested: 256 / 8));
         }
 
-        public Senha ConverterEmSenha(IDataReader reader)
+        public static Senha ConverterEmSenha(IDataReader reader)
         {
             var salt = (byte[])reader["SALT"];
             var hash = Convert.ToBase64String((byte[])reader["HASH_SENHA"]);
