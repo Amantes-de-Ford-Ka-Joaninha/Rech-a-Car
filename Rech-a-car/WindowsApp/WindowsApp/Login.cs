@@ -82,7 +82,6 @@ namespace WindowsApp.WindowsApp
         {
             return tbSenha.Text == string.Empty || tbUsuario.Text == string.Empty;
         }
-
         private void Login_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (TelaPrincipal.Instancia == null)
