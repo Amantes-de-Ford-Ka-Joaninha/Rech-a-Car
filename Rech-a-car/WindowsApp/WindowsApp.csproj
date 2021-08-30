@@ -62,11 +62,11 @@
     <Compile Include="WindowsApp\VeiculoModule\CategoriaModule\VisualizarCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WindowsApp\AluguelModule\CadastroAluguel.cs">
+    <Compile Include="WindowsApp\AluguelModule\ResumoAluguel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WindowsApp\AluguelModule\CadastroAluguel.Designer.cs">
-      <DependentUpon>CadastroAluguel.cs</DependentUpon>
+    <Compile Include="WindowsApp\AluguelModule\ResumoAluguel.Designer.cs">
+      <DependentUpon>ResumoAluguel.cs</DependentUpon>
     </Compile>
     <Compile Include="WindowsApp\AluguelModule\GerenciamentoAluguel.cs">
       <SubType>Form</SubType>
@@ -189,8 +189,8 @@
     <Compile Include="WindowsApp\VeiculoModule\VisualizarVeiculo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <EmbeddedResource Include="WindowsApp\AluguelModule\CadastroAluguel.resx">
-      <DependentUpon>CadastroAluguel.cs</DependentUpon>
+    <EmbeddedResource Include="WindowsApp\AluguelModule\ResumoAluguel.resx">
+      <DependentUpon>ResumoAluguel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WindowsApp\ClienteModule\ClientePJModule\CadastroMotorista.resx">
       <DependentUpon>CadastroMotorista.cs</DependentUpon>
