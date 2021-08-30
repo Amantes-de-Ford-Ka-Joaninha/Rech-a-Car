@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using WindowsApp.AluguelModule;
 using WindowsApp.Shared;
 
 namespace WindowsApp.ClienteModule
@@ -15,6 +16,11 @@ namespace WindowsApp.ClienteModule
         protected override CadastroEntidade<ICliente> Cadastro => new CadastroCliente();
         protected override ISelecionavel Selecionar => new VisualizarCliente();
 
+        protected override void InteracaoWifi()
+        {
+            ResumoAluguel.Aluguel.Cliente = GetEntidadeSelecionado();
+            TelaPrincipal.Instancia.FormAtivo = new ResumoAluguel();
+        }
         public override DataGridViewColumn[] ConfigurarColunas()
         {
             return new DataGridViewColumn[]
@@ -38,7 +44,6 @@ namespace WindowsApp.ClienteModule
             };
             return linha.ToArray();
         }
-
         protected override Type GetTipoEntidade()
         {
             const int coluna_tipo_cliente = 1;

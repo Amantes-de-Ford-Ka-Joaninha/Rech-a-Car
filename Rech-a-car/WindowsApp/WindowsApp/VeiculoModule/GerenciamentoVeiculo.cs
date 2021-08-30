@@ -1,6 +1,7 @@
 ﻿using Dominio.VeiculoModule;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using WindowsApp.AluguelModule;
 using WindowsApp.Shared;
 
 namespace WindowsApp.VeiculoModule
@@ -10,8 +11,12 @@ namespace WindowsApp.VeiculoModule
         public GerenciamentoVeiculo(string titulo = "Gerenciamento de Veículo", TipoTela tipo = TipoTela.TodosBotoes) : base(titulo, tipo)
         {
         }
-
         protected override CadastroEntidade<Veiculo> Cadastro => new CadastroVeiculo();
+        protected override void InteracaoWifi()
+        {
+            ResumoAluguel.Aluguel.Veiculo = GetEntidadeSelecionado();
+            TelaPrincipal.Instancia.FormAtivo = new ResumoAluguel();
+        }
         protected override ISelecionavel Selecionar => new VisualizarVeiculo();
         public override DataGridViewColumn[] ConfigurarColunas()
         {

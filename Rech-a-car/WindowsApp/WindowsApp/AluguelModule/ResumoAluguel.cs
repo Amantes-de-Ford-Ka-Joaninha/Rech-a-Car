@@ -1,20 +1,32 @@
 ﻿using Controladores.AluguelModule;
-using Controladores.PessoaModule;
 using Controladores.Shared;
 using Dominio.AluguelModule;
-using Dominio.PessoaModule.ClienteModule;
-using System;
-using System.Windows.Forms;
 using WindowsApp.Shared;
+using WindowsApp.ClienteModule;
+using WindowsApp.VeiculoModule;
+using System.Windows.Forms;
 
 namespace WindowsApp.AluguelModule
 {
-    public partial class ResumoAluguel : CadastroEntidade<Aluguel>    
+    public partial class ResumoAluguel : CadastroEntidade<Aluguel>
     {
-        public override Controlador<Aluguel> Controlador => new ControladorAluguel();
-        public Controlador<ClientePF> Controlador_PF { get; set; }
-        public Controlador<ClientePJ> Controlador_PJ { get; set; }
+        public static Aluguel Aluguel = new Aluguel();
+        public ResumoAluguel()
+        {
+            if (Aluguel.Cliente == null)
+            {
+                TelaPrincipal.Instancia.FormAtivo = new GerenciamentoCliente("Selecione um Cliente", TipoTela.SemBotoes);
+                return;
+            }
 
+            if (Aluguel.Veiculo == null)
+            {
+                TelaPrincipal.Instancia.FormAtivo = new GerenciamentoVeiculo("Selecione um Veículo", TipoTela.SemBotoes);
+                return;
+            }
+            InitializeComponent();
+        }
+        public override Controlador<Aluguel> Controlador => new ControladorAluguel();
         public override Aluguel GetNovaEntidade()
         {
             tbCliente.Text = entidade.Cliente.ToString();
@@ -31,7 +43,6 @@ namespace WindowsApp.AluguelModule
 
             return new Aluguel();
         }
-
         protected override IEditavel ConfigurarEditar()
         {
             tbCliente.Text = entidade.Cliente.ToString();
@@ -46,11 +57,6 @@ namespace WindowsApp.AluguelModule
             tbDt_Emprestimo.Text = entidade.DataAluguel.ToString("d");
             listOpcionais.DataSource = entidade.Servicos;
             return this;
-        }
-
-        public ResumoAluguel()
-        {
-            InitializeComponent();
         }
 
     }

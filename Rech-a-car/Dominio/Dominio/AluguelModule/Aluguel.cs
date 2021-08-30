@@ -34,6 +34,8 @@ namespace Dominio.AluguelModule
             if (aluguel.Condutor == null)
                 Condutor = (Condutor)aluguel.Cliente;
         }
+        public Aluguel() { }
+
         public Funcionario Funcionario { get; set; }
         public Veiculo Veiculo { get; set; }
         public ICliente Cliente { get; set; }

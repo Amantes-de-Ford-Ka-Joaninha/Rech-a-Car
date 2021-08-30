@@ -17,7 +17,7 @@ namespace WindowsApp.Shared
 
             AtualizarBotoes(tipo);
         }
-        
+
         public abstract object[] ObterCamposLinha(T item);
         public abstract DataGridViewColumn[] ConfigurarColunas();
         public void AtualizarRegistros()
@@ -49,6 +49,12 @@ namespace WindowsApp.Shared
             if (tipo is TipoTela.SemCadastrar)
                 RemoveCadastrar();
 
+            if (tipo is TipoTela.ApenasConfirma)
+            {
+                RemoveTodos();
+
+            }
+
 
             void RemoveCadastrar()
             {
@@ -73,6 +79,14 @@ namespace WindowsApp.Shared
         protected virtual Type GetTipoEntidade()
         {
             return typeof(T);
+        }
+        protected T GetEntidadeSelecionado()
+        {
+            return Cadastro.Controlador.GetById(dgvEntidade.GetIdSelecionado());
+        }
+        protected virtual void InteracaoWifi()
+        {
+            return;
         }
 
         #region Eventos
@@ -101,8 +115,9 @@ namespace WindowsApp.Shared
         }
         private void dgvEntidade_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            TelaPrincipal.Instancia.FormAtivo = (Form)Selecionar;
+            InteracaoWifi();
         }
+
         private void dgvEntidade_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             AlternarBotoes(true);
@@ -123,6 +138,7 @@ namespace WindowsApp.Shared
     {
         SemBotoes,
         SemCadastrar,
-        TodosBotoes
+        TodosBotoes,
+        ApenasConfirma,
     }
 }
