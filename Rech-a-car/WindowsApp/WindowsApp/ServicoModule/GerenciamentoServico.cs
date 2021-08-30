@@ -30,7 +30,6 @@ namespace WindowsApp.ServicoModule
             {
                 servico.Nome,
                 servico.Taxa,
-                servico.Estoque
             };
             return linha.ToArray();
         }

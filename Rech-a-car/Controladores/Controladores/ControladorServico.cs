@@ -13,23 +13,19 @@ namespace Controladores.ServicoModule
            @"INSERT INTO [TBServico]
              (   
                 [NOME],            
-                [TAXA],
-                [ESTOQUE]
+                [TAXA]
              )
           VALUES
              (            
                 @NOME,            
                 @TAXA
-                @ESTOQUE
-
              )";
 
         private const string sqlEditarServico =
            @"UPDATE [TBServico]
             SET
                 [NOME] = @NOME,          
-                [TAXA] = @TAXA,
-                [ESTOQUE] = @ESTOQUE,
+                [TAXA] = @TAXA
             WHERE
                 [ID] = @ID";
 
@@ -76,14 +72,11 @@ namespace Controladores.ServicoModule
             var id = Convert.ToInt32(reader["ID"]);
             string nome = Convert.ToString(reader["NOME"]);
             double taxa = Convert.ToDouble(reader["TAXA"]);
-            int estoque = Convert.ToInt32(reader["ESTOQUE"]);
 
-            Servico servico = new Servico(nome, taxa, estoque)
+            return new Servico(nome, taxa)
             {
                 Id = id
             };
-
-            return servico;
         }
 
         protected override Dictionary<string, object> ObterParametrosRegistro(Servico servico)
@@ -93,8 +86,6 @@ namespace Controladores.ServicoModule
                 { "ID", servico.Id },
                 { "NOME", servico.Nome },
                 { "TAXA", servico.Taxa },
-                { "ESTOQUE", servico.Estoque }
-
             };
             return parametros;
         }
