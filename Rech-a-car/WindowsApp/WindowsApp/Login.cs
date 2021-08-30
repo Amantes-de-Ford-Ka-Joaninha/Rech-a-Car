@@ -25,7 +25,7 @@ namespace WindowsApp
             if (!ExisteUsuario(usuario))
                 return ResultadoLogin.UsuarioNaoCadastrado;
 
-            getFuncionario();
+            GetFuncionario();
 
             if (!Logar(funcionario.NomeUsuario, senha))
                 return ResultadoLogin.SenhaErrada;
@@ -34,13 +34,13 @@ namespace WindowsApp
         }
         private bool Logar(string user, string senha)
         {
-            return new ControladorSenha().SenhaCorreta(user, senha);
+            return ControladorSenha.SenhaCorreta(user, senha);
         }
         private bool ExisteUsuario(string usuario)
         {
             return ControladorFuncionario.ExisteUsuario(usuario);
         }
-        private void getFuncionario()
+        private void GetFuncionario()
         {
             funcionario = ControladorFuncionario.GetByUserName(tbUsuario.Text);
         }
@@ -56,11 +56,11 @@ namespace WindowsApp
         }
         private void bt_entrar_Click(object sender, EventArgs e)
         {
-            //var resultadoLogin = LoginUsuario();
-            //MessageBox.Show(mostraResultado(resultadoLogin));
-            //if (resultadoLogin != ResultadoLogin.Sucesso)
-            //    return;
             new TelaPrincipal(funcionario).Show();
+            var resultadoLogin = LoginUsuario();
+            MessageBox.Show(mostraResultado(resultadoLogin));
+            if (resultadoLogin != ResultadoLogin.Sucesso)
+                return;
             Close();
         }
         private void tbUsuario_TextChanged(object sender, EventArgs e)
@@ -80,7 +80,7 @@ namespace WindowsApp
         }
         private bool LoginInvalido()
         {
-            return tbSenha.Text == string.Empty || tbUsuario.Text == string.Empty;
+            return tbSenha.Text.Length < 8 || tbUsuario.Text.Length < 5;
         }
         private void Login_FormClosed(object sender, FormClosedEventArgs e)
         {

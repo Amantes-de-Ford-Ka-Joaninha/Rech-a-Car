@@ -20,8 +20,8 @@ namespace WindowsApp
             Instancia = this;
             InitializeComponent();
             EsconderSubMenu();
-            lbUsuario.Text = "ADMIN DA SEXOLOGIA";//funcionario.Nome;
-            //lbCargo.Text = funcionario.Cargo;
+            lbUsuario.Text = funcionario.Nome;
+            lbCargo.Text = "Funcionário";
         }
 
         public Form FormAtivo { set { AbrirFormPanel(value); } }
@@ -114,12 +114,12 @@ namespace WindowsApp
             EsconderSubMenu();
             FormAtivo = new Configuracoes();
         }
-
-        #endregion
-
         private void TelaPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            if (!(sender is TelaPrincipal))
+                Application.Exit();
         }
+
+        #endregion
     }
 }

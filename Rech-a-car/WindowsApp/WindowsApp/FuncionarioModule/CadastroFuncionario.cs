@@ -55,7 +55,7 @@ namespace WindowsApp.FuncionarioModule
             if (validacaoSenha != "")
                 MessageBox.Show(validacaoSenha);
 
-            new ControladorSenha().InserirSenha(entidade.Id, tbSenha.Text);
+            ControladorSenha.InserirSenha(entidade.Id, tbSenha.Text);
             TelaPrincipal.Instancia.FormAtivo = new GerenciamentoFuncionario();
         }
         private void bt_foto_Click(object sender, EventArgs e)
