@@ -355,5 +355,11 @@
   <ItemGroup>
     <None Include="Resources\rech.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\confirmar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\confirmar1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
