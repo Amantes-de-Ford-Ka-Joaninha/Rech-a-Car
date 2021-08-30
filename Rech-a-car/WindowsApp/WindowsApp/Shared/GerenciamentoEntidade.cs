@@ -47,8 +47,10 @@ namespace WindowsApp.Shared
                 RemoveTodos();
 
             if (tipo is TipoTela.SemCadastrar)
+            {
+                MudaConfirma(false);
                 RemoveCadastrar();
-
+            }
             if (tipo is TipoTela.ApenasConfirma)
             {
                 RemoveTodos();

@@ -39,7 +39,7 @@ namespace Dominio.AluguelModule
         public Funcionario Funcionario { get; set; }
         public Veiculo Veiculo { get; set; }
         public ICliente Cliente { get; set; }
-        public List<Servico> Servicos { get; set; }
+        public List<Servico> Servicos { get; set; } = new List<Servico>();
         public Condutor Condutor { get; set; }
         public Plano TipoPlano { get; set; }
         public DateTime DataAluguel { get; set; }
