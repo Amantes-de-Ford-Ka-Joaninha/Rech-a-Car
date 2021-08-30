@@ -18,7 +18,7 @@ namespace WindowsApp.ClienteModule
 
         protected override void InteracaoWifi()
         {
-            ResumoAluguel.Aluguel.Cliente = GetEntidadeSelecionado();
+            ResumoAluguel.entidade.Cliente = GetEntidadeSelecionado();
             TelaPrincipal.Instancia.FormAtivo = new ResumoAluguel();
         }
         public override DataGridViewColumn[] ConfigurarColunas()

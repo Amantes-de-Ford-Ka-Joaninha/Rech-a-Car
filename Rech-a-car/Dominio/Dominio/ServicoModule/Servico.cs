@@ -24,5 +24,9 @@ namespace Dominio.ServicoModule
 
             return resultadoValidacao;
         }
+        public override string ToString()
+        {
+            return $"{Nome} | R${Taxa}";
+        }
     }
 }

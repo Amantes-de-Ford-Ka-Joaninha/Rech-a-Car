@@ -12,5 +12,9 @@
 
             return validacao;
         }
+        public override string ToString()
+        {
+            return Nome;
+        }
     }
 }

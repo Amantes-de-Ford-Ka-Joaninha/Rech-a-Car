@@ -14,18 +14,18 @@ namespace WindowsApp
     public partial class TelaPrincipal : Form
     {
         public static TelaPrincipal Instancia;
-        public Funcionario Funcionario { get; }
+        public Funcionario FuncionarioLogado { get; }
         private Form formAtivo;
         public TelaPrincipal(Funcionario funcionario)
         {
-            Funcionario = funcionario;
+            FuncionarioLogado = funcionario;
             Instancia = this;
             InitializeComponent();
             EsconderSubMenu();
             lbUsuario.Text = funcionario.Nome;
             lbCargo.Text = funcionario.Cargo;
             foto_perfil.Image = funcionario.Foto;
-            Funcionario = funcionario;
+            FuncionarioLogado = funcionario;
         }
 
         public Form FormAtivo { set { AbrirFormPanel(value); } }
