@@ -13,12 +13,14 @@ namespace Controladores.ServicoModule
            @"INSERT INTO [TBServico]
              (   
                 [NOME],            
-                [Taxa]
+                [TAXA],
+                [ESTOQUE]
              )
           VALUES
              (            
                 @NOME,            
                 @TAXA
+                @ESTOQUE
 
              )";
 
@@ -26,7 +28,8 @@ namespace Controladores.ServicoModule
            @"UPDATE [TBServico]
             SET
                 [NOME] = @NOME,          
-                [TAXA] = @TAXA
+                [TAXA] = @TAXA,
+                [ESTOQUE] = @ESTOQUE,
             WHERE
                 [ID] = @ID";
 
