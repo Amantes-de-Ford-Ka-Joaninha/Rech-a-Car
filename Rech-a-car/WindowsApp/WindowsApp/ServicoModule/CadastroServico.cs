@@ -34,8 +34,14 @@ namespace WindowsApp.ServicoModule
 
         private void btAdicionar_Click(object sender, EventArgs e)
         {
-            if (Salva())
-                TelaPrincipal.Instancia.FormAtivo = new GerenciamentoServico();
+            if (!Salva())
+                return;
+            Int32.TryParse(tbQuantidade.Text, out int quantidade);
+
+            for (int i = 0; i < quantidade; i++)
+                Controlador.Inserir(entidade);
+
+            TelaPrincipal.Instancia.FormAtivo = new GerenciamentoServico();
         }
     }
 }

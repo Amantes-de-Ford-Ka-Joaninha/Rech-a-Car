@@ -20,7 +20,6 @@ namespace WindowsApp.ServicoModule
             {
             new DataGridViewTextBoxColumn { DataPropertyName = "Nome", HeaderText = "Nome"},
             new DataGridViewTextBoxColumn { DataPropertyName = "Taxa", HeaderText = "Taxa"},
-            new DataGridViewTextBoxColumn { DataPropertyName = "Estoque", HeaderText = "Estoque"}
             };
         }
 

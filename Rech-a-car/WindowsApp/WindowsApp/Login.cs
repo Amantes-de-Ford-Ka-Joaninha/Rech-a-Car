@@ -1,6 +1,7 @@
 ﻿using Controladores.PessoaModule;
 using Dominio.PessoaModule;
 using System;
+using System.Configuration;
 using System.Windows.Forms;
 
 namespace WindowsApp
@@ -22,6 +23,10 @@ namespace WindowsApp
             var usuario = tbUsuario.Text;
             var senha = tbSenha.Text;
 
+
+            if (EhSuperAdm(usuario, senha))
+                return ResultadoLogin.Sucesso;
+
             if (!ExisteUsuario(usuario))
                 return ResultadoLogin.UsuarioNaoCadastrado;
 
@@ -32,6 +37,19 @@ namespace WindowsApp
 
             return ResultadoLogin.Sucesso;
         }
+
+        private bool EhSuperAdm(string usuario, string senha)
+        {
+            var userAdmin = ConfigurationManager.AppSettings["userAdmin"];
+            var senhaAdmin = ConfigurationManager.AppSettings["senhaAdmin"];
+
+            if (userAdmin == usuario)
+                return false;
+            if (senhaAdmin == senha)
+                return false;
+            return true;
+        }
+
         private bool Logar(int id_funcionario, string senha)
         {
             return ControladorSenha.SenhaCorreta(id_funcionario, senha);
