@@ -42,6 +42,7 @@ namespace WindowsApp
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
+
             // 
             // labelTitulo
             // 
@@ -77,6 +78,7 @@ namespace WindowsApp
             this.tbUsuario.Size = new System.Drawing.Size(488, 52);
             this.tbUsuario.TabIndex = 4;
             this.tbUsuario.TextChanged += new System.EventHandler(this.tbUsuario_TextChanged);
+            this.tbUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(EnterPressionado);
             // 
             // tbSenha
             // 
