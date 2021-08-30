@@ -9,10 +9,21 @@ using WindowsApp.Shared;
 
 namespace WindowsApp.AluguelModule
 {
-    public partial class ResumoAluguel : Form //CadastroEntidade<Aluguel>  //    
+    public partial class ResumoAluguel : CadastroEntidade<Aluguel>    
     {
+        public override Controlador<Aluguel> Controlador => throw new System.NotImplementedException();
         public Controlador<ClientePF> Controlador_PF { get; set; }
         public Controlador<ClientePJ> Controlador_PJ { get; set; }
+
+        public override Aluguel GetNovaEntidade()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        protected override IEditavel ConfigurarEditar()
+        {
+            throw new System.NotImplementedException();
+        }
 
         public ResumoAluguel()
         {
@@ -28,7 +39,7 @@ namespace WindowsApp.AluguelModule
             tbModelo.Text = entidade.Veiculo.Modelo;
             tbPlaca.Text = entidade.Veiculo.Placa;
             tbPlano.SelectedItem = entidade.TipoPlano.ToString();
-            cbCondutor.SelectedItem = entidade.Condutor.Nome;
+            tbCondutor.Text = entidade.Condutor.Nome;
             tbDt_Emprestimo.Text = entidade.DataAluguel.ToString("d");
             listOpcionais.DataSource = entidade.Servicos;
         }

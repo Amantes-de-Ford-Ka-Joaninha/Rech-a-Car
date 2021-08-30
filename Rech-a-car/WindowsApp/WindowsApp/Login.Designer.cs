@@ -1,4 +1,7 @@
 ﻿
+using System;
+using System.Windows.Forms;
+
 namespace WindowsApp
 {
     partial class Login
@@ -85,6 +88,7 @@ namespace WindowsApp
             this.tbSenha.TabIndex = 6;
             this.tbSenha.UseSystemPasswordChar = true;
             this.tbSenha.TextChanged += new System.EventHandler(this.tbSenha_TextChanged);
+            this.tbSenha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(EnterPressionado);
             // 
             // label2
             // 

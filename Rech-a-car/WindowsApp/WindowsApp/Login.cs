@@ -75,13 +75,21 @@ namespace WindowsApp
         }
         private void bt_entrar_Click(object sender, EventArgs e)
         {
+            Logar();
+        }
+
+        private void Logar()
+        {
             var resultadoLogin = LoginUsuario();
-            MessageBox.Show(mostraResultado(resultadoLogin));
             if (resultadoLogin != ResultadoLogin.Sucesso)
+            {
+                MessageBox.Show(mostraResultado(resultadoLogin));
                 return;
+            }
             new TelaPrincipal(funcionario).Show();
             Close();
         }
+
         private void tbUsuario_TextChanged(object sender, EventArgs e)
         {
             BloquearBotaoLogin();
@@ -106,6 +114,14 @@ namespace WindowsApp
             if (TelaPrincipal.Instancia == null)
                 Application.Exit();
         }
+
+        private void EnterPressionado(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                Logar();
+            }
+        }
+        public enum ResultadoLogin { Sucesso, SenhaErrada, UsuarioNaoCadastrado }
     }
-    public enum ResultadoLogin { Sucesso, SenhaErrada, UsuarioNaoCadastrado }
 }

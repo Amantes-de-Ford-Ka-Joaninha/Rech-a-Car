@@ -1,4 +1,6 @@
 ﻿
+using Controladores.Shared;
+using Dominio.AluguelModule;
 using WindowsApp.Shared;
 
 namespace WindowsApp.AluguelModule
@@ -33,6 +35,7 @@ namespace WindowsApp.AluguelModule
         {
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new WindowsApp.Shared.PanelColorido();
+            this.tbCondutor = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -53,6 +56,9 @@ namespace WindowsApp.AluguelModule
             this.tbMarca = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.panel3 = new WindowsApp.Shared.PanelColorido();
+            this.tbPlano = new System.Windows.Forms.ComboBox();
+            this.tbDt_Devolucao = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.tbDt_Emprestimo = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -64,10 +70,6 @@ namespace WindowsApp.AluguelModule
             this.label18 = new System.Windows.Forms.Label();
             this.btFecharAluguel = new System.Windows.Forms.Button();
             this.panelColorido2 = new WindowsApp.Shared.PanelColorido();
-            this.tbCondutor = new System.Windows.Forms.TextBox();
-            this.tbPlano = new System.Windows.Forms.ComboBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.tbDt_Devolucao = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -104,6 +106,14 @@ namespace WindowsApp.AluguelModule
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(611, 169);
             this.panel1.TabIndex = 1;
+            // 
+            // tbCondutor
+            // 
+            this.tbCondutor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbCondutor.Location = new System.Drawing.Point(426, 64);
+            this.tbCondutor.Name = "tbCondutor";
+            this.tbCondutor.Size = new System.Drawing.Size(168, 29);
+            this.tbCondutor.TabIndex = 10;
             // 
             // label17
             // 
@@ -310,6 +320,38 @@ namespace WindowsApp.AluguelModule
             this.panel3.Size = new System.Drawing.Size(173, 160);
             this.panel3.TabIndex = 3;
             // 
+            // tbPlano
+            // 
+            this.tbPlano.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPlano.FormattingEnabled = true;
+            this.tbPlano.Items.AddRange(new object[] {
+            "Diário",
+            "Controlado",
+            "Livre"});
+            this.tbPlano.Location = new System.Drawing.Point(16, 27);
+            this.tbPlano.Name = "tbPlano";
+            this.tbPlano.Size = new System.Drawing.Size(143, 25);
+            this.tbPlano.TabIndex = 10;
+            // 
+            // tbDt_Devolucao
+            // 
+            this.tbDt_Devolucao.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbDt_Devolucao.Location = new System.Drawing.Point(16, 123);
+            this.tbDt_Devolucao.Name = "tbDt_Devolucao";
+            this.tbDt_Devolucao.Size = new System.Drawing.Size(143, 25);
+            this.tbDt_Devolucao.TabIndex = 12;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.White;
+            this.label16.Location = new System.Drawing.Point(13, 103);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(119, 17);
+            this.label16.TabIndex = 7;
+            this.label16.Text = "Data de Devolução";
+            // 
             // tbDt_Emprestimo
             // 
             this.tbDt_Emprestimo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -424,47 +466,7 @@ namespace WindowsApp.AluguelModule
             this.panelColorido2.Size = new System.Drawing.Size(1, 72);
             this.panelColorido2.TabIndex = 9;
             // 
-            // tbCondutor
-            // 
-            this.tbCondutor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbCondutor.Location = new System.Drawing.Point(426, 64);
-            this.tbCondutor.Name = "tbCondutor";
-            this.tbCondutor.Size = new System.Drawing.Size(168, 29);
-            this.tbCondutor.TabIndex = 10;
-            // 
-            // tbPlano
-            // 
-            this.tbPlano.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPlano.FormattingEnabled = true;
-            this.tbPlano.Items.AddRange(new object[] {
-            "Diário",
-            "Controlado",
-            "Livre"});
-            this.tbPlano.Location = new System.Drawing.Point(16, 27);
-            this.tbPlano.Name = "tbPlano";
-            this.tbPlano.Size = new System.Drawing.Size(143, 25);
-            this.tbPlano.TabIndex = 10;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(13, 103);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(119, 17);
-            this.label16.TabIndex = 7;
-            this.label16.Text = "Data de Devolução";
-            // 
-            // tbDt_Devolucao
-            // 
-            this.tbDt_Devolucao.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbDt_Devolucao.Location = new System.Drawing.Point(16, 123);
-            this.tbDt_Devolucao.Name = "tbDt_Devolucao";
-            this.tbDt_Devolucao.Size = new System.Drawing.Size(143, 25);
-            this.tbDt_Devolucao.TabIndex = 12;
-            // 
-            // CadastroAluguel
+            // ResumoAluguel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -480,7 +482,7 @@ namespace WindowsApp.AluguelModule
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
-            this.Name = "CadastroAluguel";
+            this.Name = "ResumoAluguel";
             this.Text = "CadastrarAluguel";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -494,7 +496,6 @@ namespace WindowsApp.AluguelModule
             this.PerformLayout();
 
         }
-
         #endregion
 
         private System.Windows.Forms.Label label1;
@@ -534,5 +535,6 @@ namespace WindowsApp.AluguelModule
         private System.Windows.Forms.ComboBox tbPlano;
         private System.Windows.Forms.TextBox tbDt_Devolucao;
         private System.Windows.Forms.Label label16;
+
     }
 }
