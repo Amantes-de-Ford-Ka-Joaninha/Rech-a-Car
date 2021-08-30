@@ -15,7 +15,6 @@ namespace WindowsApp.AluguelModule
     public partial class ResumoAluguel : CadastroEntidade<Aluguel>
     {
         public static new Aluguel entidade = new Aluguel();
-
         private decimal PrecoParcial;
         public ResumoAluguel()
         {
@@ -40,7 +39,7 @@ namespace WindowsApp.AluguelModule
             entidade.TipoPlano = (Plano)tbPlano.SelectedIndex;
             entidade.Funcionario = TelaPrincipal.Instancia.FuncionarioLogado;
 
-            return entidade;
+            return new Aluguel(entidade);
         }
         protected override IEditavel ConfigurarEditar()
         {

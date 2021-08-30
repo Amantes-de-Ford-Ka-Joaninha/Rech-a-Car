@@ -20,7 +20,7 @@ namespace WindowsApp.Shared
         protected abstract IEditavel ConfigurarEditar();
         protected bool Salva(int id_chave_estrangeira = 0)
         {
-            entidade = GetNovaEntidade();
+            T entidade = GetNovaEntidade();
             var validacao = entidade.Validar();
 
             if (validacao != string.Empty)
@@ -29,7 +29,7 @@ namespace WindowsApp.Shared
                 return false;
             }
 
-            if (entidade.Id == 0)
+            if (this.entidade == null)
                 Controlador.Inserir(entidade, id_chave_estrangeira);
             else
                 Controlador.Editar(entidade.Id, entidade, id_chave_estrangeira);

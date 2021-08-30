@@ -75,6 +75,11 @@ namespace Controladores.PessoaModule
             new ControladorCNH().Inserir(cliente.Cnh);
             base.Inserir(cliente);
         }
+        public override void Editar(int id, ClientePF cliente, int id_chave_estrangeira = 0)
+        {
+            new ControladorCNH().Editar(cliente.Cnh.Id, cliente.Cnh);
+            base.Editar(cliente.Id, cliente);
+        }
         public override ClientePF ConverterEmEntidade(IDataReader reader)
         {
             var id = Convert.ToInt32(reader["ID"]);
