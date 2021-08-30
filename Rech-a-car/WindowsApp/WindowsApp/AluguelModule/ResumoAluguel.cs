@@ -5,6 +5,8 @@ using WindowsApp.Shared;
 using WindowsApp.ClienteModule;
 using WindowsApp.VeiculoModule;
 using System.Windows.Forms;
+using System;
+using Dominio.PessoaModule.ClienteModule;
 
 namespace WindowsApp.AluguelModule
 {
@@ -13,22 +15,47 @@ namespace WindowsApp.AluguelModule
         public static Aluguel Aluguel = new Aluguel();
         public ResumoAluguel()
         {
-            CadastrarAluguel();
+            if (CadastrarAluguel())
+                PopularDados();
             InitializeComponent();
         }
-        public void CadastrarAluguel()
+
+        private void PopularDados()
+        {
+            tbCliente.Text = entidade.Cliente.Nome;
+
+            tbDocumento.Text = entidade.Cliente.Documento;
+            tbEndereço.Text = entidade.Cliente.Endereco;
+            tbTelefone.Text = entidade.Cliente.Telefone;
+
+            tbMarca.Text = entidade.Veiculo.Marca;
+            tbModelo.Text = entidade.Veiculo.Modelo;
+            tbPlaca.Text = entidade.Veiculo.Placa;
+            GetCondutor();
+        }
+
+        private void GetCondutor()
+        {
+            if (entidade.Cliente is ClientePJ)
+                return;
+            tbCondutor.Enabled = false;
+            tbCondutor.Text = "-------------";
+        }
+
+        public bool CadastrarAluguel()
         {
             if (Aluguel.Cliente == null)
             {
                 TelaPrincipal.Instancia.FormAtivo = new GerenciamentoCliente("Selecione um Cliente", TipoTela.ApenasConfirma);
-                return;
+                return false;
             }
 
             if (Aluguel.Veiculo == null)
             {
                 TelaPrincipal.Instancia.FormAtivo = new GerenciamentoVeiculo("Selecione um Veículo", TipoTela.ApenasConfirma);
-                return;
+                return false;
             }
+            return true;
         }
         public override Controlador<Aluguel> Controlador => new ControladorAluguel();
         public override Aluguel GetNovaEntidade()
@@ -49,7 +76,7 @@ namespace WindowsApp.AluguelModule
         }
         protected override IEditavel ConfigurarEditar()
         {
-            tbCliente.Text = entidade.Cliente.ToString();
+            tbCliente.Text = entidade.Cliente.Nome;
             tbDocumento.Text = entidade.Cliente.Documento;
             tbEndereço.Text = entidade.Cliente.Endereco;
             tbTelefone.Text = entidade.Cliente.Telefone;
