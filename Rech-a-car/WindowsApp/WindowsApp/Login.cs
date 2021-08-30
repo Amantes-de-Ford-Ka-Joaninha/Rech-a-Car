@@ -34,7 +34,7 @@ namespace WindowsApp.WindowsApp
         }
         private bool Logar(string user, string senha)
         {
-            return new ControladorSenha().SenhaCorreta(user,senha);
+            return new ControladorSenha().SenhaCorreta(user, senha);
         }
         private bool ExisteUsuario(string usuario)
         {
@@ -60,8 +60,8 @@ namespace WindowsApp.WindowsApp
             //MessageBox.Show(mostraResultado(resultadoLogin));
             //if (resultadoLogin != ResultadoLogin.Sucesso)
             //    return;
-            Close();
             new TelaPrincipal(funcionario).Show();
+            Close();
         }
         private void tbUsuario_TextChanged(object sender, EventArgs e)
         {
@@ -81,6 +81,12 @@ namespace WindowsApp.WindowsApp
         private bool LoginInvalido()
         {
             return tbSenha.Text == string.Empty || tbUsuario.Text == string.Empty;
+        }
+
+        private void Login_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (TelaPrincipal.Instancia == null)
+                Application.Exit();
         }
     }
     public enum ResultadoLogin { Sucesso, SenhaErrada, UsuarioNaoCadastrado }

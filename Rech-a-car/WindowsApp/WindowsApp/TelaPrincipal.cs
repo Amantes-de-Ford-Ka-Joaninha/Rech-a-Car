@@ -118,5 +118,9 @@ namespace WindowsApp
 
         #endregion
 
+        private void TelaPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
