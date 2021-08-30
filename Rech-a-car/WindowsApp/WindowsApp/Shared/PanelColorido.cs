@@ -18,9 +18,7 @@ namespace WindowsApp.Shared
         {
             base.OnPaint(e);
             e.Graphics.DrawRectangle(
-                new Pen(
-                    new SolidBrush(colorBorder), 3),
-                    e.ClipRectangle);
+                new Pen(new SolidBrush(colorBorder), 5), e.ClipRectangle);
         }
 
         public Color BorderColor
