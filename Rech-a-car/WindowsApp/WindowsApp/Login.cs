@@ -8,12 +8,13 @@ namespace WindowsApp
 {
     public partial class Login : Form
     {
-
+        public static Login Instancia;
         private ControladorFuncionario ControladorFuncionario = new ControladorFuncionario();
         private Funcionario funcionario;
 
         public Login()
         {
+            Instancia = this;
             InitializeComponent();
             bt_entrar.Enabled = false;
         }
