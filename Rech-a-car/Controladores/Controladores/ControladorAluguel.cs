@@ -103,7 +103,6 @@ namespace Controladores.AluguelModule
             else
                 return typeof(ClientePJ);
         }
-
         private Condutor GetCondutor(int id_condutor, int id_cliente)
         {
             if (id_condutor == id_cliente)

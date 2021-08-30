@@ -15,5 +15,21 @@ namespace Dominio.PessoaModule
         }
         public Image Foto { get; set; }
         public string NomeUsuario { get; set; }
+        public override string Validar()
+        {
+            var validacao = base.Validar();
+
+            if (NomeUsuario.Length < 5)
+                validacao += "Nome de usuário inválido\n";
+
+            return validacao;
+        }
+        public string ValidarSenha(string senha)
+        {
+            if (senha.Length < 8)
+                return "Senha precisa ter no mínimo 8 caracteres";
+            else
+                return "";
+        }
     }
 }

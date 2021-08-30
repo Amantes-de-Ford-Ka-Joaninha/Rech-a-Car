@@ -19,8 +19,6 @@ namespace WindowsApp.FuncionarioModule
             InitializeComponent();
             bt_foto.Image = Resources.user;
         }
-
-
         protected override IEditavel ConfigurarEditar()
         {
             tbNome.Text = entidade.Nome;
@@ -32,7 +30,6 @@ namespace WindowsApp.FuncionarioModule
 
             return this;
         }
-
         public override Funcionario GetNovaEntidade()
         {
             var nome = tbNome.Text;
@@ -41,21 +38,26 @@ namespace WindowsApp.FuncionarioModule
             var cpf = tbCPF.Text;
             var usuario = tbUsuario.Text;
             var imagem = (Bitmap)bt_foto.Image;
+            var senha = tbSenha.Text;
 
             return new Funcionario(nome, telefone, endereco, cpf, imagem, usuario);
         }
-
         private void AtualizarIcone(Bitmap imagem)
         {
             bt_foto.Image = new Bitmap(imagem);
         }
-
         private void btAdicionar_Click(object sender, EventArgs e)
         {
-            if (Salva())
-                TelaPrincipal.Instancia.FormAtivo = new GerenciamentoFuncionario();
-        }
+            if (!Salva())
+                return;
+            var validacaoSenha = entidade.ValidarSenha(tbSenha.Text);
 
+            if (validacaoSenha != "")
+                MessageBox.Show(validacaoSenha);
+
+            new ControladorSenha().InserirSenha(entidade.Id, tbSenha.Text);
+            TelaPrincipal.Instancia.FormAtivo = new GerenciamentoFuncionario();
+        }
         private void bt_foto_Click(object sender, EventArgs e)
         {
             try

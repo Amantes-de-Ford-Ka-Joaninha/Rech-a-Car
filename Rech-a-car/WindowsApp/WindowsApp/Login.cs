@@ -27,14 +27,14 @@ namespace WindowsApp.WindowsApp
 
             getFuncionario();
 
-            if (!Logar(funcionario.Id, senha))
+            if (!Logar(funcionario.NomeUsuario, senha))
                 return ResultadoLogin.SenhaErrada;
 
             return ResultadoLogin.Sucesso;
         }
-        private bool Logar(int id_funcionario, string senha)
+        private bool Logar(string user, string senha)
         {
-            return new ControladorSenha().Validar(id_funcionario, senha);
+            return new ControladorSenha().SenhaCorreta(user,senha);
         }
         private bool ExisteUsuario(string usuario)
         {
