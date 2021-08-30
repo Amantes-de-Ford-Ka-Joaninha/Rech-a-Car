@@ -7,7 +7,7 @@ namespace WindowsApp.AluguelModule
 {
     public partial class GerenciamentoAluguel : GerenciamentoEntidade<Aluguel>
     {
-        public GerenciamentoAluguel(string titulo = "Gerenciamento de Aluguel", TipoTela tipo = TipoTela.TodosBotoes) : base(titulo, tipo)
+        public GerenciamentoAluguel(string titulo = "Gerenciamento de Aluguel", TipoTela tipo = TipoTela.CadastroBasico) : base(titulo, tipo)
         {
             InitializeComponent();
         }

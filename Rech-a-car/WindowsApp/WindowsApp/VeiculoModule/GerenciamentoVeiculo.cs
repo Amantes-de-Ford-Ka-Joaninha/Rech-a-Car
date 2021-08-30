@@ -8,7 +8,7 @@ namespace WindowsApp.VeiculoModule
 {
     public class GerenciamentoVeiculo : GerenciamentoEntidade<Veiculo>
     {
-        public GerenciamentoVeiculo(string titulo = "Gerenciamento de Veículo", TipoTela tipo = TipoTela.TodosBotoes) : base(titulo, tipo)
+        public GerenciamentoVeiculo(string titulo = "Gerenciamento de Veículo", TipoTela tipo = TipoTela.CadastroBasico) : base(titulo, tipo)
         {
         }
         protected override CadastroEntidade<Veiculo> Cadastro => new CadastroVeiculo();

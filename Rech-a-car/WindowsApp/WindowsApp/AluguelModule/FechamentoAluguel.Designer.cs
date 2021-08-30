@@ -1,4 +1,6 @@
 ﻿
+using WindowsApp.Shared;
+
 namespace WindowsApp.WindowsApp.AluguelModule
 {
     partial class FechamentoAluguel
@@ -29,11 +31,11 @@ namespace WindowsApp.WindowsApp.AluguelModule
         /// </summary>
         private void InitializeComponent()
         {
-            this.panelColorido2 = new WindowsApp.Shared.PanelColorido();
+            this.panelColorido2 = new PanelColorido();
             this.label8 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.panelColorido1 = new WindowsApp.Shared.PanelColorido();
+            this.panelColorido1 = new PanelColorido();
             this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -42,7 +44,7 @@ namespace WindowsApp.WindowsApp.AluguelModule
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.checkedListBox3 = new System.Windows.Forms.CheckedListBox();
-            this.panelColorido3 = new WindowsApp.Shared.PanelColorido();
+            this.panelColorido3 = new PanelColorido();
             this.btFecharAluguel = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.lbValor = new System.Windows.Forms.Label();
@@ -283,7 +285,7 @@ namespace WindowsApp.WindowsApp.AluguelModule
 
         #endregion
 
-        private WindowsApp.Shared.PanelColorido panelColorido2;
+        private PanelColorido panelColorido2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label10;
@@ -291,12 +293,12 @@ namespace WindowsApp.WindowsApp.AluguelModule
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label5;
-        private WindowsApp.Shared.PanelColorido panelColorido1;
+        private PanelColorido panelColorido1;
         private System.Windows.Forms.CheckedListBox checkedListBox3;
         private System.Windows.Forms.CheckedListBox checkedListBox1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label1;
-        private WindowsApp.Shared.PanelColorido panelColorido3;
+        private PanelColorido panelColorido3;
         private System.Windows.Forms.Button btFecharAluguel;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lbValor;

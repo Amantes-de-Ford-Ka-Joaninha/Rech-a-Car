@@ -13,18 +13,22 @@ namespace WindowsApp.AluguelModule
         public static Aluguel Aluguel = new Aluguel();
         public ResumoAluguel()
         {
+            CadastrarAluguel();
+            InitializeComponent();
+        }
+        public void CadastrarAluguel()
+        {
             if (Aluguel.Cliente == null)
             {
-                TelaPrincipal.Instancia.FormAtivo = new GerenciamentoCliente("Selecione um Cliente", TipoTela.SemBotoes);
+                TelaPrincipal.Instancia.FormAtivo = new GerenciamentoCliente("Selecione um Cliente", TipoTela.ApenasConfirma);
                 return;
             }
 
             if (Aluguel.Veiculo == null)
             {
-                TelaPrincipal.Instancia.FormAtivo = new GerenciamentoVeiculo("Selecione um Veículo", TipoTela.SemBotoes);
+                TelaPrincipal.Instancia.FormAtivo = new GerenciamentoVeiculo("Selecione um Veículo", TipoTela.ApenasConfirma);
                 return;
             }
-            InitializeComponent();
         }
         public override Controlador<Aluguel> Controlador => new ControladorAluguel();
         public override Aluguel GetNovaEntidade()
@@ -59,5 +63,13 @@ namespace WindowsApp.AluguelModule
             return this;
         }
 
+        private void btFecharAluguel_Click(object sender, System.EventArgs e)
+        {
+            if (Salva())
+            {
+                TelaPrincipal.Instancia.FormAtivo = new GerenciamentoAluguel();
+                Aluguel = new Aluguel();
+            }
+        }
     }
 }

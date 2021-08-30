@@ -7,7 +7,7 @@ namespace WindowsApp.ServicoModule
 {
     public class GerenciamentoServico : GerenciamentoEntidade<Servico>
     {
-        public GerenciamentoServico(string titulo = "Gerenciamento de Serviços", TipoTela tipo = TipoTela.TodosBotoes) : base(titulo, tipo)
+        public GerenciamentoServico(string titulo = "Gerenciamento de Serviços", TipoTela tipo = TipoTela.CadastroBasico) : base(titulo, tipo)
         {
         }
 

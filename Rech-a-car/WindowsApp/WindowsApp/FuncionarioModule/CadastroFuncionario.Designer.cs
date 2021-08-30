@@ -1,4 +1,6 @@
 ﻿
+using WindowsApp.Shared;
+
 namespace WindowsApp.FuncionarioModule
 {
     partial class CadastroFuncionario
@@ -45,7 +47,7 @@ namespace WindowsApp.FuncionarioModule
             this.ofdImagem = new System.Windows.Forms.OpenFileDialog();
             this.label6 = new System.Windows.Forms.Label();
             this.tbSenha = new System.Windows.Forms.TextBox();
-            this.bt_foto = new WindowsApp.Shared.BotaoComImagem();
+            this.bt_foto = new BotaoComImagem();
             this.SuspendLayout();
             // 
             // label1

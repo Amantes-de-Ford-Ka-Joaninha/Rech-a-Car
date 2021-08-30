@@ -9,7 +9,7 @@ namespace WindowsApp.Shared
     {
         protected abstract CadastroEntidade<T> Cadastro { get; }
         protected abstract ISelecionavel Selecionar { get; }
-        public GerenciamentoEntidade(String titulo, TipoTela tipo = TipoTela.TodosBotoes)
+        public GerenciamentoEntidade(String titulo, TipoTela tipo = TipoTela.CadastroBasico)
         {
             InitializeComponent();
             AtualizarRegistros();
@@ -52,8 +52,11 @@ namespace WindowsApp.Shared
             if (tipo is TipoTela.ApenasConfirma)
             {
                 RemoveTodos();
-
+                MudaConfirma(true);
             }
+
+            if (tipo is TipoTela.CadastroBasico)
+                MudaConfirma(false);
 
 
             void RemoveCadastrar()
@@ -75,6 +78,11 @@ namespace WindowsApp.Shared
                 picLupa.Left += 180;
                 btFiltro.Left += 180;
             }
+
+            void MudaConfirma(bool estado)
+            {
+                bt_check.Visible = estado;
+            }
         }
         protected virtual Type GetTipoEntidade()
         {
@@ -82,7 +90,7 @@ namespace WindowsApp.Shared
         }
         protected T GetEntidadeSelecionado()
         {
-            return Cadastro.Controlador.GetById(dgvEntidade.GetIdSelecionado());
+            return Cadastro.Controlador.GetById(dgvEntidade.GetIdSelecionado(), GetTipoEntidade());
         }
         protected virtual void InteracaoWifi()
         {
@@ -113,10 +121,6 @@ namespace WindowsApp.Shared
             AlternarBotoes(false);
             AtualizarRegistros();
         }
-        private void dgvEntidade_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            InteracaoWifi();
-        }
 
         private void dgvEntidade_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -130,6 +134,10 @@ namespace WindowsApp.Shared
         {
             dgvEntidade.ClearSelection();
         }
+        private void bt_check_Click(object sender, EventArgs e)
+        {
+            InteracaoWifi();
+        }
 
         #endregion
 
@@ -138,7 +146,7 @@ namespace WindowsApp.Shared
     {
         SemBotoes,
         SemCadastrar,
-        TodosBotoes,
         ApenasConfirma,
+        CadastroBasico,
     }
 }

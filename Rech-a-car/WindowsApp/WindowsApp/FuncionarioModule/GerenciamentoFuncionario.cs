@@ -7,7 +7,7 @@ namespace WindowsApp.FuncionarioModule
 {
     public class GerenciamentoFuncionario : GerenciamentoEntidade<Funcionario>
     {
-        public GerenciamentoFuncionario(string titulo = "Gerenciamento de Funcionário", TipoTela tipo = TipoTela.TodosBotoes) : base(titulo, tipo)
+        public GerenciamentoFuncionario(string titulo = "Gerenciamento de Funcionário", TipoTela tipo = TipoTela.CadastroBasico) : base(titulo, tipo)
         {
         }
 
