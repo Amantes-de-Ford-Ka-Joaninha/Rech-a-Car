@@ -73,6 +73,8 @@ namespace WindowsApp.AluguelModule
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btFecharAluguel = new System.Windows.Forms.Button();
             this.tipAluguel = new System.Windows.Forms.ToolTip(this.components);
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -115,15 +117,15 @@ namespace WindowsApp.AluguelModule
             // cb_motoristas
             // 
             this.cb_motoristas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb_motoristas.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_motoristas.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_motoristas.FormattingEnabled = true;
             this.cb_motoristas.Items.AddRange(new object[] {
             "Diário",
             "Controlado",
             "Livre"});
-            this.cb_motoristas.Location = new System.Drawing.Point(426, 66);
+            this.cb_motoristas.Location = new System.Drawing.Point(426, 64);
             this.cb_motoristas.Name = "cb_motoristas";
-            this.cb_motoristas.Size = new System.Drawing.Size(168, 25);
+            this.cb_motoristas.Size = new System.Drawing.Size(168, 29);
             this.cb_motoristas.TabIndex = 13;
             // 
             // label17
@@ -197,6 +199,7 @@ namespace WindowsApp.AluguelModule
             this.tbTelefone.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbTelefone.Location = new System.Drawing.Point(426, 126);
             this.tbTelefone.Name = "tbTelefone";
+            this.tbTelefone.ReadOnly = true;
             this.tbTelefone.Size = new System.Drawing.Size(168, 29);
             this.tbTelefone.TabIndex = 5;
             // 
@@ -205,6 +208,7 @@ namespace WindowsApp.AluguelModule
             this.tbDocumento.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbDocumento.Location = new System.Drawing.Point(280, 64);
             this.tbDocumento.Name = "tbDocumento";
+            this.tbDocumento.ReadOnly = true;
             this.tbDocumento.Size = new System.Drawing.Size(129, 29);
             this.tbDocumento.TabIndex = 3;
             // 
@@ -213,6 +217,7 @@ namespace WindowsApp.AluguelModule
             this.tbEndereço.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbEndereço.Location = new System.Drawing.Point(14, 126);
             this.tbEndereço.Name = "tbEndereço";
+            this.tbEndereço.ReadOnly = true;
             this.tbEndereço.Size = new System.Drawing.Size(395, 29);
             this.tbEndereço.TabIndex = 2;
             // 
@@ -221,6 +226,7 @@ namespace WindowsApp.AluguelModule
             this.tbCliente.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbCliente.Location = new System.Drawing.Point(14, 64);
             this.tbCliente.Name = "tbCliente";
+            this.tbCliente.ReadOnly = true;
             this.tbCliente.Size = new System.Drawing.Size(251, 29);
             this.tbCliente.TabIndex = 1;
             // 
@@ -266,6 +272,7 @@ namespace WindowsApp.AluguelModule
             this.tbPlaca.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPlaca.Location = new System.Drawing.Point(456, 57);
             this.tbPlaca.Name = "tbPlaca";
+            this.tbPlaca.ReadOnly = true;
             this.tbPlaca.Size = new System.Drawing.Size(121, 29);
             this.tbPlaca.TabIndex = 8;
             // 
@@ -285,6 +292,7 @@ namespace WindowsApp.AluguelModule
             this.tbModelo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbModelo.Location = new System.Drawing.Point(243, 57);
             this.tbModelo.Name = "tbModelo";
+            this.tbModelo.ReadOnly = true;
             this.tbModelo.Size = new System.Drawing.Size(144, 29);
             this.tbModelo.TabIndex = 7;
             // 
@@ -304,6 +312,7 @@ namespace WindowsApp.AluguelModule
             this.tbMarca.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbMarca.Location = new System.Drawing.Point(33, 57);
             this.tbMarca.Name = "tbMarca";
+            this.tbMarca.ReadOnly = true;
             this.tbMarca.Size = new System.Drawing.Size(143, 29);
             this.tbMarca.TabIndex = 6;
             // 
@@ -327,7 +336,7 @@ namespace WindowsApp.AluguelModule
             this.panel3.Controls.Add(this.tbDt_Emprestimo);
             this.panel3.Controls.Add(this.label15);
             this.panel3.Controls.Add(this.label14);
-            this.panel3.Location = new System.Drawing.Point(245, 351);
+            this.panel3.Location = new System.Drawing.Point(256, 351);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(173, 160);
             this.panel3.TabIndex = 3;
@@ -431,11 +440,13 @@ namespace WindowsApp.AluguelModule
             // panelColorido1
             // 
             this.panelColorido1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(7)))), ((int)(((byte)(49)))));
+            this.panelColorido1.Controls.Add(this.button2);
+            this.panelColorido1.Controls.Add(this.button1);
             this.panelColorido1.Controls.Add(this.listServicos);
             this.panelColorido1.Controls.Add(this.label18);
             this.panelColorido1.Location = new System.Drawing.Point(31, 351);
             this.panelColorido1.Name = "panelColorido1";
-            this.panelColorido1.Size = new System.Drawing.Size(208, 160);
+            this.panelColorido1.Size = new System.Drawing.Size(215, 160);
             this.panelColorido1.TabIndex = 8;
             // 
             // listServicos
@@ -445,7 +456,7 @@ namespace WindowsApp.AluguelModule
             this.listServicos.ItemHeight = 17;
             this.listServicos.Location = new System.Drawing.Point(14, 25);
             this.listServicos.Name = "listServicos";
-            this.listServicos.Size = new System.Drawing.Size(181, 106);
+            this.listServicos.Size = new System.Drawing.Size(152, 123);
             this.listServicos.TabIndex = 11;
             // 
             // label18
@@ -488,6 +499,28 @@ namespace WindowsApp.AluguelModule
             this.btFecharAluguel.TabIndex = 13;
             this.btFecharAluguel.UseVisualStyleBackColor = true;
             this.btFecharAluguel.Click += new System.EventHandler(this.btFecharAluguel_Click);
+            // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = global::WindowsApp.Properties.Resources.addmini;
+            this.button1.Location = new System.Drawing.Point(168, 46);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(36, 36);
+            this.button1.TabIndex = 15;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Image = global::WindowsApp.Properties.Resources.removemini;
+            this.button2.Location = new System.Drawing.Point(168, 97);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(36, 35);
+            this.button2.TabIndex = 16;
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // ResumoAluguel
             // 
@@ -562,5 +595,7 @@ namespace WindowsApp.AluguelModule
         private System.Windows.Forms.ComboBox cb_motoristas;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolTip tipAluguel;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }
