@@ -19,7 +19,8 @@ namespace WindowsApp.ServicoModule
             return new DataGridViewColumn[]
             {
             new DataGridViewTextBoxColumn { DataPropertyName = "Nome", HeaderText = "Nome"},
-            new DataGridViewTextBoxColumn { DataPropertyName = "Taxa", HeaderText = "Taxa"}
+            new DataGridViewTextBoxColumn { DataPropertyName = "Taxa", HeaderText = "Taxa"},
+            new DataGridViewTextBoxColumn { DataPropertyName = "Estoque", HeaderText = "Estoque"}
             };
         }
 
@@ -29,6 +30,7 @@ namespace WindowsApp.ServicoModule
             {
                 servico.Nome,
                 servico.Taxa,
+                servico.Estoque
             };
             return linha.ToArray();
         }
