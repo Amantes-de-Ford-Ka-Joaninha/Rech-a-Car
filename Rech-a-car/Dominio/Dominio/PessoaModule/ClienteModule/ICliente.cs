@@ -9,4 +9,5 @@ namespace Dominio.PessoaModule.ClienteModule
         string Endereco { get; set; }
         string Documento { get; set; }
     }
+
 }

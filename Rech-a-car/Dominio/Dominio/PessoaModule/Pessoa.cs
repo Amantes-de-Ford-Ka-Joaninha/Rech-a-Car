@@ -25,5 +25,10 @@ namespace Dominio.PessoaModule
             return validador;
         }
         protected abstract string ValidaDocumento();
+
+        public override string ToString()
+        {
+            return Nome;
+        }
     }
 }

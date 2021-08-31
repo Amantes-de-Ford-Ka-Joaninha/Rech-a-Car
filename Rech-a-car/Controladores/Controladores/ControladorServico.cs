@@ -45,6 +45,13 @@ namespace Controladores.ServicoModule
             FROM 
                [TBServico]";
 
+        private const string sqlSelecionarServicosAlugados =
+            @"SELECT *
+            FROM 
+               [TBServico]
+            WHERE
+                [ID_ALUGUEL]=@ID_ALUGUEL";
+
         private const string sqlExisteServico =
            @"SELECT 
                 COUNT(*) 
@@ -52,6 +59,20 @@ namespace Controladores.ServicoModule
                 [TBServico]
             WHERE 
                 [ID] = @ID";
+
+        private const string sqlDesalugarServicosAlugados =
+        @"UPDATE [TBServico]
+                    SET
+                        [ID_ALUGUEL] = @DB_NULL         
+                    WHERE
+                        [ID_ALUGUEL] = @ID_ALUGUEL";
+
+        private const string sqlEditarAluguelServico =
+                @"UPDATE [TBServico]
+                        SET
+                          [ID_ALUGUEL] = @ID_ALUGUEL         
+                      WHERE
+                        [ID] = @ID";
 
         #endregion
 
@@ -92,7 +113,17 @@ namespace Controladores.ServicoModule
 
         public List<Servico> GetServicosAlugados(int idAluguel)
         {
-            throw new NotImplementedException();
+            return Db.GetAll(sqlSelecionarServicosAlugados, ConverterEmEntidade, AdicionarParametro("ID_ALUGUEL", idAluguel));
+        }
+
+        public void AlugarServicos(int idAluguel, List<Servico> servicos)
+        {
+            foreach (var servico in servicos)
+                Db.Update(sqlEditarAluguelServico, AdicionarParametro("ID_ALUGUEL", idAluguel, AdicionarParametro("ID", servico.Id)));
+        }
+        public void DesalugarServicosAlugados(int idAluguel)
+        {
+            Db.Update(sqlDesalugarServicosAlugados, AdicionarParametro("DB_NULL", DBNull.Value, AdicionarParametro("ID_ALUGUEL", idAluguel)));
         }
     }
 }
