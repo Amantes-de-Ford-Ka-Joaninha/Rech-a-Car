@@ -3,6 +3,7 @@ using Controladores.Shared;
 using Dominio.PessoaModule;
 using Dominio.PessoaModule.ClienteModule;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using WindowsApp.Shared;
 
@@ -70,6 +71,11 @@ namespace WindowsApp.ClienteModule
         }
         private void bt_add_motorista_click(object sender, EventArgs e)
         {
+            if (entidade == null)
+            {
+                MessageBox.Show("Primeiro cadastre a Empresa");
+                return;
+            }
             TelaPrincipal.Instancia.FormAtivo = new CadastroMotorista(entidade);
             AtualizarListMotoristas();
         }

@@ -54,7 +54,7 @@ namespace Controladores.VeiculoModule
                 WHERE [ID] = @ID";
 
         private const string sqlExcluirGrupo =
-                @" DELETE * FROM [TBCATEGORIA] WHERE [ID] = @ID";
+                @" DELETE FROM [TBCATEGORIA] WHERE [ID] = @ID";
 
         private const string sqlExisteGrupo =
             @"SELECT 

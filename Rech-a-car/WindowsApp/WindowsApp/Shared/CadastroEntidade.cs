@@ -18,7 +18,7 @@ namespace WindowsApp.Shared
         }
 
         protected abstract IEditavel ConfigurarEditar();
-        protected bool Salva(int id_chave_estrangeira = 0)
+        protected bool Salva(int id_chave_estrangeira = 0, bool mostraSucesso=true)
         {
             T entidade = GetNovaEntidade();
             var validacao = entidade.Validar();
@@ -32,9 +32,10 @@ namespace WindowsApp.Shared
             if (this.entidade == null)
                 Controlador.Inserir(entidade, id_chave_estrangeira);
             else
-                Controlador.Editar(entidade.Id, entidade, id_chave_estrangeira);
+                Controlador.Editar(this.entidade.Id, entidade, id_chave_estrangeira);
 
-            MessageBox.Show("Realizado com sucesso!!!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if(mostraSucesso)
+                MessageBox.Show("Realizado com sucesso!!!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             return true;
         }
     }

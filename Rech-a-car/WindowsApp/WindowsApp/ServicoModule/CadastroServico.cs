@@ -14,6 +14,7 @@ namespace WindowsApp.ServicoModule
         public CadastroServico()
         {
             InitializeComponent();
+            tbQuantidade.Text = "1";
         }
 
         protected override IEditavel ConfigurarEditar()
@@ -34,12 +35,11 @@ namespace WindowsApp.ServicoModule
 
         private void btAdicionar_Click(object sender, EventArgs e)
         {
-            if (!Salva())
-                return;
             Int32.TryParse(tbQuantidade.Text, out int quantidade);
 
             for (int i = 0; i < quantidade; i++)
-                Controlador.Inserir(entidade);
+                if (!Salva(mostraSucesso: false))
+                    return;
 
             TelaPrincipal.Instancia.FormAtivo = new GerenciamentoServico();
         }

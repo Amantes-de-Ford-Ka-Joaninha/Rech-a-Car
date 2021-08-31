@@ -51,7 +51,7 @@ namespace WindowsApp.ClienteModule
         }
         private void btAdicionar_Click(object sender, EventArgs e)
         {
-            if (Salva())
+            if (Salva(entidade.Cnh.Id))
                 TelaPrincipal.Instancia.FormAtivo = new GerenciamentoCliente();
         }
     }
