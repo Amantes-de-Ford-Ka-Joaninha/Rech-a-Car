@@ -137,7 +137,7 @@ namespace WindowsApp.AluguelModule
 
         private void RemoverServico()
         {
-            if (entidade.Servicos.Contains((Servico)listServicos.SelectedItem));
+            if (entidade.Servicos.Contains((Servico)listServicos.SelectedItem))
                 entidade.Servicos.Remove((Servico)listServicos.SelectedItem);
         }
         private void CarregarOpcionais()

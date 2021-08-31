@@ -48,8 +48,16 @@ namespace WindowsApp
                 return false;
             if (senhaAdmin != senha)
                 return false;
-            funcionario = new Funcionario("Alexandre Rech", "99999999999", "Rua do Flamengo", "", Properties.Resources.rech, "Admin") { Id = 1 };
+            GetSuperAdm();
             return true;
+        }
+
+        private void GetSuperAdm()
+        {
+            var Controlador = new ControladorFuncionario();
+            if (!Controlador.ExisteUsuario("admin"))
+                Controlador.Inserir(new Funcionario("Alexandre Rech", "99999999999", "Rua do Flamengo", "", Properties.Resources.rech, "Admin"));
+)           funcionario = Controlador.GetByUserName("admin");
         }
 
         private bool Logar(int id_funcionario, string senha)
