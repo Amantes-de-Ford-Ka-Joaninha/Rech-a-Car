@@ -119,7 +119,7 @@ namespace WindowsApp.AluguelModule
 
         private void CalculaPlanoControlado()
         {
-            return GetQtdDias * entidade.Veiculo.Categoria.
+            return GetQtdDias * entidade.Veiculo.Categoria
         }
 
         private void CalculaPlanoDiario()
