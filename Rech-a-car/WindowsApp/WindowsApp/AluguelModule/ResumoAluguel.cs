@@ -143,15 +143,6 @@ namespace WindowsApp.AluguelModule
 
             return (dtEmprestimo - dtDevolucao).Days;
         }
-<<<<<<< HEAD
-
-        private void RemoverServico()
-        {
-            if (entidade.Servicos.Contains((Servico)listServicos.SelectedItem))
-                entidade.Servicos.Remove((Servico)listServicos.SelectedItem);
-        }
-=======
->>>>>>> f85727dbd627d9f58615f98340da7511d1fc79ab
         private void CarregarOpcionais()
         {
             listServicos.DataSource = new ControladorServico().Registros;
@@ -182,13 +173,11 @@ namespace WindowsApp.AluguelModule
         {
             RemoverServico();
         }
-
-
-        #endregion
-
         private void pictureBox1_MouseHover(object sender, EventArgs e)
         {
             tipAluguel.SetToolTip(pictureBox1, "Clique duas vezes nos painéis para adicionar as informações necessárias.");
         }
+
+        #endregion
     }
 }
