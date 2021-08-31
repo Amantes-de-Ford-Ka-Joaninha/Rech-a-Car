@@ -14,7 +14,7 @@ using System.Linq;
 
 namespace WindowsApp.AluguelModule
 {
-    public partial class ResumoAluguel : CadastroEntidade<Aluguel> //Form //  
+    public partial class ResumoAluguel :   CadastroEntidade<Aluguel> // Form //
     {
         public static new Aluguel entidade = new Aluguel();
         private double PrecoParcial;
@@ -38,7 +38,7 @@ namespace WindowsApp.AluguelModule
             entidade.DataAluguel = dataAluguel;
 
             entidade.Condutor = (Condutor)cb_motoristas.SelectedItem;
-            entidade.TipoPlano = (Plano)tbPlano.SelectedIndex;
+            entidade.TipoPlano = (Plano)cbPlano.SelectedIndex;
             entidade.Funcionario = TelaPrincipal.Instancia.FuncionarioLogado;
 
             return new Aluguel(entidade);
@@ -52,7 +52,7 @@ namespace WindowsApp.AluguelModule
             tbMarca.Text = entidade.Veiculo.Marca;
             tbModelo.Text = entidade.Veiculo.Modelo;
             tbPlaca.Text = entidade.Veiculo.Placa;
-            tbPlano.SelectedItem = entidade.TipoPlano.ToString();
+            cbPlano.SelectedItem = entidade.TipoPlano.ToString();
             cb_motoristas.SelectedItem = entidade.Condutor;
             tbDt_Emprestimo.Text = entidade.DataAluguel.ToString("d");
             listServicos.DataSource = entidade.Servicos;
@@ -93,12 +93,18 @@ namespace WindowsApp.AluguelModule
             entidade.Servicos.Add((Servico)listServicos.SelectedItem);
             lbValor.Text = CalcularPrecoParcial().ToString();
         }
+        private void RemoverServico()
+        {
+            if (entidade.Servicos.Contains((Servico)listServicos.SelectedItem)) ;
+            entidade.Servicos.Remove((Servico)listServicos.SelectedItem);
 
+            lbValor.Text = CalcularPrecoParcial().ToString();
+        }
         private double CalcularPrecoParcial()
         {
             entidade.Servicos.ForEach(x => PrecoParcial += x.Taxa);
 
-            switch (entidade.TipoPlano)
+            switch (cbPlano.SelectedItem)
             {
                 case Plano.diario:
                     CalculaPlanoDiario();
@@ -107,6 +113,7 @@ namespace WindowsApp.AluguelModule
                     CalculaPlanoControlado();
                     break;
                 case Plano.livre:
+                    CalculaPlanoLivre();
                     break;
                 default:
                     break;
@@ -116,29 +123,25 @@ namespace WindowsApp.AluguelModule
 
             return PrecoParcial;
         }
-
         private void CalculaPlanoControlado()
         {
-            return GetQtdDias * entidade.Veiculo.Categoria
+            PrecoParcial = (entidade.Veiculo.Categoria.PrecoDiaria * GetQtdDias()) + 
+                entidade.Veiculo.Categoria.QuilometragemFranquia * entidade.Veiculo.Categoria.PrecoKm;
         }
-
         private void CalculaPlanoDiario()
         {
-            PrecoParcial += entidade.Veiculo.Categoria.PrecoDiaria * GetQtdDias();
+            PrecoParcial = entidade.Veiculo.Categoria.PrecoDiaria * GetQtdDias();
         }
-
+        private void CalculaPlanoLivre()
+        {
+            PrecoParcial = (entidade.Veiculo.Categoria.PrecoDiaria * GetQtdDias()) * 1.3;
+        }
         private int GetQtdDias()
         {
             DateTime.TryParse(tbDt_Devolucao.Text, out DateTime dtDevolucao);
             DateTime.TryParse(tbDt_Emprestimo.Text, out DateTime dtEmprestimo);
 
             return (dtEmprestimo - dtDevolucao).Days;
-        }
-
-        private void RemoverServico()
-        {
-            if (entidade.Servicos.Contains((Servico)listServicos.SelectedItem));
-                entidade.Servicos.Remove((Servico)listServicos.SelectedItem);
         }
         private void CarregarOpcionais()
         {
@@ -178,7 +181,5 @@ namespace WindowsApp.AluguelModule
         {
             tipAluguel.SetToolTip(pictureBox1, "Clique duas vezes nos painéis para adicionar as informações necessárias.");
         }
-
-
     }
 }

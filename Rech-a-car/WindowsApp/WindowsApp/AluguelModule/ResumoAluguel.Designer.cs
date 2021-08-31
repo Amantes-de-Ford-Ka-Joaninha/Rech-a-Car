@@ -57,7 +57,7 @@ namespace WindowsApp.AluguelModule
             this.tbMarca = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.panel3 = new WindowsApp.Shared.PanelColorido();
-            this.tbPlano = new System.Windows.Forms.ComboBox();
+            this.cbPlano = new System.Windows.Forms.ComboBox();
             this.tbDt_Devolucao = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.tbDt_Emprestimo = new System.Windows.Forms.TextBox();
@@ -330,7 +330,7 @@ namespace WindowsApp.AluguelModule
             // panel3
             // 
             this.panel3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(7)))), ((int)(((byte)(49)))));
-            this.panel3.Controls.Add(this.tbPlano);
+            this.panel3.Controls.Add(this.cbPlano);
             this.panel3.Controls.Add(this.tbDt_Devolucao);
             this.panel3.Controls.Add(this.label16);
             this.panel3.Controls.Add(this.tbDt_Emprestimo);
@@ -341,18 +341,19 @@ namespace WindowsApp.AluguelModule
             this.panel3.Size = new System.Drawing.Size(173, 160);
             this.panel3.TabIndex = 3;
             // 
-            // tbPlano
+            // cbPlano
             // 
-            this.tbPlano.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPlano.FormattingEnabled = true;
-            this.tbPlano.Items.AddRange(new object[] {
+            this.cbPlano.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPlano.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbPlano.FormattingEnabled = true;
+            this.cbPlano.Items.AddRange(new object[] {
             "Diário",
             "Controlado",
             "Livre"});
-            this.tbPlano.Location = new System.Drawing.Point(16, 27);
-            this.tbPlano.Name = "tbPlano";
-            this.tbPlano.Size = new System.Drawing.Size(143, 25);
-            this.tbPlano.TabIndex = 10;
+            this.cbPlano.Location = new System.Drawing.Point(16, 27);
+            this.cbPlano.Name = "cbPlano";
+            this.cbPlano.Size = new System.Drawing.Size(143, 25);
+            this.cbPlano.TabIndex = 10;
             // 
             // tbDt_Devolucao
             // 
@@ -591,7 +592,7 @@ namespace WindowsApp.AluguelModule
         private System.Windows.Forms.ListBox listServicos;
         private System.Windows.Forms.Label label17;
         private Shared.PanelColorido panelColorido2;
-        private System.Windows.Forms.ComboBox tbPlano;
+        private System.Windows.Forms.ComboBox cbPlano;
         private System.Windows.Forms.TextBox tbDt_Devolucao;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ComboBox cb_motoristas;
