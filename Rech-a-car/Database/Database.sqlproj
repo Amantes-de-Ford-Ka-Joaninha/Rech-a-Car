@@ -139,6 +139,7 @@
     </Build>
     <Build Include="dbo\Tables\TBServico.sql">
       <QuotedIdentifier>On</QuotedIdentifier>
+      <AnsiNulls>Off</AnsiNulls>
     </Build>
     <Build Include="dbo\Tables\TBVeiculo.sql">
       <AnsiNulls>On</AnsiNulls>

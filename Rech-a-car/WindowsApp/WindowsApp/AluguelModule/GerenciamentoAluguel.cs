@@ -1,4 +1,5 @@
 ﻿using Dominio.AluguelModule;
+using Dominio.PessoaModule.ClienteModule;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using WindowsApp.Shared;
@@ -22,17 +23,18 @@ namespace WindowsApp.AluguelModule
             new DataGridViewTextBoxColumn { DataPropertyName = "Cliente", HeaderText = "Cliente"},
             new DataGridViewTextBoxColumn { DataPropertyName = "Condutor", HeaderText = "Condutor"},
             new DataGridViewTextBoxColumn { DataPropertyName = "TipoDeAluguel", HeaderText = "Tipo De Aluguel"},
+            new DataGridViewTextBoxColumn { DataPropertyName = "DataDevolucao", HeaderText = "Data de Devolução"},
             };
         }
         public override object[] ObterCamposLinha(Aluguel aluguel)
         {
             List<object> linha = new List<object>()
             {
-                aluguel.Cliente,
                 aluguel.Veiculo,
-                aluguel.Condutor,
+                aluguel.Cliente,
+                aluguel.Condutor is ClientePF ? "-----" : aluguel.Condutor.Nome,
                 aluguel.TipoPlano,
-                aluguel.Servicos
+                aluguel is AluguelFechado aluguelF ? aluguelF.DataDevolucao.ToString("d") : "-----",
             };
             return linha.ToArray();
         }

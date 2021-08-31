@@ -20,6 +20,7 @@ namespace Controladores.AluguelModule
                     [ID_CLIENTE],       
                     [ID_CONDUTOR],             
                     [ID_VEICULO],
+                    [ID_FUNCIONARIO],
                     [TIPO_PLANO],
                     [DATA_ALUGUEL],
                     [DATA_DEVOLUCAO]
@@ -27,8 +28,9 @@ namespace Controladores.AluguelModule
             VALUES
                 (
                     @ID_CLIENTE,       
-                    @ID_CONDUTOR,             
-                    @ID_VEICULO,
+                    @ID_CONDUTOR,      
+                    @ID_VEICULO,     
+                    @ID_FUNCIONARIO,
                     @TIPO_PLANO,
                     @DATA_ALUGUEL,
                     @DATA_DEVOLUCAO
@@ -40,9 +42,10 @@ namespace Controladores.AluguelModule
                     [ID_CLIENTE] = @ID_CLIENTE,       
                     [ID_CONDUTOR] = @ID_CONDUTOR,             
                     [ID_VEICULO] = @ID_VEICULO,
+                    [ID_FUNCIONARIO] = @ID_FUNCIONARIO,       
                     [TIPO_PLANO] = @TIPO_PLANO,
                     [DATA_ALUGUEL] = @DATA_ALUGUEL,
-                    [DATA_DEVOLUCAO] = @DATA_DEVOLUCAO,
+                    [DATA_DEVOLUCAO] = @DATA_DEVOLUCAO
                 WHERE [ID] = @ID";
 
         private const string sqlExcluirAluguel =
@@ -76,6 +79,12 @@ namespace Controladores.AluguelModule
         public override string sqlEditar => sqlEditarAluguel;
         public override string sqlExcluir => sqlExcluirAluguel;
         public override string sqlExists => sqlExisteAluguel;
+
+        public override void Inserir(Aluguel entidade, int id_chave_estrangeira = 0)
+        {
+            base.Inserir(entidade);
+            new ControladorServico().AlugarServicos(entidade.Id, entidade.Servicos);
+        }
         public override Aluguel ConverterEmEntidade(IDataReader reader)
         {
             var id = Convert.ToInt32(reader["ID"]);
