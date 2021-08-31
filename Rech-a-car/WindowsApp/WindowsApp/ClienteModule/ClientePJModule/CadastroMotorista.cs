@@ -50,7 +50,7 @@ namespace WindowsApp.ClienteModule
         {
             var chave_estrangeira = entidade is null ? clientePJ.Id : entidade.Cnh.Id;
             if (Salva(chave_estrangeira))
-                TelaPrincipal.Instancia.FormAtivo = (Form)new CadastroClientePJ().ConfigurarEditar(clientePJ);
+                TelaPrincipal.Instancia.FormAtivo = (Form)new CadastroClientePJ().ConfigurarEditar(new ControladorClientePJ().GetById(clientePJ.Id));
         }
     }
 }
