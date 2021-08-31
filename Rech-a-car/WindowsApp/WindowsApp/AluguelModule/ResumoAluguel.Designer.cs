@@ -354,6 +354,7 @@ namespace WindowsApp.AluguelModule
             this.cbPlano.Name = "cbPlano";
             this.cbPlano.Size = new System.Drawing.Size(143, 25);
             this.cbPlano.TabIndex = 10;
+            this.cbPlano.Leave += new System.EventHandler(this.cbPlano_Leave);
             // 
             // tbDt_Devolucao
             // 
@@ -362,6 +363,7 @@ namespace WindowsApp.AluguelModule
             this.tbDt_Devolucao.Name = "tbDt_Devolucao";
             this.tbDt_Devolucao.Size = new System.Drawing.Size(143, 25);
             this.tbDt_Devolucao.TabIndex = 12;
+            this.tbDt_Devolucao.Leave += new System.EventHandler(this.tbDt_Devolucao_Leave);
             // 
             // label16
             // 
@@ -381,6 +383,7 @@ namespace WindowsApp.AluguelModule
             this.tbDt_Emprestimo.Name = "tbDt_Emprestimo";
             this.tbDt_Emprestimo.Size = new System.Drawing.Size(143, 25);
             this.tbDt_Emprestimo.TabIndex = 11;
+            this.tbDt_Emprestimo.Leave += new System.EventHandler(this.tbDt_Emprestimo_Leave);
             // 
             // label15
             // 

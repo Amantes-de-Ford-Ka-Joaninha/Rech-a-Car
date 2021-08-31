@@ -14,7 +14,7 @@ using System.Linq;
 
 namespace WindowsApp.AluguelModule
 {
-    public partial class ResumoAluguel :   CadastroEntidade<Aluguel> // Form //
+    public partial class ResumoAluguel : CadastroEntidade<Aluguel> // Form //
     {
         public static new Aluguel entidade = new Aluguel();
         private double PrecoParcial;
@@ -91,57 +91,57 @@ namespace WindowsApp.AluguelModule
         private void AdicionarServico()
         {
             entidade.Servicos.Add((Servico)listServicos.SelectedItem);
-            lbValor.Text = CalcularPrecoParcial().ToString();
+            CalcularPrecoParcial();
         }
         private void RemoverServico()
         {
             if (entidade.Servicos.Contains((Servico)listServicos.SelectedItem)) ;
             entidade.Servicos.Remove((Servico)listServicos.SelectedItem);
 
-            lbValor.Text = CalcularPrecoParcial().ToString();
+            CalcularPrecoParcial();
         }
-        private double CalcularPrecoParcial()
+        private void CalcularPrecoParcial()
         {
+            PrecoParcial = 0;
+
             entidade.Servicos.ForEach(x => PrecoParcial += x.Taxa);
 
-            switch (cbPlano.SelectedItem)
+            switch (cbPlano.Text)
             {
-                case Plano.diario:
+                case "Diário":
                     CalculaPlanoDiario();
                     break;
-                case Plano.controlado:
+                case "Controlado":
                     CalculaPlanoControlado();
                     break;
-                case Plano.livre:
+                case "Livre":
                     CalculaPlanoLivre();
                     break;
                 default:
                     break;
             }
 
-            PrecoParcial += entidade.Veiculo.Categoria.PrecoDiaria;
-
-            return PrecoParcial;
+            lbValor.Text = PrecoParcial.ToString();
         }
         private void CalculaPlanoControlado()
         {
-            PrecoParcial = (entidade.Veiculo.Categoria.PrecoDiaria * GetQtdDias()) + 
+            PrecoParcial += (entidade.Veiculo.Categoria.PrecoDiaria * GetQtdDias()) + 
                 entidade.Veiculo.Categoria.QuilometragemFranquia * entidade.Veiculo.Categoria.PrecoKm;
         }
         private void CalculaPlanoDiario()
         {
-            PrecoParcial = entidade.Veiculo.Categoria.PrecoDiaria * GetQtdDias();
+            PrecoParcial += entidade.Veiculo.Categoria.PrecoDiaria * GetQtdDias();
         }
         private void CalculaPlanoLivre()
         {
-            PrecoParcial = (entidade.Veiculo.Categoria.PrecoDiaria * GetQtdDias()) * 1.3;
+            PrecoParcial += (entidade.Veiculo.Categoria.PrecoDiaria * GetQtdDias()) * 1.3;
         }
         private int GetQtdDias()
         {
             DateTime.TryParse(tbDt_Devolucao.Text, out DateTime dtDevolucao);
             DateTime.TryParse(tbDt_Emprestimo.Text, out DateTime dtEmprestimo);
 
-            return (dtEmprestimo - dtDevolucao).Days;
+            return (dtDevolucao - dtEmprestimo).Days;
         }
         private void CarregarOpcionais()
         {
@@ -176,6 +176,35 @@ namespace WindowsApp.AluguelModule
         private void pictureBox1_MouseHover(object sender, EventArgs e)
         {
             tipAluguel.SetToolTip(pictureBox1, "Clique duas vezes nos painéis para adicionar as informações necessárias.");
+        }
+        private bool VerificaCampos()
+        {
+            if (cbPlano.SelectedIndex != -1 && tbDt_Emprestimo.Text != "" && tbDt_Devolucao.Text != "")
+                return true;
+            return false;
+
+
+        }
+        private void tbDt_Emprestimo_Leave(object sender, EventArgs e)
+        {
+            if (VerificaCampos())
+            {
+                CalcularPrecoParcial();
+            }
+        }
+        private void cbPlano_Leave(object sender, EventArgs e)
+        {
+            if (VerificaCampos())
+            {
+                CalcularPrecoParcial();
+            }
+        }
+        private void tbDt_Devolucao_Leave(object sender, EventArgs e)
+        {
+            if (VerificaCampos())
+            {
+                CalcularPrecoParcial();
+            }
         }
 
         #endregion
