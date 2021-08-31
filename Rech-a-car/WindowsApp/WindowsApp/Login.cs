@@ -48,16 +48,17 @@ namespace WindowsApp
                 return false;
             if (senhaAdmin != senha)
                 return false;
-            GetSuperAdm();
+
+            SetSuperAdm(userAdmin, senhaAdmin);
             return true;
         }
 
-        private void GetSuperAdm()
+        private void SetSuperAdm(string userAdmin, string senhaAdmin)
         {
             var Controlador = new ControladorFuncionario();
             if (!Controlador.ExisteUsuario("admin"))
-                Controlador.Inserir(new Funcionario("Alexandre Rech", "99999999999", "Rua do Flamengo", "", Properties.Resources.rech, "Admin"));
-)           funcionario = Controlador.GetByUserName("admin");
+                Controlador.Inserir(new Funcionario("Alexandre Rech", "99999999999", "Rua do Flamengo", "999999", Properties.Resources.rech, userAdmin, senhaAdmin));
+            funcionario = Controlador.GetByUserName(userAdmin);
         }
 
         private bool Logar(int id_funcionario, string senha)
