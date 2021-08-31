@@ -20,14 +20,18 @@ namespace Controladores.AluguelModule
                     [ID_CLIENTE],       
                     [ID_CONDUTOR],             
                     [ID_VEICULO],
-                    [TIPO_ALUGUEL],
+                    [TIPO_PLANO],
+                    [DATA_ALUGUEL],
+                    [DATA_DEVOLUCAO]
                 )
             VALUES
                 (
                     @ID_CLIENTE,       
                     @ID_CONDUTOR,             
                     @ID_VEICULO,
-                    @TIPO_ALUGUEL
+                    @TIPO_PLANO,
+                    @DATA_ALUGUEL,
+                    @DATA_DEVOLUCAO
                 )";
 
         private const string sqlEditarAluguel =
@@ -36,7 +40,9 @@ namespace Controladores.AluguelModule
                     [ID_CLIENTE] = @ID_CLIENTE,       
                     [ID_CONDUTOR] = @ID_CONDUTOR,             
                     [ID_VEICULO] = @ID_VEICULO,
-                    [TIPO_ALUGUEL] = @TIPO_ALUGUEL,
+                    [TIPO_PLANO] = @TIPO_PLANO,
+                    [DATA_ALUGUEL] = @DATA_ALUGUEL,
+                    [DATA_DEVOLUCAO] = @DATA_DEVOLUCAO,
                 WHERE [ID] = @ID";
 
         private const string sqlExcluirAluguel =
@@ -108,19 +114,21 @@ namespace Controladores.AluguelModule
             if (id_condutor == id_cliente)
                 return null;
             else
-                return null;//new ControladorMotorista().GetMotoristaEmpresa(id_cliente, id_condutor);
+                return new ControladorMotorista().GetMotoristaEmpresa(id_cliente, id_condutor);
         }
         protected override Dictionary<string, object> ObterParametrosRegistro(Aluguel aluguel)
         {
-            var parametros = new Dictionary<string, object>
+            return new Dictionary<string, object>
             {
                 { "ID", aluguel.Id },
                 { "ID_CLIENTE", aluguel.Cliente.Id },
                 { "ID_CONDUTOR", aluguel.Condutor.Id },
+                { "ID_FUNCIONARIO", aluguel.Funcionario.Id },
                 { "ID_VEICULO", aluguel.Veiculo.Id },
-                { "TIPO_ALUGUEL", aluguel.TipoPlano },
+                { "TIPO_PLANO", aluguel.TipoPlano },
+                { "DATA_ALUGUEL", aluguel.DataAluguel },
+                { "DATA_DEVOLUCAO", aluguel is AluguelFechado aluguelF ? aluguelF: null },
             };
-            return parametros;
         }
     }
 }

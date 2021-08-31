@@ -119,7 +119,7 @@ namespace WindowsApp.AluguelModule
 
         private void CalculaPlanoControlado()
         {
-            return GetQtdDias * entidade.Veiculo.Categoria
+            PrecoParcial += entidade.Veiculo.Categoria.PrecoDiaria;
         }
 
         private void CalculaPlanoDiario()
@@ -170,15 +170,11 @@ namespace WindowsApp.AluguelModule
         {
             RemoverServico();
         }
-
-
-        #endregion
-
         private void pictureBox1_MouseHover(object sender, EventArgs e)
         {
             tipAluguel.SetToolTip(pictureBox1, "Clique duas vezes nos painéis para adicionar as informações necessárias.");
         }
 
-
+        #endregion
     }
 }
