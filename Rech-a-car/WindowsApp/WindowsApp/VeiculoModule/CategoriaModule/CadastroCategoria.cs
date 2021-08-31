@@ -23,8 +23,8 @@ namespace WindowsApp.VeiculoModule.CategoriaModule
             tbDiaria.Text = entidade.PrecoDiaria.ToString();
             tbKm.Text = entidade.PrecoKm.ToString();
             tbFranquia.Text = entidade.QuilometragemFranquia.ToString();
-            tbKm.Text = entidade.PrecoLivre.ToString();
-            cbCNH.SelectedItem = entidade.TipoDeCnh;
+            tbLivre.Text = entidade.PrecoLivre.ToString();
+            cbCNH.SelectedIndex = (int)entidade.TipoDeCnh;
 
             return this;
         }
@@ -34,7 +34,7 @@ namespace WindowsApp.VeiculoModule.CategoriaModule
             Double.TryParse(tbDiaria.Text, out double diaria);
             Double.TryParse(tbKm.Text, out double km);
             Int32.TryParse(tbFranquia.Text, out int franquia);
-            Double.TryParse(tbKm.Text, out double livre);
+            Double.TryParse(tbLivre.Text, out double livre);
             var tipocnh = cbCNH.SelectedIndex;
 
             return new Categoria(nome, diaria, km, franquia, livre, (TipoCNH)tipocnh);
