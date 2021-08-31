@@ -102,7 +102,7 @@ namespace WindowsApp
         private void bt_sair_Click(object sender, EventArgs e)
         {
             Close();
-            Login.Instancia.Show();
+            new Login().Show();
         }
         private void btVeiculosSubMenu_Click(object sender, EventArgs e)
         {
