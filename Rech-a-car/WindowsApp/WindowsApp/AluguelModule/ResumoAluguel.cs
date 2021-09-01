@@ -11,6 +11,7 @@ using Dominio.ServicoModule;
 using Controladores.ServicoModule;
 using System.Windows.Forms;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace WindowsApp.AluguelModule
 {
@@ -21,7 +22,7 @@ namespace WindowsApp.AluguelModule
         public ResumoAluguel()
         {
             InitializeComponent();
-            PopulaServicos();
+            PopulaServicos(new ControladorServico().ServicosDisponiveis());
 
             if (AluguelAtual?.Veiculo != null)
                 PopulaVeiculo();
@@ -30,6 +31,7 @@ namespace WindowsApp.AluguelModule
                 PopulaCliente();
 
             cbPlano.SelectedIndex = 0;
+            bt_RemoveServico.Enabled = false;
         }
 
         public override Controlador<Aluguel> Controlador => new ControladorAluguel();
@@ -61,7 +63,7 @@ namespace WindowsApp.AluguelModule
 
             tbDt_Emprestimo.Text = entidade.DataAluguel.ToString("d");
             tbDt_Devolucao.Text = entidade.DataDevolucao.ToString("d");
-            listServicos.DataSource = entidade.Servicos;
+            PopulaServicos(entidade.Servicos);
             return this;
         }
         private void SetCondutor()
@@ -89,16 +91,18 @@ namespace WindowsApp.AluguelModule
         }
         private void PopulaMotoristas()
         {
-            cb_motoristas.DataSource = ((ClientePJ)AluguelAtual.Cliente).Motoristas;
+            cb_motoristas.Items.AddRange(((ClientePJ)AluguelAtual.Cliente).Motoristas.ToArray());
         }
-        private void PopulaServicos()
+        private void PopulaServicos(List<Servico> servicos)
         {
-            listServicos.DataSource = new ControladorServico().Registros;
+            listServicos.Items.Clear();
+            listServicos.Items.AddRange(servicos.ToArray());
         }
 
         private void AdicionarServico()
         {
             AluguelAtual.Servicos.Add((Servico)listServicos.SelectedItem);
+            listServicos.Items.Remove(listServicos.SelectedItem);
             CalcularPrecoParcial();
         }
         private void RemoverServico()
@@ -173,6 +177,7 @@ namespace WindowsApp.AluguelModule
         {
             if (!Salva())
                 return;
+
             TelaPrincipal.Instancia.FormAtivo = new GerenciamentoAluguel();
             AluguelAtual = new Aluguel();
         }
@@ -208,6 +213,22 @@ namespace WindowsApp.AluguelModule
         {
             CalcularPrecoParcial();
         }
+        private void bt_alterna_listas_Click(object sender, EventArgs e)
+        {
+            if (lb_lista_opcionais.Text == "Opcionais")
+            {
+                lb_lista_opcionais.Text = "Alugados";
+                PopulaServicos(AluguelAtual.Servicos);
+                bt_RemoveServico.Enabled = true;
+            }
+            else
+            {
+                lb_lista_opcionais.Text = "Opcionais";
+                PopulaServicos(new ControladorServico().ServicosDisponiveis());
+                bt_RemoveServico.Enabled = false;
+            }
+        }
         #endregion
+
     }
 }

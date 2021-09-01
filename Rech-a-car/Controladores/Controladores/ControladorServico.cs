@@ -121,6 +121,12 @@ namespace Controladores.ServicoModule
             foreach (var servico in servicos)
                 Db.Update(sqlEditarAluguelServico, AdicionarParametro("ID_ALUGUEL", idAluguel, AdicionarParametro("ID", servico.Id)));
         }
+
+        public List<Servico> ServicosDisponiveis()
+        {
+            return Registros;
+        }
+
         public void DesalugarServicosAlugados(int idAluguel)
         {
             Db.Update(sqlDesalugarServicosAlugados, AdicionarParametro("DB_NULL", DBNull.Value, AdicionarParametro("ID_ALUGUEL", idAluguel)));

@@ -70,11 +70,12 @@ namespace WindowsApp.AluguelModule
             this.bt_RemoveServico = new System.Windows.Forms.Button();
             this.bt_AddServico = new System.Windows.Forms.Button();
             this.listServicos = new System.Windows.Forms.ListBox();
-            this.label18 = new System.Windows.Forms.Label();
+            this.lb_lista_opcionais = new System.Windows.Forms.Label();
             this.panelColorido2 = new WindowsApp.Shared.PanelColorido();
             this.tipAluguel = new System.Windows.Forms.ToolTip(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btFecharAluguel = new System.Windows.Forms.Button();
+            this.bt_alterna_listas = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -472,10 +473,11 @@ namespace WindowsApp.AluguelModule
             // panelColorido1
             // 
             this.panelColorido1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(7)))), ((int)(((byte)(49)))));
+            this.panelColorido1.Controls.Add(this.bt_alterna_listas);
             this.panelColorido1.Controls.Add(this.bt_RemoveServico);
             this.panelColorido1.Controls.Add(this.bt_AddServico);
             this.panelColorido1.Controls.Add(this.listServicos);
-            this.panelColorido1.Controls.Add(this.label18);
+            this.panelColorido1.Controls.Add(this.lb_lista_opcionais);
             this.panelColorido1.Location = new System.Drawing.Point(41, 432);
             this.panelColorido1.Margin = new System.Windows.Forms.Padding(4);
             this.panelColorido1.Name = "panelColorido1";
@@ -519,17 +521,17 @@ namespace WindowsApp.AluguelModule
             this.listServicos.Size = new System.Drawing.Size(201, 130);
             this.listServicos.TabIndex = 11;
             // 
-            // label18
+            // lb_lista_opcionais
             // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(-7, -4);
-            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(121, 32);
-            this.label18.TabIndex = 9;
-            this.label18.Text = "Opcionais";
+            this.lb_lista_opcionais.AutoSize = true;
+            this.lb_lista_opcionais.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_lista_opcionais.ForeColor = System.Drawing.Color.White;
+            this.lb_lista_opcionais.Location = new System.Drawing.Point(-7, -4);
+            this.lb_lista_opcionais.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lb_lista_opcionais.Name = "lb_lista_opcionais";
+            this.lb_lista_opcionais.Size = new System.Drawing.Size(121, 32);
+            this.lb_lista_opcionais.TabIndex = 9;
+            this.lb_lista_opcionais.Text = "Opcionais";
             // 
             // panelColorido2
             // 
@@ -563,6 +565,19 @@ namespace WindowsApp.AluguelModule
             this.btFecharAluguel.TabIndex = 13;
             this.btFecharAluguel.UseVisualStyleBackColor = true;
             this.btFecharAluguel.Click += new System.EventHandler(this.btFecharAluguel_Click);
+            // 
+            // bt_alterna_listas
+            // 
+            this.bt_alterna_listas.FlatAppearance.BorderSize = 0;
+            this.bt_alterna_listas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_alterna_listas.Image = global::WindowsApp.Properties.Resources.addmini;
+            this.bt_alterna_listas.Location = new System.Drawing.Point(224, 9);
+            this.bt_alterna_listas.Margin = new System.Windows.Forms.Padding(4);
+            this.bt_alterna_listas.Name = "bt_alterna_listas";
+            this.bt_alterna_listas.Size = new System.Drawing.Size(48, 44);
+            this.bt_alterna_listas.TabIndex = 17;
+            this.bt_alterna_listas.UseVisualStyleBackColor = true;
+            this.bt_alterna_listas.Click += new System.EventHandler(this.bt_alterna_listas_Click);
             // 
             // ResumoAluguel
             // 
@@ -628,7 +643,7 @@ namespace WindowsApp.AluguelModule
         private System.Windows.Forms.TextBox tbDt_Emprestimo;
         private System.Windows.Forms.Label label15;
         private Shared.PanelColorido panelColorido1;
-        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label lb_lista_opcionais;
         private System.Windows.Forms.ListBox listServicos;
         private System.Windows.Forms.Label label17;
         private Shared.PanelColorido panelColorido2;
@@ -640,5 +655,6 @@ namespace WindowsApp.AluguelModule
         private System.Windows.Forms.ToolTip tipAluguel;
         private System.Windows.Forms.Button bt_RemoveServico;
         private System.Windows.Forms.Button bt_AddServico;
+        private System.Windows.Forms.Button bt_alterna_listas;
     }
 }
