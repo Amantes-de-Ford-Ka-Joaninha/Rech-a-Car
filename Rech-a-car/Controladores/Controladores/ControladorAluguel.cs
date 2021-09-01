@@ -94,18 +94,18 @@ namespace Controladores.AluguelModule
             var id_funcionario = Convert.ToInt32(reader["ID_FUNCIONARIO"]);
 
             var dataAluguel = Convert.ToDateTime(reader["DATA_ALUGUEL"]);
+            var dataDevolucao = Convert.ToDateTime(reader["DATA_DEVOLUCAO"]);
             var tipoPlano = Convert.ToInt32(reader["TIPO_PLANO"]);
 
             var funcionario = new ControladorFuncionario().GetById(id_funcionario);
             var veiculo = new ControladorVeiculo().GetById(id_veiculo);
 
-            Condutor condutor = GetCondutor(id_condutor, id_cliente);
+            var condutor = GetCondutor(id_condutor, id_cliente);
 
             var cliente = new ControladorCliente().GetById(id_cliente, GetTipoCliente(condutor));
-
             var servicos = new ControladorServico().GetServicosAlugados(id);
 
-            return new Aluguel(veiculo, servicos, (Plano)tipoPlano, dataAluguel, cliente, funcionario, condutor)
+            return new Aluguel(veiculo, servicos, (Plano)tipoPlano, dataAluguel, cliente, funcionario, dataDevolucao, condutor)
             {
                 Id = id
             };
@@ -113,17 +113,11 @@ namespace Controladores.AluguelModule
 
         private Type GetTipoCliente(Condutor condutor)
         {
-            if (condutor == null)
-                return typeof(ClientePF);
-            else
-                return typeof(ClientePJ);
+            return condutor == null ? typeof(ClientePF) : typeof(ClientePJ);
         }
         private Condutor GetCondutor(int id_condutor, int id_cliente)
         {
-            if (id_condutor == id_cliente)
-                return null;
-            else
-                return new ControladorMotorista().GetMotoristaEmpresa(id_cliente, id_condutor);
+            return id_condutor == id_cliente ? null : new ControladorMotorista().GetMotoristaEmpresa(id_cliente, id_condutor);
         }
         protected override Dictionary<string, object> ObterParametrosRegistro(Aluguel aluguel)
         {

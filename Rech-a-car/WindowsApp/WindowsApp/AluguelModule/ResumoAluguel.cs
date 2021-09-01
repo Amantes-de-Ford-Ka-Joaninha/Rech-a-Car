@@ -16,18 +16,18 @@ namespace WindowsApp.AluguelModule
 {
     public partial class ResumoAluguel : CadastroEntidade<Aluguel> // Form//
     {
-        private double PrecoParcial;
+        private double PrecoParcial { set { lbValor.Text = value.ToString(); } get { return Convert.ToDouble(lbValor.Text); } }
         public static Aluguel AluguelAtual = new Aluguel();
         public ResumoAluguel()
         {
             InitializeComponent();
-            PopularServicos();
+            PopulaServicos();
 
             if (AluguelAtual?.Veiculo != null)
                 PopulaVeiculo();
 
             if (AluguelAtual?.Cliente != null)
-                PopularCliente();
+                PopulaCliente();
 
             cbPlano.SelectedIndex = 0;
         }
@@ -37,7 +37,7 @@ namespace WindowsApp.AluguelModule
         {
             DateTime.TryParse(tbDt_Emprestimo.Text, out DateTime dataAluguel);
 
-            AluguelAtual.Condutor = cb_motoristas.SelectedItem is string ? (Condutor)AluguelAtual.Cliente : (Condutor)cb_motoristas.SelectedItem;
+            AluguelAtual.Condutor = cb_motoristas.SelectedItem is null ? (Condutor)AluguelAtual.Cliente : (Condutor)cb_motoristas.SelectedItem;
             AluguelAtual.TipoPlano = (Plano)cbPlano.SelectedIndex;
             AluguelAtual.Funcionario = TelaPrincipal.Instancia.FuncionarioLogado;
             AluguelAtual.DataAluguel = dataAluguel;
@@ -62,26 +62,12 @@ namespace WindowsApp.AluguelModule
             listServicos.DataSource = entidade.Servicos;
             return this;
         }
-
         private void SetCondutor()
         {
-            if (entidade.Cliente is ClientePJ clientePJ)
-            {
-                cb_motoristas.DataSource = clientePJ.Motoristas;
-                cb_motoristas.SelectedItem = entidade.Condutor;
-            }
-            else
-            {
-                cb_motoristas.Items.Add("----");
-                cb_motoristas.SelectedIndex = 0;
-            }
-        }
-        private void GetCondutor()
-        {
             if (AluguelAtual.Cliente is ClientePJ)
-                PopularMotoristas();
+                PopulaMotoristas();
             else
-                cb_motoristas.SelectedItem = "----";
+                cb_motoristas.Enabled = false;
         }
 
         private void PopulaVeiculo()
@@ -90,38 +76,43 @@ namespace WindowsApp.AluguelModule
             tbModelo.Text = AluguelAtual.Veiculo.Modelo;
             tbPlaca.Text = AluguelAtual.Veiculo.Placa;
         }
-        private void PopularCliente()
+        private void PopulaCliente()
         {
             tbCliente.Text = AluguelAtual.Cliente.Nome;
             tbDocumento.Text = AluguelAtual.Cliente.Documento;
             tbEndereço.Text = AluguelAtual.Cliente.Endereco;
             tbTelefone.Text = AluguelAtual.Cliente.Telefone;
 
-            GetCondutor();
+            SetCondutor();
         }
-        private void PopularMotoristas()
+        private void PopulaMotoristas()
         {
             cb_motoristas.DataSource = ((ClientePJ)AluguelAtual.Cliente).Motoristas;
+        }
+        private void PopulaServicos()
+        {
+            listServicos.DataSource = new ControladorServico().Registros;
         }
 
         private void AdicionarServico()
         {
-            entidade.Servicos.Add((Servico)listServicos.SelectedItem);
-            CalcularPrecoParcial();
             AluguelAtual.Servicos.Add((Servico)listServicos.SelectedItem);
-            lbValor.Text = CalcularPrecoParcial().ToString();
+            CalcularPrecoParcial();
         }
         private void RemoverServico()
         {
-            if (entidade.Servicos.Contains((Servico)listServicos.SelectedItem)) ;
-            entidade.Servicos.Remove((Servico)listServicos.SelectedItem);
-
+            AluguelAtual.Servicos.Remove((Servico)listServicos.SelectedItem);
             CalcularPrecoParcial();
         }
-        private double CalcularPrecoParcial()
+        private void CalcularPrecoParcial()
         {
+            PrecoParcial = 0;
             AluguelAtual.Servicos.ForEach(x => PrecoParcial += x.Taxa);
 
+            if (!VerificaCamposDatas())
+                return;
+
+            var Categoria = AluguelAtual.Veiculo.Categoria;
             switch (cbPlano.Text)
             {
                 case "Diário":
@@ -138,40 +129,50 @@ namespace WindowsApp.AluguelModule
             }
 
             lbValor.Text = PrecoParcial.ToString();
-        }
-        private void CalculaPlanoControlado()
-        {
-            PrecoParcial += (entidade.Veiculo.Categoria.PrecoDiaria * GetQtdDias()) + 
-                entidade.Veiculo.Categoria.QuilometragemFranquia * entidade.Veiculo.Categoria.PrecoKm;
-        }
-        private void CalculaPlanoDiario()
-        {
-            PrecoParcial += entidade.Veiculo.Categoria.PrecoDiaria * GetQtdDias();
-        }
-        private void CalculaPlanoLivre()
-        {
-            PrecoParcial += (entidade.Veiculo.Categoria.PrecoDiaria * GetQtdDias()) * 1.3;
-        }
-        private int GetQtdDias()
-        {
-            DateTime.TryParse(tbDt_Devolucao.Text, out DateTime dtDevolucao);
-            DateTime.TryParse(tbDt_Emprestimo.Text, out DateTime dtEmprestimo);
 
-            return (dtDevolucao - dtEmprestimo).Days;
+            void CalculaPlanoControlado()
+            {
+                PrecoParcial += (Categoria.PrecoDiaria * GetQtdDiasAluguel()) +
+                    Categoria.QuilometragemFranquia * Categoria.PrecoKm;
+            }
+            void CalculaPlanoDiario()
+            {
+                PrecoParcial += Categoria.PrecoDiaria * GetQtdDiasAluguel();
+            }
+            void CalculaPlanoLivre()
+            {
+                PrecoParcial += Categoria.PrecoDiaria * GetQtdDiasAluguel() * 1.3;
+            }
+            int GetQtdDiasAluguel()
+            {
+                DateTime.TryParse(tbDt_Devolucao.Text, out DateTime dtDevolucao);
+                DateTime.TryParse(tbDt_Emprestimo.Text, out DateTime dtEmprestimo);
+
+                return (dtDevolucao - dtEmprestimo).Days;
+            }
+            bool VerificaCamposDatas()
+            {
+                return tbDt_Emprestimo.Text != "" && tbDt_Devolucao.Text != "";
+            }
         }
-        private void CarregarOpcionais()
+        protected override string ValidacaoCampos()
         {
-            listServicos.DataSource = new ControladorServico().Registros;
+            var validacao = string.Empty;
+            if (AluguelAtual.Veiculo == null)
+                validacao += "O aluguel precisa de um veículo\n";
+            if (AluguelAtual.Cliente == null)
+                validacao += "O aluguel precisa de um cliente";
+
+            return validacao;
         }
 
         #region Eventos
         private void btFecharAluguel_Click(object sender, EventArgs e)
         {
-            if (Salva())
-            {
+            if (!Salva())
+                return;
                 TelaPrincipal.Instancia.FormAtivo = new GerenciamentoAluguel();
                 AluguelAtual = new Aluguel();
-            }
         }
         private void panel1_DoubleClick(object sender, EventArgs e)
         {
@@ -193,34 +194,17 @@ namespace WindowsApp.AluguelModule
         {
             tipAluguel.SetToolTip(pictureBox1, "Clique duas vezes nos painéis para adicionar as informações necessárias.");
         }
-        private bool VerificaCampos()
-        {
-            if (cbPlano.SelectedIndex != -1 && tbDt_Emprestimo.Text != "" && tbDt_Devolucao.Text != "")
-                return true;
-            return false;
-
-
-        }
         private void tbDt_Emprestimo_Leave(object sender, EventArgs e)
         {
-            if (VerificaCampos())
-            {
-                CalcularPrecoParcial();
-            }
+            CalcularPrecoParcial();
         }
         private void cbPlano_Leave(object sender, EventArgs e)
         {
-            if (VerificaCampos())
-            {
-                CalcularPrecoParcial();
-            }
+            CalcularPrecoParcial();
         }
         private void tbDt_Devolucao_Leave(object sender, EventArgs e)
         {
-            if (VerificaCampos())
-            {
-                CalcularPrecoParcial();
-            }
+            CalcularPrecoParcial();
         }
 
         #endregion

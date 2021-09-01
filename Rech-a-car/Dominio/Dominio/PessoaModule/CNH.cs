@@ -27,6 +27,15 @@ namespace Dominio.PessoaModule
 
             return validacao;
         }
+        public bool PodeDirigir(TipoCNH tipo)
+        {
+            switch (TipoCnh)
+            {
+                case TipoCNH.A: return tipo == TipoCNH.A;
+                case TipoCNH.B: return tipo == TipoCNH.B;
+                default: return tipo <= TipoCnh;
+            }
+        }
     }
     public enum TipoCNH
     {

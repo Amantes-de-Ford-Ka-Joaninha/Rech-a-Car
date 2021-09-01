@@ -10,7 +10,7 @@ namespace Dominio.AluguelModule
 {
     public class Aluguel : Entidade
     {
-        public Aluguel(Veiculo veiculo, List<Servico> servicos, Plano tipoPlano, DateTime dataAluguel, ICliente cliente, Funcionario funcionario, Condutor condutor = null)
+        public Aluguel(Veiculo veiculo, List<Servico> servicos, Plano tipoPlano, DateTime dataAluguel, ICliente cliente, Funcionario funcionario, DateTime dataDevolucao, Condutor condutor = null)
         {
             Funcionario = funcionario;
             Veiculo = veiculo;
@@ -19,6 +19,7 @@ namespace Dominio.AluguelModule
             DataAluguel = dataAluguel;
             Cliente = cliente;
             Condutor = condutor;
+            DataDevolucao = dataDevolucao;
             if (condutor == null)
                 Condutor = (Condutor)cliente;
         }
@@ -45,6 +46,11 @@ namespace Dominio.AluguelModule
         public DateTime DataAluguel { get; set; }
         public DateTime DataDevolucao { get; set; }
 
+
+        public AluguelFechado Fechar(int kmRodados, double tanqueUtilizado, List<Servico> servicos)
+        {
+            return new AluguelFechado(this, kmRodados, tanqueUtilizado, servicos);
+        }
         public override string Validar()
         {
             string validacao = String.Empty;
@@ -52,16 +58,12 @@ namespace Dominio.AluguelModule
                 validacao += "Condutor não tem a carteira necessária para dirigir o veículo selecionado";
 
             if (DataAluguel < DateTime.Today)
-                validacao += "Data de aluguel deve ser no futuro";
+                validacao += "Data de aluguel não pode ser no passado";
 
-            if (DataAluguel > DataDevolucao)
+            if (DataAluguel < DataDevolucao)
                 validacao += "Data de devolução deve ser após data de aluguel";
 
             return validacao;
-        }
-        public AluguelFechado Fechar(DadosDevolucao dados)
-        {
-            return new AluguelFechado(this, dados);
         }
     }
     public enum Plano

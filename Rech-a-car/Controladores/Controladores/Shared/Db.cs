@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.Common;
 
 namespace Controladores.Shared
 {
-    public delegate T ConverterDelegate<T>(DbDataReader reader);
+    public delegate T ConverterDelegate<T>(IDataReader reader);
 
     public static class Db
     {

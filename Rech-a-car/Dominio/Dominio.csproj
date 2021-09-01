@@ -42,7 +42,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dominio\AluguelModule\DadosDevolucao.cs" />
     <Compile Include="Dominio\AluguelModule\Aluguel.cs" />
     <Compile Include="Dominio\AluguelModule\AluguelFechado.cs" />
     <Compile Include="Dominio\Shared\IControlavel.cs" />
