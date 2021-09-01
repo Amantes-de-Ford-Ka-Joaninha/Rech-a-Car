@@ -15,6 +15,7 @@ namespace WindowsApp.VeiculoModule.CategoriaModule
         public CadastroCategoria()
         {
             InitializeComponent();
+            cbCNH.SelectedItem = "AB";
         }
 
         protected override IEditavel ConfigurarEditar()
