@@ -64,9 +64,9 @@ namespace WindowsApp.AluguelModule
             this.cbTipoCnh = new System.Windows.Forms.ComboBox();
             this.panel3 = new WindowsApp.Shared.PanelColorido();
             this.cbPlano = new System.Windows.Forms.ComboBox();
-            this.tbDt_Devolucao = new System.Windows.Forms.TextBox();
+            this.tbDt_Devolucao = new System.Windows.Forms.MaskedTextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.tbDt_Emprestimo = new System.Windows.Forms.TextBox();
+            this.tbDt_Emprestimo = new System.Windows.Forms.MaskedTextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -435,9 +435,13 @@ namespace WindowsApp.AluguelModule
             // 
             this.tbDt_Devolucao.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbDt_Devolucao.Location = new System.Drawing.Point(16, 123);
+            this.tbDt_Devolucao.Mask = "00/00/0000";
             this.tbDt_Devolucao.Name = "tbDt_Devolucao";
             this.tbDt_Devolucao.Size = new System.Drawing.Size(143, 25);
             this.tbDt_Devolucao.TabIndex = 12;
+            this.tbDt_Devolucao.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbDt_Devolucao.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.tbDt_Devolucao.ValidatingType = typeof(System.DateTime);
             this.tbDt_Devolucao.TextChanged += new System.EventHandler(this.tbDt_Devolucao_TextChanged);
             // 
             // label16
@@ -455,9 +459,13 @@ namespace WindowsApp.AluguelModule
             // 
             this.tbDt_Emprestimo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbDt_Emprestimo.Location = new System.Drawing.Point(16, 75);
+            this.tbDt_Emprestimo.Mask = "00/00/0000";
             this.tbDt_Emprestimo.Name = "tbDt_Emprestimo";
             this.tbDt_Emprestimo.Size = new System.Drawing.Size(143, 25);
             this.tbDt_Emprestimo.TabIndex = 11;
+            this.tbDt_Emprestimo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbDt_Emprestimo.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.tbDt_Emprestimo.ValidatingType = typeof(System.DateTime);
             this.tbDt_Emprestimo.TextChanged += new System.EventHandler(this.tbDt_Emprestimo_TextChanged);
             // 
             // label15
@@ -680,7 +688,7 @@ namespace WindowsApp.AluguelModule
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button btFecharAluguel;
-        private System.Windows.Forms.TextBox tbDt_Emprestimo;
+        private System.Windows.Forms.MaskedTextBox tbDt_Emprestimo;
         private System.Windows.Forms.Label label15;
         private Shared.PanelColorido panelColorido1;
         private System.Windows.Forms.Label lb_lista_opcionais;
@@ -688,7 +696,7 @@ namespace WindowsApp.AluguelModule
         private System.Windows.Forms.Label label17;
         private Shared.PanelColorido panelColorido2;
         private System.Windows.Forms.ComboBox cbPlano;
-        private System.Windows.Forms.TextBox tbDt_Devolucao;
+        private System.Windows.Forms.MaskedTextBox tbDt_Devolucao;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ComboBox cb_motoristas;
         private System.Windows.Forms.PictureBox pictureBox1;

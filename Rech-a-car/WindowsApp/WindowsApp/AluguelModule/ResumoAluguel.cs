@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using System.Linq;
 using System.Collections.Generic;
 using Dominio.VeiculoModule;
+using System.Globalization;
 
 namespace WindowsApp.AluguelModule
 {
@@ -37,8 +38,17 @@ namespace WindowsApp.AluguelModule
             }
 
             PopulaServicos(new ControladorServico().ServicosDisponiveis());
+            PopulaDatas();
             cbPlano.SelectedIndex = 0;
             bt_RemoveServico.Enabled = false;
+        }
+
+        private void PopulaDatas()
+        {
+            var dtEmprestimo = DateTime.Parse(DateTime.Now.ToShortDateString(), new CultureInfo("pt-BR"));
+            tbDt_Emprestimo.Text = dtEmprestimo.ToString();
+            var dtDevolucao = DateTime.Parse(DateTime.Now.AddDays(1).ToShortDateString(), new CultureInfo("pt-BR"));
+            tbDt_Devolucao.Text = dtDevolucao.ToString();
         }
 
         public override Controlador<Aluguel> Controlador => new ControladorAluguel();
