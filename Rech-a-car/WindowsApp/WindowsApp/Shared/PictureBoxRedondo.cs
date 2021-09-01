@@ -16,8 +16,8 @@ class PictureBoxRedondo : PictureBox
         {
             gp.AddEllipse(0, 0, this.Width - 1, this.Height - 1);
             Region = new Region(gp);
-            e.Graphics.SmoothingMode = SmoothingMode.HighQuality;
-            e.Graphics.DrawEllipse(new Pen(new SolidBrush(Color.FromArgb(176, 7, 49)), 5), 0, 0, this.Width, this.Height);
+            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+            e.Graphics.DrawEllipse(new Pen(new SolidBrush(Color.FromArgb(176, 7, 49)), 3), 0, 0, this.Width-1, this.Height-1);
         }
     }
 }
