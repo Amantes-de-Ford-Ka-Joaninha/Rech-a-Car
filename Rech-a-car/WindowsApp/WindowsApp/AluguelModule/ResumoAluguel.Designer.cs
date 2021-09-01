@@ -533,7 +533,7 @@ namespace WindowsApp.AluguelModule
             // 
             this.bt_alterna_listas.FlatAppearance.BorderSize = 0;
             this.bt_alterna_listas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_alterna_listas.Image = global::WindowsApp.Properties.Resources.addmini;
+            this.bt_alterna_listas.Image = global::WindowsApp.Properties.Resources.trocar;
             this.bt_alterna_listas.Location = new System.Drawing.Point(168, 7);
             this.bt_alterna_listas.Name = "bt_alterna_listas";
             this.bt_alterna_listas.Size = new System.Drawing.Size(36, 33);

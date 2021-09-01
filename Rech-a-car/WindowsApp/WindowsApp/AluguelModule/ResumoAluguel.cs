@@ -16,7 +16,7 @@ using Dominio.VeiculoModule;
 
 namespace WindowsApp.AluguelModule
 {
-    public partial class ResumoAluguel : CadastroEntidade<Aluguel>
+    public partial class ResumoAluguel : Form//CadastroEntidade<Aluguel>
     {
         private double PrecoParcial { set { lbValor.Text = value.ToString(); } get { return Convert.ToDouble(lbValor.Text); } }
         private Aluguel Aluguel;
