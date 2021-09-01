@@ -27,10 +27,14 @@ namespace WindowsApp.AluguelModule
             InitializeComponent();
 
             if (Aluguel?.Veiculo != null)
+            {
                 PopulaVeiculo(Aluguel.Veiculo);
+            }
 
             if (Aluguel?.Cliente != null)
+            {
                 PopulaCliente(aluguel.Cliente);
+            }
 
             PopulaServicos(new ControladorServico().ServicosDisponiveis());
             cbPlano.SelectedIndex = 0;
@@ -79,6 +83,7 @@ namespace WindowsApp.AluguelModule
 
         private void PopulaVeiculo(Veiculo veiculo)
         {
+            EsconderPanel(panelEsconderVeiculo);
             Aluguel.Veiculo = veiculo;
             tbMarca.Text = Aluguel.Veiculo.Marca;
             tbModelo.Text = Aluguel.Veiculo.Modelo;
@@ -86,6 +91,7 @@ namespace WindowsApp.AluguelModule
         }
         private void PopulaCliente(ICliente cliente)
         {
+            EsconderPanel(panelEsconderCliente);
             Aluguel.Cliente = cliente;
             tbCliente.Text = Aluguel.Cliente.Nome;
             tbDocumento.Text = Aluguel.Cliente.Documento;
@@ -114,6 +120,10 @@ namespace WindowsApp.AluguelModule
         {
             Aluguel.Servicos.Remove((Servico)listServicos.SelectedItem);
             CalcularPrecoParcial();
+        }
+        private void EsconderPanel(Panel panel)
+        {
+            panel.Visible = false;
         }
         private void CalcularPrecoParcial()
         {
@@ -188,11 +198,12 @@ namespace WindowsApp.AluguelModule
 
             TelaPrincipal.Instancia.FormAtivo = new GerenciamentoAluguel();
         }
-        private void panel1_DoubleClick(object sender, EventArgs e)
+        private void panelEsconderCliente_DoubleClick(object sender, EventArgs e)
         {
             TelaPrincipal.Instancia.FormAtivo = new GerenciamentoCliente("Selecione um Cliente", TipoTela.ApenasConfirma, Aluguel);
         }
-        private void panel2_DoubleClick(object sender, EventArgs e)
+
+        private void panelEsconderVeiculo_DoubleClick(object sender, EventArgs e)
         {
             TelaPrincipal.Instancia.FormAtivo = new GerenciamentoVeiculo("Selecione um Veículo", TipoTela.ApenasConfirma, Aluguel);
         }
