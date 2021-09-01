@@ -85,6 +85,13 @@ namespace Controladores.AluguelModule
             base.Inserir(entidade);
             new ControladorServico().AlugarServicos(entidade.Id, entidade.Servicos);
         }
+        public override void Editar(int id,Aluguel entidade, int id_chave_estrangeira = 0)
+        {
+            base.Editar(id,entidade);
+            var controladorServico = new ControladorServico();
+            controladorServico.DesalugarServicosAlugados(id);
+            controladorServico.AlugarServicos(entidade.Id, entidade.Servicos);
+        }
         public override Aluguel ConverterEmEntidade(IDataReader reader)
         {
             var id = Convert.ToInt32(reader["ID"]);

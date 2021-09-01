@@ -6,7 +6,7 @@ namespace WindowsApp.Shared
 {
     public abstract class CadastroEntidade<T> : Form, IEditavel where T : IControlavel
     {
-        public T entidade;
+        public T entidade { get; set; }
         public abstract Controlador<T> Controlador { get; }
 
         public virtual CadastroEntidade<T> Inserir() { return this; }

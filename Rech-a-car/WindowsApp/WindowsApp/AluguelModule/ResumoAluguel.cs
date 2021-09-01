@@ -19,16 +19,17 @@ namespace WindowsApp.AluguelModule
     public partial class ResumoAluguel : CadastroEntidade<Aluguel>
     {
         private double PrecoParcial { set { lbValor.Text = value.ToString(); } get { return Convert.ToDouble(lbValor.Text); } }
+        private Aluguel Aluguel;
         public ResumoAluguel(Aluguel aluguel = null)
         {
-            if (aluguel == null)
-                entidade = new Aluguel();
+            Aluguel = aluguel == null ? new Aluguel() : aluguel;
+
             InitializeComponent();
 
-            if (entidade?.Veiculo != null)
-                PopulaVeiculo(entidade.Veiculo);
+            if (Aluguel?.Veiculo != null)
+                PopulaVeiculo(Aluguel.Veiculo);
 
-            if (entidade?.Cliente != null)
+            if (Aluguel?.Cliente != null)
                 PopulaCliente(aluguel.Cliente);
 
             PopulaServicos(new ControladorServico().ServicosDisponiveis());
@@ -42,13 +43,13 @@ namespace WindowsApp.AluguelModule
             DateTime.TryParse(tbDt_Emprestimo.Text, out DateTime dataAluguel);
             DateTime.TryParse(tbDt_Devolucao.Text, out DateTime dataDevolucao);
 
-            entidade.Condutor = cb_motoristas.SelectedItem is null ? (Condutor)entidade.Cliente : (Condutor)cb_motoristas.SelectedItem;
-            entidade.TipoPlano = (Plano)cbPlano.SelectedIndex;
-            entidade.Funcionario = TelaPrincipal.Instancia.FuncionarioLogado;
-            entidade.DataAluguel = dataAluguel;
-            entidade.DataDevolucao = dataDevolucao;
+            Aluguel.Condutor = cb_motoristas.SelectedItem is null ? (Condutor)Aluguel.Cliente : (Condutor)cb_motoristas.SelectedItem;
+            Aluguel.TipoPlano = (Plano)cbPlano.SelectedIndex;
+            Aluguel.Funcionario = TelaPrincipal.Instancia.FuncionarioLogado;
+            Aluguel.DataAluguel = dataAluguel;
+            Aluguel.DataDevolucao = dataDevolucao;
 
-            return entidade;
+            return Aluguel;
         }
         protected override IEditavel ConfigurarEditar()
         {
@@ -65,12 +66,12 @@ namespace WindowsApp.AluguelModule
 
             tbDt_Emprestimo.Text = entidade.DataAluguel.ToString("d");
             tbDt_Devolucao.Text = entidade.DataDevolucao.ToString("d");
-            PopulaServicos(new ControladorServico().Registros);
+            PopulaServicos(new ControladorServico().ServicosDisponiveis());
             return this;
         }
         private void SetCondutor()
         {
-            if (entidade.Cliente is ClientePJ)
+            if (Aluguel.Cliente is ClientePJ)
                 PopulaMotoristas();
             else
                 cb_motoristas.Enabled = false;
@@ -78,24 +79,24 @@ namespace WindowsApp.AluguelModule
 
         private void PopulaVeiculo(Veiculo veiculo)
         {
-            entidade.Veiculo = veiculo;
-            tbMarca.Text = entidade.Veiculo.Marca;
-            tbModelo.Text = entidade.Veiculo.Modelo;
-            tbPlaca.Text = entidade.Veiculo.Placa;
+            Aluguel.Veiculo = veiculo;
+            tbMarca.Text = Aluguel.Veiculo.Marca;
+            tbModelo.Text = Aluguel.Veiculo.Modelo;
+            tbPlaca.Text = Aluguel.Veiculo.Placa;
         }
         private void PopulaCliente(ICliente cliente)
         {
-            entidade.Cliente = cliente;
-            tbCliente.Text = entidade.Cliente.Nome;
-            tbDocumento.Text = entidade.Cliente.Documento;
-            tbEndereço.Text = entidade.Cliente.Endereco;
-            tbTelefone.Text = entidade.Cliente.Telefone;
+            Aluguel.Cliente = cliente;
+            tbCliente.Text = Aluguel.Cliente.Nome;
+            tbDocumento.Text = Aluguel.Cliente.Documento;
+            tbEndereço.Text = Aluguel.Cliente.Endereco;
+            tbTelefone.Text = Aluguel.Cliente.Telefone;
 
             SetCondutor();
         }
         private void PopulaMotoristas()
         {
-            cb_motoristas.Items.AddRange(((ClientePJ)entidade.Cliente).Motoristas.ToArray());
+            cb_motoristas.Items.AddRange(((ClientePJ)Aluguel.Cliente).Motoristas.ToArray());
         }
         private void PopulaServicos(List<Servico> servicos)
         {
@@ -105,24 +106,27 @@ namespace WindowsApp.AluguelModule
 
         private void AdicionarServico()
         {
-            entidade.Servicos.Add((Servico)listServicos.SelectedItem);
+            Aluguel.Servicos.Add((Servico)listServicos.SelectedItem);
             listServicos.Items.Remove(listServicos.SelectedItem);
             CalcularPrecoParcial();
         }
         private void RemoverServico()
         {
-            entidade.Servicos.Remove((Servico)listServicos.SelectedItem);
+            Aluguel.Servicos.Remove((Servico)listServicos.SelectedItem);
             CalcularPrecoParcial();
         }
         private void CalcularPrecoParcial()
         {
+            if (Aluguel?.Servicos == null || Aluguel?.Veiculo == null)
+                return;
+
             PrecoParcial = 0;
-            entidade.Servicos.ForEach(x => PrecoParcial += x.Taxa);
+            Aluguel.Servicos.ForEach(x => PrecoParcial += x.Taxa);
 
             if (!VerificaCamposDatas())
                 return;
 
-            var Categoria = entidade.Veiculo.Categoria;
+            var Categoria = Aluguel.Veiculo.Categoria;
             switch (cbPlano.Text)
             {
                 case "Diário":
@@ -168,9 +172,9 @@ namespace WindowsApp.AluguelModule
         protected override string ValidacaoCampos()
         {
             var validacao = string.Empty;
-            if (entidade.Veiculo == null)
+            if (Aluguel.Veiculo == null)
                 validacao += "O aluguel precisa de um veículo\n";
-            if (entidade.Cliente == null)
+            if (Aluguel.Cliente == null)
                 validacao += "O aluguel precisa de um cliente";
 
             return validacao;
@@ -183,15 +187,14 @@ namespace WindowsApp.AluguelModule
                 return;
 
             TelaPrincipal.Instancia.FormAtivo = new GerenciamentoAluguel();
-            entidade = new Aluguel();
         }
         private void panel1_DoubleClick(object sender, EventArgs e)
         {
-            TelaPrincipal.Instancia.FormAtivo = new GerenciamentoCliente("Selecione um Cliente", TipoTela.ApenasConfirma, entidade);
+            TelaPrincipal.Instancia.FormAtivo = new GerenciamentoCliente("Selecione um Cliente", TipoTela.ApenasConfirma, Aluguel);
         }
         private void panel2_DoubleClick(object sender, EventArgs e)
         {
-            TelaPrincipal.Instancia.FormAtivo = new GerenciamentoVeiculo("Selecione um Veículo", TipoTela.ApenasConfirma, entidade);
+            TelaPrincipal.Instancia.FormAtivo = new GerenciamentoVeiculo("Selecione um Veículo", TipoTela.ApenasConfirma, Aluguel);
         }
         private void bt_AddServico_Click(object sender, EventArgs e)
         {
@@ -222,7 +225,7 @@ namespace WindowsApp.AluguelModule
             if (lb_lista_opcionais.Text == "Opcionais")
             {
                 lb_lista_opcionais.Text = "Alugados";
-                PopulaServicos(entidade.Servicos);
+                PopulaServicos(Aluguel.Servicos);
                 bt_RemoveServico.Enabled = true;
             }
             else

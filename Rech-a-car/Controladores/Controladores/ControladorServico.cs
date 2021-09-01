@@ -45,6 +45,13 @@ namespace Controladores.ServicoModule
             FROM 
                [TBServico]";
 
+        private const string sqlSelecionarServicosDisponiveis =
+           @"SELECT *
+            FROM 
+               [TBServico]
+            WHERE
+                [ID_ALUGUEL] IS NULL";
+
         private const string sqlSelecionarServicosAlugados =
             @"SELECT *
             FROM 
@@ -63,7 +70,7 @@ namespace Controladores.ServicoModule
         private const string sqlDesalugarServicosAlugados =
         @"UPDATE [TBServico]
                     SET
-                        [ID_ALUGUEL] = @DB_NULL         
+                        [ID_ALUGUEL] = NULL         
                     WHERE
                         [ID_ALUGUEL] = @ID_ALUGUEL";
 
@@ -124,12 +131,12 @@ namespace Controladores.ServicoModule
 
         public List<Servico> ServicosDisponiveis()
         {
-            return Registros;
+            return Db.GetAll(sqlSelecionarServicosDisponiveis, ConverterEmEntidade);
         }
 
         public void DesalugarServicosAlugados(int idAluguel)
         {
-            Db.Update(sqlDesalugarServicosAlugados, AdicionarParametro("DB_NULL", DBNull.Value, AdicionarParametro("ID_ALUGUEL", idAluguel)));
+            Db.Update(sqlDesalugarServicosAlugados, AdicionarParametro("ID_ALUGUEL", idAluguel));
         }
     }
 }
