@@ -70,6 +70,7 @@ namespace WindowsApp
             // 
             this.tbUsuario.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbUsuario.Location = new System.Drawing.Point(26, 347);
+            this.tbUsuario.MaxLength = 30;
             this.tbUsuario.Name = "tbUsuario";
             this.tbUsuario.Size = new System.Drawing.Size(367, 43);
             this.tbUsuario.TabIndex = 4;
@@ -80,6 +81,7 @@ namespace WindowsApp
             // 
             this.tbSenha.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSenha.Location = new System.Drawing.Point(26, 441);
+            this.tbSenha.MaxLength = 30;
             this.tbSenha.Name = "tbSenha";
             this.tbSenha.Size = new System.Drawing.Size(367, 43);
             this.tbSenha.TabIndex = 6;
