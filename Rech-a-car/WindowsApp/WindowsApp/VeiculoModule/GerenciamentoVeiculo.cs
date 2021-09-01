@@ -1,4 +1,5 @@
-﻿using Dominio.VeiculoModule;
+﻿using Dominio.AluguelModule;
+using Dominio.VeiculoModule;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using WindowsApp.AluguelModule;
@@ -8,16 +9,20 @@ namespace WindowsApp.VeiculoModule
 {
     public class GerenciamentoVeiculo : GerenciamentoEntidade<Veiculo>
     {
-        public GerenciamentoVeiculo(string titulo = "Gerenciamento de Veículo", TipoTela tipo = TipoTela.CadastroBasico) : base(titulo, tipo)
+        public GerenciamentoVeiculo(string titulo = "Gerenciamento de Veículo", TipoTela tipo = TipoTela.CadastroBasico, Aluguel aluguel = null) : base(titulo, tipo)
         {
+            Aluguel = aluguel;
         }
         protected override CadastroEntidade<Veiculo> Cadastro => new CadastroVeiculo();
-        protected override void InteracaoWifi()
+        protected override void SalvarAluguel()
         {
-            ResumoAluguel.AluguelAtual.Veiculo = GetEntidadeSelecionado();
-            TelaPrincipal.Instancia.FormAtivo = new ResumoAluguel();
+            Aluguel.Veiculo = GetEntidadeSelecionado();
+            TelaPrincipal.Instancia.FormAtivo = new ResumoAluguel(Aluguel);
         }
         protected override ISelecionavel Selecionar => new VisualizarVeiculo();
+
+        private Aluguel Aluguel { get; }
+
         public override DataGridViewColumn[] ConfigurarColunas()
         {
             return new DataGridViewColumn[]

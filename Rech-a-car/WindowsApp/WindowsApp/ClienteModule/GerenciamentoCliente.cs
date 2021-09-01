@@ -1,4 +1,5 @@
-﻿using Dominio.PessoaModule.ClienteModule;
+﻿using Dominio.AluguelModule;
+using Dominio.PessoaModule.ClienteModule;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -9,17 +10,20 @@ namespace WindowsApp.ClienteModule
 {
     public partial class GerenciamentoCliente : GerenciamentoEntidade<ICliente>
     {
-        public GerenciamentoCliente(string titulo = "Gerenciamento de Cliente", TipoTela tipo = TipoTela.SemCadastrar) : base(titulo, tipo)
+        public GerenciamentoCliente(string titulo = "Gerenciamento de Cliente", TipoTela tipo = TipoTela.SemCadastrar, Aluguel aluguel = null) : base(titulo, tipo)
         {
+            Aluguel = aluguel;
         }
 
         protected override CadastroEntidade<ICliente> Cadastro => new CadastroCliente();
         protected override ISelecionavel Selecionar => new VisualizarCliente();
 
-        protected override void InteracaoWifi()
+        public Aluguel Aluguel { get; }
+
+        protected override void SalvarAluguel()
         {
-            ResumoAluguel.AluguelAtual.Cliente = GetEntidadeSelecionado();
-            TelaPrincipal.Instancia.FormAtivo = new ResumoAluguel();
+            Aluguel.Cliente = GetEntidadeSelecionado();
+            TelaPrincipal.Instancia.FormAtivo = new ResumoAluguel(Aluguel);
         }
         public override DataGridViewColumn[] ConfigurarColunas()
         {

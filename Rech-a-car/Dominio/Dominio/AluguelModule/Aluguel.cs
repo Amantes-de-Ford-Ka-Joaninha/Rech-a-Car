@@ -58,7 +58,7 @@ namespace Dominio.AluguelModule
                 validacao += "Condutor não tem a carteira necessária para dirigir o veículo selecionado";
 
             if (DataAluguel < DateTime.Today)
-                validacao += "Data de aluguel não pode ser no passado";
+                validacao += "Data de aluguel não pode ser no passado\n";
 
             if (DataAluguel >= DataDevolucao)
                 validacao += "Data de devolução deve ser após data de aluguel";

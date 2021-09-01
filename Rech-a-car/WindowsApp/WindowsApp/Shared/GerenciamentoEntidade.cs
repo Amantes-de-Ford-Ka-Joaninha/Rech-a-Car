@@ -94,7 +94,7 @@ namespace WindowsApp.Shared
         {
             return Cadastro.Controlador.GetById(dgvEntidade.GetIdSelecionado(), GetTipoEntidade());
         }
-        protected virtual void InteracaoWifi()
+        protected virtual void SalvarAluguel()
         {
             return;
         }
@@ -138,7 +138,7 @@ namespace WindowsApp.Shared
         }
         private void bt_check_Click(object sender, EventArgs e)
         {
-            InteracaoWifi();
+            SalvarAluguel();
         }
 
         #endregion
