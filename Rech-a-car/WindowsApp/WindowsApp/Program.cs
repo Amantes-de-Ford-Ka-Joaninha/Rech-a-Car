@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using WindowsApp.AluguelModule;
 
 namespace WindowsApp
 {
@@ -14,7 +15,7 @@ namespace WindowsApp
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            new Login().Show();
+            new FechamentoAluguel().Show();
 
             Application.Run();
         }
