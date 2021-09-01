@@ -39,14 +39,14 @@ namespace WindowsApp.AluguelModule
             this.label12 = new System.Windows.Forms.Label();
             this.panelEsconderCliente = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
+            this.tbDocumento = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.cb_motoristas = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tbTelefone = new System.Windows.Forms.TextBox();
-            this.tbDocumento = new System.Windows.Forms.TextBox();
             this.tbEndereço = new System.Windows.Forms.TextBox();
             this.tbCliente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -107,14 +107,14 @@ namespace WindowsApp.AluguelModule
             this.panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(7)))), ((int)(((byte)(49)))));
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.panelEsconderCliente);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.tbDocumento);
             this.panel1.Controls.Add(this.cb_motoristas);
             this.panel1.Controls.Add(this.label17);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.tbTelefone);
-            this.panel1.Controls.Add(this.tbDocumento);
             this.panel1.Controls.Add(this.tbEndereço);
             this.panel1.Controls.Add(this.tbCliente);
             this.panel1.Controls.Add(this.label2);
@@ -137,7 +137,7 @@ namespace WindowsApp.AluguelModule
             // panelEsconderCliente
             // 
             this.panelEsconderCliente.Controls.Add(this.label18);
-            this.panelEsconderCliente.Location = new System.Drawing.Point(9, 7);
+            this.panelEsconderCliente.Location = new System.Drawing.Point(10, 9);
             this.panelEsconderCliente.Name = "panelEsconderCliente";
             this.panelEsconderCliente.Size = new System.Drawing.Size(593, 156);
             this.panelEsconderCliente.TabIndex = 14;
@@ -153,6 +153,26 @@ namespace WindowsApp.AluguelModule
             this.label18.Size = new System.Drawing.Size(380, 25);
             this.label18.TabIndex = 15;
             this.label18.Text = "Clique duas vezes para selecionar um cliente.";
+            // 
+            // tbDocumento
+            // 
+            this.tbDocumento.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbDocumento.Location = new System.Drawing.Point(256, 64);
+            this.tbDocumento.Name = "tbDocumento";
+            this.tbDocumento.ReadOnly = true;
+            this.tbDocumento.Size = new System.Drawing.Size(153, 29);
+            this.tbDocumento.TabIndex = 3;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(252, 40);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(91, 21);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "Documento";
             // 
             // cb_motoristas
             // 
@@ -197,17 +217,6 @@ namespace WindowsApp.AluguelModule
             this.label6.TabIndex = 7;
             this.label6.Text = "Endereço";
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(276, 40);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(91, 21);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "Documento";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -228,15 +237,6 @@ namespace WindowsApp.AluguelModule
             this.tbTelefone.Size = new System.Drawing.Size(168, 29);
             this.tbTelefone.TabIndex = 5;
             // 
-            // tbDocumento
-            // 
-            this.tbDocumento.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbDocumento.Location = new System.Drawing.Point(280, 64);
-            this.tbDocumento.Name = "tbDocumento";
-            this.tbDocumento.ReadOnly = true;
-            this.tbDocumento.Size = new System.Drawing.Size(129, 29);
-            this.tbDocumento.TabIndex = 3;
-            // 
             // tbEndereço
             // 
             this.tbEndereço.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -252,7 +252,7 @@ namespace WindowsApp.AluguelModule
             this.tbCliente.Location = new System.Drawing.Point(14, 64);
             this.tbCliente.Name = "tbCliente";
             this.tbCliente.ReadOnly = true;
-            this.tbCliente.Size = new System.Drawing.Size(251, 29);
+            this.tbCliente.Size = new System.Drawing.Size(226, 29);
             this.tbCliente.TabIndex = 1;
             // 
             // label2
