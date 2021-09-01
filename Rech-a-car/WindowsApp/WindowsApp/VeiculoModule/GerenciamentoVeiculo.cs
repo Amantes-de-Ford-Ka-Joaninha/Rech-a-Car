@@ -14,7 +14,7 @@ namespace WindowsApp.VeiculoModule
         protected override CadastroEntidade<Veiculo> Cadastro => new CadastroVeiculo();
         protected override void InteracaoWifi()
         {
-            ResumoAluguel.entidade.Veiculo = GetEntidadeSelecionado();
+            ResumoAluguel.AluguelAtual.Veiculo = GetEntidadeSelecionado();
             TelaPrincipal.Instancia.FormAtivo = new ResumoAluguel();
         }
         protected override ISelecionavel Selecionar => new VisualizarVeiculo();

@@ -22,8 +22,8 @@ namespace WindowsApp.AluguelModule
             new DataGridViewTextBoxColumn { DataPropertyName = "Veiculo", HeaderText = "Veículo"},
             new DataGridViewTextBoxColumn { DataPropertyName = "Cliente", HeaderText = "Cliente"},
             new DataGridViewTextBoxColumn { DataPropertyName = "Condutor", HeaderText = "Condutor"},
-            new DataGridViewTextBoxColumn { DataPropertyName = "TipoDeAluguel", HeaderText = "Tipo De Aluguel"},
-            new DataGridViewTextBoxColumn { DataPropertyName = "DataDevolucao", HeaderText = "Data de Devolução"},
+            new DataGridViewTextBoxColumn { DataPropertyName = "Plano", HeaderText = "Plano"},
+            new DataGridViewTextBoxColumn { DataPropertyName = "DataDevolucao", HeaderText = "Devolução"},
             };
         }
         public override object[] ObterCamposLinha(Aluguel aluguel)

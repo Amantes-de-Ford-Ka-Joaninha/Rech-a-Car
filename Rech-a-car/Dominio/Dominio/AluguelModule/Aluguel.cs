@@ -43,6 +43,7 @@ namespace Dominio.AluguelModule
         public Condutor Condutor { get; set; }
         public Plano TipoPlano { get; set; }
         public DateTime DataAluguel { get; set; }
+        public DateTime DataDevolucao { get; set; }
 
         public override string Validar()
         {
@@ -50,8 +51,11 @@ namespace Dominio.AluguelModule
             if (Condutor.Cnh.TipoCnh < Veiculo.Categoria.TipoDeCnh)
                 validacao += "Condutor não tem a carteira necessária para dirigir o veículo selecionado";
 
-            if (DataAluguel < DateTime.Now)
+            if (DataAluguel < DateTime.Today)
                 validacao += "Data de aluguel deve ser no futuro";
+
+            if (DataAluguel > DataDevolucao)
+                validacao += "Data de devolução deve ser após data de aluguel";
 
             return validacao;
         }
