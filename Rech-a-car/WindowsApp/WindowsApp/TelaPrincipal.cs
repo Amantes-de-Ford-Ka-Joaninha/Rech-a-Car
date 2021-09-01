@@ -23,7 +23,6 @@ namespace WindowsApp
             InitializeComponent();
             EsconderSubMenu();
             lbUsuario.Text = funcionario.Nome;
-            lbCargo.Text = funcionario.Cargo;
             foto_perfil.Image = funcionario.Foto;
             FuncionarioLogado = funcionario;
         }

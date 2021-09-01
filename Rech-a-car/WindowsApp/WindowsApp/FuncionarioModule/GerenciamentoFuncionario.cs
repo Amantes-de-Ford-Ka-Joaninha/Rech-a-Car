@@ -28,9 +28,9 @@ namespace WindowsApp.FuncionarioModule
             List<object> linha = new List<object>()
             {
                 funcionario.Nome,
-                funcionario.Documento,
                 funcionario.Telefone,
                 funcionario.Endereco,
+                funcionario.Documento,
             };
             return linha.ToArray();
         }
