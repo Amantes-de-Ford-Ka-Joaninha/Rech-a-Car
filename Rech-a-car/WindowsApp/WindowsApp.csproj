@@ -66,6 +66,9 @@
     <Compile Include="WindowsApp\Shared\PanelColorido.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="WindowsApp\Shared\PictureBoxRedondo.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="WindowsApp\VeiculoModule\CategoriaModule\VisualizarCategoria.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -46,7 +46,7 @@ namespace WindowsApp
             this.bt_clientes = new System.Windows.Forms.Button();
             this.bt_aluguel = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.foto_perfil = new System.Windows.Forms.PictureBox();
+            this.foto_perfil = new PictureBoxRedondo();
             this.lbCargo = new System.Windows.Forms.Label();
             this.lbUsuario = new System.Windows.Forms.Label();
             this.panelFormFilho = new System.Windows.Forms.Panel();
@@ -478,7 +478,7 @@ namespace WindowsApp
         private System.Windows.Forms.Label lbCargo;
         private System.Windows.Forms.Panel panelFormFilho;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox foto_perfil;
+        private PictureBoxRedondo foto_perfil;
         private System.Windows.Forms.Label labelTitulo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button bt_veiculos;
