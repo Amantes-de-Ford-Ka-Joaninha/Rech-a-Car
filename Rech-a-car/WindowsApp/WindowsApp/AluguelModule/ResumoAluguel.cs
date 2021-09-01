@@ -14,7 +14,7 @@ using System.Linq;
 
 namespace WindowsApp.AluguelModule
 {
-    public partial class ResumoAluguel : CadastroEntidade<Aluguel> // Form//
+    public partial class ResumoAluguel : CadastroEntidade<Aluguel>
     {
         private double PrecoParcial { set { lbValor.Text = value.ToString(); } get { return Convert.ToDouble(lbValor.Text); } }
         public static Aluguel AluguelAtual = new Aluguel();
@@ -36,11 +36,13 @@ namespace WindowsApp.AluguelModule
         public override Aluguel GetNovaEntidade()
         {
             DateTime.TryParse(tbDt_Emprestimo.Text, out DateTime dataAluguel);
+            DateTime.TryParse(tbDt_Devolucao.Text, out DateTime dataDevolucao);
 
             AluguelAtual.Condutor = cb_motoristas.SelectedItem is null ? (Condutor)AluguelAtual.Cliente : (Condutor)cb_motoristas.SelectedItem;
             AluguelAtual.TipoPlano = (Plano)cbPlano.SelectedIndex;
             AluguelAtual.Funcionario = TelaPrincipal.Instancia.FuncionarioLogado;
             AluguelAtual.DataAluguel = dataAluguel;
+            AluguelAtual.DataDevolucao = dataDevolucao;
 
             return AluguelAtual;
         }
@@ -152,7 +154,7 @@ namespace WindowsApp.AluguelModule
             }
             bool VerificaCamposDatas()
             {
-                return tbDt_Emprestimo.Text != "" && tbDt_Devolucao.Text != "";
+                return DateTime.TryParse(tbDt_Devolucao.Text, out DateTime dataDevolucao) && DateTime.TryParse(tbDt_Emprestimo.Text, out DateTime dataEmprestimo) && dataDevolucao > dataEmprestimo;
             }
         }
         protected override string ValidacaoCampos()
@@ -171,8 +173,8 @@ namespace WindowsApp.AluguelModule
         {
             if (!Salva())
                 return;
-                TelaPrincipal.Instancia.FormAtivo = new GerenciamentoAluguel();
-                AluguelAtual = new Aluguel();
+            TelaPrincipal.Instancia.FormAtivo = new GerenciamentoAluguel();
+            AluguelAtual = new Aluguel();
         }
         private void panel1_DoubleClick(object sender, EventArgs e)
         {
@@ -194,19 +196,18 @@ namespace WindowsApp.AluguelModule
         {
             tipAluguel.SetToolTip(pictureBox1, "Clique duas vezes nos painéis para adicionar as informações necessárias.");
         }
-        private void tbDt_Emprestimo_Leave(object sender, EventArgs e)
+        private void tbDt_Emprestimo_TextChanged(object sender, EventArgs e)
         {
             CalcularPrecoParcial();
         }
-        private void cbPlano_Leave(object sender, EventArgs e)
+        private void tbDt_Devolucao_TextChanged(object sender, EventArgs e)
         {
             CalcularPrecoParcial();
         }
-        private void tbDt_Devolucao_Leave(object sender, EventArgs e)
+        private void cbPlano_SelectedIndexChanged(object sender, EventArgs e)
         {
             CalcularPrecoParcial();
         }
-
         #endregion
     }
 }

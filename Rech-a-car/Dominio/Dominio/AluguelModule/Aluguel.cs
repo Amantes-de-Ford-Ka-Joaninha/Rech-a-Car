@@ -60,7 +60,7 @@ namespace Dominio.AluguelModule
             if (DataAluguel < DateTime.Today)
                 validacao += "Data de aluguel não pode ser no passado";
 
-            if (DataAluguel < DataDevolucao)
+            if (DataAluguel >= DataDevolucao)
                 validacao += "Data de devolução deve ser após data de aluguel";
 
             return validacao;

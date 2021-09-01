@@ -110,7 +110,7 @@ namespace WindowsApp.AluguelModule
             this.panel1.Controls.Add(this.tbCliente);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(41, 82);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(815, 208);
             this.panel1.TabIndex = 1;
@@ -122,7 +122,7 @@ namespace WindowsApp.AluguelModule
             this.cb_motoristas.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_motoristas.FormattingEnabled = true;
             this.cb_motoristas.Location = new System.Drawing.Point(568, 79);
-            this.cb_motoristas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_motoristas.Margin = new System.Windows.Forms.Padding(4);
             this.cb_motoristas.Name = "cb_motoristas";
             this.cb_motoristas.Size = new System.Drawing.Size(223, 36);
             this.cb_motoristas.TabIndex = 13;
@@ -203,7 +203,7 @@ namespace WindowsApp.AluguelModule
             // 
             this.tbTelefone.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbTelefone.Location = new System.Drawing.Point(568, 155);
-            this.tbTelefone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbTelefone.Margin = new System.Windows.Forms.Padding(4);
             this.tbTelefone.Name = "tbTelefone";
             this.tbTelefone.ReadOnly = true;
             this.tbTelefone.Size = new System.Drawing.Size(223, 34);
@@ -213,7 +213,7 @@ namespace WindowsApp.AluguelModule
             // 
             this.tbDocumento.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbDocumento.Location = new System.Drawing.Point(373, 79);
-            this.tbDocumento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbDocumento.Margin = new System.Windows.Forms.Padding(4);
             this.tbDocumento.Name = "tbDocumento";
             this.tbDocumento.ReadOnly = true;
             this.tbDocumento.Size = new System.Drawing.Size(171, 34);
@@ -223,7 +223,7 @@ namespace WindowsApp.AluguelModule
             // 
             this.tbEndereço.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbEndereço.Location = new System.Drawing.Point(19, 155);
-            this.tbEndereço.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbEndereço.Margin = new System.Windows.Forms.Padding(4);
             this.tbEndereço.Name = "tbEndereço";
             this.tbEndereço.ReadOnly = true;
             this.tbEndereço.Size = new System.Drawing.Size(525, 34);
@@ -233,7 +233,7 @@ namespace WindowsApp.AluguelModule
             // 
             this.tbCliente.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbCliente.Location = new System.Drawing.Point(19, 79);
-            this.tbCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCliente.Margin = new System.Windows.Forms.Padding(4);
             this.tbCliente.Name = "tbCliente";
             this.tbCliente.ReadOnly = true;
             this.tbCliente.Size = new System.Drawing.Size(333, 34);
@@ -261,7 +261,7 @@ namespace WindowsApp.AluguelModule
             this.panel2.Controls.Add(this.tbMarca);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Location = new System.Drawing.Point(41, 298);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(815, 126);
             this.panel2.TabIndex = 2;
@@ -283,7 +283,7 @@ namespace WindowsApp.AluguelModule
             // 
             this.tbPlaca.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPlaca.Location = new System.Drawing.Point(608, 70);
-            this.tbPlaca.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPlaca.Margin = new System.Windows.Forms.Padding(4);
             this.tbPlaca.Name = "tbPlaca";
             this.tbPlaca.ReadOnly = true;
             this.tbPlaca.Size = new System.Drawing.Size(160, 34);
@@ -305,7 +305,7 @@ namespace WindowsApp.AluguelModule
             // 
             this.tbModelo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbModelo.Location = new System.Drawing.Point(324, 70);
-            this.tbModelo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbModelo.Margin = new System.Windows.Forms.Padding(4);
             this.tbModelo.Name = "tbModelo";
             this.tbModelo.ReadOnly = true;
             this.tbModelo.Size = new System.Drawing.Size(191, 34);
@@ -327,7 +327,7 @@ namespace WindowsApp.AluguelModule
             // 
             this.tbMarca.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbMarca.Location = new System.Drawing.Point(44, 70);
-            this.tbMarca.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbMarca.Margin = new System.Windows.Forms.Padding(4);
             this.tbMarca.Name = "tbMarca";
             this.tbMarca.ReadOnly = true;
             this.tbMarca.Size = new System.Drawing.Size(189, 34);
@@ -355,7 +355,7 @@ namespace WindowsApp.AluguelModule
             this.panel3.Controls.Add(this.label15);
             this.panel3.Controls.Add(this.label14);
             this.panel3.Location = new System.Drawing.Point(341, 432);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(231, 197);
             this.panel3.TabIndex = 3;
@@ -370,21 +370,21 @@ namespace WindowsApp.AluguelModule
             "Controlado",
             "Livre"});
             this.cbPlano.Location = new System.Drawing.Point(21, 33);
-            this.cbPlano.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbPlano.Margin = new System.Windows.Forms.Padding(4);
             this.cbPlano.Name = "cbPlano";
             this.cbPlano.Size = new System.Drawing.Size(189, 29);
             this.cbPlano.TabIndex = 10;
-            this.cbPlano.Leave += new System.EventHandler(this.cbPlano_Leave);
+            this.cbPlano.SelectedIndexChanged += new System.EventHandler(this.cbPlano_SelectedIndexChanged);
             // 
             // tbDt_Devolucao
             // 
             this.tbDt_Devolucao.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbDt_Devolucao.Location = new System.Drawing.Point(21, 151);
-            this.tbDt_Devolucao.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbDt_Devolucao.Margin = new System.Windows.Forms.Padding(4);
             this.tbDt_Devolucao.Name = "tbDt_Devolucao";
             this.tbDt_Devolucao.Size = new System.Drawing.Size(189, 29);
             this.tbDt_Devolucao.TabIndex = 12;
-            this.tbDt_Devolucao.Leave += new System.EventHandler(this.tbDt_Devolucao_Leave);
+            this.tbDt_Devolucao.TextChanged += new System.EventHandler(this.tbDt_Devolucao_TextChanged);
             // 
             // label16
             // 
@@ -402,11 +402,11 @@ namespace WindowsApp.AluguelModule
             // 
             this.tbDt_Emprestimo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbDt_Emprestimo.Location = new System.Drawing.Point(21, 92);
-            this.tbDt_Emprestimo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbDt_Emprestimo.Margin = new System.Windows.Forms.Padding(4);
             this.tbDt_Emprestimo.Name = "tbDt_Emprestimo";
             this.tbDt_Emprestimo.Size = new System.Drawing.Size(189, 29);
             this.tbDt_Emprestimo.TabIndex = 11;
-            this.tbDt_Emprestimo.Leave += new System.EventHandler(this.tbDt_Emprestimo_Leave);
+            this.tbDt_Emprestimo.TextChanged += new System.EventHandler(this.tbDt_Emprestimo_TextChanged);
             // 
             // label15
             // 
@@ -477,7 +477,7 @@ namespace WindowsApp.AluguelModule
             this.panelColorido1.Controls.Add(this.listServicos);
             this.panelColorido1.Controls.Add(this.label18);
             this.panelColorido1.Location = new System.Drawing.Point(41, 432);
-            this.panelColorido1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelColorido1.Margin = new System.Windows.Forms.Padding(4);
             this.panelColorido1.Name = "panelColorido1";
             this.panelColorido1.Size = new System.Drawing.Size(287, 197);
             this.panelColorido1.TabIndex = 8;
@@ -488,7 +488,7 @@ namespace WindowsApp.AluguelModule
             this.bt_RemoveServico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_RemoveServico.Image = global::WindowsApp.Properties.Resources.removemini;
             this.bt_RemoveServico.Location = new System.Drawing.Point(224, 119);
-            this.bt_RemoveServico.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_RemoveServico.Margin = new System.Windows.Forms.Padding(4);
             this.bt_RemoveServico.Name = "bt_RemoveServico";
             this.bt_RemoveServico.Size = new System.Drawing.Size(48, 43);
             this.bt_RemoveServico.TabIndex = 16;
@@ -501,7 +501,7 @@ namespace WindowsApp.AluguelModule
             this.bt_AddServico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_AddServico.Image = global::WindowsApp.Properties.Resources.addmini;
             this.bt_AddServico.Location = new System.Drawing.Point(224, 57);
-            this.bt_AddServico.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_AddServico.Margin = new System.Windows.Forms.Padding(4);
             this.bt_AddServico.Name = "bt_AddServico";
             this.bt_AddServico.Size = new System.Drawing.Size(48, 44);
             this.bt_AddServico.TabIndex = 15;
@@ -514,7 +514,7 @@ namespace WindowsApp.AluguelModule
             this.listServicos.FormattingEnabled = true;
             this.listServicos.ItemHeight = 21;
             this.listServicos.Location = new System.Drawing.Point(19, 31);
-            this.listServicos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listServicos.Margin = new System.Windows.Forms.Padding(4);
             this.listServicos.Name = "listServicos";
             this.listServicos.Size = new System.Drawing.Size(201, 130);
             this.listServicos.TabIndex = 11;
@@ -535,7 +535,7 @@ namespace WindowsApp.AluguelModule
             // 
             this.panelColorido2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(7)))), ((int)(((byte)(49)))));
             this.panelColorido2.Location = new System.Drawing.Point(765, 539);
-            this.panelColorido2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelColorido2.Margin = new System.Windows.Forms.Padding(4);
             this.panelColorido2.Name = "panelColorido2";
             this.panelColorido2.Size = new System.Drawing.Size(1, 89);
             this.panelColorido2.TabIndex = 9;
@@ -544,7 +544,7 @@ namespace WindowsApp.AluguelModule
             // 
             this.pictureBox1.Image = global::WindowsApp.Properties.Resources.help;
             this.pictureBox1.Location = new System.Drawing.Point(831, 15);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(44, 43);
             this.pictureBox1.TabIndex = 14;
@@ -557,7 +557,7 @@ namespace WindowsApp.AluguelModule
             this.btFecharAluguel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btFecharAluguel.Image = global::WindowsApp.Properties.Resources.check;
             this.btFecharAluguel.Location = new System.Drawing.Point(775, 539);
-            this.btFecharAluguel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btFecharAluguel.Margin = new System.Windows.Forms.Padding(4);
             this.btFecharAluguel.Name = "btFecharAluguel";
             this.btFecharAluguel.Size = new System.Drawing.Size(100, 89);
             this.btFecharAluguel.TabIndex = 13;
@@ -581,7 +581,7 @@ namespace WindowsApp.AluguelModule
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ResumoAluguel";
             this.Text = "CadastrarAluguel";
             this.panel1.ResumeLayout(false);

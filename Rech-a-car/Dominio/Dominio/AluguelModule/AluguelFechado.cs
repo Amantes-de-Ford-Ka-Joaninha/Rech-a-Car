@@ -17,7 +17,7 @@ namespace Dominio.AluguelModule
             KmRodados = kmRodados;
             TanqueUtilizado = tanqueUtilizado;
             ServicosNecessarios = servicosNecessarios;
-            DataDevolvida = dataDevolvida == default ? new DateTime(1800, 1, 1) : dataDevolvida;
+            DataDevolvida = dataDevolvida;
         }
         public int KmRodados { get; set; }
         public double TanqueUtilizado { get; set; }
