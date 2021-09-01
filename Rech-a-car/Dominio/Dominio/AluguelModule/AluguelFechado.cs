@@ -6,7 +6,7 @@ namespace Dominio.AluguelModule
 {
     public class AluguelFechado : Aluguel
     {
-        public AluguelFechado(Aluguel aluguel, int kmRodados, double tanqueUtilizado, List<Servico> servicosNecessarios) : base(aluguel)
+        public AluguelFechado(Aluguel aluguel, int kmRodados, double tanqueUtilizado, List<Servico> servicosNecessarios, DateTime dataDevolvida) : base(aluguel)
         {
             Veiculo = aluguel.Veiculo;
             Servicos = aluguel.Servicos;
@@ -17,12 +17,13 @@ namespace Dominio.AluguelModule
             KmRodados = kmRodados;
             TanqueUtilizado = tanqueUtilizado;
             ServicosNecessarios = servicosNecessarios;
+            DataDevolvida = dataDevolvida == default ? new DateTime(1800, 1, 1) : dataDevolvida;
         }
         public int KmRodados { get; set; }
         public double TanqueUtilizado { get; set; }
         public List<Servico> ServicosNecessarios { get; set; }
-
-        public double Calcular(int kmRodados)
+        public DateTime DataDevolvida { get; set; }
+        public double CalcularTotal()
         {
             if (TipoPlano == Plano.diario)
                 return 0;

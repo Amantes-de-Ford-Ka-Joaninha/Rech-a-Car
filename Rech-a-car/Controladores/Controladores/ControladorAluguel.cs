@@ -121,7 +121,7 @@ namespace Controladores.AluguelModule
         }
         protected override Dictionary<string, object> ObterParametrosRegistro(Aluguel aluguel)
         {
-            return new Dictionary<string, object>
+            var paramsAluguel = new Dictionary<string, object>
             {
                 { "ID", aluguel.Id },
                 { "ID_CLIENTE", aluguel.Cliente.Id },
@@ -130,8 +130,16 @@ namespace Controladores.AluguelModule
                 { "ID_VEICULO", aluguel.Veiculo.Id },
                 { "TIPO_PLANO", aluguel.TipoPlano },
                 { "DATA_ALUGUEL", aluguel.DataAluguel },
-                { "DATA_DEVOLUCAO", aluguel is AluguelFechado aluguelF ? aluguelF: null },
+                { "DATA_DEVOLUCAO", aluguel.DataDevolucao },
             };
+            if (aluguel is AluguelFechado aluguelF) {
+                paramsAluguel.Add("DATA_DEVOLVIDO", aluguelF.DataDevolvida);
+                paramsAluguel.Add("TANQUE_UTILIZADO", aluguelF.TanqueUtilizado);
+                paramsAluguel.Add("KM_RODADOS", aluguelF.KmRodados);
+                paramsAluguel.Add("TOTAL", aluguelF.CalcularTotal());
+            }
+
+            return paramsAluguel;
         }
     }
 }

@@ -71,14 +71,14 @@ namespace Tests.Tests.AlguelModule
         public void Deve_retornar_aluguel_pf_fechado_valido()
         {
             servicos = new List<Servico>() { new Servico("1", 1), new Servico("2", 2) };
-            aluguelFechado = aluguel.Fechar(2, 2, servicos);
+            aluguelFechado = aluguel.Fechar(2, 2, servicos, new DateTime(2021,10,11));
             aluguelFechado.Validar().Should().Be(string.Empty);
         }
         [TestMethod]
         public void Deve_retornar_aluguel_pf_fechado_invalido()
         {
             servicos = new List<Servico>() { new Servico("1", 1), new Servico("2", 2) };
-            aluguelFechado = aluguel.Fechar(2, 2, servicos);
+            aluguelFechado = aluguel.Fechar(2, 2, servicos, new DateTime(2021, 10, 11));
             aluguelFechado.Validar().Should().NotBe(string.Empty);
         }
     }
