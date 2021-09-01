@@ -88,6 +88,7 @@ namespace WindowsApp.AluguelModule
             tbMarca.Text = Aluguel.Veiculo.Marca;
             tbModelo.Text = Aluguel.Veiculo.Modelo;
             tbPlaca.Text = Aluguel.Veiculo.Placa;
+            cbTipoCnh.SelectedItem = Aluguel.Veiculo.Categoria.TipoDeCnh.ToString();
         }
         private void PopulaCliente(ICliente cliente)
         {

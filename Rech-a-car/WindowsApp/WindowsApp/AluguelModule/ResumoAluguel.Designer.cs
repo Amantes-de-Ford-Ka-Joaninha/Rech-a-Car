@@ -54,12 +54,14 @@ namespace WindowsApp.AluguelModule
             this.label13 = new System.Windows.Forms.Label();
             this.panelEsconderVeiculo = new System.Windows.Forms.Panel();
             this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
             this.tbPlaca = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.tbModelo = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.tbMarca = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.cbTipoCnh = new System.Windows.Forms.ComboBox();
             this.panel3 = new WindowsApp.Shared.PanelColorido();
             this.cbPlano = new System.Windows.Forms.ComboBox();
             this.tbDt_Devolucao = new System.Windows.Forms.TextBox();
@@ -268,12 +270,14 @@ namespace WindowsApp.AluguelModule
             this.panel2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(7)))), ((int)(((byte)(49)))));
             this.panel2.Controls.Add(this.label13);
             this.panel2.Controls.Add(this.panelEsconderVeiculo);
+            this.panel2.Controls.Add(this.label20);
             this.panel2.Controls.Add(this.tbPlaca);
             this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.tbModelo);
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.tbMarca);
             this.panel2.Controls.Add(this.label9);
+            this.panel2.Controls.Add(this.cbTipoCnh);
             this.panel2.Location = new System.Drawing.Point(31, 242);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(611, 102);
@@ -293,7 +297,7 @@ namespace WindowsApp.AluguelModule
             // panelEsconderVeiculo
             // 
             this.panelEsconderVeiculo.Controls.Add(this.label19);
-            this.panelEsconderVeiculo.Location = new System.Drawing.Point(9, 7);
+            this.panelEsconderVeiculo.Location = new System.Drawing.Point(9, 8);
             this.panelEsconderVeiculo.Name = "panelEsconderVeiculo";
             this.panelEsconderVeiculo.Size = new System.Drawing.Size(593, 88);
             this.panelEsconderVeiculo.TabIndex = 16;
@@ -310,10 +314,21 @@ namespace WindowsApp.AluguelModule
             this.label19.TabIndex = 15;
             this.label19.Text = "Clique duas vezes para selecionar um veículo.";
             // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.White;
+            this.label20.Location = new System.Drawing.Point(476, 33);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(65, 21);
+            this.label20.TabIndex = 7;
+            this.label20.Text = "Carteira";
+            // 
             // tbPlaca
             // 
             this.tbPlaca.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPlaca.Location = new System.Drawing.Point(456, 57);
+            this.tbPlaca.Location = new System.Drawing.Point(343, 57);
             this.tbPlaca.Name = "tbPlaca";
             this.tbPlaca.ReadOnly = true;
             this.tbPlaca.Size = new System.Drawing.Size(121, 29);
@@ -324,7 +339,7 @@ namespace WindowsApp.AluguelModule
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(452, 33);
+            this.label11.Location = new System.Drawing.Point(339, 33);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(46, 21);
             this.label11.TabIndex = 7;
@@ -333,7 +348,7 @@ namespace WindowsApp.AluguelModule
             // tbModelo
             // 
             this.tbModelo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbModelo.Location = new System.Drawing.Point(243, 57);
+            this.tbModelo.Location = new System.Drawing.Point(184, 57);
             this.tbModelo.Name = "tbModelo";
             this.tbModelo.ReadOnly = true;
             this.tbModelo.Size = new System.Drawing.Size(144, 29);
@@ -344,7 +359,7 @@ namespace WindowsApp.AluguelModule
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(239, 33);
+            this.label10.Location = new System.Drawing.Point(180, 33);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(63, 21);
             this.label10.TabIndex = 7;
@@ -353,7 +368,7 @@ namespace WindowsApp.AluguelModule
             // tbMarca
             // 
             this.tbMarca.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbMarca.Location = new System.Drawing.Point(33, 57);
+            this.tbMarca.Location = new System.Drawing.Point(26, 57);
             this.tbMarca.Name = "tbMarca";
             this.tbMarca.ReadOnly = true;
             this.tbMarca.Size = new System.Drawing.Size(143, 29);
@@ -364,11 +379,28 @@ namespace WindowsApp.AluguelModule
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(29, 33);
+            this.label9.Location = new System.Drawing.Point(22, 33);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(53, 21);
             this.label9.TabIndex = 7;
             this.label9.Text = "Marca";
+            // 
+            // cbTipoCnh
+            // 
+            this.cbTipoCnh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTipoCnh.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTipoCnh.FormattingEnabled = true;
+            this.cbTipoCnh.Items.AddRange(new object[] {
+            "A",
+            "B",
+            "AB",
+            "C",
+            "D",
+            "E"});
+            this.cbTipoCnh.Location = new System.Drawing.Point(480, 57);
+            this.cbTipoCnh.Name = "cbTipoCnh";
+            this.cbTipoCnh.Size = new System.Drawing.Size(107, 29);
+            this.cbTipoCnh.TabIndex = 11;
             // 
             // panel3
             // 
@@ -668,5 +700,7 @@ namespace WindowsApp.AluguelModule
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Panel panelEsconderVeiculo;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.ComboBox cbTipoCnh;
     }
 }
