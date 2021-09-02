@@ -41,8 +41,6 @@ namespace WindowsApp.AluguelModule
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.tb_KmFinal = new System.Windows.Forms.TextBox();
-            this.tb_KmInicial = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.panelColorido1 = new WindowsApp.Shared.PanelColorido();
             this.mtb_PrecoDespesa = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -127,8 +125,6 @@ namespace WindowsApp.AluguelModule
             this.panelColorido2.Controls.Add(this.label8);
             this.panelColorido2.Controls.Add(this.label9);
             this.panelColorido2.Controls.Add(this.tb_KmFinal);
-            this.panelColorido2.Controls.Add(this.tb_KmInicial);
-            this.panelColorido2.Controls.Add(this.label5);
             this.panelColorido2.Location = new System.Drawing.Point(45, 60);
             this.panelColorido2.Name = "panelColorido2";
             this.panelColorido2.Size = new System.Drawing.Size(576, 122);
@@ -150,40 +146,20 @@ namespace WindowsApp.AluguelModule
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(199, 49);
+            this.label9.Location = new System.Drawing.Point(215, 41);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(124, 21);
+            this.label9.Size = new System.Drawing.Size(87, 21);
             this.label9.TabIndex = 1;
-            this.label9.Text = "Odômetro Final";
+            this.label9.Text = "Odômetro";
             // 
             // tb_KmFinal
             // 
             this.tb_KmFinal.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_KmFinal.Location = new System.Drawing.Point(203, 73);
+            this.tb_KmFinal.Location = new System.Drawing.Point(219, 65);
             this.tb_KmFinal.Name = "tb_KmFinal";
             this.tb_KmFinal.Size = new System.Drawing.Size(143, 29);
             this.tb_KmFinal.TabIndex = 2;
             this.tb_KmFinal.Leave += new System.EventHandler(this.tb_KmFinal_Leave);
-            // 
-            // tb_KmInicial
-            // 
-            this.tb_KmInicial.Enabled = false;
-            this.tb_KmInicial.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_KmInicial.Location = new System.Drawing.Point(27, 73);
-            this.tb_KmInicial.Name = "tb_KmInicial";
-            this.tb_KmInicial.Size = new System.Drawing.Size(143, 29);
-            this.tb_KmInicial.TabIndex = 1;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(23, 49);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(152, 21);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Odômetro Anterior";
             // 
             // panelColorido1
             // 
@@ -204,7 +180,7 @@ namespace WindowsApp.AluguelModule
             // mtb_PrecoDespesa
             // 
             this.mtb_PrecoDespesa.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.mtb_PrecoDespesa.Location = new System.Drawing.Point(13, 119);
+            this.mtb_PrecoDespesa.Location = new System.Drawing.Point(48, 124);
             this.mtb_PrecoDespesa.Name = "mtb_PrecoDespesa";
             this.mtb_PrecoDespesa.Size = new System.Drawing.Size(100, 29);
             this.mtb_PrecoDespesa.TabIndex = 24;
@@ -215,7 +191,7 @@ namespace WindowsApp.AluguelModule
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(13, 91);
+            this.label2.Location = new System.Drawing.Point(48, 96);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(85, 21);
             this.label2.TabIndex = 23;
@@ -224,7 +200,7 @@ namespace WindowsApp.AluguelModule
             // tb_NomeDespesa
             // 
             this.tb_NomeDespesa.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_NomeDespesa.Location = new System.Drawing.Point(13, 56);
+            this.tb_NomeDespesa.Location = new System.Drawing.Point(48, 61);
             this.tb_NomeDespesa.Name = "tb_NomeDespesa";
             this.tb_NomeDespesa.Size = new System.Drawing.Size(157, 29);
             this.tb_NomeDespesa.TabIndex = 22;
@@ -234,7 +210,7 @@ namespace WindowsApp.AluguelModule
             this.lb_Titulo.AutoSize = true;
             this.lb_Titulo.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_Titulo.ForeColor = System.Drawing.Color.White;
-            this.lb_Titulo.Location = new System.Drawing.Point(9, 32);
+            this.lb_Titulo.Location = new System.Drawing.Point(44, 37);
             this.lb_Titulo.Name = "lb_Titulo";
             this.lb_Titulo.Size = new System.Drawing.Size(71, 21);
             this.lb_Titulo.TabIndex = 21;
@@ -242,12 +218,12 @@ namespace WindowsApp.AluguelModule
             // 
             // listDespesas
             // 
-            this.listDespesas.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listDespesas.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listDespesas.FormattingEnabled = true;
-            this.listDespesas.ItemHeight = 17;
-            this.listDespesas.Location = new System.Drawing.Point(316, 16);
+            this.listDespesas.ItemHeight = 20;
+            this.listDespesas.Location = new System.Drawing.Point(240, 29);
             this.listDespesas.Name = "listDespesas";
-            this.listDespesas.Size = new System.Drawing.Size(248, 106);
+            this.listDespesas.Size = new System.Drawing.Size(248, 124);
             this.listDespesas.TabIndex = 18;
             // 
             // bt_RemoveDespesa
@@ -255,7 +231,7 @@ namespace WindowsApp.AluguelModule
             this.bt_RemoveDespesa.FlatAppearance.BorderSize = 0;
             this.bt_RemoveDespesa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_RemoveDespesa.Image = global::WindowsApp.Properties.Resources.removemini;
-            this.bt_RemoveDespesa.Location = new System.Drawing.Point(528, 128);
+            this.bt_RemoveDespesa.Location = new System.Drawing.Point(494, 70);
             this.bt_RemoveDespesa.Name = "bt_RemoveDespesa";
             this.bt_RemoveDespesa.Size = new System.Drawing.Size(36, 35);
             this.bt_RemoveDespesa.TabIndex = 19;
@@ -267,7 +243,7 @@ namespace WindowsApp.AluguelModule
             this.bt_AddDespesa.FlatAppearance.BorderSize = 0;
             this.bt_AddDespesa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_AddDespesa.Image = global::WindowsApp.Properties.Resources.addmini;
-            this.bt_AddDespesa.Location = new System.Drawing.Point(134, 112);
+            this.bt_AddDespesa.Location = new System.Drawing.Point(169, 121);
             this.bt_AddDespesa.Name = "bt_AddDespesa";
             this.bt_AddDespesa.Size = new System.Drawing.Size(36, 36);
             this.bt_AddDespesa.TabIndex = 18;
@@ -331,7 +307,5 @@ namespace WindowsApp.AluguelModule
         private System.Windows.Forms.TextBox tb_NomeDespesa;
         private System.Windows.Forms.Label lb_Titulo;
         private System.Windows.Forms.MaskedTextBox mtb_PrecoDespesa;
-        private System.Windows.Forms.TextBox tb_KmInicial;
-        private System.Windows.Forms.Label label5;
     }
 }
