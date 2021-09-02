@@ -40,7 +40,8 @@ namespace WindowsApp.AluguelModule
 
         public Form Visualizar<T>(T t) where T : IControlavel
         {
-            throw new NotImplementedException();        //deve preencher os textbox com os dados necessarios e retornar this
+            throw new NotImplementedException();        
+            //deve preencher os textbox com os dados necessarios e retornar this
         }
     }
 }
