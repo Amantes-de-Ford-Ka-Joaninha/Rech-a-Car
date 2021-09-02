@@ -39,16 +39,18 @@ namespace WindowsApp.AluguelModule
             this.panelColorido3 = new WindowsApp.Shared.PanelColorido();
             this.panelColorido2 = new WindowsApp.Shared.PanelColorido();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tb_KmFinal = new System.Windows.Forms.TextBox();
+            this.tb_KmInicial = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panelColorido1 = new WindowsApp.Shared.PanelColorido();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.listChecklist2 = new System.Windows.Forms.CheckedListBox();
-            this.listChecklist1 = new System.Windows.Forms.CheckedListBox();
+            this.mtb_PrecoDespesa = new System.Windows.Forms.MaskedTextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tb_NomeDespesa = new System.Windows.Forms.TextBox();
+            this.lb_Titulo = new System.Windows.Forms.Label();
+            this.listDespesas = new System.Windows.Forms.ListBox();
+            this.bt_RemoveDespesa = new System.Windows.Forms.Button();
+            this.bt_AddDespesa = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.panelColorido2.SuspendLayout();
             this.panelColorido1.SuspendLayout();
@@ -75,6 +77,7 @@ namespace WindowsApp.AluguelModule
             this.btFecharAluguel.Size = new System.Drawing.Size(75, 72);
             this.btFecharAluguel.TabIndex = 4;
             this.btFecharAluguel.UseVisualStyleBackColor = true;
+            this.btFecharAluguel.Click += new System.EventHandler(this.btFecharAluguel_Click);
             // 
             // label4
             // 
@@ -122,11 +125,9 @@ namespace WindowsApp.AluguelModule
             // 
             this.panelColorido2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(7)))), ((int)(((byte)(49)))));
             this.panelColorido2.Controls.Add(this.label8);
-            this.panelColorido2.Controls.Add(this.textBox7);
-            this.panelColorido2.Controls.Add(this.label10);
             this.panelColorido2.Controls.Add(this.label9);
-            this.panelColorido2.Controls.Add(this.textBox6);
-            this.panelColorido2.Controls.Add(this.textBox4);
+            this.panelColorido2.Controls.Add(this.tb_KmFinal);
+            this.panelColorido2.Controls.Add(this.tb_KmInicial);
             this.panelColorido2.Controls.Add(this.label5);
             this.panelColorido2.Location = new System.Drawing.Point(45, 60);
             this.panelColorido2.Name = "panelColorido2";
@@ -144,51 +145,34 @@ namespace WindowsApp.AluguelModule
             this.label8.TabIndex = 5;
             this.label8.Text = "Configurações";
             // 
-            // textBox7
-            // 
-            this.textBox7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(468, 73);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(78, 29);
-            this.textBox7.TabIndex = 3;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(464, 49);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(58, 21);
-            this.label10.TabIndex = 1;
-            this.label10.Text = "Atraso";
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(145, 49);
+            this.label9.Location = new System.Drawing.Point(199, 49);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(71, 21);
+            this.label9.Size = new System.Drawing.Size(124, 21);
             this.label9.TabIndex = 1;
-            this.label9.Text = "Km Final";
+            this.label9.Text = "Odômetro Final";
             // 
-            // textBox6
+            // tb_KmFinal
             // 
-            this.textBox6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(149, 73);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 29);
-            this.textBox6.TabIndex = 2;
+            this.tb_KmFinal.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_KmFinal.Location = new System.Drawing.Point(203, 73);
+            this.tb_KmFinal.Name = "tb_KmFinal";
+            this.tb_KmFinal.Size = new System.Drawing.Size(143, 29);
+            this.tb_KmFinal.TabIndex = 2;
+            this.tb_KmFinal.Leave += new System.EventHandler(this.tb_KmFinal_Leave);
             // 
-            // textBox4
+            // tb_KmInicial
             // 
-            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(27, 73);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 29);
-            this.textBox4.TabIndex = 1;
+            this.tb_KmInicial.Enabled = false;
+            this.tb_KmInicial.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_KmInicial.Location = new System.Drawing.Point(27, 73);
+            this.tb_KmInicial.Name = "tb_KmInicial";
+            this.tb_KmInicial.Size = new System.Drawing.Size(143, 29);
+            this.tb_KmInicial.TabIndex = 1;
             // 
             // label5
             // 
@@ -197,69 +181,98 @@ namespace WindowsApp.AluguelModule
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(23, 49);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 21);
+            this.label5.Size = new System.Drawing.Size(152, 21);
             this.label5.TabIndex = 1;
-            this.label5.Text = "Km Inicial";
+            this.label5.Text = "Odômetro Anterior";
             // 
             // panelColorido1
             // 
             this.panelColorido1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(7)))), ((int)(((byte)(49)))));
-            this.panelColorido1.Controls.Add(this.listChecklist2);
-            this.panelColorido1.Controls.Add(this.listChecklist1);
+            this.panelColorido1.Controls.Add(this.mtb_PrecoDespesa);
+            this.panelColorido1.Controls.Add(this.label2);
+            this.panelColorido1.Controls.Add(this.tb_NomeDespesa);
+            this.panelColorido1.Controls.Add(this.lb_Titulo);
+            this.panelColorido1.Controls.Add(this.listDespesas);
+            this.panelColorido1.Controls.Add(this.bt_RemoveDespesa);
+            this.panelColorido1.Controls.Add(this.bt_AddDespesa);
             this.panelColorido1.Controls.Add(this.label7);
             this.panelColorido1.Location = new System.Drawing.Point(45, 197);
             this.panelColorido1.Name = "panelColorido1";
-            this.panelColorido1.Size = new System.Drawing.Size(576, 171);
+            this.panelColorido1.Size = new System.Drawing.Size(576, 172);
             this.panelColorido1.TabIndex = 6;
             // 
-            // checkBox1
+            // mtb_PrecoDespesa
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.ForeColor = System.Drawing.Color.White;
-            this.checkBox1.Location = new System.Drawing.Point(45, 374);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(170, 21);
-            this.checkBox1.TabIndex = 7;
-            this.checkBox1.Text = "Marcar todas as opções";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.mtb_PrecoDespesa.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.mtb_PrecoDespesa.Location = new System.Drawing.Point(13, 119);
+            this.mtb_PrecoDespesa.Name = "mtb_PrecoDespesa";
+            this.mtb_PrecoDespesa.Size = new System.Drawing.Size(100, 29);
+            this.mtb_PrecoDespesa.TabIndex = 24;
+            this.mtb_PrecoDespesa.ValidatingType = typeof(int);
             // 
-            // listChecklist2
+            // label2
             // 
-            this.listChecklist2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(33)))), ((int)(((byte)(34)))));
-            this.listChecklist2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listChecklist2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listChecklist2.ForeColor = System.Drawing.Color.White;
-            this.listChecklist2.FormattingEnabled = true;
-            this.listChecklist2.Items.AddRange(new object[] {
-            "Item 6",
-            "Item 7",
-            "Item 8",
-            "Item 9",
-            "Item 10"});
-            this.listChecklist2.Location = new System.Drawing.Point(310, 38);
-            this.listChecklist2.Name = "listChecklist2";
-            this.listChecklist2.Size = new System.Drawing.Size(245, 120);
-            this.listChecklist2.TabIndex = 6;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(13, 91);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(85, 21);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "Preço (R$)";
             // 
-            // listChecklist1
+            // tb_NomeDespesa
             // 
-            this.listChecklist1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(33)))), ((int)(((byte)(34)))));
-            this.listChecklist1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listChecklist1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listChecklist1.ForeColor = System.Drawing.Color.White;
-            this.listChecklist1.FormattingEnabled = true;
-            this.listChecklist1.Items.AddRange(new object[] {
-            "Item 1",
-            "Item 2",
-            "Item 3",
-            "Item 4",
-            "Item 5"});
-            this.listChecklist1.Location = new System.Drawing.Point(34, 38);
-            this.listChecklist1.Name = "listChecklist1";
-            this.listChecklist1.Size = new System.Drawing.Size(245, 120);
-            this.listChecklist1.TabIndex = 6;
+            this.tb_NomeDespesa.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_NomeDespesa.Location = new System.Drawing.Point(13, 56);
+            this.tb_NomeDespesa.Name = "tb_NomeDespesa";
+            this.tb_NomeDespesa.Size = new System.Drawing.Size(157, 29);
+            this.tb_NomeDespesa.TabIndex = 22;
+            // 
+            // lb_Titulo
+            // 
+            this.lb_Titulo.AutoSize = true;
+            this.lb_Titulo.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Titulo.ForeColor = System.Drawing.Color.White;
+            this.lb_Titulo.Location = new System.Drawing.Point(9, 32);
+            this.lb_Titulo.Name = "lb_Titulo";
+            this.lb_Titulo.Size = new System.Drawing.Size(71, 21);
+            this.lb_Titulo.TabIndex = 21;
+            this.lb_Titulo.Text = "Despesa";
+            // 
+            // listDespesas
+            // 
+            this.listDespesas.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listDespesas.FormattingEnabled = true;
+            this.listDespesas.ItemHeight = 17;
+            this.listDespesas.Location = new System.Drawing.Point(316, 16);
+            this.listDespesas.Name = "listDespesas";
+            this.listDespesas.Size = new System.Drawing.Size(248, 106);
+            this.listDespesas.TabIndex = 18;
+            // 
+            // bt_RemoveDespesa
+            // 
+            this.bt_RemoveDespesa.FlatAppearance.BorderSize = 0;
+            this.bt_RemoveDespesa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_RemoveDespesa.Image = global::WindowsApp.Properties.Resources.removemini;
+            this.bt_RemoveDespesa.Location = new System.Drawing.Point(528, 128);
+            this.bt_RemoveDespesa.Name = "bt_RemoveDespesa";
+            this.bt_RemoveDespesa.Size = new System.Drawing.Size(36, 35);
+            this.bt_RemoveDespesa.TabIndex = 19;
+            this.bt_RemoveDespesa.UseVisualStyleBackColor = true;
+            this.bt_RemoveDespesa.Click += new System.EventHandler(this.bt_RemoveDespesa_Click);
+            // 
+            // bt_AddDespesa
+            // 
+            this.bt_AddDespesa.FlatAppearance.BorderSize = 0;
+            this.bt_AddDespesa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_AddDespesa.Image = global::WindowsApp.Properties.Resources.addmini;
+            this.bt_AddDespesa.Location = new System.Drawing.Point(134, 112);
+            this.bt_AddDespesa.Name = "bt_AddDespesa";
+            this.bt_AddDespesa.Size = new System.Drawing.Size(36, 36);
+            this.bt_AddDespesa.TabIndex = 18;
+            this.bt_AddDespesa.UseVisualStyleBackColor = true;
+            this.bt_AddDespesa.Click += new System.EventHandler(this.bt_AddDespesa_Click);
             // 
             // label7
             // 
@@ -278,7 +291,6 @@ namespace WindowsApp.AluguelModule
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(33)))), ((int)(((byte)(34)))));
             this.ClientSize = new System.Drawing.Size(668, 522);
-            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.panelColorido3);
             this.Controls.Add(this.btFecharAluguel);
             this.Controls.Add(this.label4);
@@ -302,15 +314,9 @@ namespace WindowsApp.AluguelModule
 
         private PanelColorido panelColorido2;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox tb_KmFinal;
         private PanelColorido panelColorido1;
-        private System.Windows.Forms.CheckedListBox listChecklist2;
-        private System.Windows.Forms.CheckedListBox listChecklist1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label1;
         private PanelColorido panelColorido3;
@@ -318,6 +324,14 @@ namespace WindowsApp.AluguelModule
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lbValor;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button bt_RemoveDespesa;
+        private System.Windows.Forms.Button bt_AddDespesa;
+        private System.Windows.Forms.ListBox listDespesas;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox tb_NomeDespesa;
+        private System.Windows.Forms.Label lb_Titulo;
+        private System.Windows.Forms.MaskedTextBox mtb_PrecoDespesa;
+        private System.Windows.Forms.TextBox tb_KmInicial;
+        private System.Windows.Forms.Label label5;
     }
 }

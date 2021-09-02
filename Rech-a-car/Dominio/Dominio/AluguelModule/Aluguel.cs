@@ -47,9 +47,9 @@ namespace Dominio.AluguelModule
         public DateTime DataDevolucao { get; set; }
 
 
-        public AluguelFechado Fechar(int kmRodados, double tanqueUtilizado, List<Servico> servicos, DateTime dataDevolvida)
+        public AluguelFechado Fechar(int kmRodados, double tanqueUtilizado, List<Servico> servicos)
         {
-            return new AluguelFechado(this, kmRodados, tanqueUtilizado, servicos,dataDevolvida);
+            return new AluguelFechado(this, kmRodados, tanqueUtilizado, servicos);
         }
         public override string Validar()
         {
