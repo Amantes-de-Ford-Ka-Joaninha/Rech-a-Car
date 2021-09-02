@@ -121,8 +121,10 @@ namespace WindowsApp
         }
         private void TelaPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (Login.Instancia.Visible == false)
+            if (!(sender as Form).ActiveControl.Text.Contains("Sair"))
                 Application.Exit();
+            else
+                new Login().Show();
         }
 
         #endregion
