@@ -1,6 +1,7 @@
 ﻿using Dominio.Shared;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Controladores.Shared
 {
@@ -19,5 +20,11 @@ namespace Controladores.Shared
             parametros.Add(campo, valor);
             return parametros;
         }
-    }
+        public List<T> FiltroTunado(string filtro)
+        {
+            var palavras = filtro.Split(' ');
+
+            return Registros.Where(i => palavras.Any(p=> i.ToString().IndexOf(p, StringComparison.OrdinalIgnoreCase) >= 0)).ToList();
+        }
+    }   
 }

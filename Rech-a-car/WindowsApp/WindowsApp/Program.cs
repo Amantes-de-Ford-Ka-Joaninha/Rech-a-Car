@@ -15,7 +15,7 @@ namespace WindowsApp
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            new FechamentoAluguel().Show();
+            new Login().Show();
 
             Application.Run();
         }

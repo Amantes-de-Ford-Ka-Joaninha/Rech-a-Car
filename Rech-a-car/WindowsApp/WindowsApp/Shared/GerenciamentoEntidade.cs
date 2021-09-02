@@ -1,5 +1,6 @@
 ﻿using Dominio.Shared;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -12,7 +13,7 @@ namespace WindowsApp.Shared
         public GerenciamentoEntidade(String titulo, TipoTela tipo = TipoTela.CadastroBasico)
         {
             InitializeComponent();
-            AtualizarRegistros();
+            AtualizarRegistros(Cadastro.Controlador.Registros);
             lbTitulo.Text = titulo;
 
             AtualizarBotoes(tipo);
@@ -20,12 +21,11 @@ namespace WindowsApp.Shared
 
         public abstract object[] ObterCamposLinha(T item);
         public abstract DataGridViewColumn[] ConfigurarColunas();
-        public void AtualizarRegistros()
+        public void AtualizarRegistros(List<T> registros)
         {
             dgvEntidade.ConfigurarGrid(ConfigurarColunas());
 
             dgvEntidade.Rows.Clear();
-            var registros = Cadastro.Controlador.Registros;
 
             foreach (var item in registros)
                 dgvEntidade.Rows.Add(GetDadosLinha(item));
@@ -103,14 +103,14 @@ namespace WindowsApp.Shared
         private void btAdicionar_Click(object sender, EventArgs e)
         {
             TelaPrincipal.Instancia.FormAtivo = Cadastro.Inserir();
-            AtualizarRegistros();
+            AtualizarRegistros(Cadastro.Controlador.FiltroTunado(tbFiltro.Text));
         }
         private void bt_editar_Click(object sender, EventArgs e)
         {
             var entidade = Cadastro.Controlador.GetById(dgvEntidade.GetIdSelecionado(), GetTipoEntidade());
             TelaPrincipal.Instancia.FormAtivo = (Form)Cadastro.ConfigurarEditar(entidade);
             AlternarBotoes(false);
-            AtualizarRegistros();
+            AtualizarRegistros(Cadastro.Controlador.FiltroTunado(tbFiltro.Text));
         }
         private void bt_remover_Click(object sender, EventArgs e)
         {
@@ -121,12 +121,7 @@ namespace WindowsApp.Shared
 
             Cadastro.Controlador.Excluir(dgvEntidade.GetIdSelecionado(), GetTipoEntidade());
             AlternarBotoes(false);
-            AtualizarRegistros();
-        }
-
-        private void dgvEntidade_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            AlternarBotoes(true);
+            AtualizarRegistros(Cadastro.Controlador.FiltroTunado(tbFiltro.Text));
         }
         private void btFiltro_Click(object sender, EventArgs e)
         {
@@ -140,9 +135,16 @@ namespace WindowsApp.Shared
         {
             SalvarAluguel();
         }
+        private void tbFiltro_TextChanged(object sender, EventArgs e)
+        {
+            AtualizarRegistros(Cadastro.Controlador.FiltroTunado(tbFiltro.Text));
+        }
+        private void dgvEntidade_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            AlternarBotoes(true);
+        }
 
         #endregion
-
     }
     public enum TipoTela
     {

@@ -17,7 +17,7 @@ using System.Globalization;
 
 namespace WindowsApp.AluguelModule
 {
-    public partial class ResumoAluguel : CadastroEntidade<Aluguel>
+    public partial class ResumoAluguel : CadastroEntidade<Aluguel>//Form//
     {
         private double PrecoParcial { set { lbValor.Text = value.ToString(); } get { return Convert.ToDouble(lbValor.Text); } }
         private Aluguel Aluguel;
@@ -41,14 +41,13 @@ namespace WindowsApp.AluguelModule
             PopulaDatas();
             cbPlano.SelectedIndex = 0;
             bt_RemoveServico.Enabled = false;
+            bt_AddServico.Enabled = false;
         }
 
         private void PopulaDatas()
         {
-            var dtEmprestimo = DateTime.Parse(DateTime.Now.ToShortDateString(), new CultureInfo("pt-BR"));
-            tbDt_Emprestimo.Text = dtEmprestimo.ToString();
-            var dtDevolucao = DateTime.Parse(DateTime.Now.AddDays(1).ToShortDateString(), new CultureInfo("pt-BR"));
-            tbDt_Devolucao.Text = dtDevolucao.ToString();
+            tbDt_Emprestimo.Text = DateTime.Today.ToShortDateString();
+            tbDt_Devolucao.Text = DateTime.Today.AddDays(1).ToShortDateString();
         }
 
         public override Controlador<Aluguel> Controlador => new ControladorAluguel();
@@ -220,11 +219,15 @@ namespace WindowsApp.AluguelModule
         }
         private void bt_AddServico_Click(object sender, EventArgs e)
         {
+            var selecionado = listServicos.SelectedIndex;
             AdicionarServico();
+            listServicos.SelectedIndex = listServicos.Items.Count != 0 ? selecionado : -1;
         }
         private void bt_RemoveServico_Click(object sender, EventArgs e)
         {
+            var selecionado = listServicos.SelectedIndex;
             RemoverServico();
+            listServicos.SelectedIndex = listServicos.Items.Count != 0 ? selecionado : -1;
         }
         private void pictureBox1_MouseHover(object sender, EventArgs e)
         {
@@ -257,7 +260,10 @@ namespace WindowsApp.AluguelModule
                 bt_RemoveServico.Enabled = false;
             }
         }
+        private void listServicos_SelectedValueChanged(object sender, EventArgs e)
+        {
+            bt_AddServico.Enabled = listServicos.Items.Count != 0 ? true : false;
+        }
         #endregion
-
     }
 }
