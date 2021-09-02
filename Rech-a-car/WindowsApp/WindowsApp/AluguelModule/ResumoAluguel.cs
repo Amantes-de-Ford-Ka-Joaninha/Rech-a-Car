@@ -50,7 +50,6 @@ namespace WindowsApp.AluguelModule
             tbDt_Emprestimo.Text = DateTime.Today.ToShortDateString();
             tbDt_Devolucao.Text = DateTime.Today.AddDays(1).ToShortDateString();
         }
-
         public override Controlador<Aluguel> Controlador => new ControladorAluguel();
         public override Aluguel GetNovaEntidade()
         {
@@ -204,6 +203,8 @@ namespace WindowsApp.AluguelModule
                 validacao += "O aluguel precisa de um veículo\n";
             if (Aluguel.Cliente == null)
                 validacao += "O aluguel precisa de um cliente";
+            if (Aluguel.Cliente is ClientePJ && cb_motoristas.SelectedItem == null)
+                validacao += "Selecione um motorista para o aluguel";
 
             return validacao;
         }
