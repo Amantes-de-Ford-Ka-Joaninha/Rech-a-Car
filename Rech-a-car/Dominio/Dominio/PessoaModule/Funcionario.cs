@@ -4,12 +4,13 @@ namespace Dominio.PessoaModule
 {
     public class Funcionario : PessoaFisica, Usuario
     {
-        public Funcionario(string nome, string telefone, string endereco, string documento, Image foto, string usuario, string senha = null)
+        public Funcionario(string nome, string telefone, string endereco, string documento, string cargo, Image foto, string usuario, string senha = null)
         {
             Nome = nome;
             Telefone = telefone;
             Endereco = endereco;
             Documento = documento;
+            Cargo = cargo;
             Foto = foto;
             NomeUsuario = usuario;
             Senha = senha;

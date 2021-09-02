@@ -25,6 +25,7 @@ namespace WindowsApp.FuncionarioModule
             tbTelefone.Text = entidade.Telefone;
             tbEndereco.Text = entidade.Endereco;
             tbCPF.Text = entidade.Documento;
+            tbCargo.Text = entidade.Cargo;
             tbUsuario.Text = entidade.NomeUsuario;
             bt_foto.Image = entidade.Foto;
 
@@ -36,11 +37,12 @@ namespace WindowsApp.FuncionarioModule
             var telefone = tbTelefone.Text;
             var endereco = tbEndereco.Text;
             var cpf = tbCPF.Text;
+            var cargo = tbCargo.Text;
             var usuario = tbUsuario.Text;
             var imagem = (Bitmap)bt_foto.Image;
             var senha = tbSenha.Text;
 
-            return new Funcionario(nome, telefone, endereco, cpf, imagem, usuario, senha);
+            return new Funcionario(nome, telefone, endereco, cpf, cargo, imagem, usuario, senha);
         }
         private void AtualizarIcone(Bitmap imagem)
         {

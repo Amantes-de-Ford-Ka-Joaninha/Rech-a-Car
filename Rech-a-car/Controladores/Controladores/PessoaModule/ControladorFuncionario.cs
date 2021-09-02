@@ -17,6 +17,7 @@ namespace Controladores.PessoaModule
                     [ENDERECO],
                     [DOCUMENTO],
                     [FOTO],
+                    [CARGO],
                     [USER]
                 )
             VALUES
@@ -26,6 +27,7 @@ namespace Controladores.PessoaModule
                     @ENDERECO,
                     @DOCUMENTO,
                     @FOTO,
+                    @CARGO,
                     @USER
                 )";
 
@@ -36,6 +38,7 @@ namespace Controladores.PessoaModule
                     [TELEFONE] = @TELEFONE,             
                     [ENDERECO] = @ENDERECO,
                     [DOCUMENTO] = @DOCUMENTO,
+                    [CARGO] = @CARGO,
                     [FOTO] = @FOTO,
                     [USER] = @USER
                 WHERE [ID] = @ID";
@@ -102,11 +105,12 @@ namespace Controladores.PessoaModule
             var nome = Convert.ToString(reader["NOME"]);
             var telefone = Convert.ToString(reader["TELEFONE"]);
             var documento = Convert.ToString(reader["DOCUMENTO"]);
+            var cargo = Convert.ToString(reader["CARGO"]);
             var endereco = Convert.ToString(reader["ENDERECO"]);
             var user = Convert.ToString(reader["USER"]);
             var foto = RecuperarImagem((byte[])reader["FOTO"]);
 
-            return new Funcionario(nome, telefone, endereco, documento, foto, user)
+            return new Funcionario(nome, telefone, endereco, documento, cargo, foto, user)
             {
                 Id = id
             };
@@ -119,6 +123,7 @@ namespace Controladores.PessoaModule
                 { "NOME", funcionario.Nome },
                 { "ENDERECO", funcionario.Endereco },
                 { "TELEFONE", funcionario.Telefone },
+                { "CARGO", funcionario.Cargo },
                 { "DOCUMENTO", funcionario.Documento },
                 { "USER", funcionario.NomeUsuario },
                 { "SENHA", funcionario.Senha},

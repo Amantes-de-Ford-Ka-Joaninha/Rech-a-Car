@@ -47,7 +47,9 @@ namespace WindowsApp.FuncionarioModule
             this.ofdImagem = new System.Windows.Forms.OpenFileDialog();
             this.label6 = new System.Windows.Forms.Label();
             this.tbSenha = new System.Windows.Forms.TextBox();
-            this.bt_foto = new BotaoComImagem();
+            this.bt_foto = new WindowsApp.Shared.BotaoComImagem();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tbCargo = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -161,7 +163,7 @@ namespace WindowsApp.FuncionarioModule
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(185, 361);
+            this.label15.Location = new System.Drawing.Point(186, 392);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(41, 21);
             this.label15.TabIndex = 18;
@@ -172,7 +174,7 @@ namespace WindowsApp.FuncionarioModule
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(163, 257);
+            this.label5.Location = new System.Drawing.Point(163, 292);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(64, 21);
             this.label5.TabIndex = 1;
@@ -181,7 +183,7 @@ namespace WindowsApp.FuncionarioModule
             // tbUsuario
             // 
             this.tbUsuario.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbUsuario.Location = new System.Drawing.Point(233, 254);
+            this.tbUsuario.Location = new System.Drawing.Point(233, 289);
             this.tbUsuario.Name = "tbUsuario";
             this.tbUsuario.Size = new System.Drawing.Size(234, 29);
             this.tbUsuario.TabIndex = 5;
@@ -195,7 +197,7 @@ namespace WindowsApp.FuncionarioModule
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(163, 292);
+            this.label6.Location = new System.Drawing.Point(174, 327);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 21);
             this.label6.TabIndex = 1;
@@ -204,7 +206,7 @@ namespace WindowsApp.FuncionarioModule
             // tbSenha
             // 
             this.tbSenha.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbSenha.Location = new System.Drawing.Point(233, 289);
+            this.tbSenha.Location = new System.Drawing.Point(233, 324);
             this.tbSenha.Name = "tbSenha";
             this.tbSenha.Size = new System.Drawing.Size(234, 29);
             this.tbSenha.TabIndex = 6;
@@ -214,12 +216,32 @@ namespace WindowsApp.FuncionarioModule
             this.bt_foto.FlatAppearance.BorderSize = 0;
             this.bt_foto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_foto.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_foto.Location = new System.Drawing.Point(296, 334);
+            this.bt_foto.Image = null;
+            this.bt_foto.Location = new System.Drawing.Point(299, 359);
             this.bt_foto.Name = "bt_foto";
             this.bt_foto.Size = new System.Drawing.Size(98, 90);
             this.bt_foto.TabIndex = 7;
             this.bt_foto.UseVisualStyleBackColor = true;
             this.bt_foto.Click += new System.EventHandler(this.bt_foto_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(175, 257);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(52, 21);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Cargo";
+            // 
+            // tbCargo
+            // 
+            this.tbCargo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbCargo.Location = new System.Drawing.Point(233, 254);
+            this.tbCargo.Name = "tbCargo";
+            this.tbCargo.Size = new System.Drawing.Size(234, 29);
+            this.tbCargo.TabIndex = 3;
             // 
             // CadastroFuncionario
             // 
@@ -233,7 +255,9 @@ namespace WindowsApp.FuncionarioModule
             this.Controls.Add(this.tbTelefone);
             this.Controls.Add(this.btAdicionar);
             this.Controls.Add(this.label4);
+            this.Controls.Add(this.tbCargo);
             this.Controls.Add(this.tbEndereco);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbSenha);
@@ -269,5 +293,7 @@ namespace WindowsApp.FuncionarioModule
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbSenha;
         private Shared.BotaoComImagem bt_foto;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox tbCargo;
     }
 }
