@@ -62,16 +62,14 @@
     <Compile Include="WindowsApp\Shared\BotaoComImagem.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="WindowsApp\Shared\ISelecionavel.cs" />
+    <Compile Include="WindowsApp\Shared\IVisualizavel.cs" />
     <Compile Include="WindowsApp\Shared\PanelColorido.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="WindowsApp\Shared\PictureBoxRedondo.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="WindowsApp\VeiculoModule\CategoriaModule\VisualizarCategoria.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="WindowsApp\VeiculoModule\CategoriaModule\VisualizarCategoria.cs" />
     <Compile Include="WindowsApp\AluguelModule\ResumoAluguel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,12 +81,6 @@
     </Compile>
     <Compile Include="WindowsApp\AluguelModule\GerenciamentoAluguel.Designer.cs">
       <DependentUpon>GerenciamentoAluguel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="WindowsApp\AluguelModule\VisualizarAluguel.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WindowsApp\AluguelModule\VisualizarAluguel.Designer.cs">
-      <DependentUpon>VisualizarAluguel.cs</DependentUpon>
     </Compile>
     <Compile Include="WindowsApp\ClienteModule\CadastroCliente.cs">
       <SubType>Form</SubType>
@@ -120,9 +112,7 @@
     <Compile Include="WindowsApp\ClienteModule\GerenciamentoCliente.Designer.cs">
       <DependentUpon>GerenciamentoCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="WindowsApp\ClienteModule\VisualizarCliente.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="WindowsApp\ClienteModule\VisualizarCliente.cs" />
     <Compile Include="WindowsApp\FuncionarioModule\CadastroFuncionario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,9 +122,7 @@
     <Compile Include="WindowsApp\FuncionarioModule\GerenciamentoFuncionario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WindowsApp\FuncionarioModule\VisualizarFuncionario.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="WindowsApp\FuncionarioModule\VisualizarFuncionario.cs" />
     <Compile Include="WindowsApp\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,9 +138,7 @@
     <Compile Include="WindowsApp\ServicoModule\GerenciamentoServico.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WindowsApp\ServicoModule\VisualizarServico.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="WindowsApp\ServicoModule\VisualizarServico.cs" />
     <Compile Include="WindowsApp\Shared\DataGridViewExtensions.cs" />
     <Compile Include="WindowsApp\Shared\GerenciamentoEntidade.cs">
       <SubType>Form</SubType>
@@ -164,9 +150,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="WindowsApp\Shared\IEditavel.cs" />
-    <Compile Include="WindowsApp\Shared\VisualizarEntidade.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="WindowsApp\VeiculoModule\CadastroVeiculo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,9 +179,7 @@
     <Compile Include="WindowsApp\VeiculoModule\CategoriaModule\GerenciamentoCategoria.Designer.cs">
       <DependentUpon>GerenciamentoCategoria.cs</DependentUpon>
     </Compile>
-    <Compile Include="WindowsApp\VeiculoModule\VisualizarVeiculo.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="WindowsApp\VeiculoModule\VisualizarVeiculo.cs" />
     <EmbeddedResource Include="WindowsApp\AluguelModule\FechamentoAluguel.resx">
       <DependentUpon>FechamentoAluguel.cs</DependentUpon>
     </EmbeddedResource>

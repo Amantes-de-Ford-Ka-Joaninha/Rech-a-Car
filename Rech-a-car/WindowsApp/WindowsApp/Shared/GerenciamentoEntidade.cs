@@ -6,10 +6,10 @@ using System.Windows.Forms;
 
 namespace WindowsApp.Shared
 {
-    public abstract partial class GerenciamentoEntidade<T> : Form, ISelecionavel where T : IControlavel
+    public abstract partial class GerenciamentoEntidade<T> : Form, IVisualizavel where T : IControlavel
     {
         protected abstract CadastroEntidade<T> Cadastro { get; }
-        protected abstract ISelecionavel Selecionar { get; }
+        protected abstract IVisualizavel Visualizar { get; }
         public GerenciamentoEntidade(String titulo, TipoTela tipo = TipoTela.CadastroBasico)
         {
             InitializeComponent();
@@ -98,7 +98,10 @@ namespace WindowsApp.Shared
         {
             return;
         }
-
+        Form IVisualizavel.Visualizar<T1>(T1 t)
+        {
+            return Visualizar.Visualizar(t);
+        }
         #region Eventos
         private void btAdicionar_Click(object sender, EventArgs e)
         {
@@ -142,6 +145,10 @@ namespace WindowsApp.Shared
         private void dgvEntidade_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
             AlternarBotoes(true);
+        }
+        private void dgvEntidade_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            TelaPrincipal.Instancia.FormAtivo = Visualizar.Visualizar(GetEntidadeSelecionado());
         }
 
         #endregion

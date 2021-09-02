@@ -16,7 +16,7 @@ namespace WindowsApp.ClienteModule
         }
 
         protected override CadastroEntidade<ICliente> Cadastro => new CadastroCliente();
-        protected override ISelecionavel Selecionar => new VisualizarCliente();
+        protected override IVisualizavel Visualizar => new VisualizarCliente();
 
         public Aluguel Aluguel { get; }
 

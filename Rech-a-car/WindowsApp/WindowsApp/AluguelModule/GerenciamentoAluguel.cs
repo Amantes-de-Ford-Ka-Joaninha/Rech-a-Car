@@ -13,7 +13,7 @@ namespace WindowsApp.AluguelModule
             InitializeComponent();
         }
         protected override CadastroEntidade<Aluguel> Cadastro => new ResumoAluguel();
-        protected override ISelecionavel Selecionar => new VisualizarAluguel();
+        protected override IVisualizavel Visualizar => new FechamentoAluguel();
 
         public override DataGridViewColumn[] ConfigurarColunas()
         {

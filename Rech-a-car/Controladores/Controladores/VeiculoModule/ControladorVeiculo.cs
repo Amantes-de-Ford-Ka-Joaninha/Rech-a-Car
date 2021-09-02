@@ -92,7 +92,6 @@ namespace Controladores.VeiculoModule
         public override string sqlEditar => sqlEditarVeiculo;
         public override string sqlExcluir => sqlExcluirVeiculo;
         public override string sqlExists => sqlExisteVeiculo;
-
         public override Veiculo ConverterEmEntidade(IDataReader reader)
         {
             var id = Convert.ToInt32(reader["ID"]);
@@ -117,6 +116,10 @@ namespace Controladores.VeiculoModule
             {
                 Id = id
             };
+        }
+        public List<Veiculo> GetDisponiveis()
+        {
+            return Registros;//left join com a table de alugueis e seleciona os as linhas que tem o aluguel null
         }
         protected override Dictionary<string, object> ObterParametrosRegistro(Veiculo veiculo)
         {

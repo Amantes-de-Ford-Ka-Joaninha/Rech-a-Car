@@ -12,7 +12,7 @@ namespace WindowsApp.FuncionarioModule
         }
 
         protected override CadastroEntidade<Funcionario> Cadastro => new CadastroFuncionario();
-        protected override ISelecionavel Selecionar => new VisualizarFuncionario();
+        protected override IVisualizavel Visualizar => new VisualizarFuncionario();
         public override DataGridViewColumn[] ConfigurarColunas()
         {
             return new DataGridViewColumn[]

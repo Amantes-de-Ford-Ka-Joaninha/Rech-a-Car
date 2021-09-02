@@ -12,7 +12,7 @@ namespace WindowsApp.ServicoModule
         }
 
         protected override CadastroEntidade<Servico> Cadastro => new CadastroServico();
-        protected override ISelecionavel Selecionar => new VisualizarServico();
+        protected override IVisualizavel Visualizar => new VisualizarServico();
 
         public override DataGridViewColumn[] ConfigurarColunas()
         {

@@ -1,4 +1,5 @@
-﻿using Dominio.AluguelModule;
+﻿using Controladores.VeiculoModule;
+using Dominio.AluguelModule;
 using Dominio.VeiculoModule;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -9,20 +10,20 @@ namespace WindowsApp.VeiculoModule
 {
     public class GerenciamentoVeiculo : GerenciamentoEntidade<Veiculo>
     {
+        private Aluguel Aluguel { get; }
         public GerenciamentoVeiculo(string titulo = "Gerenciamento de Veículo", TipoTela tipo = TipoTela.CadastroBasico, Aluguel aluguel = null) : base(titulo, tipo)
         {
             Aluguel = aluguel;
-        }
+            if (tipo == TipoTela.ApenasConfirma)
+                AtualizarRegistros(new ControladorVeiculo().GetDisponiveis());      //da pra melhorar isso aq, e os overrides, pq o programa acaba dando muitas voltas e instanciando coisas q nem vai usar
+    }
         protected override CadastroEntidade<Veiculo> Cadastro => new CadastroVeiculo();
         protected override void SalvarAluguel()
         {
             Aluguel.Veiculo = GetEntidadeSelecionado();
             TelaPrincipal.Instancia.FormAtivo = new ResumoAluguel(Aluguel);
         }
-        protected override ISelecionavel Selecionar => new VisualizarVeiculo();
-
-        private Aluguel Aluguel { get; }
-
+        protected override IVisualizavel Visualizar => new VisualizarVeiculo();
         public override DataGridViewColumn[] ConfigurarColunas()
         {
             return new DataGridViewColumn[]

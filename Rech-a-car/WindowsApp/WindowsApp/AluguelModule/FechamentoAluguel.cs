@@ -1,9 +1,12 @@
-﻿using System;
+﻿using Dominio.AluguelModule;
+using Dominio.Shared;
+using System;
 using System.Windows.Forms;
+using WindowsApp.Shared;
 
 namespace WindowsApp.AluguelModule
 {
-    public partial class FechamentoAluguel : Form
+    public partial class FechamentoAluguel : Form, IVisualizavel
     {
         private bool estadoBotoes = true;
 
@@ -11,7 +14,6 @@ namespace WindowsApp.AluguelModule
         {
             InitializeComponent();
         }
-
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (estadoBotoes == true)
@@ -34,6 +36,11 @@ namespace WindowsApp.AluguelModule
             }
             
             estadoBotoes = !estadoBotoes;
+        }
+
+        public Form Visualizar<T>(T t) where T : IControlavel
+        {
+            throw new NotImplementedException();        //deve preencher os textbox com os dados necessarios e retornar this
         }
     }
 }

@@ -108,6 +108,7 @@ namespace WindowsApp.Shared
             this.dgvEntidade.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEntidade.Size = new System.Drawing.Size(821, 436);
             this.dgvEntidade.TabIndex = 9;
+            this.dgvEntidade.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEntidade_CellDoubleClick);
             this.dgvEntidade.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEntidade_RowEnter);
             // 
             // tbFiltro
