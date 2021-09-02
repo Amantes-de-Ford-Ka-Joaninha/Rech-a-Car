@@ -60,7 +60,7 @@ namespace WindowsApp.ClienteModule
             else if (tipo_cliente == "CPF")
                 return typeof(ClientePF);
             else
-                throw new NotImplementedException();
+                throw new ArgumentException();
         }
     }
 }
