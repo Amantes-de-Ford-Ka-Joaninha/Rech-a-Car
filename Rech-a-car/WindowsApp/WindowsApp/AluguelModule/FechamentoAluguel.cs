@@ -25,33 +25,8 @@ namespace WindowsApp.AluguelModule
             InitializeComponent();
         }
 
-        //private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        //{
-        //    if (estadoBotoes == true)
-        //    {
-        //        for (int i = 0; i < listChecklist1.Items.Count; i++)
-        //        {
-        //            listChecklist1.SetItemChecked(i, estadoBotoes);
-        //            listChecklist2.SetItemChecked(i, estadoBotoes);
-        //        }
-        //        checkBox1.Text = "Desmarcar todas as opções";
-        //    }
-        //    else
-        //    {
-        //        for (int i = 0; i < listChecklist1.Items.Count; i++)
-        //        {
-        //            listChecklist1.SetItemChecked(i, estadoBotoes);
-        //            listChecklist2.SetItemChecked(i, estadoBotoes);
-        //        }
-        //        checkBox1.Text = "Marcar todas as opções";
-        //    }
-
-        //    estadoBotoes = !estadoBotoes;
-        //}
-
         public Form Visualizar<T>(T t) where T : IControlavel
         {
-            tb_KmInicial.Text = aluguel.Veiculo.Quilometragem.ToString();
             return this;
         }
 
