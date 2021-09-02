@@ -37,11 +37,12 @@ namespace WindowsApp.AluguelModule
                 PopulaCliente(aluguel.Cliente);
             }
 
-            PopulaServicos(new ControladorServico().ServicosDisponiveis());
+            PopulaServicos(GetServicosDiponiveis());
             PopulaDatas();
             cbPlano.SelectedIndex = 0;
             bt_RemoveServico.Enabled = false;
             bt_AddServico.Enabled = false;
+
         }
 
         private void PopulaDatas()
@@ -79,9 +80,15 @@ namespace WindowsApp.AluguelModule
 
             tbDt_Emprestimo.Text = entidade.DataAluguel.ToString("d");
             tbDt_Devolucao.Text = entidade.DataDevolucao.ToString("d");
-            PopulaServicos(new ControladorServico().ServicosDisponiveis());
+            PopulaServicos(GetServicosDiponiveis());
             return this;
         }
+
+        private List<Servico> GetServicosDiponiveis()
+        {
+            return new ControladorServico().ServicosDisponiveis().Except(Aluguel.Servicos).ToList();
+        }
+
         private void SetCondutor()
         {
             if (Aluguel.Cliente is ClientePJ)
@@ -129,6 +136,7 @@ namespace WindowsApp.AluguelModule
         private void RemoverServico()
         {
             Aluguel.Servicos.Remove((Servico)listServicos.SelectedItem);
+            listServicos.Items.Remove(listServicos.SelectedItem);
             CalcularPrecoParcial();
         }
         private void EsconderPanel(Panel panel)
@@ -199,6 +207,19 @@ namespace WindowsApp.AluguelModule
 
             return validacao;
         }
+        private void AtualizaOpcoesListServicos()
+        {
+            if (lb_lista_opcionais.Text == "Opcionais")
+            {
+                PopulaServicos(Aluguel.Servicos);
+                lb_lista_opcionais.Text = "Alugados";
+            }
+            else
+            {
+                PopulaServicos(GetServicosDiponiveis());
+                lb_lista_opcionais.Text = "Opcionais";
+            }
+        }
 
         #region Eventos
         private void btFecharAluguel_Click(object sender, EventArgs e)
@@ -221,7 +242,7 @@ namespace WindowsApp.AluguelModule
         {
             var selecionado = listServicos.SelectedIndex;
             AdicionarServico();
-            listServicos.SelectedIndex = listServicos.Items.Count != 0 ? selecionado : -1;
+            listServicos.SelectedIndex = listServicos.Items.Count > 0 ? selecionado - 1 : -1;
         }
         private void bt_RemoveServico_Click(object sender, EventArgs e)
         {
@@ -247,22 +268,14 @@ namespace WindowsApp.AluguelModule
         }
         private void bt_alterna_listas_Click(object sender, EventArgs e)
         {
-            if (lb_lista_opcionais.Text == "Opcionais")
-            {
-                lb_lista_opcionais.Text = "Alugados";
-                PopulaServicos(Aluguel.Servicos);
-                bt_RemoveServico.Enabled = true;
-            }
-            else
-            {
-                lb_lista_opcionais.Text = "Opcionais";
-                PopulaServicos(new ControladorServico().ServicosDisponiveis());
-                bt_RemoveServico.Enabled = false;
-            }
+            AtualizaOpcoesListServicos();
         }
         private void listServicos_SelectedValueChanged(object sender, EventArgs e)
         {
-            bt_AddServico.Enabled = listServicos.Items.Count != 0 ? true : false;
+            if(lb_lista_opcionais.Text == "Opcionais")
+                bt_AddServico.Enabled = listServicos.Items.Count != 0 ? true : false;
+            else
+                bt_RemoveServico.Enabled = listServicos.Items.Count != 0 ? true : false;
         }
         #endregion
     }
