@@ -84,6 +84,14 @@ namespace Controladores.VeiculoModule
                 [TBVEICULO]
             WHERE 
                 [ID] = @ID";
+
+        private const string sqlSelecionarVeiculoDisponivel =
+            @"SELECT * 
+            FROM TBVeiculo 
+            LEFT JOIN TBAluguel ON TBAluguel.ID_VEICULO = TBVeiculo.ID
+            WHERE TBAluguel.ID_VEICULO IS NULL";
+
+
         #endregion
 
         public override string sqlSelecionarPorId => sqlSelecionarVeiculoPorId;
@@ -92,6 +100,7 @@ namespace Controladores.VeiculoModule
         public override string sqlEditar => sqlEditarVeiculo;
         public override string sqlExcluir => sqlExcluirVeiculo;
         public override string sqlExists => sqlExisteVeiculo;
+
         public override Veiculo ConverterEmEntidade(IDataReader reader)
         {
             var id = Convert.ToInt32(reader["ID"]);
@@ -119,7 +128,7 @@ namespace Controladores.VeiculoModule
         }
         public List<Veiculo> GetDisponiveis()
         {
-            return Registros;//left join com a table de alugueis e seleciona os as linhas que tem o aluguel null
+            return Db.GetAll(sqlSelecionarVeiculoDisponivel, ConverterEmEntidade);
         }
         protected override Dictionary<string, object> ObterParametrosRegistro(Veiculo veiculo)
         {
