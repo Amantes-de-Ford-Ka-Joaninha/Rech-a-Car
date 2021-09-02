@@ -91,7 +91,6 @@ namespace Controladores.VeiculoModule
             LEFT JOIN TBAluguel ON TBAluguel.ID_VEICULO = TBVeiculo.ID
             WHERE TBAluguel.ID_VEICULO IS NULL";
 
-
         #endregion
 
         public override string sqlSelecionarPorId => sqlSelecionarVeiculoPorId;
