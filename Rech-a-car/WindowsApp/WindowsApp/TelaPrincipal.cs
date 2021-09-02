@@ -25,6 +25,8 @@ namespace WindowsApp
             lbUsuario.Text = funcionario.Nome;
             foto_perfil.Image = funcionario.Foto;
             FuncionarioLogado = funcionario;
+            if (funcionario.Cargo != "Dono")
+                bt_funcionarios.Visible = false;
         }
 
         public Form FormAtivo { set { AbrirFormPanel(value); } }
