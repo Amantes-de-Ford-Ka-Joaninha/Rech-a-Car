@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dominio.PessoaModule;
+using System;
 using System.Windows.Forms;
 using WindowsApp.AluguelModule;
 
@@ -15,7 +16,7 @@ namespace WindowsApp
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            new Login().Show();
+            new TelaPrincipal(new Funcionario("Alexandre Rech", "99999999999", "Rua do Flamengo", "999999", Properties.Resources.rech, "admin", "admin123")).Show();
 
             Application.Run();
         }
