@@ -16,7 +16,7 @@ namespace WindowsApp
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            new TelaPrincipal(new Funcionario("Alexandre Rech", "99999999999", "Rua do Flamengo", "999999", Properties.Resources.rech, "admin", "admin123")).Show();
+            new Login().Show();
 
             Application.Run();
         }
