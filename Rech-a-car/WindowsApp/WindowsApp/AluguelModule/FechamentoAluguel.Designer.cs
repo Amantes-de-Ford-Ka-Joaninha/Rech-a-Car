@@ -148,9 +148,9 @@ namespace WindowsApp.AluguelModule
             this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(215, 41);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(87, 21);
+            this.label9.Size = new System.Drawing.Size(129, 21);
             this.label9.TabIndex = 1;
-            this.label9.Text = "Odômetro";
+            this.label9.Text = "Odômetro Atual";
             // 
             // tb_KmFinal
             // 

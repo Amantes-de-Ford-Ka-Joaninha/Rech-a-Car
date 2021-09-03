@@ -45,7 +45,11 @@ namespace Controladores.AluguelModule
                     [ID_FUNCIONARIO] = @ID_FUNCIONARIO,       
                     [TIPO_PLANO] = @TIPO_PLANO,
                     [DATA_ALUGUEL] = @DATA_ALUGUEL,
-                    [DATA_DEVOLUCAO] = @DATA_DEVOLUCAO
+                    [DATA_DEVOLUCAO] = @DATA_DEVOLUCAO,
+                    [DATA_DEVOLVIDA] = @DATA_DEVOLVIDA,
+                    [KM_RODADOS] = @KM_RODADOS,
+                    [TANQUE_UTILIZADO] = @TANQUE_UTILIZADO,
+                    [TOTAL] = @TOTAL
                 WHERE [ID] = @ID";
 
         private const string sqlExcluirAluguel =
@@ -137,10 +141,10 @@ namespace Controladores.AluguelModule
                 { "ID_VEICULO", aluguel.Veiculo.Id },
                 { "TIPO_PLANO", aluguel.TipoPlano },
                 { "DATA_ALUGUEL", aluguel.DataAluguel },
-                { "DATA_DEVOLUCAO", aluguel.DataDevolucao },
+                { "DATA_DEVOLUCAO", aluguel.DataDevolucao }
             };
             if (aluguel is AluguelFechado aluguelF) {
-                paramsAluguel.Add("DATA_DEVOLVIDO", aluguelF.DataDevolvida);
+                paramsAluguel.Add("DATA_DEVOLVIDA", aluguelF.DataDevolvida);
                 paramsAluguel.Add("TANQUE_UTILIZADO", aluguelF.TanqueUtilizado);
                 paramsAluguel.Add("KM_RODADOS", aluguelF.KmRodados);
                 paramsAluguel.Add("TOTAL", aluguelF.CalcularTotal());
