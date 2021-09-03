@@ -24,7 +24,7 @@ namespace Dominio.AluguelModule
         public double TanqueUtilizado { get; set; }
         public List<Servico> ServicosNecessarios { get; set; }
         public DateTime DataDevolvida { get; set; }
-        public double CalcularTotal()
+        public override double CalcularTotal()
         {
             double PrecoFinal = 0;
             Servicos.ForEach(x => PrecoFinal += x.Taxa);
