@@ -46,7 +46,10 @@ namespace Dominio.AluguelModule
         public DateTime DataAluguel { get; set; }
         public DateTime DataDevolucao { get; set; }
 
-
+        public virtual double CalcularTotal()
+        {
+            return 0;
+        }
         public AluguelFechado Fechar(int kmRodados, double tanqueUtilizado, List<Servico> servicos)
         {
             return new AluguelFechado(this, kmRodados, tanqueUtilizado, servicos);
