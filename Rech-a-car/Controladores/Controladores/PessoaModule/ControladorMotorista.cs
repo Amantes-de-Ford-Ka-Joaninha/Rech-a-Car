@@ -88,14 +88,14 @@ namespace Controladores.PessoaModule
         {
             return Db.GetAll(sqlSelecionarTodosMotoristasEmpresa, ConverterEmEntidade, AdicionarParametro("ID_EMPRESA", id_empresa));
         }
-        public override void Inserir(MotoristaEmpresa motorista, int idEmpresa)
+        public override void Inserir(MotoristaEmpresa motorista)
         {
             new ControladorCNH().Inserir(motorista.Cnh);
-            motorista.Id = Db.Insert(sqlInserirMotorista, AdicionarParametro("ID_EMPRESA", idEmpresa, ObterParametrosRegistro(motorista)));
+            motorista.Id = Db.Insert(sqlInserirMotorista, AdicionarParametro("ID_EMPRESA", motorista.Empresa.Id, ObterParametrosRegistro(motorista)));
         }
-        public override void Editar(int id, MotoristaEmpresa motorista, int id_cnh)
+        public override void Editar(int id, MotoristaEmpresa motorista)
         {
-            new ControladorCNH().Editar(id_cnh, motorista.Cnh);
+            new ControladorCNH().Editar(motorista.Cnh.Id, motorista.Cnh);
             motorista.Id = id;
             Db.Update(sqlEditarMotorista, ObterParametrosRegistro(motorista));
         }
@@ -128,7 +128,10 @@ namespace Controladores.PessoaModule
             var id_cnh = Convert.ToInt32(reader["ID_CNH"]);
             var cnh = new ControladorCNH().GetByIdCondutor(id_cnh);
 
-            MotoristaEmpresa dadosVeiculo = new MotoristaEmpresa(nome, telefone, endereco, documento, cnh);
+            var id_empresa = Convert.ToInt32(reader["ID_EMPRESA"]);
+            var empresa = new ControladorClientePJ().GetById(id_empresa);
+
+            MotoristaEmpresa dadosVeiculo = new MotoristaEmpresa(nome, telefone, endereco, documento, cnh, empresa);
             {
                 dadosVeiculo.Id = id;
             };

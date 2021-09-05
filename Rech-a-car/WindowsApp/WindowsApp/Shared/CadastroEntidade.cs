@@ -38,9 +38,9 @@ namespace WindowsApp.Shared
             }
 
             if (this.entidade == null)
-                Controlador.Inserir(entidade, id_chave_estrangeira);
+                Controlador.Inserir(entidade);
             else
-                Controlador.Editar(this.entidade.Id, entidade, id_chave_estrangeira);
+                Controlador.Editar(this.entidade.Id, entidade);
 
             if (mostraSucesso)
                 MessageBox.Show("Realizado com sucesso!!!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);

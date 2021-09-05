@@ -21,11 +21,11 @@ namespace Controladores.Shared
         {
             return Db.Get(sqlSelecionarPorId, ConverterEmEntidade, AdicionarParametro("ID", id));
         }
-        public override void Inserir(T entidade, int id_chave_estrangeira = 0)
+        public override void Inserir(T entidade)
         {
             entidade.Id = Db.Insert(sqlInserir, ObterParametrosRegistro(entidade));
         }
-        public override void Editar(int id, T entidade, int id_chave_estrangeira = 0)
+        public override void Editar(int id, T entidade)
         {
             entidade.Id = id;
             Db.Update(sqlEditar, ObterParametrosRegistro(entidade));

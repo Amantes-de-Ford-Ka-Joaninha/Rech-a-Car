@@ -37,7 +37,7 @@ namespace WindowsApp.ClienteModule
             var telefone = tbTelefone.Text;
             var endereco = tbEndereco.Text;
             var documento = tbCPF.Text;
-            return new MotoristaEmpresa(nome, telefone, endereco, documento, GetCNH());
+            return new MotoristaEmpresa(nome, telefone, endereco, documento, GetCNH(), clientePJ);
         }
         public CNH GetCNH()
         {

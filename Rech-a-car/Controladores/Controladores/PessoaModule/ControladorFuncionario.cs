@@ -89,14 +89,14 @@ namespace Controladores.PessoaModule
         public override string sqlEditar => sqlEditarFuncionario;
         public override string sqlExcluir => sqlExcluirFuncionario;
         public override string sqlExists => sqlExisteFuncionario;
-        public override void Inserir(Funcionario entidade, int id_chave_estrangeira = 0)
+        public override void Inserir(Funcionario entidade)
         {
-            base.Inserir(entidade, id_chave_estrangeira);
+            base.Inserir(entidade);
             ControladorSenha.Inserir(entidade.Id, entidade.Senha);
         }
-        public override void Editar(int id, Funcionario entidade, int id_chave_estrangeira = 0)
+        public override void Editar(int id, Funcionario entidade)
         {
-            base.Editar(id, entidade, id_chave_estrangeira);
+            base.Editar(id, entidade);
             ControladorSenha.Editar(entidade.Id, entidade.Senha);
         }
         public override Funcionario ConverterEmEntidade(IDataReader reader)

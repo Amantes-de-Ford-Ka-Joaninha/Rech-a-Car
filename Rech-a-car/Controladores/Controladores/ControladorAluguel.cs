@@ -80,12 +80,12 @@ namespace Controladores.AluguelModule
         public override string sqlExcluir => sqlExcluirAluguel;
         public override string sqlExists => sqlExisteAluguel;
 
-        public override void Inserir(Aluguel entidade, int id_chave_estrangeira = 0)
+        public override void Inserir(Aluguel entidade)
         {
             base.Inserir(entidade);
             new ControladorServico().AlugarServicos(entidade.Id, entidade.Servicos);
         }
-        public override void Editar(int id,Aluguel entidade, int id_chave_estrangeira = 0)
+        public override void Editar(int id,Aluguel entidade)
         {
             base.Editar(id,entidade);
             var controladorServico = new ControladorServico();
