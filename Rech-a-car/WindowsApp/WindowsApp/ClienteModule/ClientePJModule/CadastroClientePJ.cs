@@ -20,7 +20,7 @@ namespace WindowsApp.ClienteModule
             dgvMotoristas.ConfigurarGrid(ConfigurarColunas());
         }
 
-        protected override IEditavel ConfigurarEditar()
+        protected override IEditavel Editar()
         {
             tbNome.Text = entidade.Nome;
             tbTelefone.Text = entidade.Telefone;

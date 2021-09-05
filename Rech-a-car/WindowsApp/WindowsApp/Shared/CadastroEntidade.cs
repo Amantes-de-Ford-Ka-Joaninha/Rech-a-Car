@@ -14,11 +14,11 @@ namespace WindowsApp.Shared
         public IEditavel ConfigurarEditar(T entidade)
         {
             this.entidade = entidade;
-            return ConfigurarEditar();
+            return Editar();
         }
 
-        protected abstract IEditavel ConfigurarEditar();
-        protected bool Salva(int id_chave_estrangeira = 0, bool mostraSucesso = true)
+        protected abstract IEditavel Editar();
+        protected bool Salva(bool mostraSucesso = true)
         {
             var validacaoCampos = ValidacaoCampos();
 
@@ -40,11 +40,19 @@ namespace WindowsApp.Shared
             if (this.entidade == null)
                 Controlador.Inserir(entidade);
             else
+            {
+                AdicionarDependencias(entidade);
                 Controlador.Editar(this.entidade.Id, entidade);
+            }
 
             if (mostraSucesso)
                 MessageBox.Show("Realizado com sucesso!!!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             return true;
+        }
+
+        protected virtual void AdicionarDependencias(T entidade)
+        {
+            return;
         }
 
         protected virtual string ValidacaoCampos() { return string.Empty; }

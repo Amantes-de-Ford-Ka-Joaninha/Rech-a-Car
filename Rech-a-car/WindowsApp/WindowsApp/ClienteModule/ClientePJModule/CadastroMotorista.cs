@@ -21,7 +21,7 @@ namespace WindowsApp.ClienteModule
             this.clientePJ = clientePJ;
         }
 
-        protected override IEditavel ConfigurarEditar()
+        protected override IEditavel Editar()
         {
             tbNome.Text = entidade.Nome;
             tbTelefone.Text = entidade.Telefone;
@@ -48,8 +48,7 @@ namespace WindowsApp.ClienteModule
         }
         private void btAdicionarMotorista_Click(object sender, EventArgs e)
         {
-            var chave_estrangeira = entidade is null ? clientePJ.Id : entidade.Cnh.Id;
-            if (Salva(chave_estrangeira))
+            if (Salva())
                 TelaPrincipal.Instancia.FormAtivo = (Form)new CadastroClientePJ().ConfigurarEditar(new ControladorClientePJ().GetById(clientePJ.Id));
         }
     }

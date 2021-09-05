@@ -19,7 +19,7 @@ namespace WindowsApp.FuncionarioModule
             bt_foto.Image = new Bitmap(Resources.user);
             cb_cargo.SelectedIndex = 1;
         }
-        protected override IEditavel ConfigurarEditar()
+        protected override IEditavel Editar()
         {
             tbNome.Text = entidade.Nome;
             tbTelefone.Text = entidade.Telefone;

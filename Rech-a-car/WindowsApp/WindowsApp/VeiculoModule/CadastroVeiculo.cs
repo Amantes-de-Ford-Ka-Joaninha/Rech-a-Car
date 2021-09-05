@@ -26,7 +26,7 @@ namespace WindowsApp.VeiculoModule
             bt_foto.Image = new Bitmap(Resources.inserir_icone_de_imagem);
         }
 
-        protected override IEditavel ConfigurarEditar()
+        protected override IEditavel Editar()
         {
             tb_modelo.Text = entidade.Modelo;
             tb_marca.Text = entidade.Marca;

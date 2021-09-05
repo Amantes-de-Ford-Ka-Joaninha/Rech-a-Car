@@ -65,7 +65,7 @@ namespace WindowsApp.AluguelModule
 
             return Aluguel;
         }
-        protected override IEditavel ConfigurarEditar()
+        protected override IEditavel Editar()
         {
             tbCliente.Text = entidade.Cliente.Nome;
             tbDocumento.Text = entidade.Cliente.Documento;

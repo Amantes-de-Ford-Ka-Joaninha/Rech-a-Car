@@ -12,7 +12,6 @@ namespace WindowsApp.AluguelModule
 {
     public partial class FechamentoAluguel : Form, IVisualizavel
     {
-        private bool estadoBotoes = true;
         Aluguel aluguel;
         List<Servico> despesas = new List<Servico>();
         ControladorAluguel controladorAluguel = new ControladorAluguel();
@@ -87,6 +86,5 @@ namespace WindowsApp.AluguelModule
         {
             aluguel.Veiculo.Quilometragem += CalcularKmRodado();
         }
-
     }
 }
