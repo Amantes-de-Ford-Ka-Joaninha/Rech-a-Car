@@ -26,7 +26,7 @@ namespace Dominio.PessoaModule
 
             if (NomeUsuario.Length < 5)
                 validacao += "Nome de usuário inválido\n";
-            if (Senha.Length < 8)
+            if (Senha?.Length < 8)
                 validacao += "Senha precisa ter no mínimo 8 caracteres";
 
             return validacao;

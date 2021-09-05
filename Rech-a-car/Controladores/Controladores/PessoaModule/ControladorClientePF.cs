@@ -77,7 +77,7 @@ namespace Controladores.PessoaModule
         }
         public override void Editar(int id, ClientePF cliente, int id_chave_estrangeira = 0)
         {
-            new ControladorCNH().Editar(id_chave_estrangeira, cliente.Cnh);
+            new ControladorCNH().Editar(cliente.Cnh.Id, cliente.Cnh);
             base.Editar(id, cliente);
         }
         public override ClientePF ConverterEmEntidade(IDataReader reader)

@@ -57,8 +57,18 @@ namespace Dominio.AluguelModule
         public override string Validar()
         {
             string validacao = String.Empty;
+
+            if (Veiculo == null)
+                validacao += "O aluguel necessita de um veículo\n";
+            if (Condutor == null)
+                validacao += "O aluguel necessita de um condutor\n";
+
+            if (validacao != string.Empty)
+                return validacao;
+
+
             if (Condutor.Cnh.TipoCnh < Veiculo.Categoria.TipoDeCnh)
-                validacao += "Condutor não tem a carteira necessária para dirigir o veículo selecionado";
+                validacao += "Condutor não tem a carteira necessária para dirigir o veículo selecionado\n";
 
             if (DataAluguel < DateTime.Today)
                 validacao += "Data de aluguel não pode ser no passado\n";

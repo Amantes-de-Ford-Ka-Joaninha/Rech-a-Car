@@ -77,11 +77,11 @@ namespace Tests.Tests.ClientePF_Module
         {
             CNH cnhAnterior = cliente.Cnh;
 
-            cliente.Cnh = new CNH("36510896881", TipoCNH.C);
+            cliente.Cnh = new CNH("36510896881", TipoCNH.C) { Id= cnhAnterior.Id};
 
             controladorClientePF.Editar(cliente.Id, cliente);
 
-            controladorClientePF.GetById(cliente.Id).Cnh.Should().NotBe(cnhAnterior);
+            controladorClientePF.GetById(cliente.Id).Cnh.TipoCnh.Should().NotBe(cnhAnterior.TipoCnh);
         }
 
         [TestMethod]

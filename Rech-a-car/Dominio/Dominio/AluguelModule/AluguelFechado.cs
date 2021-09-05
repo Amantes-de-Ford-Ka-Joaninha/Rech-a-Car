@@ -17,7 +17,7 @@ namespace Dominio.AluguelModule
             KmRodados = kmRodados;
             TanqueUtilizado = tanqueUtilizado;
             ServicosNecessarios = servicosNecessarios;
-            DataDevolvida = DateTime.Now;
+            DataDevolvida = DateTime.Today;
             DataDevolucao = aluguel.DataDevolucao;
         }
         public int KmRodados { get; set; }
@@ -31,19 +31,14 @@ namespace Dominio.AluguelModule
 
             var Categoria = Veiculo.Categoria;
 
-            switch (TipoPlano.ToString())
+            switch (TipoPlano)
             {
-                case "diario":
-                    CalculaPlanoDiario();
-                    break;
-                case "controlado":
-                    CalculaPlanoControlado();
-                    break;
-                case "livre":
-                    CalculaPlanoLivre();
-                    break;
-                default:
-                    break;
+                case Plano.diario:
+                    CalculaPlanoDiario(); break;
+                case Plano.controlado:
+                    CalculaPlanoControlado(); break;
+                case Plano.livre:
+                    CalculaPlanoLivre(); break;
             }
 
             void CalculaPlanoControlado()
@@ -74,6 +69,18 @@ namespace Dominio.AluguelModule
 
             return PrecoFinal;
 
+        }
+        public override string Validar()
+        {
+            string validacao = base.Validar();
+
+            if (KmRodados < 0)
+                validacao += "Quilometros rodados necessita ser pelo menos 0\n";
+
+            if (TanqueUtilizado < 0)
+                validacao += "Tanque utilizado tem que ser pelo menos 0\n";
+
+            return validacao;
         }
     }
 }
