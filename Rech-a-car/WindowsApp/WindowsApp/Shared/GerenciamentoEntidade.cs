@@ -145,14 +145,18 @@ namespace WindowsApp.Shared
         }
         private void dgvEntidade_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            AlternarBotoes(true);
         }
         private void dgvEntidade_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             TelaPrincipal.Instancia.FormAtivo = Visualizar.Visualizar(GetEntidadeSelecionado());
         }
-
+        private void dgvEntidade_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvEntidade.SelectedRows.Count > 0)
+                AlternarBotoes(true);
+        }
         #endregion
+
     }
     public enum TipoTela
     {
