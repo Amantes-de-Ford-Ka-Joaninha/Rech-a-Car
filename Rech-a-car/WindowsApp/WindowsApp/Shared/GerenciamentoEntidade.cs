@@ -15,8 +15,8 @@ namespace WindowsApp.Shared
             InitializeComponent();
             AtualizarRegistros(Cadastro.Controlador.Registros);
             lbTitulo.Text = titulo;
-
             AtualizarBotoes(tipo);
+            AlternarBotoes(false);
         }
 
         public abstract object[] ObterCamposLinha(T item);
@@ -40,6 +40,7 @@ namespace WindowsApp.Shared
         {
             bt_editar.Enabled = estado;
             bt_remover.Enabled = estado;
+            bt_check.Enabled = estado;
         }
         private void AtualizarBotoes(TipoTela tipo)
         {

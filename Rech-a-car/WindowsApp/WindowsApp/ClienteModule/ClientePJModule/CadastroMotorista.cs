@@ -31,6 +31,10 @@ namespace WindowsApp.ClienteModule
             cbTipoCNH.SelectedIndex = (int)entidade.Cnh.TipoCnh;
             return this;
         }
+        protected override void AdicionarDependencias(MotoristaEmpresa motorista)
+        {
+            motorista.Cnh.Id = entidade.Cnh.Id;
+        }
         public override MotoristaEmpresa GetNovaEntidade()
         {
             var nome = tbNome.Text;

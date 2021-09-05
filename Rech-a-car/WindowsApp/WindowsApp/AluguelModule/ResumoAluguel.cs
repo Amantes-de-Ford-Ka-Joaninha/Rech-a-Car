@@ -245,14 +245,26 @@ namespace WindowsApp.AluguelModule
         {
             var selecionado = listServicos.SelectedIndex;
             AdicionarServico();
-            listServicos.SelectedIndex = listServicos.Items.Count > 0 ? selecionado - 1 : -1;
+            GetNovaSelecao(selecionado);
         }
         private void bt_RemoveServico_Click(object sender, EventArgs e)
         {
             var selecionado = listServicos.SelectedIndex;
             RemoverServico();
-            listServicos.SelectedIndex = listServicos.Items.Count != 0 ? selecionado : -1;
+            GetNovaSelecao(selecionado);
         }
+
+        private void GetNovaSelecao(int selecionado)
+        {
+            int quantidade = listServicos.Items.Count;
+            if (quantidade == 0)
+                listServicos.SelectedIndex = - 1;
+            else if(quantidade == selecionado)
+                listServicos.SelectedIndex = selecionado-1;
+            else
+                listServicos.SelectedIndex = selecionado;
+        }
+
         private void pictureBox1_MouseHover(object sender, EventArgs e)
         {
             tipAluguel.SetToolTip(pictureBox1, "Clique duas vezes nos painéis para adicionar as informações necessárias.");
@@ -275,10 +287,12 @@ namespace WindowsApp.AluguelModule
         }
         private void listServicos_SelectedValueChanged(object sender, EventArgs e)
         {
+            var NaotemZero = listServicos.Items.Count != 0;
+
             if (lb_lista_opcionais.Text == "Opcionais")
-                bt_AddServico.Enabled = listServicos.Items.Count != 0 ? true : false;
+                bt_AddServico.Enabled = NaotemZero ? true : false;
             else
-                bt_RemoveServico.Enabled = listServicos.Items.Count != 0 ? true : false;
+                bt_RemoveServico.Enabled = NaotemZero ? true : false;
         }
         #endregion
     }

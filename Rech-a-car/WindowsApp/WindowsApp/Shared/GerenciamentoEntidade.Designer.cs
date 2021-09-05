@@ -153,6 +153,7 @@ namespace WindowsApp.Shared
             // bt_check
             // 
             this.bt_check.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.bt_check.Enabled = false;
             this.bt_check.FlatAppearance.BorderSize = 0;
             this.bt_check.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_check.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(33)))), ((int)(((byte)(34)))));

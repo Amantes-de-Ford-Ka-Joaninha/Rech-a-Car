@@ -107,24 +107,18 @@ namespace Controladores.AluguelModule
             var funcionario = new ControladorFuncionario().GetById(id_funcionario);
             var veiculo = new ControladorVeiculo().GetById(id_veiculo);
 
-            var condutor = GetCondutor(id_condutor, id_cliente);
+            var ehClientePF = id_condutor == id_cliente;
 
-            var cliente = new ControladorCliente().GetById(id_cliente, GetTipoCliente(condutor));
+            var cliente = new ControladorCliente().GetById(id_cliente, ehClientePF ? typeof(ClientePF) : typeof(ClientePJ));
+
+            var condutor = ehClientePF ? null : ((ClientePJ)cliente).Motoristas.Find(x => x.Id == id_condutor);
+
             var servicos = new ControladorServico().GetServicosAlugados(id);
 
             return new Aluguel(veiculo, servicos, (Plano)tipoPlano, dataAluguel, cliente, funcionario, dataDevolucao, condutor)
             {
                 Id = id
             };
-        }
-
-        private Type GetTipoCliente(Condutor condutor)
-        {
-            return condutor == null ? typeof(ClientePF) : typeof(ClientePJ);
-        }
-        private Condutor GetCondutor(int id_condutor, int id_cliente)
-        {
-            return id_condutor == id_cliente ? null : new ControladorMotorista().GetMotoristaEmpresa(id_cliente, id_condutor);
         }
         protected override Dictionary<string, object> ObterParametrosRegistro(Aluguel aluguel)
         {
