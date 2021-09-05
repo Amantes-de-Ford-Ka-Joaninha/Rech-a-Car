@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Aspose.Pdf.Text;
 using Dominio.AluguelModule;
+using System.IO;
+using System.Drawing.Imaging;
 
 namespace EmailAluguelPDF
 {
@@ -17,13 +19,22 @@ namespace EmailAluguelPDF
             Page page = document.Pages.Add();
 
             page.Paragraphs.Add(new TextFragment($"Olá {aluguel.Cliente} aqui está o resumo do seu mais novo aluguel na Rech-a-car"));
+
             page.Paragraphs.Add(new TextFragment($"Veículo: {aluguel.Veiculo}"));
+
             page.Paragraphs.Add(new TextFragment($"Data de Aluguel: {aluguel.DataAluguel}"));
             page.Paragraphs.Add(new TextFragment($"Data de Devolução: {aluguel.DataDevolucao}"));
             page.Paragraphs.Add(new TextFragment($"Total Parcial: {aluguel.CalcularTotal()}"));
 
+            document.Save($@"..\..\..\PDFs\Aluguel-{aluguel.Cliente}-{aluguel.Id}.pdf");
+            //page.Resources.Images.Add(ImagemParaStream(aluguel.Veiculo.Foto));
+        }
 
-            document.Save($@"..\..\PDFs\Aluguel-{aluguel.Cliente}-{aluguel.Id}.pdf");
+        private static MemoryStream ImagemParaStream(System.Drawing.Image imagem)
+        {
+            var stream = new MemoryStream();
+            imagem.Save(stream, ImageFormat.Bmp);
+            return stream;
         }
     }
 }

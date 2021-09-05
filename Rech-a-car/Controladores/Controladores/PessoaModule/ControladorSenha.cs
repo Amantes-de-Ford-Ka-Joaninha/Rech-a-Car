@@ -28,7 +28,7 @@ namespace Controladores.PessoaModule
             @" UPDATE [TBSENHA]
                 SET 
                     [HASH_SENHA] = @HASH_SENHA,       
-                    [SALT] = @SALT,             
+                    [SALT] = @SALT          
                 WHERE [ID_FUNCIONARIO] = @ID_FUNCIONARIO";
 
         private const string sqlRecuperarSenha =

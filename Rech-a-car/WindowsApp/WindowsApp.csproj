@@ -306,6 +306,10 @@
       <Project>{10FEC66B-3C48-4866-9E4B-612FDA372701}</Project>
       <Name>Dominio</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EmailAluguelPDF\EmailAluguelPDF.csproj">
+      <Project>{32C90429-D587-40DC-8AE8-AD24FF3CE140}</Project>
+      <Name>EmailAluguelPDF</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\motora.png" />

@@ -9,7 +9,7 @@ using WindowsApp.Shared;
 
 namespace WindowsApp.VeiculoModule
 {
-    public partial class CadastroVeiculo : CadastroEntidade<Veiculo>
+    public partial class CadastroVeiculo : CadastroEntidade<Veiculo>//Form//
     {
         public override Controlador<Veiculo> Controlador { get => new ControladorVeiculo(); }
         private Bitmap imagem;
@@ -82,8 +82,8 @@ namespace WindowsApp.VeiculoModule
                 {
                     var imagemSelecionada = ofdImagem.FileName;
                     imagem = new Bitmap(imagemSelecionada);
+                    AtualizarIcone(imagem);
                 }
-                AtualizarIcone(imagem);
             }
             catch (ArgumentException)
             {

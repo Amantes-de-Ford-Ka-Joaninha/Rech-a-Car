@@ -14,10 +14,11 @@ using System.Linq;
 using System.Collections.Generic;
 using Dominio.VeiculoModule;
 using System.Globalization;
+using EmailAluguelPDF;
 
 namespace WindowsApp.AluguelModule
 {
-    public partial class ResumoAluguel : CadastroEntidade<Aluguel>//Form//
+    public partial class ResumoAluguel : CadastroEntidade<Aluguel>//Form //
     {
         private double PrecoParcial { set { lbValor.Text = value.ToString(); } get { return Convert.ToDouble(lbValor.Text); } }
         private Aluguel Aluguel;
@@ -228,6 +229,7 @@ namespace WindowsApp.AluguelModule
             if (!Salva())
                 return;
 
+            new CriaPDFAluguel(Aluguel);
             TelaPrincipal.Instancia.FormAtivo = new GerenciamentoAluguel();
         }
         private void panelEsconderCliente_DoubleClick(object sender, EventArgs e)
@@ -273,7 +275,7 @@ namespace WindowsApp.AluguelModule
         }
         private void listServicos_SelectedValueChanged(object sender, EventArgs e)
         {
-            if(lb_lista_opcionais.Text == "Opcionais")
+            if (lb_lista_opcionais.Text == "Opcionais")
                 bt_AddServico.Enabled = listServicos.Items.Count != 0 ? true : false;
             else
                 bt_RemoveServico.Enabled = listServicos.Items.Count != 0 ? true : false;

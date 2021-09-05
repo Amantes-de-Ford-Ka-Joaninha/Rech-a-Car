@@ -105,12 +105,12 @@ namespace Controladores.PessoaModule
             var nome = Convert.ToString(reader["NOME"]);
             var telefone = Convert.ToString(reader["TELEFONE"]);
             var documento = Convert.ToString(reader["DOCUMENTO"]);
-            var cargo = Convert.ToString(reader["CARGO"]);
+            var cargo = Convert.ToInt32(reader["CARGO"]);
             var endereco = Convert.ToString(reader["ENDERECO"]);
             var user = Convert.ToString(reader["USER"]);
             var foto = RecuperarImagem((byte[])reader["FOTO"]);
 
-            return new Funcionario(nome, telefone, endereco, documento, cargo, foto, user)
+            return new Funcionario(nome, telefone, endereco, documento, (Cargo)cargo, foto, user)
             {
                 Id = id
             };
