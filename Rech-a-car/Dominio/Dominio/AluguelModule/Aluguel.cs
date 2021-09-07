@@ -120,6 +120,11 @@ namespace Dominio.AluguelModule
         {
             return DataAluguel < DataDevolucao;
         }
+
+        public override string ToString()
+        {
+            return $"{Veiculo} {Funcionario} {Cliente} {Condutor} {TipoPlano}";
+        }
     }
     public enum Plano
     {

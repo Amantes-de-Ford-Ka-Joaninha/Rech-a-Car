@@ -88,7 +88,7 @@ namespace Dominio.VeiculoModule
         }
         public override string ToString()
         {
-            return $"{Marca} {Modelo} {Ano}";
+            return $"{Marca} {Modelo} {Ano} {Categoria}";
         }
     }
     public enum TipoCombustivel { Alcool, Diesel, Etanol, Flex, Gasolina }
