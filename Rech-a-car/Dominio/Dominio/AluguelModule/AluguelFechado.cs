@@ -26,40 +26,9 @@ namespace Dominio.AluguelModule
         public DateTime DataDevolvida { get; set; }
         public override double CalcularTotal()
         {
-            double PrecoFinal = 0;
-            Servicos.ForEach(x => PrecoFinal += x.Taxa);
-
-            var Categoria = Veiculo.Categoria;
-
-            switch (TipoPlano)
-            {
-                case Plano.diario:
-                    CalculaPlanoDiario(); break;
-                case Plano.controlado:
-                    CalculaPlanoControlado(); break;
-                case Plano.livre:
-                    CalculaPlanoLivre(); break;
-            }
-
-            void CalculaPlanoControlado()
-            {
-                PrecoFinal += (Categoria.PrecoDiaria * GetQtdDiasAluguel()) +
-                    Categoria.QuilometragemFranquia * Categoria.PrecoKm;
-            }
-            void CalculaPlanoDiario()
-            {
-                PrecoFinal += Categoria.PrecoDiaria * GetQtdDiasAluguel();
-            }
-            void CalculaPlanoLivre()
-            {
-                PrecoFinal += Categoria.PrecoDiaria * GetQtdDiasAluguel() * 1.3;
-            }
-            int GetQtdDiasAluguel()
-            {
-                return (DataDevolucao - DataAluguel).Days;
-            }
-
-            int diasAtraso = (DataDevolucao - DateTime.Now).Days;
+            double PrecoFinal = base.CalcularTotal();
+          
+            int diasAtraso = (DataDevolucao - DateTime.Today).Days;
 
             PrecoFinal += diasAtraso * 50;
 

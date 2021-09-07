@@ -1,4 +1,5 @@
-﻿using Controladores.Shared;
+﻿using Controladores.ServicoModule;
+using Controladores.Shared;
 using Dominio.AluguelModule;
 using Dominio.ServicoModule;
 using System;
@@ -20,14 +21,25 @@ namespace Controladores.AluguelModule
             AND
                 [ID] = @ID";
 
+        private const string sqlFecharAluguel =
+            @" UPDATE [TBALUGUEL]
+                SET 
+                    [DATA_DEVOLVIDA] = @DATA_DEVOLVIDA,       
+                    [TANQUE_UTILIZADO] = @TANQUE_UTILIZADO,             
+                    [KM_RODADOS] = @KM_RODADOS,
+                    [TOTAL] = @TOTAL      
+                WHERE [ID] = @ID";
+
         public override void Editar(int id, AluguelFechado entidade)
         {
-            Controlador.Editar(id, entidade);
+            entidade.Id = id;
+            Db.Update(sqlFecharAluguel, AdicionarParametro("ID", id, ObterParametrosRegistro(entidade)));
+            new ControladorServico().DesalugarServicosAlugados(id);
         }
 
         public override void Excluir(int id, Type tipo = null)
         {
-            Controlador.Excluir(id);
+            throw new NotSupportedException();
         }
 
         public override AluguelFechado GetById(int id, Type tipo = null)
@@ -60,13 +72,13 @@ namespace Controladores.AluguelModule
 
         private Dictionary<string, object> ObterParametrosRegistro(AluguelFechado aluguel)
         {
-            var paramsAluguel = Controlador.ObterParametrosRegistro(aluguel);
-            paramsAluguel.Add("DATA_DEVOLVIDO", aluguel.DataDevolvida);
-            paramsAluguel.Add("TANQUE_UTILIZADO", aluguel.TanqueUtilizado);
-            paramsAluguel.Add("KM_RODADOS", aluguel.KmRodados);
-            paramsAluguel.Add("TOTAL", aluguel.CalcularTotal());
-
-            return paramsAluguel;
+            return new Dictionary<string, object>
+            {
+                { "DATA_DEVOLVIDA", aluguel.DataDevolvida },
+                { "TANQUE_UTILIZADO", aluguel.TanqueUtilizado },
+                { "KM_RODADOS", aluguel.KmRodados },
+                { "TOTAL", aluguel.CalcularTotal() },
+            };
         }
     }
 }

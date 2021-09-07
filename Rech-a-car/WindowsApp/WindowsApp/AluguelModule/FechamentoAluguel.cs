@@ -8,13 +8,13 @@ using Dominio.ServicoModule;
 using Controladores.AluguelModule;
 using Controladores.VeiculoModule;
 using Controladores.Shared;
+using System.Linq;
 
 namespace WindowsApp.AluguelModule
 {
-    public partial class FechamentoAluguel : CadastroEntidade<AluguelFechado>, IVisualizavel
+    public partial class FechamentoAluguel : CadastroEntidade<AluguelFechado>, IVisualizavel //Form//
     {
         Aluguel aluguel;
-        List<Servico> despesas = new List<Servico>();
 
         public override Controlador<AluguelFechado> Controlador => new ControladorAluguelFechado();
 
@@ -31,42 +31,58 @@ namespace WindowsApp.AluguelModule
 
         private void CalcularPrecoTotal()
         {
-            lbValor.Text = entidade.CalcularTotal().ToString();
+            lbValor.Text = GetNovaEntidade().CalcularTotal().ToString();
         }
+        private int KmRodados()
+        {
+            if (int.TryParse(tb_KmFinal.Text, out int odometroFinal) && odometroFinal >= aluguel.Veiculo.Quilometragem)
+                return odometroFinal - aluguel.Veiculo.Quilometragem;
+
+            return -1;
+        }
+        private double TanqueUtilizado()
+        {
+            return 0.5;
+        }
+
+        public override AluguelFechado GetNovaEntidade()
+        {
+            var servicos = new List<Servico>();
+
+            foreach (var item in listDespesas.Items)
+                servicos.Add((Servico)item);
+
+            return aluguel.Fechar(KmRodados(), TanqueUtilizado(), servicos);
+        }
+
+        protected override IEditavel Editar()
+        {
+            throw new NotImplementedException();
+        }
+
         #region eventos
 
         private void bt_AddDespesa_Click(object sender, EventArgs e)
         {
             if (tb_NomeDespesa.Text != "" && mtb_PrecoDespesa.Text != "" && double.TryParse(mtb_PrecoDespesa.Text, out double precoDespesa))
-                despesas.Add(new Servico(tb_NomeDespesa.Text, precoDespesa));
+                listDespesas.Items.Add(new Servico(tb_NomeDespesa.Text, precoDespesa));
 
-            PopulaListDespesas();
             CalcularPrecoTotal();
         }
         private void bt_RemoveDespesa_Click(object sender, EventArgs e)
         {
-            despesas.Remove((Servico)listDespesas.SelectedItem);
-            PopulaListDespesas();
-            lbValor.Text = entidade.CalcularTotal().ToString();
-        }
-        private void tb_Atraso_Leave(object sender, EventArgs e)
-        {
-            PopulaListDespesas();
+            listDespesas.Items.Remove(listDespesas.SelectedItem);
             lbValor.Text = entidade.CalcularTotal().ToString();
         }
         private void tb_KmFinal_TextChanged(object sender, EventArgs e)
         {
-            entidade = aluguel.Fechar(KmRodados(), 0, despesas);
-            CalcularPrecoTotal();
-        }
-        private void tb_KmFinal_Leave(object sender, EventArgs e)
-        {
-            entidade = aluguel.Fechar(KmRodados(), 0, despesas);
+            entidade = GetNovaEntidade();
             CalcularPrecoTotal();
         }
         private void btFecharAluguel_Click(object sender, EventArgs e)
         {
-            entidade = aluguel.Fechar(KmRodados(), 0, despesas);
+            entidade = GetNovaEntidade();
+            entidade.Id = aluguel.Id;
 
             if (!Salva())
                 return;
@@ -74,27 +90,5 @@ namespace WindowsApp.AluguelModule
             new ControladorVeiculo().AdicionarQuilometragem(aluguel.Veiculo, KmRodados());
         }
         #endregion
-        private void PopulaListDespesas()
-        {
-            listDespesas.Items.Clear();
-            listDespesas.Items.AddRange(despesas.ToArray());
-        }
-        private int KmRodados()
-        {
-            if (int.TryParse(tb_KmFinal.Text, out int odometroFinal) && odometroFinal > aluguel.Veiculo.Quilometragem)
-                return odometroFinal - aluguel.Veiculo.Quilometragem;
-
-            return 0;
-        }
-
-        public override AluguelFechado GetNovaEntidade()
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override IEditavel Editar()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
