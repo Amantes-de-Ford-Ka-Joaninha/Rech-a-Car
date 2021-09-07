@@ -22,11 +22,11 @@ namespace EmailAluguelPDF
 
             page.Paragraphs.Add(new TextFragment($"Veículo: {aluguel.Veiculo}"));
 
-            page.Paragraphs.Add(new TextFragment($"Data de Aluguel: {aluguel.DataAluguel}"));
-            page.Paragraphs.Add(new TextFragment($"Data de Devolução: {aluguel.DataDevolucao}"));
-            page.Paragraphs.Add(new TextFragment($"Total Parcial: {aluguel.CalcularTotal()}"));
+            page.Paragraphs.Add(new TextFragment($"Data de Aluguel: {aluguel.DataAluguel:d}"));
+            page.Paragraphs.Add(new TextFragment($"Data de Devolução: {aluguel.DataDevolucao:d}"));
+            page.Paragraphs.Add(new TextFragment($"Total Parcial R$: {aluguel.CalcularTotal()}"));
 
-            document.Save($@"..\..\..\PDFs\Aluguel-{aluguel.Cliente}-{aluguel.Id}.pdf");
+            document.Save($@"..\..\..\PDFs\{aluguel.Cliente}-Aluguel-{aluguel.Id}.pdf");
             //page.Resources.Images.Add(ImagemParaStream(aluguel.Veiculo.Foto));
         }
 

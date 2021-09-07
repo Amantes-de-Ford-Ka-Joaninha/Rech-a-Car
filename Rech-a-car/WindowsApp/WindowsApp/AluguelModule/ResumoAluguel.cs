@@ -25,6 +25,15 @@ namespace WindowsApp.AluguelModule
             Aluguel = aluguel ?? new Aluguel();
 
             InitializeComponent();
+            PopulaCBTiposCarteira();
+
+
+            PopulaServicos(GetServicosDiponiveis());
+            PopulaDatas();
+
+            cbPlano.SelectedIndex = 0;
+            bt_RemoveServico.Enabled = false;
+            bt_AddServico.Enabled = false;
 
             if (Aluguel?.Veiculo != null)
             {
@@ -35,13 +44,6 @@ namespace WindowsApp.AluguelModule
             {
                 PopulaCliente(aluguel.Cliente);
             }
-
-            PopulaServicos(GetServicosDiponiveis());
-            PopulaDatas();
-            PopulaCBTiposCarteira();
-            cbPlano.SelectedIndex = 0;
-            bt_RemoveServico.Enabled = false;
-            bt_AddServico.Enabled = false;
         }
 
         public override Controlador<Aluguel> Controlador => new ControladorAluguel();
@@ -124,7 +126,7 @@ namespace WindowsApp.AluguelModule
             tbMarca.Text = Aluguel.Veiculo.Marca;
             tbModelo.Text = Aluguel.Veiculo.Modelo;
             tbPlaca.Text = Aluguel.Veiculo.Placa;
-            cbTipoCnh.SelectedItem = Aluguel.Veiculo.Categoria.TipoDeCnh.ToString();
+            cbTipoCnh.SelectedItem = Aluguel.Veiculo.Categoria.TipoDeCnh;
         }
         private void PopulaCliente(ICliente cliente)
         {

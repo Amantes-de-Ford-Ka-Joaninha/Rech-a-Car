@@ -23,6 +23,7 @@ namespace WindowsApp.AluguelModule
             new DataGridViewTextBoxColumn { DataPropertyName = "Condutor", HeaderText = "Condutor"},
             new DataGridViewTextBoxColumn { DataPropertyName = "Plano", HeaderText = "Plano"},
             new DataGridViewTextBoxColumn { DataPropertyName = "DataDevolucao", HeaderText = "Devolução"},
+            new DataGridViewTextBoxColumn { DataPropertyName = "Funcionario", HeaderText = "Funcionário"},
             };
         }
         public override object[] ObterCamposLinha(Aluguel aluguel)
@@ -33,7 +34,8 @@ namespace WindowsApp.AluguelModule
                 aluguel.Cliente,
                 aluguel.Condutor is ClientePF ? "-----" : aluguel.Condutor.Nome,
                 aluguel.TipoPlano,
-                aluguel.DataDevolucao.ToString("d")
+                aluguel.DataDevolucao.ToString("d"),
+                aluguel.Funcionario
             };
         }
         protected override IVisualizavel Visualizar(Aluguel entidade)
