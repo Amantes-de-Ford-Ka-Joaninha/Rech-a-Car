@@ -52,8 +52,6 @@ namespace WindowsApp.AluguelModule
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new WindowsApp.Shared.PanelColorido();
             this.label13 = new System.Windows.Forms.Label();
-            this.panelEsconderVeiculo = new System.Windows.Forms.Panel();
-            this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.tbPlaca = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -62,6 +60,8 @@ namespace WindowsApp.AluguelModule
             this.tbMarca = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.cbTipoCnh = new System.Windows.Forms.ComboBox();
+            this.panelEsconderVeiculo = new System.Windows.Forms.Panel();
+            this.label19 = new System.Windows.Forms.Label();
             this.panel3 = new WindowsApp.Shared.PanelColorido();
             this.cbPlano = new System.Windows.Forms.ComboBox();
             this.tbDt_Devolucao = new System.Windows.Forms.MaskedTextBox();
@@ -312,28 +312,6 @@ namespace WindowsApp.AluguelModule
             this.label13.TabIndex = 8;
             this.label13.Text = "Informações do Veículo";
             // 
-            // panelEsconderVeiculo
-            // 
-            this.panelEsconderVeiculo.Controls.Add(this.label19);
-            this.panelEsconderVeiculo.Location = new System.Drawing.Point(12, 10);
-            this.panelEsconderVeiculo.Margin = new System.Windows.Forms.Padding(4);
-            this.panelEsconderVeiculo.Name = "panelEsconderVeiculo";
-            this.panelEsconderVeiculo.Size = new System.Drawing.Size(791, 108);
-            this.panelEsconderVeiculo.TabIndex = 16;
-            this.panelEsconderVeiculo.DoubleClick += new System.EventHandler(this.panelEsconderVeiculo_DoubleClick);
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.White;
-            this.label19.Location = new System.Drawing.Point(148, 43);
-            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(486, 32);
-            this.label19.TabIndex = 15;
-            this.label19.Text = "Clique duas vezes para selecionar um veículo.";
-            // 
             // label20
             // 
             this.label20.AutoSize = true;
@@ -417,18 +395,33 @@ namespace WindowsApp.AluguelModule
             this.cbTipoCnh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTipoCnh.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbTipoCnh.FormattingEnabled = true;
-            this.cbTipoCnh.Items.AddRange(new object[] {
-            "A",
-            "B",
-            "AB",
-            "C",
-            "D",
-            "E"});
             this.cbTipoCnh.Location = new System.Drawing.Point(640, 70);
             this.cbTipoCnh.Margin = new System.Windows.Forms.Padding(4);
             this.cbTipoCnh.Name = "cbTipoCnh";
             this.cbTipoCnh.Size = new System.Drawing.Size(141, 36);
             this.cbTipoCnh.TabIndex = 11;
+            // 
+            // panelEsconderVeiculo
+            // 
+            this.panelEsconderVeiculo.Controls.Add(this.label19);
+            this.panelEsconderVeiculo.Location = new System.Drawing.Point(13, 14);
+            this.panelEsconderVeiculo.Margin = new System.Windows.Forms.Padding(4);
+            this.panelEsconderVeiculo.Name = "panelEsconderVeiculo";
+            this.panelEsconderVeiculo.Size = new System.Drawing.Size(791, 108);
+            this.panelEsconderVeiculo.TabIndex = 16;
+            this.panelEsconderVeiculo.DoubleClick += new System.EventHandler(this.panelEsconderVeiculo_DoubleClick);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.White;
+            this.label19.Location = new System.Drawing.Point(148, 43);
+            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(486, 32);
+            this.label19.TabIndex = 15;
+            this.label19.Text = "Clique duas vezes para selecionar um veículo.";
             // 
             // panel3
             // 
@@ -651,7 +644,7 @@ namespace WindowsApp.AluguelModule
             // pictureBox1
             // 
             this.pictureBox1.Image = global::WindowsApp.Properties.Resources.help;
-            this.pictureBox1.Location = new System.Drawing.Point(831, 15);
+            this.pictureBox1.Location = new System.Drawing.Point(831, 11);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(44, 43);

@@ -95,8 +95,12 @@ namespace Controladores.VeiculoModule
         private const string sqlSelecionarVeiculoDisponivel =
             @"SELECT * 
             FROM TBVeiculo 
-            LEFT JOIN TBAluguel ON TBAluguel.ID_VEICULO = TBVeiculo.ID
-            WHERE TBAluguel.ID_VEICULO IS NULL";
+            LEFT JOIN 
+                TBAluguel ON TBAluguel.ID_VEICULO = TBVeiculo.ID
+            WHERE 
+                TBAluguel.ID_VEICULO IS NULL
+            OR
+                TBAluguel.DATA_DEVOLVIDA IS NOT NULL";
 
         #endregion
 

@@ -94,7 +94,7 @@ namespace Dominio.AluguelModule
         }
         public override string Validar()
         {
-            string validacao = String.Empty;
+            string validacao = string.Empty;
 
             if (Veiculo == null)
                 validacao += "O aluguel necessita de um veículo\n";

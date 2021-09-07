@@ -27,17 +27,15 @@ namespace WindowsApp.AluguelModule
         }
         public override object[] ObterCamposLinha(Aluguel aluguel)
         {
-            List<object> linha = new List<object>()
+            return new object[]
             {
                 aluguel.Veiculo,
                 aluguel.Cliente,
                 aluguel.Condutor is ClientePF ? "-----" : aluguel.Condutor.Nome,
                 aluguel.TipoPlano,
-                aluguel is AluguelFechado aluguelF ? aluguelF.DataDevolucao.ToString("d") : "-----",
+                aluguel.DataDevolucao.ToString("d")
             };
-            return linha.ToArray();
         }
-
         protected override IVisualizavel Visualizar(Aluguel entidade)
         {
             return new FechamentoAluguel(GetEntidadeSelecionado());

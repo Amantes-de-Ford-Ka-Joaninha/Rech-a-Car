@@ -13,12 +13,11 @@ using System.Windows.Forms;
 using System.Linq;
 using System.Collections.Generic;
 using Dominio.VeiculoModule;
-using System.Globalization;
 using EmailAluguelPDF;
 
 namespace WindowsApp.AluguelModule
 {
-    public partial class ResumoAluguel : CadastroEntidade<Aluguel>//Form //
+    public partial class ResumoAluguel : CadastroEntidade<Aluguel>// Form // 
     {
         private Aluguel Aluguel;
         public ResumoAluguel(Aluguel aluguel = null)
@@ -39,10 +38,12 @@ namespace WindowsApp.AluguelModule
 
             PopulaServicos(GetServicosDiponiveis());
             PopulaDatas();
+            PopulaCBTiposCarteira();
             cbPlano.SelectedIndex = 0;
             bt_RemoveServico.Enabled = false;
             bt_AddServico.Enabled = false;
         }
+
         public override Controlador<Aluguel> Controlador => new ControladorAluguel();
         public override Aluguel GetNovaEntidade()
         {
@@ -67,15 +68,39 @@ namespace WindowsApp.AluguelModule
             tbModelo.Text = entidade.Veiculo.Modelo;
             tbPlaca.Text = entidade.Veiculo.Placa;
             cbPlano.SelectedItem = entidade.TipoPlano.ToString();
+            cbTipoCnh.SelectedItem = entidade.Veiculo.Categoria.TipoDeCnh;
 
             SetCondutor();
 
             tbDt_Emprestimo.Text = entidade.DataAluguel.ToString("d");
             tbDt_Devolucao.Text = entidade.DataDevolucao.ToString("d");
             PopulaServicos(GetServicosDiponiveis());
+            EsconderPanel(panelEsconderCliente);
+            EsconderPanel(panelEsconderVeiculo);
+
             return this;
         }
+        protected override string ValidacaoCampos()
+        {
+            var validacao = string.Empty;
+            if (Aluguel.Veiculo == null)
+                validacao += "O aluguel precisa de um veículo\n";
+            if (Aluguel.Cliente == null)
+                validacao += "O aluguel precisa de um cliente";
+            if (Aluguel.Cliente is ClientePJ && cb_motoristas.SelectedItem == null)
+                validacao += "Selecione um motorista para o aluguel";
 
+            return validacao;
+        }
+
+        private void PopulaCBTiposCarteira()
+        {
+            var tipos = ((TipoCNH[])Enum.GetValues(typeof(TipoCNH))).ToList();
+            tipos.Remove(TipoCNH.AB);
+
+            foreach (var item in tipos)
+                cbTipoCnh.Items.Add(item);
+        }
         private void PopulaDatas()
         {
             tbDt_Emprestimo.Text = DateTime.Today.ToShortDateString();
@@ -146,18 +171,6 @@ namespace WindowsApp.AluguelModule
             Aluguel.DataDevolucao = dtDevolucao;
             lbValor.Text = Aluguel.CalcularTotal().ToString();
         }
-        protected override string ValidacaoCampos()
-        {
-            var validacao = string.Empty;
-            if (Aluguel.Veiculo == null)
-                validacao += "O aluguel precisa de um veículo\n";
-            if (Aluguel.Cliente == null)
-                validacao += "O aluguel precisa de um cliente";
-            if (Aluguel.Cliente is ClientePJ && cb_motoristas.SelectedItem == null)
-                validacao += "Selecione um motorista para o aluguel";
-
-            return validacao;
-        }
         private void AtualizaOpcoesListServicos()
         {
             if (lb_lista_opcionais.Text == "Opcionais")
@@ -170,6 +183,16 @@ namespace WindowsApp.AluguelModule
                 PopulaServicos(GetServicosDiponiveis());
                 lb_lista_opcionais.Text = "Opcionais";
             }
+        }
+        private void GetNovaSelecao(int selecionado)
+        {
+            int quantidade = listServicos.Items.Count;
+            if (quantidade == 0)
+                listServicos.SelectedIndex = -1;
+            else if (quantidade == selecionado)
+                listServicos.SelectedIndex = selecionado - 1;
+            else
+                listServicos.SelectedIndex = selecionado;
         }
 
         #region Eventos
@@ -185,7 +208,6 @@ namespace WindowsApp.AluguelModule
         {
             TelaPrincipal.Instancia.FormAtivo = new GerenciamentoCliente("Selecione um Cliente", TipoTela.ApenasConfirma, Aluguel);
         }
-
         private void panelEsconderVeiculo_DoubleClick(object sender, EventArgs e)
         {
             TelaPrincipal.Instancia.FormAtivo = new GerenciamentoVeiculo("Selecione um Veículo", TipoTela.ApenasConfirma, Aluguel);
@@ -202,18 +224,6 @@ namespace WindowsApp.AluguelModule
             RemoverServico();
             GetNovaSelecao(selecionado);
         }
-
-        private void GetNovaSelecao(int selecionado)
-        {
-            int quantidade = listServicos.Items.Count;
-            if (quantidade == 0)
-                listServicos.SelectedIndex = -1;
-            else if (quantidade == selecionado)
-                listServicos.SelectedIndex = selecionado - 1;
-            else
-                listServicos.SelectedIndex = selecionado;
-        }
-
         private void pictureBox1_MouseHover(object sender, EventArgs e)
         {
             tipAluguel.SetToolTip(pictureBox1, "Clique duas vezes nos painéis para adicionar as informações necessárias.");
