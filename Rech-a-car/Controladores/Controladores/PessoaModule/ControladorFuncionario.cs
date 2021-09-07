@@ -115,7 +115,7 @@ namespace Controladores.PessoaModule
                 Id = id
             };
         }
-        protected override Dictionary<string, object> ObterParametrosRegistro(Funcionario funcionario)
+        public override Dictionary<string, object> ObterParametrosRegistro(Funcionario funcionario)
         {
             var parametros = new Dictionary<string, object>
             {

@@ -20,11 +20,10 @@ namespace WindowsApp.AluguelModule
 {
     public partial class ResumoAluguel : CadastroEntidade<Aluguel>//Form //
     {
-        private double PrecoParcial { set { lbValor.Text = value.ToString(); } get { return Convert.ToDouble(lbValor.Text); } }
         private Aluguel Aluguel;
         public ResumoAluguel(Aluguel aluguel = null)
         {
-            Aluguel = aluguel == null ? new Aluguel() : aluguel;
+            Aluguel = aluguel ?? new Aluguel();
 
             InitializeComponent();
 
@@ -43,13 +42,6 @@ namespace WindowsApp.AluguelModule
             cbPlano.SelectedIndex = 0;
             bt_RemoveServico.Enabled = false;
             bt_AddServico.Enabled = false;
-
-        }
-
-        private void PopulaDatas()
-        {
-            tbDt_Emprestimo.Text = DateTime.Today.ToShortDateString();
-            tbDt_Devolucao.Text = DateTime.Today.AddDays(1).ToShortDateString();
         }
         public override Controlador<Aluguel> Controlador => new ControladorAluguel();
         public override Aluguel GetNovaEntidade()
@@ -84,11 +76,15 @@ namespace WindowsApp.AluguelModule
             return this;
         }
 
+        private void PopulaDatas()
+        {
+            tbDt_Emprestimo.Text = DateTime.Today.ToShortDateString();
+            tbDt_Devolucao.Text = DateTime.Today.AddDays(1).ToShortDateString();
+        }
         private List<Servico> GetServicosDiponiveis()
         {
             return new ControladorServico().ServicosDisponiveis().Except(Aluguel.Servicos).ToList();
         }
-
         private void SetCondutor()
         {
             if (Aluguel.Cliente is ClientePJ)
@@ -96,7 +92,6 @@ namespace WindowsApp.AluguelModule
             else
                 cb_motoristas.Enabled = false;
         }
-
         private void PopulaVeiculo(Veiculo veiculo)
         {
             EsconderPanel(panelEsconderVeiculo);
@@ -126,7 +121,6 @@ namespace WindowsApp.AluguelModule
             listServicos.Items.Clear();
             listServicos.Items.AddRange(servicos.ToArray());
         }
-
         private void AdicionarServico()
         {
             Aluguel.Servicos.Add((Servico)listServicos.SelectedItem);
@@ -145,57 +139,12 @@ namespace WindowsApp.AluguelModule
         }
         private void CalcularPrecoParcial()
         {
-            if (Aluguel?.Servicos == null || Aluguel?.Veiculo == null)
-                return;
+            DateTime.TryParse(tbDt_Emprestimo.Text, out DateTime dtEmprestimo);
+            DateTime.TryParse(tbDt_Devolucao.Text, out DateTime dtDevolucao);
 
-            PrecoParcial = 0;
-            Aluguel.Servicos.ForEach(x => PrecoParcial += x.Taxa);
-
-            if (!VerificaCamposDatas())
-                return;
-
-            var Categoria = Aluguel.Veiculo.Categoria;
-            switch (cbPlano.Text)
-            {
-                case "Diário":
-                    CalculaPlanoDiario();
-                    break;
-                case "Controlado":
-                    CalculaPlanoControlado();
-                    break;
-                case "Livre":
-                    CalculaPlanoLivre();
-                    break;
-                default:
-                    break;
-            }
-
-            lbValor.Text = PrecoParcial.ToString();
-
-            void CalculaPlanoControlado()
-            {
-                PrecoParcial += (Categoria.PrecoDiaria * GetQtdDiasAluguel()) +
-                    Categoria.QuilometragemFranquia * Categoria.PrecoKm;
-            }
-            void CalculaPlanoDiario()
-            {
-                PrecoParcial += Categoria.PrecoDiaria * GetQtdDiasAluguel();
-            }
-            void CalculaPlanoLivre()
-            {
-                PrecoParcial += Categoria.PrecoDiaria * GetQtdDiasAluguel() * 1.3;
-            }
-            int GetQtdDiasAluguel()
-            {
-                DateTime.TryParse(tbDt_Devolucao.Text, out DateTime dtDevolucao);
-                DateTime.TryParse(tbDt_Emprestimo.Text, out DateTime dtEmprestimo);
-
-                return (dtDevolucao - dtEmprestimo).Days;
-            }
-            bool VerificaCamposDatas()
-            {
-                return DateTime.TryParse(tbDt_Devolucao.Text, out DateTime dataDevolucao) && DateTime.TryParse(tbDt_Emprestimo.Text, out DateTime dataEmprestimo) && dataDevolucao > dataEmprestimo;
-            }
+            Aluguel.DataAluguel = dtEmprestimo;
+            Aluguel.DataDevolucao = dtDevolucao;
+            lbValor.Text = Aluguel.CalcularTotal().ToString();
         }
         protected override string ValidacaoCampos()
         {
@@ -258,9 +207,9 @@ namespace WindowsApp.AluguelModule
         {
             int quantidade = listServicos.Items.Count;
             if (quantidade == 0)
-                listServicos.SelectedIndex = - 1;
-            else if(quantidade == selecionado)
-                listServicos.SelectedIndex = selecionado-1;
+                listServicos.SelectedIndex = -1;
+            else if (quantidade == selecionado)
+                listServicos.SelectedIndex = selecionado - 1;
             else
                 listServicos.SelectedIndex = selecionado;
         }
@@ -290,9 +239,9 @@ namespace WindowsApp.AluguelModule
             var NaotemZero = listServicos.Items.Count != 0;
 
             if (lb_lista_opcionais.Text == "Opcionais")
-                bt_AddServico.Enabled = NaotemZero ? true : false;
+                bt_AddServico.Enabled = NaotemZero;
             else
-                bt_RemoveServico.Enabled = NaotemZero ? true : false;
+                bt_RemoveServico.Enabled = NaotemZero;
         }
         #endregion
     }

@@ -7,9 +7,5 @@ namespace WindowsApp.VeiculoModule.CategoriaModule
 {
     public class VisualizarCategoria : IVisualizavel
     {
-        public Form Visualizar<T>(T t) where T : IControlavel
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

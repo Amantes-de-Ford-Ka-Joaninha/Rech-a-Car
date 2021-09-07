@@ -52,7 +52,7 @@ namespace WindowsApp.Shared
 
         protected virtual void AdicionarDependencias(T entidade)
         {
-            return;
+            return;//if entidade tem chaves estrangeiras adicionarDependencias else return;
         }
 
         protected virtual string ValidacaoCampos() { return string.Empty; }

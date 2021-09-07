@@ -48,11 +48,49 @@ namespace Dominio.AluguelModule
 
         public virtual double CalcularTotal()
         {
-            return 0;
+            double PrecoParcial = 0;
+
+            if (Servicos.Count != 0)
+                Servicos.ForEach(x => PrecoParcial += x.Taxa);
+
+            if (!DatasValidas())
+                return PrecoParcial;
+
+            if (Veiculo == null)
+                return PrecoParcial;
+
+            var Categoria = Veiculo.Categoria;
+            switch (TipoPlano)
+            {
+                case Plano.diario: CalculaPlanoDiario(); break;
+                case Plano.controlado: CalculaPlanoControlado(); break;
+                case Plano.livre: CalculaPlanoLivre(); break;
+                default: break;
+            }
+
+            return PrecoParcial;
+
+            void CalculaPlanoControlado()
+            {
+                PrecoParcial += (Categoria.PrecoDiaria * GetQtdDiasAluguel()) +
+                    Categoria.QuilometragemFranquia * Categoria.PrecoKm;
+            }
+            void CalculaPlanoDiario()
+            {
+                PrecoParcial += Categoria.PrecoDiaria * GetQtdDiasAluguel();
+            }
+            void CalculaPlanoLivre()
+            {
+                PrecoParcial += Categoria.PrecoDiaria * GetQtdDiasAluguel() * 1.3;
+            }
+            int GetQtdDiasAluguel()
+            {
+                return (DataDevolucao - DataAluguel).Days;
+            }
         }
         public AluguelFechado Fechar(int kmRodados, double tanqueUtilizado, List<Servico> servicos)
         {
-            return new AluguelFechado(this, kmRodados, tanqueUtilizado, servicos);
+            return new AluguelFechado(this, kmRodados, tanqueUtilizado, servicos, DateTime.Today);
         }
         public override string Validar()
         {
@@ -73,10 +111,14 @@ namespace Dominio.AluguelModule
             if (DataAluguel < DateTime.Today)
                 validacao += "Data de aluguel não pode ser no passado\n";
 
-            if (DataAluguel >= DataDevolucao)
+            if (!DatasValidas())
                 validacao += "Data de devolução deve ser após data de aluguel";
 
             return validacao;
+        }
+        private bool DatasValidas()
+        {
+            return DataAluguel < DataDevolucao;
         }
     }
     public enum Plano

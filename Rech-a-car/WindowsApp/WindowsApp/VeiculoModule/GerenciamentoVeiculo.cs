@@ -23,7 +23,6 @@ namespace WindowsApp.VeiculoModule
             Aluguel.Veiculo = GetEntidadeSelecionado();
             TelaPrincipal.Instancia.FormAtivo = new ResumoAluguel(Aluguel);
         }
-        protected override IVisualizavel Visualizar => new VisualizarVeiculo();
         public override DataGridViewColumn[] ConfigurarColunas()
         {
             return new DataGridViewColumn[]
@@ -48,6 +47,11 @@ namespace WindowsApp.VeiculoModule
                 veiculo.Categoria.PrecoKm
             };
             return linha.ToArray();
+        }
+
+        protected override IVisualizavel Visualizar(Veiculo entidade)
+        {
+            return new VisualizarVeiculo();
         }
     }
 }

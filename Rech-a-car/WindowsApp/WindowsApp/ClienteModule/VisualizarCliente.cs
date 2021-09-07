@@ -7,9 +7,5 @@ namespace WindowsApp.ClienteModule
 {
     public class VisualizarCliente : IVisualizavel
     {
-        public Form Visualizar<T>(T t) where T : IControlavel
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

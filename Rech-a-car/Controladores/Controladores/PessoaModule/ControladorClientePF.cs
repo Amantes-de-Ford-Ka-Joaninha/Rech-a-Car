@@ -97,7 +97,7 @@ namespace Controladores.PessoaModule
                 Id = id
             };
         }
-        protected override Dictionary<string, object> ObterParametrosRegistro(ClientePF cliente)
+        public override Dictionary<string, object> ObterParametrosRegistro(ClientePF cliente)
         {
             var parametros = new Dictionary<string, object>
             {

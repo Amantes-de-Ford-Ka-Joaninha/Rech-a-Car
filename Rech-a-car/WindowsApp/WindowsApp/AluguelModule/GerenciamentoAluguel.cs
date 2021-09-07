@@ -13,7 +13,6 @@ namespace WindowsApp.AluguelModule
             InitializeComponent();
         }
         protected override CadastroEntidade<Aluguel> Cadastro => new ResumoAluguel();
-        protected override IVisualizavel Visualizar => new FechamentoAluguel(GetEntidadeSelecionado());
 
         public override DataGridViewColumn[] ConfigurarColunas()
         {
@@ -37,6 +36,11 @@ namespace WindowsApp.AluguelModule
                 aluguel is AluguelFechado aluguelF ? aluguelF.DataDevolucao.ToString("d") : "-----",
             };
             return linha.ToArray();
+        }
+
+        protected override IVisualizavel Visualizar(Aluguel entidade)
+        {
+            return new FechamentoAluguel(GetEntidadeSelecionado());
         }
     }
 }

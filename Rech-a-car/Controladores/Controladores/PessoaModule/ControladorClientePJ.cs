@@ -112,7 +112,7 @@ namespace Controladores.PessoaModule
 
             return empresa;
         }
-        protected override Dictionary<string, object> ObterParametrosRegistro(ClientePJ cliente)
+        public override Dictionary<string, object> ObterParametrosRegistro(ClientePJ cliente)
         {
             var parametros = new Dictionary<string, object>
             {
@@ -192,7 +192,7 @@ namespace Controladores.PessoaModule
 
         public override MotoristaEmpresa GetById(int id, Type tipo = null)
         {
-            throw new NotImplementedException();
+            throw new NotSupportedException();
         }
 
         protected Dictionary<string, object> ObterParametrosMotorista(MotoristaEmpresa motorista)
@@ -213,7 +213,7 @@ namespace Controladores.PessoaModule
 
         protected override List<MotoristaEmpresa> ObterRegistros()
         {
-            return null;
+            throw new NotSupportedException();
         }
     }
 }

@@ -44,7 +44,7 @@ namespace Controladores.VeiculoModule
                 )";
 
         private const string sqlEditarVeiculo =
-            @" UPDATE [TBVEICULO]
+            @"UPDATE [TBVEICULO]
                 SET 
                     [MODELO] = @MODELO,       
                     [MARCA] = @MARCA,             
@@ -85,6 +85,13 @@ namespace Controladores.VeiculoModule
             WHERE 
                 [ID] = @ID";
 
+        private const string sqlAdicionarQuilometragem =
+            @"UPDATE [TBVEICULO]
+                SET 
+                    [QUILOMETRAGEM] = @NOVA_QUILOMETRAGEM
+                WHERE [ID] = @ID";
+
+
         private const string sqlSelecionarVeiculoDisponivel =
             @"SELECT * 
             FROM TBVeiculo 
@@ -100,6 +107,10 @@ namespace Controladores.VeiculoModule
         public override string sqlExcluir => sqlExcluirVeiculo;
         public override string sqlExists => sqlExisteVeiculo;
 
+        public void AdicionarQuilometragem(Veiculo veiculo, int kmRodados)
+        {
+            Db.Update(sqlAdicionarQuilometragem, AdicionarParametro("NOVA_QUILOMETRAGEM", kmRodados + veiculo.Quilometragem, AdicionarParametro("ID", veiculo.Id)));
+        }
         public override Veiculo ConverterEmEntidade(IDataReader reader)
         {
             var id = Convert.ToInt32(reader["ID"]);
@@ -129,7 +140,7 @@ namespace Controladores.VeiculoModule
         {
             return Db.GetAll(sqlSelecionarVeiculoDisponivel, ConverterEmEntidade);
         }
-        protected override Dictionary<string, object> ObterParametrosRegistro(Veiculo veiculo)
+        public override Dictionary<string, object> ObterParametrosRegistro(Veiculo veiculo)
         {
             var parametros = new Dictionary<string, object>
             {
