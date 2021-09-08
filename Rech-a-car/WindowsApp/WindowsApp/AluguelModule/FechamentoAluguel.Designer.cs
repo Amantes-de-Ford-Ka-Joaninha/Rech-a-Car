@@ -39,8 +39,10 @@ namespace WindowsApp.AluguelModule
             this.panelColorido3 = new WindowsApp.Shared.PanelColorido();
             this.panelColorido2 = new WindowsApp.Shared.PanelColorido();
             this.label8 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.tb_OdometroFinal = new System.Windows.Forms.TextBox();
+            this.tb_OdometroInicial = new System.Windows.Forms.MaskedTextBox();
+            this.tb_OdometroFinal = new System.Windows.Forms.MaskedTextBox();
             this.panelColorido1 = new WindowsApp.Shared.PanelColorido();
             this.mtb_PrecoDespesa = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -50,8 +52,6 @@ namespace WindowsApp.AluguelModule
             this.bt_RemoveDespesa = new System.Windows.Forms.Button();
             this.bt_AddDespesa = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.tb_OdometroInicial = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.panelColorido2.SuspendLayout();
             this.panelColorido1.SuspendLayout();
             this.SuspendLayout();
@@ -145,6 +145,17 @@ namespace WindowsApp.AluguelModule
             this.label8.TabIndex = 5;
             this.label8.Text = "Informações";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(116, 45);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(133, 21);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Odômetro Inicial";
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -156,6 +167,17 @@ namespace WindowsApp.AluguelModule
             this.label9.TabIndex = 1;
             this.label9.Text = "Odômetro Atual";
             // 
+            // tb_OdometroInicial
+            // 
+            this.tb_OdometroInicial.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_OdometroInicial.Location = new System.Drawing.Point(120, 69);
+            this.tb_OdometroInicial.Name = "tb_OdometroInicial";
+            this.tb_OdometroInicial.Size = new System.Drawing.Size(143, 29);
+            this.tb_OdometroInicial.TabIndex = 2;
+            this.tb_OdometroInicial.ValidatingType = typeof(int);
+            this.tb_OdometroInicial.TextChanged += new System.EventHandler(this.tb_KmFinal_TextChanged);
+            this.tb_OdometroInicial.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validaCampoNumerico);
+            // 
             // tb_OdometroFinal
             // 
             this.tb_OdometroFinal.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -164,6 +186,7 @@ namespace WindowsApp.AluguelModule
             this.tb_OdometroFinal.Size = new System.Drawing.Size(143, 29);
             this.tb_OdometroFinal.TabIndex = 2;
             this.tb_OdometroFinal.TextChanged += new System.EventHandler(this.tb_KmFinal_TextChanged);
+            this.tb_OdometroFinal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validaCampoNumerico);
             // 
             // panelColorido1
             // 
@@ -265,26 +288,6 @@ namespace WindowsApp.AluguelModule
             this.label7.TabIndex = 5;
             this.label7.Text = "Checklist";
             // 
-            // tb_OdometroInicial
-            // 
-            this.tb_OdometroInicial.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_OdometroInicial.Location = new System.Drawing.Point(120, 69);
-            this.tb_OdometroInicial.Name = "tb_OdometroInicial";
-            this.tb_OdometroInicial.Size = new System.Drawing.Size(143, 29);
-            this.tb_OdometroInicial.TabIndex = 2;
-            this.tb_OdometroInicial.TextChanged += new System.EventHandler(this.tb_KmFinal_TextChanged);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(116, 45);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(133, 21);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Odômetro Inicial";
-            // 
             // FechamentoAluguel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -315,7 +318,7 @@ namespace WindowsApp.AluguelModule
         private PanelColorido panelColorido2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox tb_OdometroFinal;
+        private System.Windows.Forms.MaskedTextBox tb_OdometroFinal;
         private PanelColorido panelColorido1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label1;
@@ -332,6 +335,6 @@ namespace WindowsApp.AluguelModule
         private System.Windows.Forms.Label lb_Titulo;
         private System.Windows.Forms.MaskedTextBox mtb_PrecoDespesa;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox tb_OdometroInicial;
+        private System.Windows.Forms.MaskedTextBox tb_OdometroInicial;
     }
 }

@@ -91,5 +91,14 @@ namespace WindowsApp.AluguelModule
             new ControladorVeiculo().AdicionarQuilometragem(aluguel.Veiculo, KmRodados());
         }
         #endregion
+
+        private void validaCampoNumerico(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                    (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

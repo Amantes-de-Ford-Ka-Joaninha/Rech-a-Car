@@ -27,7 +27,7 @@ namespace Dominio.PessoaModule.ClienteModule
         {
             string validacao = base.Validar();
 
-            Regex ValidarEmail = new Regex(@"/[a-z0-9._]+@[a-z0-9._]+\.[a-z0-9.]+[a-z]+/i");
+            Regex ValidarEmail = new Regex(@"(?i)[a-z0-9._]+@[a-z0-9._]+\.[a-z0-9.]+[a-z]+");
 
             if (!ValidarEmail.IsMatch(Email))
                 validacao += "Email inválido\n";
