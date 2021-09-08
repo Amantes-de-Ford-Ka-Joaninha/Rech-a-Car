@@ -48,10 +48,7 @@ namespace Dominio.VeiculoModule
         }
         public string CambioToString()
         {
-            if (Automatico)
-                return "Automático";
-            else
-                return "Manual";
+            return Automatico ? "Automático" : "Manual";
         }
         public override string Validar()
         {

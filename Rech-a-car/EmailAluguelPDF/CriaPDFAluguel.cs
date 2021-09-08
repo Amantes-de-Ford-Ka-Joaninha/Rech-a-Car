@@ -26,8 +26,21 @@ namespace EmailAluguelPDF
             page.Paragraphs.Add(new TextFragment($"Data de Devolução: {aluguel.DataDevolucao:d}"));
             page.Paragraphs.Add(new TextFragment($"Total Parcial R$: {aluguel.CalcularTotal()}"));
 
-            document.Save($@"..\..\..\PDFs\{aluguel.Cliente}-Aluguel-{aluguel.Id}.pdf");
             //page.Resources.Images.Add(ImagemParaStream(aluguel.Veiculo.Foto));
+
+            //page.Contents.Add(new Aspose.Pdf.Operators.GSave());
+
+            //Rectangle rectangle = new Rectangle(50, 0, 500, 500);
+            //Matrix matrix = new Matrix(new double[] { rectangle.URX - rectangle.LLX, 0, 0, rectangle.URY - rectangle.LLY, rectangle.LLX, rectangle.LLY });
+
+            //page.Contents.Add(new Aspose.Pdf.Operators.ConcatenateMatrix(matrix));
+            //XImage ximage = page.Resources.Images[page.Resources.Images.Count];
+
+            //page.Contents.Add(new Aspose.Pdf.Operators.Do(ximage.Name));
+
+            //page.Contents.Add(new Aspose.Pdf.Operators.GRestore());
+
+            document.Save($@"..\..\..\PDFs\{aluguel.Cliente}-Aluguel-{aluguel.Id}.pdf");
         }
 
         private static MemoryStream ImagemParaStream(System.Drawing.Image imagem)
