@@ -77,7 +77,7 @@ namespace WindowsApp
         {
             switch (resultado)
             {
-                case ResultadoLogin.SenhaErrada: return "Senha errada!";
+                case ResultadoLogin.SenhaErrada: return "Senha incorreta!";
                 case ResultadoLogin.UsuarioNaoCadastrado: return "Usuário não está cadastrado!";
                 case ResultadoLogin.Sucesso: return "Sucesso!";
                 default: return "Error";
@@ -93,7 +93,7 @@ namespace WindowsApp
             var resultadoLogin = LoginUsuario();
             if (resultadoLogin != ResultadoLogin.Sucesso)
             {
-                MessageBox.Show(mostraResultado(resultadoLogin));
+                MessageBox.Show(this, mostraResultado(resultadoLogin), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             new TelaPrincipal(funcionario).Show();
