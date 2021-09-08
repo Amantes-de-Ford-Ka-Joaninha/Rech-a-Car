@@ -22,6 +22,7 @@ namespace WindowsApp.AluguelModule
         {
             this.aluguel = aluguel;
             InitializeComponent();
+            tb_OdometroInicial.Text = aluguel.Veiculo.Quilometragem.ToString();
         }
 
         public IVisualizavel Visualizar()
@@ -35,7 +36,7 @@ namespace WindowsApp.AluguelModule
         }
         private int KmRodados()
         {
-            if (int.TryParse(tb_KmFinal.Text, out int odometroFinal) && odometroFinal >= aluguel.Veiculo.Quilometragem)
+            if (int.TryParse(tb_OdometroFinal.Text, out int odometroFinal) && odometroFinal >= aluguel.Veiculo.Quilometragem)
                 return odometroFinal - aluguel.Veiculo.Quilometragem;
 
             return -1;
