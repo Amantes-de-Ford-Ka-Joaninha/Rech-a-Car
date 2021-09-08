@@ -116,7 +116,7 @@ namespace Controladores.VeiculoModule
 
         public void AdicionarQuilometragem(Veiculo veiculo, int kmRodados)
         {
-            Db.Update(sqlAdicionarQuilometragem, AdicionarParametro("NOVA_QUILOMETRAGEM", kmRodados + veiculo.Quilometragem, AdicionarParametro("ID", veiculo.Id)));
+            Db.Update(sqlAdicionarQuilometragem, Db.AdicionarParametro("NOVA_QUILOMETRAGEM", kmRodados + veiculo.Quilometragem, Db.AdicionarParametro("ID", veiculo.Id)));
         }
         public override Veiculo ConverterEmEntidade(IDataReader reader)
         {

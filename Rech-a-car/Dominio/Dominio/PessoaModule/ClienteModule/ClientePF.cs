@@ -5,7 +5,9 @@ namespace Dominio.PessoaModule.ClienteModule
     public class ClientePF : Condutor, ICliente
     {
         public DateTime DataNascimento { get; set; }
-        public ClientePF(string nome, string telefone, string endereco, string documento, CNH cnh, DateTime dataNascimento)
+        public string Email { get; set; }
+
+        public ClientePF(string nome, string telefone, string endereco, string documento, CNH cnh, DateTime dataNascimento, string email)
         {
             Nome = nome;
             Telefone = telefone;
@@ -13,6 +15,7 @@ namespace Dominio.PessoaModule.ClienteModule
             Documento = documento;
             Cnh = cnh;
             DataNascimento = dataNascimento;
+            Email = email;
         }
         public int GetIdade()
         {

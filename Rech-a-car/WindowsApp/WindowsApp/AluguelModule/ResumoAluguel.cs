@@ -14,6 +14,7 @@ using System.Linq;
 using System.Collections.Generic;
 using Dominio.VeiculoModule;
 using EmailAluguelPDF;
+using System.Threading.Tasks;
 
 namespace WindowsApp.AluguelModule
 {
@@ -203,7 +204,7 @@ namespace WindowsApp.AluguelModule
             if (!Salva())
                 return;
 
-            new CriaPDFAluguel(Aluguel);
+            Task.Run(() => new CriaPDFAluguel(Aluguel));
             TelaPrincipal.Instancia.FormAtivo = new GerenciamentoAluguel();
         }
         private void panelEsconderCliente_DoubleClick(object sender, EventArgs e)

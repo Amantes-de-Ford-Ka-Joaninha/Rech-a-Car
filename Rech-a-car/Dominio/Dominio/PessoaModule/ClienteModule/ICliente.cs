@@ -8,6 +8,6 @@ namespace Dominio.PessoaModule.ClienteModule
         string Telefone { get; set; }
         string Endereco { get; set; }
         string Documento { get; set; }
+        string Email { get; set; }
     }
-
 }

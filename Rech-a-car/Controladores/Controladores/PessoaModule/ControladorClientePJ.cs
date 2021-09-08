@@ -16,6 +16,7 @@ namespace Controladores.PessoaModule
                     [NOME],       
                     [TELEFONE],             
                     [ENDERECO],
+                    [EMAIL],
                     [DOCUMENTO]
                 )
             VALUES
@@ -23,6 +24,7 @@ namespace Controladores.PessoaModule
                     @NOME,       
                     @TELEFONE,             
                     @ENDERECO,
+                    @EMAIL,
                     @DOCUMENTO
                 )";
 
@@ -32,6 +34,7 @@ namespace Controladores.PessoaModule
                     [NOME] = @NOME,       
                     [TELEFONE] = @TELEFONE,             
                     [ENDERECO] = @ENDERECO,
+                    [EMAIL] = @EMAIL,
                     [DOCUMENTO] = @DOCUMENTO
                 WHERE [ID] = @ID";
 
@@ -40,7 +43,7 @@ namespace Controladores.PessoaModule
                 WHERE [ID] = @ID";
 
         private const string sqlSelecionarClientePJPorId =
-            @"SELECT TBClientePJ.ID, TBClientePJ.NOME, TBClientePJ.TELEFONE, TBClientePJ.ENDERECO, TBClientePJ.DOCUMENTO,
+            @"SELECT TBClientePJ.ID,TBClientePJ.EMAIL, TBClientePJ.NOME, TBClientePJ.TELEFONE, TBClientePJ.ENDERECO, TBClientePJ.DOCUMENTO, 
             TBMotorista.ID AS ID_MOTORISTA, TBMotorista.NOME AS NOME_MOTORISTA, TBMotorista.TELEFONE AS TELEFONE_MOTORISTA, 
                   TBMotorista.ENDERECO AS ENDERECO_MOTORISTA, TBMotorista.DOCUMENTO AS DOCUMENTO_MOTORISTA, TBMotorista.ID_CNH, TBMotorista.ID_EMPRESA
             FROM     
@@ -50,7 +53,7 @@ namespace Controladores.PessoaModule
                 TBClientePJ.[ID] = @ID";
 
         private const string sqlSelecionarTodosClientePJ =
-            @"SELECT TBClientePJ.ID, TBClientePJ.NOME, TBClientePJ.TELEFONE, TBClientePJ.ENDERECO, TBClientePJ.DOCUMENTO, 
+            @"SELECT TBClientePJ.ID,TBClientePJ.EMAIL, TBClientePJ.NOME, TBClientePJ.TELEFONE, TBClientePJ.ENDERECO, TBClientePJ.DOCUMENTO, 
                 TBMotorista.ID AS ID_MOTORISTA, TBMotorista.NOME AS NOME_MOTORISTA, TBMotorista.TELEFONE AS TELEFONE_MOTORISTA, 
                   TBMotorista.ENDERECO AS ENDERECO_MOTORISTA, TBMotorista.DOCUMENTO AS DOCUMENTO_MOTORISTA, TBMotorista.ID_CNH, TBMotorista.ID_EMPRESA
               FROM     
@@ -80,8 +83,10 @@ namespace Controladores.PessoaModule
             var telefone = Convert.ToString(reader["TELEFONE"]);
             var documento = Convert.ToString(reader["DOCUMENTO"]);
             var endereco = Convert.ToString(reader["ENDERECO"]);
+            var email = Convert.ToString(reader["EMAIL"]);
 
-            var empresa = new ClientePJ(nome, telefone, endereco, documento)
+
+            var empresa = new ClientePJ(nome, telefone, endereco, documento, email)
             {
                 Id = id,
             };
@@ -121,6 +126,7 @@ namespace Controladores.PessoaModule
                 { "ENDERECO", cliente.Endereco },
                 { "TELEFONE", cliente.Telefone },
                 { "DOCUMENTO", cliente.Documento },
+                { "EMAIL", cliente.Email },
             };
 
             return parametros;
@@ -187,7 +193,7 @@ namespace Controladores.PessoaModule
 
         public override void Excluir(int id_motorista, Type tipo = null)
         {
-            Db.Delete(sqlExcluirMotorista, AdicionarParametro("ID", id_motorista));
+            Db.Delete(sqlExcluirMotorista, Db.AdicionarParametro("ID", id_motorista));
         }
 
         public override MotoristaEmpresa GetById(int id, Type tipo = null)

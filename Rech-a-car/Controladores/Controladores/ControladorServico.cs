@@ -120,13 +120,13 @@ namespace Controladores.ServicoModule
 
         public List<Servico> GetServicosAlugados(int idAluguel)
         {
-            return Db.GetAll(sqlSelecionarServicosAlugados, ConverterEmEntidade, AdicionarParametro("ID_ALUGUEL", idAluguel));
+            return Db.GetAll(sqlSelecionarServicosAlugados, ConverterEmEntidade, Db.AdicionarParametro("ID_ALUGUEL", idAluguel));
         }
 
         public void AlugarServicos(int idAluguel, List<Servico> servicos)
         {
             foreach (var servico in servicos)
-                Db.Update(sqlEditarAluguelServico, AdicionarParametro("ID_ALUGUEL", idAluguel, AdicionarParametro("ID", servico.Id)));
+                Db.Update(sqlEditarAluguelServico, Db.AdicionarParametro("ID_ALUGUEL", idAluguel, Db.AdicionarParametro("ID", servico.Id)));
         }
         public List<Servico> ServicosDisponiveis()
         {
@@ -135,7 +135,7 @@ namespace Controladores.ServicoModule
 
         public void DesalugarServicosAlugados(int idAluguel)
         {
-            Db.Update(sqlDesalugarServicosAlugados, AdicionarParametro("ID_ALUGUEL", idAluguel));
+            Db.Update(sqlDesalugarServicosAlugados, Db.AdicionarParametro("ID_ALUGUEL", idAluguel));
         }
     }
 }

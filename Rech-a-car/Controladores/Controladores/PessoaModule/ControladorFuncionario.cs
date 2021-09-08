@@ -134,11 +134,11 @@ namespace Controladores.PessoaModule
         }
         public bool ExisteUsuario(string usuario)
         {
-            return Db.Exists(sqlExisteFuncionarioPorUser, AdicionarParametro("USER", usuario));
+            return Db.Exists(sqlExisteFuncionarioPorUser, Db.AdicionarParametro("USER", usuario));
         }
         public Funcionario GetByUserName(string usuario)
         {
-            return Db.Get(sqlGetFuncionarioPorUser, ConverterEmEntidade, AdicionarParametro("USER", usuario));
+            return Db.Get(sqlGetFuncionarioPorUser, ConverterEmEntidade, Db.AdicionarParametro("USER", usuario));
         }
     }
 }
