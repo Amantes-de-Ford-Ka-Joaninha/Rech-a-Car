@@ -24,8 +24,15 @@ namespace WindowsApp
             {
                 while (true)
                 {
-                    new EnviaPDFEmail();
-                    await Task.Delay(new TimeSpan(0,5,0));
+                    try
+                    {
+                        new EnviaPDFEmail();
+                    }
+                    catch (FilaEmailVazia)
+                    {
+                        await Task.Delay(new TimeSpan(0,5,0));
+                    }
+        
                 }
             });
 

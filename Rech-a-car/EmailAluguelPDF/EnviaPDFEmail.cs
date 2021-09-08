@@ -2,6 +2,7 @@
 using System.IO;
 using System.Net;
 using System.Net.Mail;
+using System.Runtime.Serialization;
 
 namespace EmailAluguelPDF
 {
@@ -22,7 +23,7 @@ namespace EmailAluguelPDF
             var proxEnvio = controladorEmail.GetProxEnvio();
 
             if (proxEnvio == null)
-                return;
+                throw new FilaEmailVazia();
 
             var emailUsuario = proxEnvio.Aluguel.Cliente.Email;
             var message = new MailMessage(email, emailUsuario, "Resumo Aluguel Rech-a-car", "Confira o resumo do seu mais novo aluguel: ");
@@ -33,15 +34,20 @@ namespace EmailAluguelPDF
             var data = new Attachment(stream, "Pdf Resumo Aluguel.pdf");
             message.Attachments.Add(data);
 
-            try
+            client.Send(message);
+            controladorEmail.AlterarEnviado(proxEnvio.Id);
+        }
+
+    }
+        [Serializable]
+        public class FilaEmailVazia : Exception
+        {
+            public FilaEmailVazia()
             {
-                client.Send(message);
-                controladorEmail.AlterarEnviado(proxEnvio.Id);
             }
-            catch (Exception)
+
+            public FilaEmailVazia(string message) : base(message)
             {
-                throw;
             }
         }
-    }
 }
