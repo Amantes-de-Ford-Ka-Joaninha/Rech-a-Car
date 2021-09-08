@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace Dominio.PessoaModule.ClienteModule
 {
@@ -14,6 +15,17 @@ namespace Dominio.PessoaModule.ClienteModule
             Endereco = endereco;
             Documento = documento;
             Email = email;
+        }
+        public override string Validar()
+        {
+            string validacao = base.Validar();
+
+            Regex ValidarEmail = new Regex(@"/[a-z0-9._]+@[a-z0-9._]+\.[a-z0-9.]+[a-z]+", RegexOptions.IgnoreCase);
+
+            if (!ValidarEmail.IsMatch(Email))
+                validacao += "Email inválido\n";
+
+            return validacao;
         }
     }
 }

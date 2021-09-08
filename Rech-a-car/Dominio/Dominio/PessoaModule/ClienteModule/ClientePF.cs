@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 
 namespace Dominio.PessoaModule.ClienteModule
 {
@@ -25,6 +26,11 @@ namespace Dominio.PessoaModule.ClienteModule
         public override string Validar()
         {
             string validacao = base.Validar();
+
+            Regex ValidarEmail = new Regex(@"/[a-z0-9._]+@[a-z0-9._]+\.[a-z0-9.]+[a-z]+/i");
+
+            if (!ValidarEmail.IsMatch(Email))
+                validacao += "Email inválido\n";
 
             if (GetIdade() < 18)
                 validacao += "Idade mínima para dirigir é de 18 anos.\n";

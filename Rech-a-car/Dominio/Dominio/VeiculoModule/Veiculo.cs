@@ -12,7 +12,7 @@ namespace Dominio.VeiculoModule
             Modelo = modelo;
             Marca = marca;
             Ano = ano;
-            Placa = placa;
+            Placa = placa.ToUpper();
             Capacidade = capacidade;
             Portas = portas;
             Chassi = chassi;
@@ -54,8 +54,8 @@ namespace Dominio.VeiculoModule
         }
         public override string Validar()
         {
-            Regex templatePlacaMercoSul = new Regex(@"\b[A-Z]{3}[0-9][A-Z][0-9]{2}\b");
-            Regex templatePlacaAntiga = new Regex(@"\b[A-Z]{3}[0-9]{4}\b");
+            Regex templatePlacaMercoSul = new Regex(@"\b[A-Z]{3}[0-9][A-Z][0-9]{2}\b" , RegexOptions.IgnoreCase);
+            Regex templatePlacaAntiga = new Regex(@"\b[A-Z]{3}[0-9]{4}\b", RegexOptions.IgnoreCase);
 
             string validacao = "";
 
