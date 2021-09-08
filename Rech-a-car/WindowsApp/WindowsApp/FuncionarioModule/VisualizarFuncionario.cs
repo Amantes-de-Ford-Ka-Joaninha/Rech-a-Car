@@ -7,9 +7,5 @@ namespace WindowsApp.FuncionarioModule
 {
     public class VisualizarFuncionario : IVisualizavel
     {
-        public Form Visualizar<T>(T t) where T : IControlavel
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

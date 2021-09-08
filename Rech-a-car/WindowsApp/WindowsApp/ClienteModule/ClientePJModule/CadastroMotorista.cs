@@ -21,7 +21,7 @@ namespace WindowsApp.ClienteModule
             this.clientePJ = clientePJ;
         }
 
-        protected override IEditavel ConfigurarEditar()
+        protected override IEditavel Editar()
         {
             tbNome.Text = entidade.Nome;
             tbTelefone.Text = entidade.Telefone;
@@ -31,13 +31,17 @@ namespace WindowsApp.ClienteModule
             cbTipoCNH.SelectedIndex = (int)entidade.Cnh.TipoCnh;
             return this;
         }
+        protected override void AdicionarDependencias(MotoristaEmpresa motorista)
+        {
+            motorista.Cnh.Id = entidade.Cnh.Id;
+        }
         public override MotoristaEmpresa GetNovaEntidade()
         {
             var nome = tbNome.Text;
             var telefone = tbTelefone.Text;
             var endereco = tbEndereco.Text;
             var documento = tbCPF.Text;
-            return new MotoristaEmpresa(nome, telefone, endereco, documento, GetCNH());
+            return new MotoristaEmpresa(nome, telefone, endereco, documento, GetCNH(), clientePJ);
         }
         public CNH GetCNH()
         {
@@ -48,8 +52,7 @@ namespace WindowsApp.ClienteModule
         }
         private void btAdicionarMotorista_Click(object sender, EventArgs e)
         {
-            var chave_estrangeira = entidade is null ? clientePJ.Id : entidade.Cnh.Id;
-            if (Salva(chave_estrangeira))
+            if (Salva())
                 TelaPrincipal.Instancia.FormAtivo = (Form)new CadastroClientePJ().ConfigurarEditar(new ControladorClientePJ().GetById(clientePJ.Id));
         }
     }

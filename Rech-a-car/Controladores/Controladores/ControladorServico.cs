@@ -107,7 +107,7 @@ namespace Controladores.ServicoModule
             };
         }
 
-        protected override Dictionary<string, object> ObterParametrosRegistro(Servico servico)
+        public override Dictionary<string, object> ObterParametrosRegistro(Servico servico)
         {
             var parametros = new Dictionary<string, object>
             {

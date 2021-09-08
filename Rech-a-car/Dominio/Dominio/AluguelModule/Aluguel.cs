@@ -48,64 +48,82 @@ namespace Dominio.AluguelModule
 
         public virtual double CalcularTotal()
         {
-            double PrecoFinal = 0;
-            Servicos.ForEach(x => PrecoFinal += x.Taxa);
+            double PrecoParcial = 0;
+
+            if (Servicos.Count != 0)
+                Servicos.ForEach(x => PrecoParcial += x.Taxa);
+
+            if (!DatasValidas())
+                return PrecoParcial;
+
+            if (Veiculo == null)
+                return PrecoParcial;
 
             var Categoria = Veiculo.Categoria;
-
-            switch (TipoPlano.ToString())
+            switch (TipoPlano)
             {
-                case "diario":
-                    CalculaPlanoDiario();
-                    break;
-                case "controlado":
-                    CalculaPlanoControlado();
-                    break;
-                case "livre":
-                    CalculaPlanoLivre();
-                    break;
-                default:
-                    break;
+                case Plano.diario: CalculaPlanoDiario(); break;
+                case Plano.controlado: CalculaPlanoControlado(); break;
+                case Plano.livre: CalculaPlanoLivre(); break;
+                default: break;
             }
+
+            return PrecoParcial;
 
             void CalculaPlanoControlado()
             {
-                PrecoFinal += (Categoria.PrecoDiaria * GetQtdDiasAluguel()) +
+                PrecoParcial += (Categoria.PrecoDiaria * GetQtdDiasAluguel()) +
                     Categoria.QuilometragemFranquia * Categoria.PrecoKm;
             }
             void CalculaPlanoDiario()
             {
-                PrecoFinal += Categoria.PrecoDiaria * GetQtdDiasAluguel();
+                PrecoParcial += Categoria.PrecoDiaria * GetQtdDiasAluguel();
             }
             void CalculaPlanoLivre()
             {
-                PrecoFinal += Categoria.PrecoDiaria * GetQtdDiasAluguel() * 1.3;
+                PrecoParcial += Categoria.PrecoDiaria * GetQtdDiasAluguel() * 1.3;
             }
             int GetQtdDiasAluguel()
             {
                 return (DataDevolucao - DataAluguel).Days;
             }
-
-            return PrecoFinal;
-
         }
         public AluguelFechado Fechar(int kmRodados, double tanqueUtilizado, List<Servico> servicos)
         {
-            return new AluguelFechado(this, kmRodados, tanqueUtilizado, servicos);
+            return new AluguelFechado(this, kmRodados, tanqueUtilizado, servicos, DateTime.Today);
         }
         public override string Validar()
         {
-            string validacao = String.Empty;
+            string validacao = string.Empty;
+
+            if (Veiculo == null)
+                validacao += "O aluguel necessita de um veículo\n";
+            if (Condutor == null)
+                validacao += "O aluguel necessita de um condutor\n";
+
+            if (validacao != string.Empty)
+                return validacao;
+
+
             if (Condutor.Cnh.TipoCnh < Veiculo.Categoria.TipoDeCnh)
-                validacao += "Condutor não tem a carteira necessária para dirigir o veículo selecionado";
+                validacao += "Condutor não tem a carteira necessária para dirigir o veículo selecionado\n";
 
             if (DataAluguel < DateTime.Today)
                 validacao += "Data de aluguel não pode ser no passado\n";
 
-            if (DataAluguel >= DataDevolucao)
+            if (!DatasValidas())
                 validacao += "Data de devolução deve ser após data de aluguel";
 
             return validacao;
+        }
+        private bool DatasValidas()
+        {
+            return DataAluguel < DataDevolucao;
+        }
+
+        public override string ToString()
+        {
+            return $"{Veiculo} {Funcionario} {Cliente} {Condutor} {TipoPlano}";
         }
     }
     public enum Plano

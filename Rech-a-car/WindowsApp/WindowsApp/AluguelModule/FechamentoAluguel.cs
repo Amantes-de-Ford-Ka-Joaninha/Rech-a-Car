@@ -7,17 +7,16 @@ using WindowsApp.Shared;
 using Dominio.ServicoModule;
 using Controladores.AluguelModule;
 using Controladores.VeiculoModule;
+using Controladores.Shared;
+using System.Linq;
 
 namespace WindowsApp.AluguelModule
 {
-    public partial class FechamentoAluguel : Form, IVisualizavel
+    public partial class FechamentoAluguel : CadastroEntidade<AluguelFechado>, IVisualizavel //Form//
     {
-        private bool estadoBotoes = true;
         Aluguel aluguel;
-        List<Servico> despesas = new List<Servico>();
-        ControladorAluguel controladorAluguel = new ControladorAluguel();
-        ControladorVeiculo controladorVeiculo = new ControladorVeiculo();
-        AluguelFechado aluguelFechado;
+
+        public override Controlador<AluguelFechado> Controlador => new ControladorAluguelFechado();
 
         public FechamentoAluguel(Aluguel aluguel)
         {
@@ -25,9 +24,40 @@ namespace WindowsApp.AluguelModule
             InitializeComponent();
         }
 
-        public Form Visualizar<T>(T t) where T : IControlavel
+        public IVisualizavel Visualizar()
         {
             return this;
+        }
+
+        private void CalcularPrecoTotal()
+        {
+            lbValor.Text = GetNovaEntidade().CalcularTotal().ToString();
+        }
+        private int KmRodados()
+        {
+            if (int.TryParse(tb_KmFinal.Text, out int odometroFinal) && odometroFinal >= aluguel.Veiculo.Quilometragem)
+                return odometroFinal - aluguel.Veiculo.Quilometragem;
+
+            return -1;
+        }
+        private double TanqueUtilizado()
+        {
+            return 0.5;
+        }
+
+        public override AluguelFechado GetNovaEntidade()
+        {
+            var servicos = new List<Servico>();
+
+            foreach (var item in listDespesas.Items)
+                servicos.Add((Servico)item);
+
+            return aluguel.Fechar(KmRodados(), TanqueUtilizado(), servicos);
+        }
+
+        protected override IEditavel Editar()
+        {
+            throw new NotImplementedException();
         }
 
         #region eventos
@@ -35,58 +65,30 @@ namespace WindowsApp.AluguelModule
         private void bt_AddDespesa_Click(object sender, EventArgs e)
         {
             if (tb_NomeDespesa.Text != "" && mtb_PrecoDespesa.Text != "" && double.TryParse(mtb_PrecoDespesa.Text, out double precoDespesa))
-                despesas.Add(new Servico(tb_NomeDespesa.Text, precoDespesa));
+                listDespesas.Items.Add(new Servico(tb_NomeDespesa.Text, precoDespesa));
 
-            PopulaListDespesas();
-            lbValor.Text =  aluguelFechado.CalcularTotal().ToString();
+            CalcularPrecoTotal();
         }
         private void bt_RemoveDespesa_Click(object sender, EventArgs e)
         {
-            despesas.Remove((Servico)listDespesas.SelectedItem);
-            PopulaListDespesas();
-            lbValor.Text = aluguelFechado.CalcularTotal().ToString();
-        }
-        private void tb_Atraso_Leave(object sender, EventArgs e)
-        {
-            PopulaListDespesas();
-            lbValor.Text = aluguelFechado.CalcularTotal().ToString();
+            listDespesas.Items.Remove(listDespesas.SelectedItem);
+            lbValor.Text = entidade.CalcularTotal().ToString();
         }
         private void tb_KmFinal_TextChanged(object sender, EventArgs e)
         {
-            aluguelFechado = aluguel.Fechar(CalcularKmRodado(), 0, despesas);
-            lbValor.Text = aluguelFechado.CalcularTotal().ToString();
-        }
-        private void tb_KmFinal_Leave(object sender, EventArgs e)
-        {
-            aluguelFechado = aluguel.Fechar(CalcularKmRodado(), 0, despesas);
-            lbValor.Text = aluguelFechado.CalcularTotal().ToString();
+            entidade = GetNovaEntidade();
+            CalcularPrecoTotal();
         }
         private void btFecharAluguel_Click(object sender, EventArgs e)
         {
-            aluguelFechado = aluguel.Fechar(CalcularKmRodado(), 0, despesas);
-            controladorAluguel.Editar(aluguel.Id, aluguelFechado);
-            controladorVeiculo.Editar(aluguel.Veiculo.Id, aluguel.Veiculo);
-            AtualizarOdometro();
+            entidade = GetNovaEntidade();
+            entidade.Id = aluguel.Id;
+
+            if (!Salva())
+                return;
+
+            new ControladorVeiculo().AdicionarQuilometragem(aluguel.Veiculo, KmRodados());
         }
         #endregion
-        private void PopulaListDespesas()
-        {
-            listDespesas.Items.Clear();
-            listDespesas.Items.AddRange(despesas.ToArray());
-        }
-        private int CalcularKmRodado()
-        {
-            int kmRodados = 0;
-            if (int.TryParse(tb_KmFinal.Text, out int odometroFinal) && odometroFinal > aluguel.Veiculo.Quilometragem)
-            {
-                kmRodados = odometroFinal - aluguel.Veiculo.Quilometragem;
-            }
-            return kmRodados;
-        }
-        private void AtualizarOdometro()
-        {
-            aluguel.Veiculo.Quilometragem += CalcularKmRodado();
-        }
-
     }
 }

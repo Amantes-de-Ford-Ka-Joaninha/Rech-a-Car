@@ -6,7 +6,7 @@
     [ENDERECO]  VARCHAR (100)   NOT NULL,
     [FOTO]      VARBINARY (MAX) NULL,
     [USER]      VARCHAR (100)   NOT NULL,
-    [CARGO]     VARCHAR (50)    NOT NULL,
+    [CARGO]     INT    NOT NULL,
     CONSTRAINT [PK_TBFuncionario] PRIMARY KEY CLUSTERED ([ID] ASC)
 );
 

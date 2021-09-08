@@ -10,7 +10,7 @@ namespace Controladores.PessoaModule
         private ControladorClientePF ControladorPF = new ControladorClientePF();
         private ControladorClientePJ ControladorPJ = new ControladorClientePJ();
 
-        public override void Inserir(ICliente cliente, int id_chave_estrangeira = 0)
+        public override void Inserir(ICliente cliente)
         {
             if (cliente is ClientePF)
                 ControladorPF.Inserir((ClientePF)cliente);
@@ -19,7 +19,7 @@ namespace Controladores.PessoaModule
             else
                 throw new ArgumentException();
         }
-        public override void Editar(int id, ICliente cliente, int id_chave_estrangeira)
+        public override void Editar(int id, ICliente cliente)
         {
             if (cliente is ClientePF)
                 ControladorPF.Editar(cliente.Id, (ClientePF)cliente);

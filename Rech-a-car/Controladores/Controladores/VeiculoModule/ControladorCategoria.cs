@@ -73,7 +73,7 @@ namespace Controladores.VeiculoModule
         public override string sqlExcluir => sqlExcluirGrupo;
         public override string sqlExists => sqlExisteGrupo;
 
-        protected override Dictionary<string, object> ObterParametrosRegistro(Categoria categoria)
+        public override Dictionary<string, object> ObterParametrosRegistro(Categoria categoria)
         {
             var parametros = new Dictionary<string, object>
                 {

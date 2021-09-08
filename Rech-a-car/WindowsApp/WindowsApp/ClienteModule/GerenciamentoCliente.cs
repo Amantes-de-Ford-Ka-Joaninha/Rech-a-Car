@@ -16,8 +16,6 @@ namespace WindowsApp.ClienteModule
         }
 
         protected override CadastroEntidade<ICliente> Cadastro => new CadastroCliente();
-        protected override IVisualizavel Visualizar => new VisualizarCliente();
-
         public Aluguel Aluguel { get; }
 
         protected override void SalvarAluguel()
@@ -61,6 +59,11 @@ namespace WindowsApp.ClienteModule
                 return typeof(ClientePF);
             else
                 throw new ArgumentException();
+        }
+
+        protected override IVisualizavel Visualizar(ICliente entidade)
+        {
+            return new VisualizarCliente();
         }
     }
 }

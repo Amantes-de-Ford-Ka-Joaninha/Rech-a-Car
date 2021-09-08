@@ -70,14 +70,14 @@ namespace Controladores.PessoaModule
         public override string sqlEditar => sqlEditarClientePF;
         public override string sqlExcluir => sqlExcluirClientePF;
         public override string sqlExists => sqlExisteClientePF;
-        public override void Inserir(ClientePF cliente, int id_chave_estrangeira = 0)
+        public override void Inserir(ClientePF cliente)
         {
             new ControladorCNH().Inserir(cliente.Cnh);
             base.Inserir(cliente);
         }
-        public override void Editar(int id, ClientePF cliente, int id_chave_estrangeira = 0)
+        public override void Editar(int id, ClientePF cliente)
         {
-            new ControladorCNH().Editar(id_chave_estrangeira, cliente.Cnh);
+            new ControladorCNH().Editar(cliente.Cnh.Id, cliente.Cnh);
             base.Editar(id, cliente);
         }
         public override ClientePF ConverterEmEntidade(IDataReader reader)
@@ -97,7 +97,7 @@ namespace Controladores.PessoaModule
                 Id = id
             };
         }
-        protected override Dictionary<string, object> ObterParametrosRegistro(ClientePF cliente)
+        public override Dictionary<string, object> ObterParametrosRegistro(ClientePF cliente)
         {
             var parametros = new Dictionary<string, object>
             {

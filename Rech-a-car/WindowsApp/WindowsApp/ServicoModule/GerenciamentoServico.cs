@@ -12,7 +12,6 @@ namespace WindowsApp.ServicoModule
         }
 
         protected override CadastroEntidade<Servico> Cadastro => new CadastroServico();
-        protected override IVisualizavel Visualizar => new VisualizarServico();
 
         public override DataGridViewColumn[] ConfigurarColunas()
         {
@@ -31,6 +30,11 @@ namespace WindowsApp.ServicoModule
                 servico.Taxa,
             };
             return linha.ToArray();
+        }
+
+        protected override IVisualizavel Visualizar(Servico entidade)
+        {
+            return new VisualizarServico();
         }
     }
 }

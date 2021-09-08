@@ -9,23 +9,23 @@ using WindowsApp.Shared;
 
 namespace WindowsApp.FuncionarioModule
 {
-    public partial class CadastroFuncionario : CadastroEntidade<Funcionario>
+    public partial class CadastroFuncionario : CadastroEntidade<Funcionario> //Form//
     {
         public override Controlador<Funcionario> Controlador => new ControladorFuncionario();
-        private Bitmap imagem;
 
         public CadastroFuncionario()
         {
             InitializeComponent();
             bt_foto.Image = new Bitmap(Resources.user);
+            cb_cargo.SelectedIndex = 1;
         }
-        protected override IEditavel ConfigurarEditar()
+        protected override IEditavel Editar()
         {
             tbNome.Text = entidade.Nome;
             tbTelefone.Text = entidade.Telefone;
             tbEndereco.Text = entidade.Endereco;
             tbCPF.Text = entidade.Documento;
-            tbCargo.Text = entidade.Cargo;
+            cb_cargo.SelectedIndex = (int)entidade.Cargo;
             tbUsuario.Text = entidade.NomeUsuario;
             bt_foto.Image = entidade.Foto;
 
@@ -37,17 +37,12 @@ namespace WindowsApp.FuncionarioModule
             var telefone = tbTelefone.Text;
             var endereco = tbEndereco.Text;
             var cpf = tbCPF.Text;
-            var cargo = tbCargo.Text;
+            var cargo = cb_cargo.SelectedIndex;
             var usuario = tbUsuario.Text;
             var imagem = (Bitmap)bt_foto.Image;
             var senha = tbSenha.Text;
 
-            return new Funcionario(nome, telefone, endereco, cpf, cargo, imagem, usuario, senha);
-        }
-        private void AtualizarIcone(Bitmap imagem)
-        {
-            bt_foto.Image = new Bitmap(imagem);
-
+            return new Funcionario(nome, telefone, endereco, cpf, (Cargo)cargo, imagem, usuario, senha);
         }
         private void btAdicionar_Click(object sender, EventArgs e)
         {
@@ -67,9 +62,8 @@ namespace WindowsApp.FuncionarioModule
                 if (ofdImagem.ShowDialog() == DialogResult.OK)
                 {
                     var imagemSelecionada = ofdImagem.FileName;
-                    imagem = new Bitmap(imagemSelecionada);
+                    bt_foto.Image = new Bitmap(imagemSelecionada);
                 }
-                AtualizarIcone(imagem);
             }
             catch (ArgumentException)
             {

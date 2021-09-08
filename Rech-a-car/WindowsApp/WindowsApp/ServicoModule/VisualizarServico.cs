@@ -5,11 +5,7 @@ using WindowsApp.Shared;
 
 namespace WindowsApp.ServicoModule
 {
-    internal class VisualizarServico : IVisualizavel
+    public class VisualizarServico : IVisualizavel
     {
-        public Form Visualizar<T>(T t) where T : IControlavel
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

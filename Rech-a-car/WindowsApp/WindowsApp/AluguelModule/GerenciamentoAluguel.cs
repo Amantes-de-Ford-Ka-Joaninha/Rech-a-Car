@@ -13,7 +13,6 @@ namespace WindowsApp.AluguelModule
             InitializeComponent();
         }
         protected override CadastroEntidade<Aluguel> Cadastro => new ResumoAluguel();
-        protected override IVisualizavel Visualizar => new FechamentoAluguel(GetEntidadeSelecionado());
 
         public override DataGridViewColumn[] ConfigurarColunas()
         {
@@ -24,19 +23,24 @@ namespace WindowsApp.AluguelModule
             new DataGridViewTextBoxColumn { DataPropertyName = "Condutor", HeaderText = "Condutor"},
             new DataGridViewTextBoxColumn { DataPropertyName = "Plano", HeaderText = "Plano"},
             new DataGridViewTextBoxColumn { DataPropertyName = "DataDevolucao", HeaderText = "Devolução"},
+            new DataGridViewTextBoxColumn { DataPropertyName = "Funcionario", HeaderText = "Funcionário"},
             };
         }
         public override object[] ObterCamposLinha(Aluguel aluguel)
         {
-            List<object> linha = new List<object>()
+            return new object[]
             {
                 aluguel.Veiculo,
                 aluguel.Cliente,
                 aluguel.Condutor is ClientePF ? "-----" : aluguel.Condutor.Nome,
                 aluguel.TipoPlano,
-                aluguel is AluguelFechado aluguelF ? aluguelF.DataDevolucao.ToString("d") : "-----",
+                aluguel.DataDevolucao.ToString("d"),
+                aluguel.Funcionario
             };
-            return linha.ToArray();
+        }
+        protected override IVisualizavel Visualizar(Aluguel entidade)
+        {
+            return new FechamentoAluguel(GetEntidadeSelecionado());
         }
     }
 }

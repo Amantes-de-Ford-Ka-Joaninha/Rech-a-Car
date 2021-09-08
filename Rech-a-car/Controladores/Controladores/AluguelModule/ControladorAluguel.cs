@@ -45,11 +45,7 @@ namespace Controladores.AluguelModule
                     [ID_FUNCIONARIO] = @ID_FUNCIONARIO,       
                     [TIPO_PLANO] = @TIPO_PLANO,
                     [DATA_ALUGUEL] = @DATA_ALUGUEL,
-                    [DATA_DEVOLUCAO] = @DATA_DEVOLUCAO,
-                    [DATA_DEVOLVIDA] = @DATA_DEVOLVIDA,
-                    [KM_RODADOS] = @KM_RODADOS,
-                    [TANQUE_UTILIZADO] = @TANQUE_UTILIZADO,
-                    [TOTAL] = @TOTAL
+                    [DATA_DEVOLUCAO] = @DATA_DEVOLUCAO
                 WHERE [ID] = @ID";
 
         private const string sqlExcluirAluguel =
@@ -84,12 +80,12 @@ namespace Controladores.AluguelModule
         public override string sqlExcluir => sqlExcluirAluguel;
         public override string sqlExists => sqlExisteAluguel;
 
-        public override void Inserir(Aluguel entidade, int id_chave_estrangeira = 0)
+        public override void Inserir(Aluguel entidade)
         {
             base.Inserir(entidade);
             new ControladorServico().AlugarServicos(entidade.Id, entidade.Servicos);
         }
-        public override void Editar(int id,Aluguel entidade, int id_chave_estrangeira = 0)
+        public override void Editar(int id,Aluguel entidade)
         {
             base.Editar(id,entidade);
             var controladorServico = new ControladorServico();
@@ -111,9 +107,12 @@ namespace Controladores.AluguelModule
             var funcionario = new ControladorFuncionario().GetById(id_funcionario);
             var veiculo = new ControladorVeiculo().GetById(id_veiculo);
 
-            var condutor = GetCondutor(id_condutor, id_cliente);
+            var ehClientePF = id_condutor == id_cliente;
 
-            var cliente = new ControladorCliente().GetById(id_cliente, GetTipoCliente(condutor));
+            var cliente = new ControladorCliente().GetById(id_cliente, ehClientePF ? typeof(ClientePF) : typeof(ClientePJ));
+
+            var condutor = ehClientePF ? null : ((ClientePJ)cliente).Motoristas.Find(x => x.Id == id_condutor);
+
             var servicos = new ControladorServico().GetServicosAlugados(id);
 
             return new Aluguel(veiculo, servicos, (Plano)tipoPlano, dataAluguel, cliente, funcionario, dataDevolucao, condutor)
@@ -121,18 +120,9 @@ namespace Controladores.AluguelModule
                 Id = id
             };
         }
-
-        private Type GetTipoCliente(Condutor condutor)
+        public override Dictionary<string, object> ObterParametrosRegistro(Aluguel aluguel)
         {
-            return condutor == null ? typeof(ClientePF) : typeof(ClientePJ);
-        }
-        private Condutor GetCondutor(int id_condutor, int id_cliente)
-        {
-            return id_condutor == id_cliente ? null : new ControladorMotorista().GetMotoristaEmpresa(id_cliente, id_condutor);
-        }
-        protected override Dictionary<string, object> ObterParametrosRegistro(Aluguel aluguel)
-        {
-            var paramsAluguel = new Dictionary<string, object>
+            return new Dictionary<string, object>
             {
                 { "ID", aluguel.Id },
                 { "ID_CLIENTE", aluguel.Cliente.Id },
@@ -143,14 +133,6 @@ namespace Controladores.AluguelModule
                 { "DATA_ALUGUEL", aluguel.DataAluguel },
                 { "DATA_DEVOLUCAO", aluguel.DataDevolucao }
             };
-            if (aluguel is AluguelFechado aluguelF) {
-                paramsAluguel.Add("DATA_DEVOLVIDA", aluguelF.DataDevolvida);
-                paramsAluguel.Add("TANQUE_UTILIZADO", aluguelF.TanqueUtilizado);
-                paramsAluguel.Add("KM_RODADOS", aluguelF.KmRodados);
-                paramsAluguel.Add("TOTAL", aluguelF.CalcularTotal());
-            }
-
-            return paramsAluguel;
         }
     }
 }

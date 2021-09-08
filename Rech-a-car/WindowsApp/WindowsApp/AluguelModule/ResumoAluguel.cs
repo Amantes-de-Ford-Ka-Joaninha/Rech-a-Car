@@ -13,19 +13,27 @@ using System.Windows.Forms;
 using System.Linq;
 using System.Collections.Generic;
 using Dominio.VeiculoModule;
-using System.Globalization;
+using EmailAluguelPDF;
 
 namespace WindowsApp.AluguelModule
 {
-    public partial class ResumoAluguel : CadastroEntidade<Aluguel>//Form//
+    public partial class ResumoAluguel : CadastroEntidade<Aluguel>// Form // 
     {
-        private double PrecoParcial { set { lbValor.Text = value.ToString(); } get { return Convert.ToDouble(lbValor.Text); } }
         private Aluguel Aluguel;
         public ResumoAluguel(Aluguel aluguel = null)
         {
-            Aluguel = aluguel == null ? new Aluguel() : aluguel;
+            Aluguel = aluguel ?? new Aluguel();
 
             InitializeComponent();
+            PopulaCBTiposCarteira();
+
+
+            PopulaServicos(GetServicosDiponiveis());
+            PopulaDatas();
+
+            cbPlano.SelectedIndex = 0;
+            bt_RemoveServico.Enabled = false;
+            bt_AddServico.Enabled = false;
 
             if (Aluguel?.Veiculo != null)
             {
@@ -36,20 +44,8 @@ namespace WindowsApp.AluguelModule
             {
                 PopulaCliente(aluguel.Cliente);
             }
-
-            PopulaServicos(GetServicosDiponiveis());
-            PopulaDatas();
-            cbPlano.SelectedIndex = 0;
-            bt_RemoveServico.Enabled = false;
-            bt_AddServico.Enabled = false;
-
         }
 
-        private void PopulaDatas()
-        {
-            tbDt_Emprestimo.Text = DateTime.Today.ToShortDateString();
-            tbDt_Devolucao.Text = DateTime.Today.AddDays(1).ToShortDateString();
-        }
         public override Controlador<Aluguel> Controlador => new ControladorAluguel();
         public override Aluguel GetNovaEntidade()
         {
@@ -64,7 +60,7 @@ namespace WindowsApp.AluguelModule
 
             return Aluguel;
         }
-        protected override IEditavel ConfigurarEditar()
+        protected override IEditavel Editar()
         {
             tbCliente.Text = entidade.Cliente.Nome;
             tbDocumento.Text = entidade.Cliente.Documento;
@@ -74,13 +70,43 @@ namespace WindowsApp.AluguelModule
             tbModelo.Text = entidade.Veiculo.Modelo;
             tbPlaca.Text = entidade.Veiculo.Placa;
             cbPlano.SelectedItem = entidade.TipoPlano.ToString();
+            cbTipoCnh.SelectedItem = entidade.Veiculo.Categoria.TipoDeCnh;
 
             SetCondutor();
 
             tbDt_Emprestimo.Text = entidade.DataAluguel.ToString("d");
             tbDt_Devolucao.Text = entidade.DataDevolucao.ToString("d");
             PopulaServicos(GetServicosDiponiveis());
+            EsconderPanel(panelEsconderCliente);
+            EsconderPanel(panelEsconderVeiculo);
+
             return this;
+        }
+        protected override string ValidacaoCampos()
+        {
+            var validacao = string.Empty;
+            if (Aluguel.Veiculo == null)
+                validacao += "O aluguel precisa de um veículo\n";
+            if (Aluguel.Cliente == null)
+                validacao += "O aluguel precisa de um cliente";
+            if (Aluguel.Cliente is ClientePJ && cb_motoristas.SelectedItem == null)
+                validacao += "Selecione um motorista para o aluguel";
+
+            return validacao;
+        }
+
+        private void PopulaCBTiposCarteira()
+        {
+            var tipos = ((TipoCNH[])Enum.GetValues(typeof(TipoCNH))).ToList();
+            tipos.Remove(TipoCNH.AB);
+
+            foreach (var item in tipos)
+                cbTipoCnh.Items.Add(item);
+        }
+        private void PopulaDatas()
+        {
+            tbDt_Emprestimo.Text = DateTime.Today.ToShortDateString();
+            tbDt_Devolucao.Text = DateTime.Today.AddDays(1).ToShortDateString();
         }
         private List<Servico> GetServicosDiponiveis()
         {
@@ -100,7 +126,7 @@ namespace WindowsApp.AluguelModule
             tbMarca.Text = Aluguel.Veiculo.Marca;
             tbModelo.Text = Aluguel.Veiculo.Modelo;
             tbPlaca.Text = Aluguel.Veiculo.Placa;
-            cbTipoCnh.SelectedItem = Aluguel.Veiculo.Categoria.TipoDeCnh.ToString();
+            cbTipoCnh.SelectedItem = Aluguel.Veiculo.Categoria.TipoDeCnh;
         }
         private void PopulaCliente(ICliente cliente)
         {
@@ -126,30 +152,26 @@ namespace WindowsApp.AluguelModule
         {
             Aluguel.Servicos.Add((Servico)listServicos.SelectedItem);
             listServicos.Items.Remove(listServicos.SelectedItem);
-            lbValor.Text = Aluguel.CalcularTotal().ToString();
+            CalcularPrecoParcial();
         }
         private void RemoverServico()
         {
             Aluguel.Servicos.Remove((Servico)listServicos.SelectedItem);
             listServicos.Items.Remove(listServicos.SelectedItem);
-            lbValor.Text = Aluguel.CalcularTotal().ToString();
+            CalcularPrecoParcial();
         }
         private void EsconderPanel(Panel panel)
         {
             panel.Visible = false;
         }
-
-        protected override string ValidacaoCampos()
+        private void CalcularPrecoParcial()
         {
-            var validacao = string.Empty;
-            if (Aluguel.Veiculo == null)
-                validacao += "O aluguel precisa de um veículo\n";
-            if (Aluguel.Cliente == null)
-                validacao += "O aluguel precisa de um cliente";
-            if (Aluguel.Cliente is ClientePJ && cb_motoristas.SelectedItem == null)
-                validacao += "Selecione um motorista para o aluguel";
+            DateTime.TryParse(tbDt_Emprestimo.Text, out DateTime dtEmprestimo);
+            DateTime.TryParse(tbDt_Devolucao.Text, out DateTime dtDevolucao);
 
-            return validacao;
+            Aluguel.DataAluguel = dtEmprestimo;
+            Aluguel.DataDevolucao = dtDevolucao;
+            lbValor.Text = Aluguel.CalcularTotal().ToString();
         }
         private void AtualizaOpcoesListServicos()
         {
@@ -164,10 +186,15 @@ namespace WindowsApp.AluguelModule
                 lb_lista_opcionais.Text = "Opcionais";
             }
         }
-        private void CalcularValorParcial()
+        private void GetNovaSelecao(int selecionado)
         {
-            if (Aluguel.Veiculo != null)
-                lbValor.Text = Aluguel.CalcularTotal().ToString();
+            int quantidade = listServicos.Items.Count;
+            if (quantidade == 0)
+                listServicos.SelectedIndex = -1;
+            else if (quantidade == selecionado)
+                listServicos.SelectedIndex = selecionado - 1;
+            else
+                listServicos.SelectedIndex = selecionado;
         }
 
         #region Eventos
@@ -176,6 +203,7 @@ namespace WindowsApp.AluguelModule
             if (!Salva())
                 return;
 
+            new CriaPDFAluguel(Aluguel);
             TelaPrincipal.Instancia.FormAtivo = new GerenciamentoAluguel();
         }
         private void panelEsconderCliente_DoubleClick(object sender, EventArgs e)
@@ -190,13 +218,13 @@ namespace WindowsApp.AluguelModule
         {
             var selecionado = listServicos.SelectedIndex;
             AdicionarServico();
-            listServicos.SelectedIndex = listServicos.Items.Count > 0 ? selecionado - 1 : -1;
+            GetNovaSelecao(selecionado);
         }
         private void bt_RemoveServico_Click(object sender, EventArgs e)
         {
             var selecionado = listServicos.SelectedIndex;
             RemoverServico();
-            listServicos.SelectedIndex = listServicos.Items.Count != 0 ? selecionado : -1;
+            GetNovaSelecao(selecionado);
         }
         private void pictureBox1_MouseHover(object sender, EventArgs e)
         {
@@ -204,16 +232,15 @@ namespace WindowsApp.AluguelModule
         }
         private void tbDt_Emprestimo_TextChanged(object sender, EventArgs e)
         {
-
-            CalcularValorParcial();
+            CalcularPrecoParcial();
         }
         private void tbDt_Devolucao_TextChanged(object sender, EventArgs e)
         {
-            CalcularValorParcial();
+            CalcularPrecoParcial();
         }
         private void cbPlano_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CalcularValorParcial();
+            CalcularPrecoParcial();
         }
         private void bt_alterna_listas_Click(object sender, EventArgs e)
         {
@@ -221,10 +248,12 @@ namespace WindowsApp.AluguelModule
         }
         private void listServicos_SelectedValueChanged(object sender, EventArgs e)
         {
+            var NaotemZero = listServicos.Items.Count != 0;
+
             if (lb_lista_opcionais.Text == "Opcionais")
-                bt_AddServico.Enabled = listServicos.Items.Count != 0 ? true : false;
+                bt_AddServico.Enabled = NaotemZero;
             else
-                bt_RemoveServico.Enabled = listServicos.Items.Count != 0 ? true : false;
+                bt_RemoveServico.Enabled = NaotemZero;
         }
         #endregion
     }

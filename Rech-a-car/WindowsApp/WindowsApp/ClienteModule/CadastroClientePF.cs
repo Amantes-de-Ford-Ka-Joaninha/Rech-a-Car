@@ -18,7 +18,7 @@ namespace WindowsApp.ClienteModule
             cbTipoCNH.SelectedIndex = 2;
         }
 
-        protected override IEditavel ConfigurarEditar()
+        protected override IEditavel Editar()
         {
             tbCPF.Text = entidade.Documento;
             tbNome.Text = entidade.Nome;
@@ -49,10 +49,13 @@ namespace WindowsApp.ClienteModule
 
             return new CNH(numero, (TipoCNH)tipo);
         }
+        protected override void AdicionarDependencias(ClientePF cliente)
+        {
+            cliente.Cnh.Id = entidade.Cnh.Id;
+        }
         private void btAdicionar_Click(object sender, EventArgs e)
         {
-            var id_cnh = entidade?.Cnh.Id ?? default(int);
-            if (Salva(id_cnh))
+            if (Salva())
                 TelaPrincipal.Instancia.FormAtivo = new GerenciamentoCliente();
         }
     }

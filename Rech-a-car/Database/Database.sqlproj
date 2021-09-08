@@ -120,9 +120,6 @@
     <Folder Include="dbo\Tables\" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dbo\Tables\TBFuncionarios.sql">
-      <AnsiNulls>Off</AnsiNulls>
-    </Build>
     <Build Include="dbo\Tables\TBMotorista.sql">
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
@@ -158,6 +155,10 @@
     <Build Include="dbo\Tables\TBAluguel.sql">
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\TBFuncionario.sql">
+      <AnsiNulls>Off</AnsiNulls>
+      <QuotedIdentifier>Off</QuotedIdentifier>
     </Build>
   </ItemGroup>
 </Project>

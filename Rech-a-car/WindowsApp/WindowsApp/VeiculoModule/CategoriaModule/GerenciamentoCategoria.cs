@@ -12,7 +12,6 @@ namespace WindowsApp.VeiculoModule.CategoriaModule
         }
 
         protected override CadastroEntidade<Categoria> Cadastro => new CadastroCategoria();
-        protected override IVisualizavel Visualizar => new VisualizarCategoria();
 
         public override DataGridViewColumn[] ConfigurarColunas()
         {
@@ -38,6 +37,11 @@ namespace WindowsApp.VeiculoModule.CategoriaModule
                 categoria.TipoDeCnh
             };
             return linha.ToArray();
+        }
+
+        protected override IVisualizavel Visualizar(Categoria entidade)
+        {
+            return new VisualizarCategoria();
         }
     }
 }

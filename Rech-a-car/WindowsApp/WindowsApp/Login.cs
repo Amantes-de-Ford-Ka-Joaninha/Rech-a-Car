@@ -57,7 +57,7 @@ namespace WindowsApp
         {
             var Controlador = new ControladorFuncionario();
             if (!Controlador.ExisteUsuario("admin"))
-                Controlador.Inserir(new Funcionario("Alexandre Rech", "99999999999", "Rua do Flamengo", "999999", "Dono", Properties.Resources.rech, userAdmin, senhaAdmin));
+                Controlador.Inserir(new Funcionario("Alexandre Rech", "99999999999", "Rua do Flamengo", "999999", Cargo.SysAdmin, Properties.Resources.rech, userAdmin, senhaAdmin));
             funcionario = Controlador.GetByUserName(userAdmin);
         }
 

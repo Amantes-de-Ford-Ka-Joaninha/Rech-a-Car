@@ -89,14 +89,14 @@ namespace Controladores.PessoaModule
         public override string sqlEditar => sqlEditarFuncionario;
         public override string sqlExcluir => sqlExcluirFuncionario;
         public override string sqlExists => sqlExisteFuncionario;
-        public override void Inserir(Funcionario entidade, int id_chave_estrangeira = 0)
+        public override void Inserir(Funcionario entidade)
         {
-            base.Inserir(entidade, id_chave_estrangeira);
+            base.Inserir(entidade);
             ControladorSenha.Inserir(entidade.Id, entidade.Senha);
         }
-        public override void Editar(int id, Funcionario entidade, int id_chave_estrangeira = 0)
+        public override void Editar(int id, Funcionario entidade)
         {
-            base.Editar(id, entidade, id_chave_estrangeira);
+            base.Editar(id, entidade);
             ControladorSenha.Editar(entidade.Id, entidade.Senha);
         }
         public override Funcionario ConverterEmEntidade(IDataReader reader)
@@ -105,17 +105,17 @@ namespace Controladores.PessoaModule
             var nome = Convert.ToString(reader["NOME"]);
             var telefone = Convert.ToString(reader["TELEFONE"]);
             var documento = Convert.ToString(reader["DOCUMENTO"]);
-            var cargo = Convert.ToString(reader["CARGO"]);
+            var cargo = Convert.ToInt32(reader["CARGO"]);
             var endereco = Convert.ToString(reader["ENDERECO"]);
             var user = Convert.ToString(reader["USER"]);
             var foto = RecuperarImagem((byte[])reader["FOTO"]);
 
-            return new Funcionario(nome, telefone, endereco, documento, cargo, foto, user)
+            return new Funcionario(nome, telefone, endereco, documento, (Cargo)cargo, foto, user)
             {
                 Id = id
             };
         }
-        protected override Dictionary<string, object> ObterParametrosRegistro(Funcionario funcionario)
+        public override Dictionary<string, object> ObterParametrosRegistro(Funcionario funcionario)
         {
             var parametros = new Dictionary<string, object>
             {

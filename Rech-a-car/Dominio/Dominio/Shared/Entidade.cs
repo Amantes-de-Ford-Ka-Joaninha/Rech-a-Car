@@ -6,7 +6,7 @@
         public abstract string Validar();
         public override bool Equals(object obj)
         {
-            return obj.GetType() == GetType() && Id == ((Entidade)obj).Id;
+            return obj != null && obj.GetType() == GetType() && Id == ((Entidade)obj).Id;
         }
         public override int GetHashCode()
         {

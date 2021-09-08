@@ -71,7 +71,7 @@
     <Build Include="dbo\Tables\TBClientePF.sql" />
     <Build Include="dbo\Tables\TBServico.sql">
       <AnsiNulls>Off</AnsiNulls>
-      <QuotedIdentifier>Off</QuotedIdentifier>
+      <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
     <Build Include="dbo\Tables\TBCategoria.sql" />
     <Build Include="dbo\Tables\TBSenha.sql" />

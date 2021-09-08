@@ -49,13 +49,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controladores\ControladorAluguel.cs" />
+    <Compile Include="Controladores\AluguelModule\ControladorAluguelFechado.cs" />
+    <Compile Include="Controladores\AluguelModule\ControladorAluguel.cs" />
     <Compile Include="Controladores\ControladorCnh.cs" />
     <Compile Include="Controladores\PessoaModule\ControladorCliente.cs" />
     <Compile Include="Controladores\PessoaModule\ControladorClientePF.cs" />
     <Compile Include="Controladores\PessoaModule\ControladorClientePJ.cs" />
     <Compile Include="Controladores\PessoaModule\ControladorFuncionario.cs" />
-    <Compile Include="Controladores\PessoaModule\ControladorMotorista.cs" />
     <Compile Include="Controladores\PessoaModule\ControladorSenha.cs" />
     <Compile Include="Controladores\Shared\Controlador.cs" />
     <Compile Include="Controladores\Shared\ControladorEntidade.cs" />

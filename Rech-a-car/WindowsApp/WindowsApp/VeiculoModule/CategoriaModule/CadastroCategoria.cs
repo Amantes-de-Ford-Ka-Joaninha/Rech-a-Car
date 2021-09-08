@@ -5,27 +5,40 @@ using Dominio.VeiculoModule;
 using System;
 using System.Windows.Forms;
 using WindowsApp.Shared;
+using System.Linq;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace WindowsApp.VeiculoModule.CategoriaModule
 {
-    public partial class CadastroCategoria : CadastroEntidade<Categoria>
+    public partial class CadastroCategoria : CadastroEntidade<Categoria>//Form//
     {
         public override Controlador<Categoria> Controlador { get => new ControladorCategoria(); }
 
         public CadastroCategoria()
         {
             InitializeComponent();
-            cbCNH.SelectedItem = "AB";
+            PreencherCbCnh();
+            cbCNH.SelectedIndex = 1;
         }
 
-        protected override IEditavel ConfigurarEditar()
+        private void PreencherCbCnh()
+        {
+            var tipos = ((TipoCNH[])Enum.GetValues(typeof(TipoCNH))).ToList();
+            tipos.Remove(TipoCNH.AB);
+
+            foreach (var item in tipos)
+                cbCNH.Items.Add(item);
+        }
+
+        protected override IEditavel Editar()
         {
             tbNome.Text = entidade.Nome;
             tbDiaria.Text = entidade.PrecoDiaria.ToString();
             tbKm.Text = entidade.PrecoKm.ToString();
             tbFranquia.Text = entidade.QuilometragemFranquia.ToString();
             tbLivre.Text = entidade.PrecoLivre.ToString();
-            cbCNH.SelectedIndex = (int)entidade.TipoDeCnh;
+            cbCNH.SelectedItem = entidade.TipoDeCnh;
 
             return this;
         }
@@ -36,7 +49,7 @@ namespace WindowsApp.VeiculoModule.CategoriaModule
             Double.TryParse(tbKm.Text, out double km);
             Int32.TryParse(tbFranquia.Text, out int franquia);
             Double.TryParse(tbLivre.Text, out double livre);
-            var tipocnh = cbCNH.SelectedIndex;
+            var tipocnh = cbCNH.SelectedItem;
 
             return new Categoria(nome, diaria, km, franquia, livre, (TipoCNH)tipocnh);
         }

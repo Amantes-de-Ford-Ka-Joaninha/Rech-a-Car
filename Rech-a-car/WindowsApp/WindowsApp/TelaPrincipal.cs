@@ -23,10 +23,10 @@ namespace WindowsApp
             InitializeComponent();
             EsconderSubMenu();
             lbUsuario.Text = funcionario.Nome;
-            lbCargo.Text = funcionario.Cargo;
+            lbCargo.Text = funcionario.Cargo.ToString();
             foto_perfil.Image = funcionario.Foto;
             FuncionarioLogado = funcionario;
-            if (funcionario.Cargo != "Dono")
+            if (funcionario.Cargo != Cargo.SysAdmin)
                 bt_funcionarios.Visible = false;
         }
 
