@@ -1,19 +1,28 @@
-﻿using Dominio.VeiculoModule;
+﻿using Controladores.VeiculoModule;
+using Dominio.AluguelModule;
+using Dominio.VeiculoModule;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using WindowsApp.AluguelModule;
 using WindowsApp.Shared;
 
 namespace WindowsApp.VeiculoModule
 {
     public class GerenciamentoVeiculo : GerenciamentoEntidade<Veiculo>
     {
-        public GerenciamentoVeiculo() : base("Gerenciamento de Veículos")
+        private Aluguel Aluguel { get; }
+        public GerenciamentoVeiculo(string titulo = "Gerenciamento de Veículo", TipoTela tipo = TipoTela.CadastroBasico, Aluguel aluguel = null) : base(titulo, tipo)
         {
-        }
-
+            Aluguel = aluguel;
+            if (tipo == TipoTela.ApenasConfirma)
+                AtualizarRegistros(new ControladorVeiculo().GetDisponiveis());      //da pra melhorar isso aq, e os overrides, pq o programa acaba dando muitas voltas e instanciando coisas q nem vai usar
+    }
         protected override CadastroEntidade<Veiculo> Cadastro => new CadastroVeiculo();
-        protected override VisualizarEntidade<Veiculo> Visualizar => new VisualizarVeiculo();
-
+        protected override void SalvarAluguel()
+        {
+            Aluguel.Veiculo = GetEntidadeSelecionado();
+            TelaPrincipal.Instancia.FormAtivo = new ResumoAluguel(Aluguel);
+        }
         public override DataGridViewColumn[] ConfigurarColunas()
         {
             return new DataGridViewColumn[]
@@ -38,6 +47,11 @@ namespace WindowsApp.VeiculoModule
                 veiculo.Categoria.PrecoKm
             };
             return linha.ToArray();
+        }
+
+        protected override IVisualizavel Visualizar(Veiculo entidade)
+        {
+            return new VisualizarVeiculo();
         }
     }
 }

@@ -7,12 +7,11 @@ namespace WindowsApp.FuncionarioModule
 {
     public class GerenciamentoFuncionario : GerenciamentoEntidade<Funcionario>
     {
-        public GerenciamentoFuncionario() : base("Gerenciamento de Funcionários")
+        public GerenciamentoFuncionario(string titulo = "Gerenciamento de Funcionário", TipoTela tipo = TipoTela.CadastroBasico) : base(titulo, tipo)
         {
         }
 
         protected override CadastroEntidade<Funcionario> Cadastro => new CadastroFuncionario();
-        protected override VisualizarEntidade<Funcionario> Visualizar => new VisualizarFuncionario();
         public override DataGridViewColumn[] ConfigurarColunas()
         {
             return new DataGridViewColumn[]
@@ -28,13 +27,16 @@ namespace WindowsApp.FuncionarioModule
             List<object> linha = new List<object>()
             {
                 funcionario.Nome,
-                funcionario.Documento,
                 funcionario.Telefone,
                 funcionario.Endereco,
+                funcionario.Documento,
             };
             return linha.ToArray();
         }
 
-        
+        protected override IVisualizavel Visualizar(Funcionario entidade)
+        {
+            return new VisualizarFuncionario();
+        }
     }
 }

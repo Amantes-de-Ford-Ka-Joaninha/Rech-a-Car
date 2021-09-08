@@ -1,13 +1,10 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using Dominio.PessoaModule.ClienteModule;
-using Dominio.PessoaModule;
-using Controladores;
-using Controladores.PessoaModule;
-using FluentAssertions;
-using Tests.Shared;
-using System.Collections.Generic;
+﻿using Controladores.PessoaModule;
 using Controladores.Shared;
+using Dominio.PessoaModule;
+using Dominio.PessoaModule.ClienteModule;
+using FluentAssertions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Tests.Shared;
 
 namespace Tests.Tests.ClientePJ_Module
 {
@@ -25,8 +22,8 @@ namespace Tests.Tests.ClientePJ_Module
         {
             cliente = new ClientePJ("nome", "99999999999", "endereco", "99999999999999");
             controladorClientePJ.Inserir(cliente);
-            motorista = new MotoristaEmpresa("nomeMotorista", "99999999999", "endereco", "99999999999999",new CNH("59778304921",TipoCNH.A));
-            controladorMotorista.Inserir(motorista,cliente.Id);
+            motorista = new MotoristaEmpresa("nomeMotorista", "99999999999", "endereco", "99999999999999", new CNH("59778304921", TipoCNH.A), cliente);
+            controladorMotorista.Inserir(motorista);
             cliente = controladorClientePJ.GetById(cliente.Id);
         }
         [TestMethod]
@@ -49,11 +46,14 @@ namespace Tests.Tests.ClientePJ_Module
         [TestMethod]
         public void Deve_editar_motorista()
         {
-            string nomeAntigo = cliente.Motoristas[0].Nome;
-            cliente.Motoristas[0].Nome = "NOME EDITADO";
-            controladorMotorista.Editar(cliente.Motoristas[0].Id, cliente.Motoristas[0], cliente.Motoristas[0].Cnh.Id);
+            var motoristaEmpresa = cliente.Motoristas[0];
+
+            string nomeAntigo = motoristaEmpresa.Nome;
+            motoristaEmpresa.Nome = "NOME EDITADO";
+
+            controladorMotorista.Editar(motoristaEmpresa.Id, motoristaEmpresa);
             cliente = controladorClientePJ.GetById(cliente.Id);
-            nomeAntigo.Should().NotBe(cliente.Motoristas[0].Nome);
+            nomeAntigo.Should().NotBe(motoristaEmpresa.Nome);
         }
         [TestMethod]
         public void Deve_editar_nome_cliente()

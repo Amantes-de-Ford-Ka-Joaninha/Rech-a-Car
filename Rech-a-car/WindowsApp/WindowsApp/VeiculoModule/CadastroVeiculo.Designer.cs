@@ -1,4 +1,6 @@
 ﻿
+using WindowsApp.Shared;
+
 namespace WindowsApp.VeiculoModule
 {
     partial class CadastroVeiculo
@@ -45,7 +47,7 @@ namespace WindowsApp.VeiculoModule
             this.label15 = new System.Windows.Forms.Label();
             this.cb_portas = new System.Windows.Forms.ComboBox();
             this.ofdImagem = new System.Windows.Forms.OpenFileDialog();
-            this.bt_foto = new System.Windows.Forms.Button();
+            this.bt_foto = new BotaoComImagem();
             this.bt_adicionar = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.tb_marca = new System.Windows.Forms.TextBox();
@@ -154,6 +156,7 @@ namespace WindowsApp.VeiculoModule
             // cb_cambio
             // 
             this.cb_cambio.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cb_cambio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_cambio.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_cambio.FormattingEnabled = true;
             this.cb_cambio.Items.AddRange(new object[] {
@@ -227,6 +230,7 @@ namespace WindowsApp.VeiculoModule
             // cb_portas
             // 
             this.cb_portas.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cb_portas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_portas.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_portas.FormattingEnabled = true;
             this.cb_portas.Items.AddRange(new object[] {
@@ -248,7 +252,6 @@ namespace WindowsApp.VeiculoModule
             this.bt_foto.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.bt_foto.FlatAppearance.BorderSize = 0;
             this.bt_foto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_foto.Image = global::WindowsApp.Properties.Resources.inserir_icone_de_imagem;
             this.bt_foto.Location = new System.Drawing.Point(465, 331);
             this.bt_foto.Name = "bt_foto";
             this.bt_foto.Size = new System.Drawing.Size(105, 95);
@@ -262,10 +265,10 @@ namespace WindowsApp.VeiculoModule
             this.bt_adicionar.FlatAppearance.BorderSize = 0;
             this.bt_adicionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_adicionar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(33)))), ((int)(((byte)(34)))));
-            this.bt_adicionar.Image = global::WindowsApp.Properties.Resources.adicionar;
-            this.bt_adicionar.Location = new System.Drawing.Point(596, 450);
+            this.bt_adicionar.Image = global::WindowsApp.Properties.Resources.check;
+            this.bt_adicionar.Location = new System.Drawing.Point(577, 430);
             this.bt_adicionar.Name = "bt_adicionar";
-            this.bt_adicionar.Size = new System.Drawing.Size(60, 60);
+            this.bt_adicionar.Size = new System.Drawing.Size(79, 80);
             this.bt_adicionar.TabIndex = 14;
             this.bt_adicionar.UseVisualStyleBackColor = true;
             this.bt_adicionar.Click += new System.EventHandler(this.bt_adicionar_Click);
@@ -294,6 +297,7 @@ namespace WindowsApp.VeiculoModule
             // cb_capacidade
             // 
             this.cb_capacidade.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cb_capacidade.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_capacidade.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_capacidade.FormattingEnabled = true;
             this.cb_capacidade.Items.AddRange(new object[] {
@@ -308,6 +312,7 @@ namespace WindowsApp.VeiculoModule
             // cb_portaMalas
             // 
             this.cb_portaMalas.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cb_portaMalas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_portaMalas.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_portaMalas.FormattingEnabled = true;
             this.cb_portaMalas.Items.AddRange(new object[] {
@@ -357,6 +362,7 @@ namespace WindowsApp.VeiculoModule
             // cb_tipoCombustivel
             // 
             this.cb_tipoCombustivel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cb_tipoCombustivel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_tipoCombustivel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_tipoCombustivel.FormattingEnabled = true;
             this.cb_tipoCombustivel.Items.AddRange(new object[] {
@@ -397,6 +403,7 @@ namespace WindowsApp.VeiculoModule
             // cb_categoria
             // 
             this.cb_categoria.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cb_categoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_categoria.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_categoria.FormattingEnabled = true;
             this.cb_categoria.Items.AddRange(new object[] {
@@ -468,7 +475,7 @@ namespace WindowsApp.VeiculoModule
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ComboBox cb_portas;
         private System.Windows.Forms.OpenFileDialog ofdImagem;
-        private System.Windows.Forms.Button bt_foto;
+        private Shared.BotaoComImagem bt_foto;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox tb_marca;
         private System.Windows.Forms.ComboBox cb_capacidade;

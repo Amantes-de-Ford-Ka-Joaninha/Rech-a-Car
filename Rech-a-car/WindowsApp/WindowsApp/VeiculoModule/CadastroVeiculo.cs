@@ -4,11 +4,12 @@ using Dominio.VeiculoModule;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using WindowsApp.Properties;
 using WindowsApp.Shared;
 
 namespace WindowsApp.VeiculoModule
 {
-    public partial class CadastroVeiculo : CadastroEntidade<Veiculo>
+    public partial class CadastroVeiculo : CadastroEntidade<Veiculo>//Form//
     {
         public override Controlador<Veiculo> Controlador { get => new ControladorVeiculo(); }
         private Bitmap imagem;
@@ -22,9 +23,10 @@ namespace WindowsApp.VeiculoModule
             cb_portas.SelectedIndex = 0;
             cb_tipoCombustivel.SelectedIndex = 4;
             cb_categoria.DataSource = new ControladorCategoria().Registros;
+            bt_foto.Image = new Bitmap(Resources.inserir_icone_de_imagem);
         }
 
-        protected override IEditavel ConfigurarEditar()
+        protected override IEditavel Editar()
         {
             tb_modelo.Text = entidade.Modelo;
             tb_marca.Text = entidade.Marca;
@@ -80,8 +82,8 @@ namespace WindowsApp.VeiculoModule
                 {
                     var imagemSelecionada = ofdImagem.FileName;
                     imagem = new Bitmap(imagemSelecionada);
+                    AtualizarIcone(imagem);
                 }
-                AtualizarIcone(imagem);
             }
             catch (ArgumentException)
             {

@@ -15,7 +15,7 @@ namespace WindowsApp.ClienteModule
 
         public override Controlador<ICliente> Controlador => new ControladorCliente();
 
-        protected override IEditavel ConfigurarEditar()
+        protected override IEditavel Editar()
         {
             if (entidade is ClientePF)
                 return new CadastroClientePF().ConfigurarEditar((ClientePF)entidade);
@@ -27,7 +27,7 @@ namespace WindowsApp.ClienteModule
 
         public override ICliente GetNovaEntidade()
         {
-            throw new NotImplementedException();
+            throw new NotSupportedException();
         }
     }
 }

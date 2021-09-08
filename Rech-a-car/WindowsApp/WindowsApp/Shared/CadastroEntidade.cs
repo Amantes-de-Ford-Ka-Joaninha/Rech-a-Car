@@ -6,7 +6,7 @@ namespace WindowsApp.Shared
 {
     public abstract class CadastroEntidade<T> : Form, IEditavel where T : IControlavel
     {
-        public T entidade;
+        public T entidade { get; set; }
         public abstract Controlador<T> Controlador { get; }
 
         public virtual CadastroEntidade<T> Inserir() { return this; }
@@ -14,11 +14,20 @@ namespace WindowsApp.Shared
         public IEditavel ConfigurarEditar(T entidade)
         {
             this.entidade = entidade;
-            return ConfigurarEditar();
+            return Editar();
         }
-        protected abstract IEditavel ConfigurarEditar();
-        protected bool Salva(int id_chave_estrangeira = 0)
+
+        protected abstract IEditavel Editar();
+        protected bool Salva(bool mostraSucesso = true)
         {
+            var validacaoCampos = ValidacaoCampos();
+
+            if (validacaoCampos != string.Empty)
+            {
+                MessageBox.Show(validacaoCampos);
+                return false;
+            }
+
             T entidade = GetNovaEntidade();
             var validacao = entidade.Validar();
 
@@ -29,12 +38,23 @@ namespace WindowsApp.Shared
             }
 
             if (this.entidade == null)
-                Controlador.Inserir(entidade, id_chave_estrangeira);
+                Controlador.Inserir(entidade);
             else
-                Controlador.Editar(this.entidade.Id, entidade, id_chave_estrangeira);
+            {
+                AdicionarDependencias(entidade);
+                Controlador.Editar(this.entidade.Id, entidade);
+            }
 
-            MessageBox.Show("Realizado com sucesso!!!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (mostraSucesso)
+                MessageBox.Show("Realizado com sucesso!!!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             return true;
         }
+
+        protected virtual void AdicionarDependencias(T entidade)
+        {
+            return;//if entidade tem chaves estrangeiras adicionarDependencias else return;
+        }
+
+        protected virtual string ValidacaoCampos() { return string.Empty; }
     }
 }

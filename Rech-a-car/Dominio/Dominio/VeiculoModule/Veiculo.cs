@@ -48,10 +48,7 @@ namespace Dominio.VeiculoModule
         }
         public string CambioToString()
         {
-            if (Automatico)
-                return "Automático";
-            else
-                return "Manual";
+            return Automatico ? "Automático" : "Manual";
         }
         public override string Validar()
         {
@@ -85,6 +82,10 @@ namespace Dominio.VeiculoModule
                 validacao += "Ano do carro inválido\n";
 
             return validacao;
+        }
+        public override string ToString()
+        {
+            return $"{Marca} {Modelo} {Ano} {Categoria}";
         }
     }
     public enum TipoCombustivel { Alcool, Diesel, Etanol, Flex, Gasolina }

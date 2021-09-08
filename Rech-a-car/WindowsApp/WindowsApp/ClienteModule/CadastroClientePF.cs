@@ -3,6 +3,7 @@ using Controladores.Shared;
 using Dominio.PessoaModule;
 using Dominio.PessoaModule.ClienteModule;
 using System;
+using System.Windows.Forms;
 using WindowsApp.Shared;
 
 namespace WindowsApp.ClienteModule
@@ -17,7 +18,7 @@ namespace WindowsApp.ClienteModule
             cbTipoCNH.SelectedIndex = 2;
         }
 
-        protected override IEditavel ConfigurarEditar()
+        protected override IEditavel Editar()
         {
             tbCPF.Text = entidade.Documento;
             tbNome.Text = entidade.Nome;
@@ -47,6 +48,10 @@ namespace WindowsApp.ClienteModule
             var tipo = cbTipoCNH.SelectedIndex;
 
             return new CNH(numero, (TipoCNH)tipo);
+        }
+        protected override void AdicionarDependencias(ClientePF cliente)
+        {
+            cliente.Cnh.Id = entidade.Cnh.Id;
         }
         private void btAdicionar_Click(object sender, EventArgs e)
         {

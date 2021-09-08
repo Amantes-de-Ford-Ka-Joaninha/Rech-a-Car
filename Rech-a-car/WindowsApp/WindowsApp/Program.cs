@@ -1,6 +1,7 @@
-﻿using System;
+﻿using Dominio.PessoaModule;
+using System;
 using System.Windows.Forms;
-using WindowsApp.WindowsApp;
+using WindowsApp.AluguelModule;
 
 namespace WindowsApp
 {
@@ -14,7 +15,10 @@ namespace WindowsApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+
+            new Login().Show();
+
+            Application.Run();
         }
     }
 }

@@ -1,19 +1,12 @@
-﻿using Dominio.AluguelModule;
-using Dominio.PessoaModule;
-using Dominio.PessoaModule.ClienteModule;
-using Dominio.ServicoModule;
-using Dominio.VeiculoModule;
+﻿using Dominio.ServicoModule;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Dominio.AluguelModule
 {
     public class AluguelFechado : Aluguel
     {
-        public AluguelFechado(Aluguel aluguel, DadosDevolucao dados) : base(aluguel)
+        public AluguelFechado(Aluguel aluguel, int kmRodados, double tanqueUtilizado, List<Servico> servicosNecessarios, DateTime dataDevolvida) : base(aluguel)
         {
             Veiculo = aluguel.Veiculo;
             Servicos = aluguel.Servicos;
@@ -21,16 +14,42 @@ namespace Dominio.AluguelModule
             Condutor = aluguel.Condutor;
             TipoPlano = aluguel.TipoPlano;
             DataAluguel = aluguel.DataAluguel;
-            DataDevolucao = DateTime.Now;
-            Total = Calcular(dados.KmRodados);
+            KmRodados = kmRodados;
+            TanqueUtilizado = tanqueUtilizado;
+            ServicosNecessarios = servicosNecessarios;
+            DataDevolvida = dataDevolvida;
+            DataDevolucao = aluguel.DataDevolucao;
         }
-        public DateTime DataDevolucao { get; set; }
-        public double Total { get; set; }
-        public double Calcular(int kmRodados)
+        public int KmRodados { get; set; }
+        public double TanqueUtilizado { get; set; }
+        public List<Servico> ServicosNecessarios { get; set; }
+        public DateTime DataDevolvida { get; set; }
+        public override double CalcularTotal()
         {
-            if (TipoPlano == Plano.diario)
-                return 0;
-            return 0;
+            double PrecoFinal = base.CalcularTotal();
+          
+            int diasAtraso = (DataDevolucao - DateTime.Today).Days;
+
+            PrecoFinal += diasAtraso * 50;
+
+            //CALCULAR GASOLINA DEPOIS.
+
+            ServicosNecessarios.ForEach(x => PrecoFinal += x.Taxa);
+
+            return PrecoFinal;
+
+        }
+        public override string Validar()
+        {
+            string validacao = base.Validar();
+
+            if (KmRodados < 0)
+                validacao += "Quilometros rodados necessita ser pelo menos 0\n";
+
+            if (TanqueUtilizado < 0)
+                validacao += "Tanque utilizado tem que ser pelo menos 0\n";
+
+            return validacao;
         }
     }
 }

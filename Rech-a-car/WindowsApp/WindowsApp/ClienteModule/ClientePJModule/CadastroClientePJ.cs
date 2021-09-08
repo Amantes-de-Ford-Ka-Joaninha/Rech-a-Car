@@ -11,7 +11,6 @@ namespace WindowsApp.ClienteModule
     public partial class CadastroClientePJ : CadastroEntidade<ClientePJ>
     {
         public override Controlador<ClientePJ> Controlador { get => new ControladorClientePJ(); }
-        public ControladorMotorista ControladorMotorista { get => new ControladorMotorista(); }
 
         public CadastroClientePJ()
         {
@@ -19,7 +18,7 @@ namespace WindowsApp.ClienteModule
             dgvMotoristas.ConfigurarGrid(ConfigurarColunas());
         }
 
-        protected override IEditavel ConfigurarEditar()
+        protected override IEditavel Editar()
         {
             tbNome.Text = entidade.Nome;
             tbTelefone.Text = entidade.Telefone;
@@ -40,7 +39,7 @@ namespace WindowsApp.ClienteModule
 
         private void AtualizarListMotoristas()
         {
-            dgvMotoristas.DataSource = new ControladorMotorista().SelecionarCondutoresPJ(entidade.Id);
+            dgvMotoristas.DataSource = Controlador.GetById(entidade.Id).Motoristas;
         }
 
         public override ClientePJ GetNovaEntidade()
@@ -53,7 +52,7 @@ namespace WindowsApp.ClienteModule
         }
         private MotoristaEmpresa GetMotoristaSelecionado()
         {
-            return ControladorMotorista.GetById(dgvMotoristas.GetIdSelecionado());
+            return entidade.Motoristas.Find(x=>x.Id==dgvMotoristas.GetIdSelecionado());
         }
 
         private void HabilitarBotoes(bool estado)
@@ -70,14 +69,17 @@ namespace WindowsApp.ClienteModule
         }
         private void bt_add_motorista_click(object sender, EventArgs e)
         {
+            if (entidade == null)
+            {
+                MessageBox.Show("Primeiro cadastre a Empresa");
+                return;
+            }
             TelaPrincipal.Instancia.FormAtivo = new CadastroMotorista(entidade);
-            AtualizarListMotoristas();
         }
         private void bt_editar_motorista_Click(object sender, EventArgs e)
         {
             TelaPrincipal.Instancia.FormAtivo = (Form)new CadastroMotorista(entidade).ConfigurarEditar(GetMotoristaSelecionado());
             HabilitarBotoes(false);
-            AtualizarListMotoristas();
         }
         private void bt_remover_motorista_Click(object sender, EventArgs e)
         {

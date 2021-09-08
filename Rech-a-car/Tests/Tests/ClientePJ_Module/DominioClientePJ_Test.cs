@@ -1,9 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using Dominio.PessoaModule.ClienteModule;
-using Dominio.PessoaModule;
+﻿using Dominio.PessoaModule.ClienteModule;
 using FluentAssertions;
-using System.Collections.Generic;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Tests.Tests.ClientePJ_Module
 {

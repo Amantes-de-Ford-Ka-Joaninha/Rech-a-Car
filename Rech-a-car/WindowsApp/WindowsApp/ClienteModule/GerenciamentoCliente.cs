@@ -1,21 +1,28 @@
-﻿using Dominio.PessoaModule.ClienteModule;
+﻿using Dominio.AluguelModule;
+using Dominio.PessoaModule.ClienteModule;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using WindowsApp.AluguelModule;
 using WindowsApp.Shared;
 
 namespace WindowsApp.ClienteModule
 {
     public partial class GerenciamentoCliente : GerenciamentoEntidade<ICliente>
     {
-
-        public GerenciamentoCliente() : base("Gerenciamento de Clientes", TipoTela.SemCadastrar)
+        public GerenciamentoCliente(string titulo = "Gerenciamento de Cliente", TipoTela tipo = TipoTela.SemCadastrar, Aluguel aluguel = null) : base(titulo, tipo)
         {
+            Aluguel = aluguel;
         }
 
         protected override CadastroEntidade<ICliente> Cadastro => new CadastroCliente();
-        protected override VisualizarEntidade<ICliente> Visualizar => new VisualizarCliente();
+        public Aluguel Aluguel { get; }
 
+        protected override void SalvarAluguel()
+        {
+            Aluguel.Cliente = GetEntidadeSelecionado();
+            TelaPrincipal.Instancia.FormAtivo = new ResumoAluguel(Aluguel);
+        }
         public override DataGridViewColumn[] ConfigurarColunas()
         {
             return new DataGridViewColumn[]
@@ -39,20 +46,24 @@ namespace WindowsApp.ClienteModule
             };
             return linha.ToArray();
         }
-
         protected override Type GetTipoEntidade()
         {
             const int coluna_tipo_cliente = 1;
             var linha = dgvEntidade.GetLinhaSelecionada();
-            
-           var tipo_cliente = linha.Cells[coluna_tipo_cliente].Value.ToString();
+
+            var tipo_cliente = linha.Cells[coluna_tipo_cliente].Value.ToString();
 
             if (tipo_cliente == "CNPJ")
                 return typeof(ClientePJ);
             else if (tipo_cliente == "CPF")
                 return typeof(ClientePF);
             else
-                throw new NotImplementedException();
+                throw new ArgumentException();
+        }
+
+        protected override IVisualizavel Visualizar(ICliente entidade)
+        {
+            return new VisualizarCliente();
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using Dominio.Shared;
-using System.Text.RegularExpressions;
 
 namespace Dominio.PessoaModule
 {
@@ -16,7 +15,7 @@ namespace Dominio.PessoaModule
 
             if (Nome == string.Empty)
                 validador = "Insira um Nome.\n";
-            if (Telefone.Length!=11)
+            if (Telefone.Length != 11)
                 validador += "Telefone inválido.\n";
             if (Endereco == string.Empty)
                 validador += "Insira um endereço.\n";
@@ -26,5 +25,10 @@ namespace Dominio.PessoaModule
             return validador;
         }
         protected abstract string ValidaDocumento();
+
+        public override string ToString()
+        {
+            return Nome;
+        }
     }
 }

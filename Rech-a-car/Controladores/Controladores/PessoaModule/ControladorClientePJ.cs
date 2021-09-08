@@ -4,7 +4,6 @@ using Dominio.PessoaModule.ClienteModule;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 
 namespace Controladores.PessoaModule
 {
@@ -41,16 +40,22 @@ namespace Controladores.PessoaModule
                 WHERE [ID] = @ID";
 
         private const string sqlSelecionarClientePJPorId =
-            @"SELECT *
-             FROM
-                [TBCLIENTEPJ]
+            @"SELECT TBClientePJ.ID, TBClientePJ.NOME, TBClientePJ.TELEFONE, TBClientePJ.ENDERECO, TBClientePJ.DOCUMENTO,
+            TBMotorista.ID AS ID_MOTORISTA, TBMotorista.NOME AS NOME_MOTORISTA, TBMotorista.TELEFONE AS TELEFONE_MOTORISTA, 
+                  TBMotorista.ENDERECO AS ENDERECO_MOTORISTA, TBMotorista.DOCUMENTO AS DOCUMENTO_MOTORISTA, TBMotorista.ID_CNH, TBMotorista.ID_EMPRESA
+            FROM     
+                  TBClientePJ LEFT JOIN
+                  TBMotorista ON TBClientePJ.ID = TBMotorista.ID_EMPRESA
              WHERE 
-                [ID] = @ID";
+                TBClientePJ.[ID] = @ID";
 
         private const string sqlSelecionarTodosClientePJ =
-            @"SELECT *
-             FROM
-                [TBCLIENTEPJ]";
+            @"SELECT TBClientePJ.ID, TBClientePJ.NOME, TBClientePJ.TELEFONE, TBClientePJ.ENDERECO, TBClientePJ.DOCUMENTO, 
+                TBMotorista.ID AS ID_MOTORISTA, TBMotorista.NOME AS NOME_MOTORISTA, TBMotorista.TELEFONE AS TELEFONE_MOTORISTA, 
+                  TBMotorista.ENDERECO AS ENDERECO_MOTORISTA, TBMotorista.DOCUMENTO AS DOCUMENTO_MOTORISTA, TBMotorista.ID_CNH, TBMotorista.ID_EMPRESA
+              FROM     
+                  TBClientePJ LEFT JOIN
+                  TBMotorista ON TBClientePJ.ID = TBMotorista.ID_EMPRESA";
 
         private const string sqlExisteClientePJ =
             @"SELECT 
@@ -76,13 +81,38 @@ namespace Controladores.PessoaModule
             var documento = Convert.ToString(reader["DOCUMENTO"]);
             var endereco = Convert.ToString(reader["ENDERECO"]);
 
-            return new ClientePJ(nome, telefone, endereco, documento)
+            var empresa = new ClientePJ(nome, telefone, endereco, documento)
             {
                 Id = id,
-                Motoristas = new ControladorMotorista().SelecionarCondutoresPJ(id)
-        };
+            };
+
+            var motoristas = new List<MotoristaEmpresa>();
+
+            do
+            {
+                if (reader.IsDBNull(reader.GetOrdinal("ID_MOTORISTA")))
+                    break;
+
+                var id_motorista = Convert.ToInt32(reader["ID_MOTORISTA"]);
+                var nome_motorista = Convert.ToString(reader["NOME_MOTORISTA"]);
+                var telefone_motorista = Convert.ToString(reader["TELEFONE_MOTORISTA"]);
+                var endereco_motorista = Convert.ToString(reader["ENDERECO_MOTORISTA"]);
+                var documento_motorista = Convert.ToString(reader["DOCUMENTO_MOTORISTA"]);
+
+                var id_cnh = Convert.ToInt32(reader["ID_CNH"]);
+                var cnh = new ControladorCNH().GetByIdCondutor(id_cnh);
+
+                motoristas.Add(new MotoristaEmpresa(nome_motorista, telefone_motorista, endereco_motorista, documento_motorista, cnh, empresa)
+                {
+                    Id = id_motorista
+                });
+
+            } while (reader.Read());
+            empresa.Motoristas = motoristas;
+
+            return empresa;
         }
-        protected override Dictionary<string, object> ObterParametrosRegistro(ClientePJ cliente)
+        public override Dictionary<string, object> ObterParametrosRegistro(ClientePJ cliente)
         {
             var parametros = new Dictionary<string, object>
             {
@@ -96,7 +126,7 @@ namespace Controladores.PessoaModule
             return parametros;
         }
     }
-    public class ControladorMotorista : ControladorEntidade<MotoristaEmpresa>
+    public class ControladorMotorista : Controlador<MotoristaEmpresa>
     {
         #region Queries
         private const string sqlSelecionarMotoristaPorId =
@@ -105,12 +135,6 @@ namespace Controladores.PessoaModule
                 [TBMOTORISTA]
              WHERE 
                 [ID] = @ID";
-        private const string sqlSelecionarTodosMotoristasEmpresa =
-            @"SELECT *
-             FROM
-                [TBMOTORISTA]
-             WHERE 
-                [ID_EMPRESA] = @ID_EMPRESA";
 
         private const string sqlInserirMotorista =
             @"INSERT INTO [TBMOTORISTA]
@@ -132,11 +156,6 @@ namespace Controladores.PessoaModule
                     @ID_CNH
                 )";
 
-        internal Condutor GetMotoristaEmpresa(int id_cliente, int id_condutor)
-        {
-            throw new NotImplementedException();
-        }
-
         private const string sqlEditarMotorista =
                 @"UPDATE [TBMOTORISTA]
                     SET     
@@ -151,39 +170,32 @@ namespace Controladores.PessoaModule
             @"DELETE FROM [TBMOTORISTA] 
                             WHERE [ID] = @ID";
 
-        private const string sqlExisteMotorista =
-            @"SELECT 
-                COUNT(*) 
-            FROM 
-                [TBMOTORISTA]
-            WHERE 
-                [ID] = @ID";
-
         #endregion
 
-        public override string sqlSelecionarPorId => sqlSelecionarMotoristaPorId;
-        public override string sqlSelecionarTodos => sqlSelecionarTodosMotoristasEmpresa;
-        public override string sqlInserir => sqlInserirMotorista;
-        public override string sqlEditar => sqlEditarMotorista;
-        public override string sqlExcluir => sqlExcluirMotorista;
-        public override string sqlExists => sqlExisteMotorista;
-
-        public List<MotoristaEmpresa> SelecionarCondutoresPJ(int id_empresa)
-        {
-            return Db.GetAll(sqlSelecionarTodosMotoristasEmpresa, ConverterEmEntidade, AdicionarParametro("ID_EMPRESA", id_empresa));
-        }
-        public override void Inserir(MotoristaEmpresa motorista, int idEmpresa)
+        public override void Inserir(MotoristaEmpresa motorista)
         {
             new ControladorCNH().Inserir(motorista.Cnh);
-            motorista.Id = Db.Insert(sqlInserirMotorista, ObterParametrosRegistro(motorista), AdicionarParametro("ID_EMPRESA", idEmpresa));
+            motorista.Id = Db.Insert(sqlInserirMotorista, ObterParametrosMotorista(motorista));
         }
-        public override void Editar(int id, MotoristaEmpresa motorista, int id_cnh)
+
+        public override void Editar(int id, MotoristaEmpresa motorista)
         {
-            new ControladorCNH().Editar(id_cnh,motorista.Cnh);
+            new ControladorCNH().Editar(motorista.Cnh.Id, motorista.Cnh);
             motorista.Id = id;
-            Db.Update(sqlEditarMotorista, ObterParametrosRegistro(motorista));
+            Db.Update(sqlEditarMotorista, ObterParametrosMotorista(motorista));
         }
-        protected override Dictionary<string, object> ObterParametrosRegistro(MotoristaEmpresa motorista)
+
+        public override void Excluir(int id_motorista, Type tipo = null)
+        {
+            Db.Delete(sqlExcluirMotorista, AdicionarParametro("ID", id_motorista));
+        }
+
+        public override MotoristaEmpresa GetById(int id, Type tipo = null)
+        {
+            throw new NotSupportedException();
+        }
+
+        protected Dictionary<string, object> ObterParametrosMotorista(MotoristaEmpresa motorista)
         {
             var parametros = new Dictionary<string, object>
                 {
@@ -193,27 +205,15 @@ namespace Controladores.PessoaModule
                 { "ENDERECO", motorista.Endereco },
                 { "DOCUMENTO", motorista.Documento },
                 { "ID_CNH", motorista.Cnh.Id },
+                { "ID_EMPRESA", motorista.Empresa.Id }
                 };
 
             return parametros;
         }
-        public override MotoristaEmpresa ConverterEmEntidade(IDataReader reader)
+
+        protected override List<MotoristaEmpresa> ObterRegistros()
         {
-            var id = Convert.ToInt32(reader["ID"]);
-            var nome = Convert.ToString(reader["NOME"]);
-            var telefone = Convert.ToString(reader["TELEFONE"]);
-            var endereco = Convert.ToString(reader["ENDERECO"]);
-            var documento = Convert.ToString(reader["DOCUMENTO"]);
-
-            var id_cnh = Convert.ToInt32(reader["ID_CNH"]);
-            var cnh = new ControladorCNH().GetByIdCondutor(id_cnh);
-
-            MotoristaEmpresa dadosVeiculo = new MotoristaEmpresa(nome, telefone, endereco, documento, cnh);
-            {
-                dadosVeiculo.Id = id;
-            };
-
-            return dadosVeiculo;
+            throw new NotSupportedException();
         }
     }
 }

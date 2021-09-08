@@ -1,10 +1,9 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using Dominio.VeiculoModule;
-using Dominio.PessoaModule;
+﻿using Controladores.Shared;
 using Controladores.VeiculoModule;
+using Dominio.PessoaModule;
+using Dominio.VeiculoModule;
 using FluentAssertions;
-using Controladores.Shared;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Tests.Shared;
 
 namespace Tests.Tests.CategoriaModule
@@ -18,7 +17,7 @@ namespace Tests.Tests.CategoriaModule
         [TestInitialize]
         public void Inserir_categoria()
         {
-            categoria = new Categoria("nome",1,1,1,1,TipoCNH.A);
+            categoria = new Categoria("nome", 1, 1, 1, 1, TipoCNH.A);
             controladorCategoria.Inserir(categoria);
         }
         [TestMethod]

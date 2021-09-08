@@ -4,9 +4,6 @@ using Dominio.VeiculoModule;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Controladores.VeiculoModule
 {
@@ -57,7 +54,7 @@ namespace Controladores.VeiculoModule
                 WHERE [ID] = @ID";
 
         private const string sqlExcluirGrupo =
-                @" DELETE * FROM [TBCATEGORIA] WHERE [ID] = @ID";
+                @" DELETE FROM [TBCATEGORIA] WHERE [ID] = @ID";
 
         private const string sqlExisteGrupo =
             @"SELECT 
@@ -76,7 +73,7 @@ namespace Controladores.VeiculoModule
         public override string sqlExcluir => sqlExcluirGrupo;
         public override string sqlExists => sqlExisteGrupo;
 
-        protected override Dictionary<string, object> ObterParametrosRegistro(Categoria categoria)
+        public override Dictionary<string, object> ObterParametrosRegistro(Categoria categoria)
         {
             var parametros = new Dictionary<string, object>
                 {

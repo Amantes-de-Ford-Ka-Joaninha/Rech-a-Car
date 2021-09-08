@@ -17,6 +17,7 @@ namespace Controladores.PessoaModule
                     [ENDERECO],
                     [DOCUMENTO],
                     [FOTO],
+                    [CARGO],
                     [USER]
                 )
             VALUES
@@ -26,6 +27,7 @@ namespace Controladores.PessoaModule
                     @ENDERECO,
                     @DOCUMENTO,
                     @FOTO,
+                    @CARGO,
                     @USER
                 )";
 
@@ -36,6 +38,7 @@ namespace Controladores.PessoaModule
                     [TELEFONE] = @TELEFONE,             
                     [ENDERECO] = @ENDERECO,
                     [DOCUMENTO] = @DOCUMENTO,
+                    [CARGO] = @CARGO,
                     [FOTO] = @FOTO,
                     [USER] = @USER
                 WHERE [ID] = @ID";
@@ -86,22 +89,33 @@ namespace Controladores.PessoaModule
         public override string sqlEditar => sqlEditarFuncionario;
         public override string sqlExcluir => sqlExcluirFuncionario;
         public override string sqlExists => sqlExisteFuncionario;
+        public override void Inserir(Funcionario entidade)
+        {
+            base.Inserir(entidade);
+            ControladorSenha.Inserir(entidade.Id, entidade.Senha);
+        }
+        public override void Editar(int id, Funcionario entidade)
+        {
+            base.Editar(id, entidade);
+            ControladorSenha.Editar(entidade.Id, entidade.Senha);
+        }
         public override Funcionario ConverterEmEntidade(IDataReader reader)
         {
             var id = Convert.ToInt32(reader["ID"]);
             var nome = Convert.ToString(reader["NOME"]);
             var telefone = Convert.ToString(reader["TELEFONE"]);
             var documento = Convert.ToString(reader["DOCUMENTO"]);
+            var cargo = Convert.ToInt32(reader["CARGO"]);
             var endereco = Convert.ToString(reader["ENDERECO"]);
             var user = Convert.ToString(reader["USER"]);
             var foto = RecuperarImagem((byte[])reader["FOTO"]);
 
-            return new Funcionario(nome, telefone, endereco, documento, foto, user)
+            return new Funcionario(nome, telefone, endereco, documento, (Cargo)cargo, foto, user)
             {
                 Id = id
             };
         }
-        protected override Dictionary<string, object> ObterParametrosRegistro(Funcionario funcionario)
+        public override Dictionary<string, object> ObterParametrosRegistro(Funcionario funcionario)
         {
             var parametros = new Dictionary<string, object>
             {
@@ -109,19 +123,19 @@ namespace Controladores.PessoaModule
                 { "NOME", funcionario.Nome },
                 { "ENDERECO", funcionario.Endereco },
                 { "TELEFONE", funcionario.Telefone },
+                { "CARGO", funcionario.Cargo },
                 { "DOCUMENTO", funcionario.Documento },
                 { "USER", funcionario.NomeUsuario },
+                { "SENHA", funcionario.Senha},
                 { "FOTO", SalvarImagem(funcionario.Foto) }
             };
 
             return parametros;
         }
-
         public bool ExisteUsuario(string usuario)
         {
             return Db.Exists(sqlExisteFuncionarioPorUser, AdicionarParametro("USER", usuario));
         }
-
         public Funcionario GetByUserName(string usuario)
         {
             return Db.Get(sqlGetFuncionarioPorUser, ConverterEmEntidade, AdicionarParametro("USER", usuario));

@@ -1,5 +1,4 @@
 ﻿using Controladores.Shared;
-using Dominio.PessoaModule;
 using Dominio.VeiculoModule;
 using System;
 using System.Collections.Generic;
@@ -45,7 +44,7 @@ namespace Controladores.VeiculoModule
                 )";
 
         private const string sqlEditarVeiculo =
-            @" UPDATE [TBVEICULO]
+            @"UPDATE [TBVEICULO]
                 SET 
                     [MODELO] = @MODELO,       
                     [MARCA] = @MARCA,             
@@ -85,6 +84,24 @@ namespace Controladores.VeiculoModule
                 [TBVEICULO]
             WHERE 
                 [ID] = @ID";
+
+        private const string sqlAdicionarQuilometragem =
+            @"UPDATE [TBVEICULO]
+                SET 
+                    [QUILOMETRAGEM] = @NOVA_QUILOMETRAGEM
+                WHERE [ID] = @ID";
+
+
+        private const string sqlSelecionarVeiculoDisponivel =
+            @"SELECT * 
+            FROM TBVeiculo 
+            LEFT JOIN 
+                TBAluguel ON TBAluguel.ID_VEICULO = TBVeiculo.ID
+            WHERE 
+                TBAluguel.ID_VEICULO IS NULL
+            OR
+                TBAluguel.DATA_DEVOLVIDA IS NOT NULL";
+
         #endregion
 
         public override string sqlSelecionarPorId => sqlSelecionarVeiculoPorId;
@@ -94,6 +111,10 @@ namespace Controladores.VeiculoModule
         public override string sqlExcluir => sqlExcluirVeiculo;
         public override string sqlExists => sqlExisteVeiculo;
 
+        public void AdicionarQuilometragem(Veiculo veiculo, int kmRodados)
+        {
+            Db.Update(sqlAdicionarQuilometragem, AdicionarParametro("NOVA_QUILOMETRAGEM", kmRodados + veiculo.Quilometragem, AdicionarParametro("ID", veiculo.Id)));
+        }
         public override Veiculo ConverterEmEntidade(IDataReader reader)
         {
             var id = Convert.ToInt32(reader["ID"]);
@@ -114,14 +135,16 @@ namespace Controladores.VeiculoModule
 
             var categoria = new ControladorCategoria().GetById(id_categoria);
 
-            Veiculo veiculo = new Veiculo(modelo, marca, ano, placa,quilometragem, capacidade, portas, chassi, porta_malas, foto, automatico, categoria, (TipoCombustivel)tipoCombustivel)
+            return new Veiculo(modelo, marca, ano, placa, quilometragem, capacidade, portas, chassi, porta_malas, foto, automatico, categoria, (TipoCombustivel)tipoCombustivel)
             {
                 Id = id
             };
-
-            return veiculo;
         }
-        protected override Dictionary<string, object> ObterParametrosRegistro(Veiculo veiculo)
+        public List<Veiculo> GetDisponiveis()
+        {
+            return Db.GetAll(sqlSelecionarVeiculoDisponivel, ConverterEmEntidade);
+        }
+        public override Dictionary<string, object> ObterParametrosRegistro(Veiculo veiculo)
         {
             var parametros = new Dictionary<string, object>
             {

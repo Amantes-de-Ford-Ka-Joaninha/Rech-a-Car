@@ -7,19 +7,18 @@ namespace WindowsApp.ServicoModule
 {
     public class GerenciamentoServico : GerenciamentoEntidade<Servico>
     {
-        public GerenciamentoServico() : base("Gerenciamento de Serviços")
+        public GerenciamentoServico(string titulo = "Gerenciamento de Serviços", TipoTela tipo = TipoTela.CadastroBasico) : base(titulo, tipo)
         {
         }
 
         protected override CadastroEntidade<Servico> Cadastro => new CadastroServico();
-        protected override VisualizarEntidade<Servico> Visualizar => new VisualizarServico();
 
         public override DataGridViewColumn[] ConfigurarColunas()
         {
             return new DataGridViewColumn[]
             {
             new DataGridViewTextBoxColumn { DataPropertyName = "Nome", HeaderText = "Nome"},
-            new DataGridViewTextBoxColumn { DataPropertyName = "Taxa", HeaderText = "Taxa"}
+            new DataGridViewTextBoxColumn { DataPropertyName = "Taxa", HeaderText = "Taxa"},
             };
         }
 
@@ -31,6 +30,11 @@ namespace WindowsApp.ServicoModule
                 servico.Taxa,
             };
             return linha.ToArray();
+        }
+
+        protected override IVisualizavel Visualizar(Servico entidade)
+        {
+            return new VisualizarServico();
         }
     }
 }

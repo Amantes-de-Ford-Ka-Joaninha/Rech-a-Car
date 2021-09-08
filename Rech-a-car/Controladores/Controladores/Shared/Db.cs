@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.Common;
 
 namespace Controladores.Shared
 {
-    public delegate T ConverterDelegate<T>(DbDataReader reader);
+    public delegate T ConverterDelegate<T>(IDataReader reader);
 
     public static class Db
     {
@@ -20,7 +21,7 @@ namespace Controladores.Shared
             string nomeProvedor = ConfigurationManager.ConnectionStrings[bancoSelecionado].ProviderName;
             factory = DbProviderFactories.GetFactory(nomeProvedor);
         }
-        public static int Insert(string sql, Dictionary<string, object> parameters, Dictionary<string, object> parametrosAdicionais = null)
+        public static int Insert(string sql, Dictionary<string, object> parameters)
         {
             using (DbConnection connection = factory.CreateConnection())
             {
@@ -32,8 +33,6 @@ namespace Controladores.Shared
                     command.Connection = connection;
 
                     command.SetParameters(parameters);
-                    command.SetParameters(parametrosAdicionais);
-
                     connection.Open();
 
                     int id = Convert.ToInt32(command.ExecuteScalar());
@@ -44,7 +43,7 @@ namespace Controladores.Shared
                 }
             }
         }
-        public static void Update(string sql, Dictionary<string, object> parameters, Dictionary<string, object> parametrosAdicionais = null)
+        public static void Update(string sql, Dictionary<string, object> parameters)
         {
             using (DbConnection connection = factory.CreateConnection())
             {
@@ -56,7 +55,6 @@ namespace Controladores.Shared
                     command.Connection = connection;
 
                     command.SetParameters(parameters);
-                    command.SetParameters(parametrosAdicionais);
 
                     connection.Open();
 

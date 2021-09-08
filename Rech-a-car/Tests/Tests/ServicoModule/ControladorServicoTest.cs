@@ -1,11 +1,9 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using Dominio.ServicoModule;
-using Controladores;
-using FluentAssertions;
-using Tests.Shared;
-using Controladores.ServicoModule;
+﻿using Controladores.ServicoModule;
 using Controladores.Shared;
+using Dominio.ServicoModule;
+using FluentAssertions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Tests.Shared;
 
 namespace Tests.Tests.ServicoModule
 {

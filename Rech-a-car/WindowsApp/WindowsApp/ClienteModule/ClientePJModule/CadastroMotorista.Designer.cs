@@ -37,11 +37,11 @@ namespace WindowsApp.ClienteModule
             this.lbCPF = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btAdicionarMotorista = new System.Windows.Forms.Button();
             this.cbTipoCNH = new System.Windows.Forms.ComboBox();
             this.tbCNH = new System.Windows.Forms.MaskedTextBox();
             this.tbCPF = new System.Windows.Forms.MaskedTextBox();
             this.tbTelefone = new System.Windows.Forms.MaskedTextBox();
+            this.btAdicionarMotorista = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label8
@@ -126,20 +126,9 @@ namespace WindowsApp.ClienteModule
             this.label2.TabIndex = 31;
             this.label2.Text = "Nome";
             // 
-            // btAdicionarMotorista
-            // 
-            this.btAdicionarMotorista.FlatAppearance.BorderSize = 0;
-            this.btAdicionarMotorista.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btAdicionarMotorista.Image = global::WindowsApp.Properties.Resources.adicionar;
-            this.btAdicionarMotorista.Location = new System.Drawing.Point(581, 440);
-            this.btAdicionarMotorista.Name = "btAdicionarMotorista";
-            this.btAdicionarMotorista.Size = new System.Drawing.Size(75, 70);
-            this.btAdicionarMotorista.TabIndex = 7;
-            this.btAdicionarMotorista.UseVisualStyleBackColor = true;
-            this.btAdicionarMotorista.Click += new System.EventHandler(this.btAdicionarMotorista_Click);
-            // 
             // cbTipoCNH
             // 
+            this.cbTipoCNH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTipoCNH.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbTipoCNH.FormattingEnabled = true;
             this.cbTipoCNH.Items.AddRange(new object[] {
@@ -187,6 +176,18 @@ namespace WindowsApp.ClienteModule
             this.tbTelefone.TabIndex = 2;
             this.tbTelefone.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbTelefone.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            // 
+            // btAdicionarMotorista
+            // 
+            this.btAdicionarMotorista.FlatAppearance.BorderSize = 0;
+            this.btAdicionarMotorista.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btAdicionarMotorista.Image = global::WindowsApp.Properties.Resources.check;
+            this.btAdicionarMotorista.Location = new System.Drawing.Point(581, 437);
+            this.btAdicionarMotorista.Name = "btAdicionarMotorista";
+            this.btAdicionarMotorista.Size = new System.Drawing.Size(75, 73);
+            this.btAdicionarMotorista.TabIndex = 7;
+            this.btAdicionarMotorista.UseVisualStyleBackColor = true;
+            this.btAdicionarMotorista.Click += new System.EventHandler(this.btAdicionarMotorista_Click);
             // 
             // CadastroMotorista
             // 

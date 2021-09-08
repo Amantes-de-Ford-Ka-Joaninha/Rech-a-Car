@@ -1,12 +1,5 @@
 ﻿using Dominio.VeiculoModule;
-using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsApp.Shared;
 
@@ -19,7 +12,6 @@ namespace WindowsApp.VeiculoModule.CategoriaModule
         }
 
         protected override CadastroEntidade<Categoria> Cadastro => new CadastroCategoria();
-        protected override VisualizarEntidade<Categoria> Visualizar => new VisualizarCategoria();
 
         public override DataGridViewColumn[] ConfigurarColunas()
         {
@@ -45,6 +37,11 @@ namespace WindowsApp.VeiculoModule.CategoriaModule
                 categoria.TipoDeCnh
             };
             return linha.ToArray();
+        }
+
+        protected override IVisualizavel Visualizar(Categoria entidade)
+        {
+            return new VisualizarCategoria();
         }
     }
 }

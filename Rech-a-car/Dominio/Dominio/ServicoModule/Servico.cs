@@ -12,7 +12,6 @@ namespace Dominio.ServicoModule
 
         public string Nome { get; set; }
         public double Taxa { get; set; }
-
         public override string Validar()
         {
             string resultadoValidacao = "";
@@ -24,6 +23,10 @@ namespace Dominio.ServicoModule
                 resultadoValidacao += "O Campo Taxa está inválido";
 
             return resultadoValidacao;
+        }
+        public override string ToString()
+        {
+            return $"{Nome} | R${Taxa}";
         }
     }
 }

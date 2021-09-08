@@ -3,7 +3,6 @@ using Controladores.Shared;
 using Dominio.PessoaModule;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using System.Drawing;
 using Tests.Shared;
 
@@ -19,7 +18,7 @@ namespace Tests.FuncionarioModule
         [TestInitialize]
         public void Inserindo()
         {
-            funcionario = new Funcionario("Nome", "49999155922", "Endereço", "13130847983", imagem, "user_teste");
+            funcionario = new Funcionario("Nome", "49999155922", "Endereço", "13130847983",Cargo.Vendedor, imagem, "user_teste", "senha12345678");
             controlador.Inserir(funcionario);
         }
         [TestMethod]
