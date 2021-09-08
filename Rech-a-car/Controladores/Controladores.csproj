@@ -51,7 +51,6 @@
   <ItemGroup>
     <Compile Include="Controladores\AluguelModule\ControladorAluguelFechado.cs" />
     <Compile Include="Controladores\AluguelModule\ControladorAluguel.cs" />
-    <Compile Include="Controladores\ControladorEmail.cs" />
     <Compile Include="Controladores\PessoaModule\ControladorCnh.cs" />
     <Compile Include="Controladores\PessoaModule\ControladorCliente.cs" />
     <Compile Include="Controladores\PessoaModule\ControladorClientePF.cs" />
