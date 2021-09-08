@@ -8,7 +8,6 @@ using Aspose.Pdf.Text;
 using Dominio.AluguelModule;
 using System.IO;
 using System.Drawing.Imaging;
-using Controladores;
 
 namespace EmailAluguelPDF
 {

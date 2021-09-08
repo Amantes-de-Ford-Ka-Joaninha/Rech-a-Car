@@ -94,7 +94,7 @@ namespace Controladores.Shared
                 }
             }
         }
-        public static T Get<T>(string sql, ConverterDelegate<T> convert, Dictionary<string, object> parameters)
+        public static T Get<T>(string sql, ConverterDelegate<T> convert, Dictionary<string, object> parameters=null)
         {
             using (DbConnection connection = factory.CreateConnection())
             {
