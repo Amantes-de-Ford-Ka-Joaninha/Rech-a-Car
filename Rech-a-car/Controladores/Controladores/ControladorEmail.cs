@@ -10,28 +10,25 @@ namespace Controladores
                     @"INSERT INTO [TBEMAIL]
                                 (
                                     [ID_ALUGUEL],       
-                                    [PATH_EMAIL],             
-                                    [ENVIADO]
+                                    [PATH_EMAIL]            
                                 )
                             VALUES
                                 (
                                     @ID_ALUGUEL,
-                                    @PATH_EMAIL,
-                                    @ENVIADO
+                                    @PATH_EMAIL
                                 )";
 
         private const string sqlAlterarEmailEnviado =
             @"UPDATE [TBEMAIL]
                 SET 
-                    [ENVIADO] = @ENVIADO,       
-                    [DATA_ENVIADA] = @DATA_ENVIADA
+                    [DATA_ENVIADA] = @DATA_ENVIADO
                 WHERE [ID] = @ID";
 
         #endregion
 
         public void InserirParaEnvio(int id_aluguel, string pathAluguel)
         {
-            Db.Insert(sqlInserirEmail, Db.AdicionarParametro("ID_ALUGUEL", id_aluguel, Db.AdicionarParametro("PATH_ALUGUEL", pathAluguel)));
+            Db.Insert(sqlInserirEmail, Db.AdicionarParametro("ID_ALUGUEL", id_aluguel, Db.AdicionarParametro("PATH_EMAIL", pathAluguel)));
         }
         public void AlterarEnviado(int id)
         {
