@@ -48,7 +48,46 @@ namespace Dominio.AluguelModule
 
         public virtual double CalcularTotal()
         {
-            return 0;
+            double PrecoFinal = 0;
+            Servicos.ForEach(x => PrecoFinal += x.Taxa);
+
+            var Categoria = Veiculo.Categoria;
+
+            switch (TipoPlano.ToString())
+            {
+                case "diario":
+                    CalculaPlanoDiario();
+                    break;
+                case "controlado":
+                    CalculaPlanoControlado();
+                    break;
+                case "livre":
+                    CalculaPlanoLivre();
+                    break;
+                default:
+                    break;
+            }
+
+            void CalculaPlanoControlado()
+            {
+                PrecoFinal += (Categoria.PrecoDiaria * GetQtdDiasAluguel()) +
+                    Categoria.QuilometragemFranquia * Categoria.PrecoKm;
+            }
+            void CalculaPlanoDiario()
+            {
+                PrecoFinal += Categoria.PrecoDiaria * GetQtdDiasAluguel();
+            }
+            void CalculaPlanoLivre()
+            {
+                PrecoFinal += Categoria.PrecoDiaria * GetQtdDiasAluguel() * 1.3;
+            }
+            int GetQtdDiasAluguel()
+            {
+                return (DataDevolucao - DataAluguel).Days;
+            }
+
+            return PrecoFinal;
+
         }
         public AluguelFechado Fechar(int kmRodados, double tanqueUtilizado, List<Servico> servicos)
         {

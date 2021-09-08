@@ -20,10 +20,6 @@ namespace Dominio.AluguelModule
             DataDevolvida = DateTime.Now;
             DataDevolucao = aluguel.DataDevolucao;
         }
-        public int KmRodados { get; set; }
-        public double TanqueUtilizado { get; set; }
-        public List<Servico> ServicosNecessarios { get; set; }
-        public DateTime DataDevolvida { get; set; }
         public override double CalcularTotal()
         {
             double PrecoFinal = 0;
@@ -75,5 +71,10 @@ namespace Dominio.AluguelModule
             return PrecoFinal;
 
         }
+        public int KmRodados { get; set; }
+        public double TanqueUtilizado { get; set; }
+        public List<Servico> ServicosNecessarios { get; set; }
+        public DateTime DataDevolvida { get; set; }
+        
     }
 }
