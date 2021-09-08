@@ -51,14 +51,15 @@ namespace WindowsApp.VeiculoModule
             var chassi = tb_chassi.Text;
             var capacidade = cb_capacidade.SelectedIndex;
             Int32.TryParse(tb_ano.Text, out int ano);
-            Int32.TryParse(cb_portas.SelectedItem?.ToString(), out int portas);
+            Int32.TryParse(cb_portas.SelectedItem.ToString(), out int portas);
             Int32.TryParse(cb_tipoCombustivel?.ToString(), out int tipoCombustivel);
+            Int32.TryParse(tb_tanque.Text, out int capacidadeTanque);
             Int32.TryParse(tb_quilometragem.Text, out int quilometragem);
-            var cambio = cb_cambio.SelectedItem?.ToString() == "Automático";
+            var cambio = cb_cambio.SelectedItem.ToString() == "Automático";
             imagem = (Bitmap)bt_foto.Image;
 
             var categoria = (Categoria)cb_categoria.SelectedItem;
-            return new Veiculo(modelo, marca, ano, placa, quilometragem, capacidade, portas, chassi, portaMalas, imagem, cambio, categoria, (TipoCombustivel)tipoCombustivel);
+            return new Veiculo(modelo, marca, ano, placa, quilometragem, capacidade, portas, chassi, portaMalas, capacidadeTanque, imagem, cambio, categoria, (TipoCombustivel)tipoCombustivel);
         }
         private void AtualizarIcone(Bitmap imagem)
         {
