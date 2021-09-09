@@ -46,9 +46,7 @@ namespace EmailAluguelPDF
 
             //page.Contents.Add(new Aspose.Pdf.Operators.GRestore());
 
-            string path = $@"..\..\..\PDFs\{aluguel.Cliente}-Aluguel-{aluguel.Id}.pdf";
-            document.Save(path);
-            new ControladorEmail().InserirParaEnvio(aluguel.Id, path);
+            new ControladorEmail().InserirParaEnvio(new EnvioEmail(aluguel, document));
         }
 
         private static MemoryStream ImagemParaStream(System.Drawing.Image imagem)
