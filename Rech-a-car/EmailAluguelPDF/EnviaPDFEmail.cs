@@ -13,8 +13,8 @@ namespace EmailAluguelPDF
         private static ControladorEmail controladorEmail = new ControladorEmail();
         private static SmtpClient client = new SmtpClient("smtp.gmail.com", 587) 
         {
-            Credentials = new NetworkCredential(email, "rech#admin"),
             UseDefaultCredentials = false,
+            Credentials = new NetworkCredential(email, "rech#admin"),
             EnableSsl = true
         };
 

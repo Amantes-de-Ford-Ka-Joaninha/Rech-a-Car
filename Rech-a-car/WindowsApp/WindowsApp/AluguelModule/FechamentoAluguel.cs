@@ -60,6 +60,14 @@ namespace WindowsApp.AluguelModule
         {
             throw new NotImplementedException();
         }
+        private void validaCampoNumerico(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                    (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
 
         #region eventos
 
@@ -89,16 +97,9 @@ namespace WindowsApp.AluguelModule
                 return;
 
             new ControladorVeiculo().AdicionarQuilometragem(aluguel.Veiculo, KmRodados());
+
+            TelaPrincipal.Instancia.FormAtivo = new GerenciamentoAluguel();
         }
         #endregion
-
-        private void validaCampoNumerico(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
-                    (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-            }
-        }
     }
 }
