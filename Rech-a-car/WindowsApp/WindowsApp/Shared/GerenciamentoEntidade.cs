@@ -1,14 +1,15 @@
 ﻿using Dominio.Shared;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 
 namespace WindowsApp.Shared
 {
-    public abstract partial class GerenciamentoEntidade<T> : Form, IVisualizavel where T : IControlavel
+    public partial class GerenciamentoEntidade<T> : Form, IVisualizavel where T : IControlavel
     {
-        protected abstract CadastroEntidade<T> Cadastro { get; }
+        protected virtual CadastroEntidade<T> Cadastro { get => throw new NotImplementedException(); }
         public GerenciamentoEntidade(String titulo, TipoTela tipo = TipoTela.CadastroBasico)
         {
             InitializeComponent();
@@ -18,8 +19,8 @@ namespace WindowsApp.Shared
             AlternarBotoes(false);
         }
 
-        public abstract object[] ObterCamposLinha(T item);
-        public abstract DataGridViewColumn[] ConfigurarColunas();
+        public virtual object[] ObterCamposLinha(T item) { throw new NotImplementedException(); }
+        public virtual DataGridViewColumn[] ConfigurarColunas() { throw new NotImplementedException(); }
         public void AtualizarRegistros(List<T> registros)
         {
             dgvEntidade.ConfigurarGrid(ConfigurarColunas());
@@ -98,7 +99,7 @@ namespace WindowsApp.Shared
         {
             return;
         }
-        protected abstract IVisualizavel Visualizar(T entidade);
+        protected virtual IVisualizavel Visualizar(T entidade) { throw new NotImplementedException(); }
 
         #region Eventos
         private void btAdicionar_Click(object sender, EventArgs e)

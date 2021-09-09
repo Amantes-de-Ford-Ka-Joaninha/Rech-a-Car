@@ -19,7 +19,7 @@ namespace Tests.Tests.ClientePF_Module
         public void Inserir_clientePF()
         {
             CNH cnh = new CNH("36510896881", TipoCNH.A);
-            cliente = new ClientePF("nome", "999999999", "endereco", "99999999999", cnh, new DateTime(2001, 04, 27));
+            cliente = new ClientePF("nome", "999999999", "endereco", "99999999999", cnh, new DateTime(2001, 04, 27), "email@teste.com");
             controladorClientePF.Inserir(cliente);
         }
         [TestMethod]

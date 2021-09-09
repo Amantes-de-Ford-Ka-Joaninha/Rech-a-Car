@@ -83,6 +83,9 @@ namespace Dominio.VeiculoModule
             if (Ano > DateTime.Now.Year + 1)
                 validacao += "Ano do carro inválido\n";
 
+            if (CapacidadeTanque < 0)
+                validacao += "Capacidade do tanque tem que ser maior que 0\n";
+
             return validacao;
         }
         public override string ToString()
