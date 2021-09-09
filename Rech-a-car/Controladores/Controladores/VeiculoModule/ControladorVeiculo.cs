@@ -24,6 +24,7 @@ namespace Controladores.VeiculoModule
                     [FOTO],
                     [AUTOMATICO],
                     [QUILOMETRAGEM],
+                    [CAPACIDADE_TANQUE],
                     [TIPO_COMBUSTIVEL]
                 )
             VALUES
@@ -40,6 +41,7 @@ namespace Controladores.VeiculoModule
                     @FOTO,
                     @AUTOMATICO,
                     @QUILOMETRAGEM,
+                    @CAPACIDADE_TANQUE,
                     @TIPO_COMBUSTIVEL
                 )";
 
@@ -58,6 +60,7 @@ namespace Controladores.VeiculoModule
                     [FOTO] = @FOTO,
                     [AUTOMATICO] = @AUTOMATICO,
                     [QUILOMETRAGEM] = @QUILOMETRAGEM,
+                    [CAPACIDADE_TANQUE] = @CAPACIDADE_TANQUE,
                     [TIPO_COMBUSTIVEL] = @TIPO_COMBUSTIVEL
                 WHERE [ID] = @ID";
 
@@ -113,7 +116,7 @@ namespace Controladores.VeiculoModule
 
         public void AdicionarQuilometragem(Veiculo veiculo, int kmRodados)
         {
-            Db.Update(sqlAdicionarQuilometragem, AdicionarParametro("NOVA_QUILOMETRAGEM", kmRodados + veiculo.Quilometragem, AdicionarParametro("ID", veiculo.Id)));
+            Db.Update(sqlAdicionarQuilometragem, Db.AdicionarParametro("NOVA_QUILOMETRAGEM", kmRodados + veiculo.Quilometragem, Db.AdicionarParametro("ID", veiculo.Id)));
         }
         public override Veiculo ConverterEmEntidade(IDataReader reader)
         {
@@ -130,12 +133,13 @@ namespace Controladores.VeiculoModule
             var id_categoria = Convert.ToInt32(reader["ID_CATEGORIA"]);
             var tipoCombustivel = Convert.ToInt32(reader["TIPO_COMBUSTIVEL"]);
             var quilometragem = Convert.ToInt32(reader["QUILOMETRAGEM"]);
+            var capacidadeTanque = Convert.ToInt32(reader["CAPACIDADE_TANQUE"]);
 
             var foto = RecuperarImagem((byte[])reader["FOTO"]);
 
             var categoria = new ControladorCategoria().GetById(id_categoria);
 
-            return new Veiculo(modelo, marca, ano, placa, quilometragem, capacidade, portas, chassi, porta_malas, foto, automatico, categoria, (TipoCombustivel)tipoCombustivel)
+            return new Veiculo(modelo, marca, ano, placa, quilometragem, capacidade, portas, chassi, porta_malas, capacidadeTanque, foto, automatico, categoria, (TipoCombustivel)tipoCombustivel)
             {
                 Id = id
             };
@@ -161,6 +165,7 @@ namespace Controladores.VeiculoModule
                 { "AUTOMATICO", veiculo.Automatico },
                 { "ID_CATEGORIA", veiculo.Categoria.Id },
                 { "QUILOMETRAGEM", veiculo.Quilometragem },
+                { "CAPACIDADE_TANQUE", veiculo.CapacidadeTanque },
                 { "TIPO_COMBUSTIVEL", veiculo.TipoDeCombustivel }
             };
 

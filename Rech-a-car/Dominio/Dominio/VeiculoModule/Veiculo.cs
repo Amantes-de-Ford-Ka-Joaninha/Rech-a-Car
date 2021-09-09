@@ -7,12 +7,12 @@ namespace Dominio.VeiculoModule
 {
     public class Veiculo : Entidade
     {
-        public Veiculo(string modelo, string marca, int ano, string placa, int quilometragem, int capacidade, int portas, string chassi, int porta_malas, Image foto, bool automatico, Categoria categoria, TipoCombustivel tipoCombustivel)
+        public Veiculo(string modelo, string marca, int ano, string placa, int quilometragem, int capacidade, int portas, string chassi, int porta_malas, int capacidadeTanque, Image foto, bool automatico, Categoria categoria, TipoCombustivel tipoCombustivel)
         {
             Modelo = modelo;
             Marca = marca;
             Ano = ano;
-            Placa = placa;
+            Placa = placa.ToUpper();
             Capacidade = capacidade;
             Portas = portas;
             Chassi = chassi;
@@ -22,6 +22,7 @@ namespace Dominio.VeiculoModule
             Categoria = categoria;
             TipoDeCombustivel = tipoCombustivel;
             Quilometragem = quilometragem;
+            CapacidadeTanque = capacidadeTanque;
         }
         public string Modelo { get; set; }
         public string Marca { get; set; }
@@ -29,6 +30,7 @@ namespace Dominio.VeiculoModule
         public string Placa { get; set; }
         public string Chassi { get; set; }
         public int Capacidade { get; set; }
+        public int CapacidadeTanque { get; set; }
         public int Portas { get; set; }
         public int Porta_malas { get; set; }
         public int Ano { get; set; }
@@ -52,8 +54,8 @@ namespace Dominio.VeiculoModule
         }
         public override string Validar()
         {
-            Regex templatePlacaMercoSul = new Regex(@"\b[A-Z]{3}[0-9][A-Z][0-9]{2}\b");
-            Regex templatePlacaAntiga = new Regex(@"\b[A-Z]{3}[0-9]{4}\b");
+            Regex templatePlacaMercoSul = new Regex(@"\b[A-Z]{3}[0-9][A-Z][0-9]{2}\b" , RegexOptions.IgnoreCase);
+            Regex templatePlacaAntiga = new Regex(@"\b[A-Z]{3}[0-9]{4}\b", RegexOptions.IgnoreCase);
 
             string validacao = "";
 

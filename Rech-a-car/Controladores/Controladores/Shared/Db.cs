@@ -94,7 +94,7 @@ namespace Controladores.Shared
                 }
             }
         }
-        public static T Get<T>(string sql, ConverterDelegate<T> convert, Dictionary<string, object> parameters)
+        public static T Get<T>(string sql, ConverterDelegate<T> convert, Dictionary<string, object> parameters=null)
         {
             using (DbConnection connection = factory.CreateConnection())
             {
@@ -150,7 +150,7 @@ namespace Controladores.Shared
 
             foreach (var parameter in parameters)
             {
-                if (parameter.Value is string && string.IsNullOrEmpty((string)parameter.Value))
+                if (parameter.Value is string valueStr && string.IsNullOrEmpty(valueStr))
                     parameters[parameter.Key] = null;
 
                 string name = parameter.Key;
@@ -165,6 +165,13 @@ namespace Controladores.Shared
         private static string GetUltimoIdInserido(this string sql)
         {
             return sql + ";SELECT SCOPE_IDENTITY()";
+        }
+        public static Dictionary<string, object> AdicionarParametro(string campo, object valor, Dictionary<string, object> parametros = null)
+        {
+            if (parametros == null)
+                parametros = new Dictionary<string, object>();
+            parametros.Add(campo, valor);
+            return parametros;
         }
     }
 }

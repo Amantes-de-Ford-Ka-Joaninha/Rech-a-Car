@@ -14,6 +14,7 @@ using System.Linq;
 using System.Collections.Generic;
 using Dominio.VeiculoModule;
 using EmailAluguelPDF;
+using System.Threading.Tasks;
 
 namespace WindowsApp.AluguelModule
 {
@@ -25,8 +26,6 @@ namespace WindowsApp.AluguelModule
             Aluguel = aluguel ?? new Aluguel();
 
             InitializeComponent();
-            PopulaCBTiposCarteira();
-
 
             PopulaServicos(GetServicosDiponiveis());
             PopulaDatas();
@@ -69,8 +68,8 @@ namespace WindowsApp.AluguelModule
             tbMarca.Text = entidade.Veiculo.Marca;
             tbModelo.Text = entidade.Veiculo.Modelo;
             tbPlaca.Text = entidade.Veiculo.Placa;
+            tbTipoCnh.Text = entidade.Veiculo.Categoria.TipoDeCnh.ToString();
             cbPlano.SelectedItem = entidade.TipoPlano.ToString();
-            cbTipoCnh.SelectedItem = entidade.Veiculo.Categoria.TipoDeCnh;
 
             SetCondutor();
 
@@ -93,15 +92,6 @@ namespace WindowsApp.AluguelModule
                 validacao += "Selecione um motorista para o aluguel";
 
             return validacao;
-        }
-
-        private void PopulaCBTiposCarteira()
-        {
-            var tipos = ((TipoCNH[])Enum.GetValues(typeof(TipoCNH))).ToList();
-            tipos.Remove(TipoCNH.AB);
-
-            foreach (var item in tipos)
-                cbTipoCnh.Items.Add(item);
         }
         private void PopulaDatas()
         {
@@ -126,7 +116,7 @@ namespace WindowsApp.AluguelModule
             tbMarca.Text = Aluguel.Veiculo.Marca;
             tbModelo.Text = Aluguel.Veiculo.Modelo;
             tbPlaca.Text = Aluguel.Veiculo.Placa;
-            cbTipoCnh.SelectedItem = Aluguel.Veiculo.Categoria.TipoDeCnh;
+            tbTipoCnh.Text = Aluguel.Veiculo.Categoria.TipoDeCnh.ToString();
         }
         private void PopulaCliente(ICliente cliente)
         {
@@ -203,7 +193,7 @@ namespace WindowsApp.AluguelModule
             if (!Salva())
                 return;
 
-            new CriaPDFAluguel(Aluguel);
+            Task.Run(() => new CriaPDFAluguel(Aluguel));
             TelaPrincipal.Instancia.FormAtivo = new GerenciamentoAluguel();
         }
         private void panelEsconderCliente_DoubleClick(object sender, EventArgs e)

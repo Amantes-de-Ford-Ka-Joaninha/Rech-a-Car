@@ -19,7 +19,7 @@ namespace Controladores.Shared
         public abstract string sqlExists { get; }
         public override T GetById(int id, Type tipo = null)
         {
-            return Db.Get(sqlSelecionarPorId, ConverterEmEntidade, AdicionarParametro("ID", id));
+            return Db.Get(sqlSelecionarPorId, ConverterEmEntidade, Db.AdicionarParametro("ID", id));
         }
         public override void Inserir(T entidade)
         {
@@ -32,11 +32,11 @@ namespace Controladores.Shared
         }
         public override void Excluir(int id, Type tipo = null)
         {
-            Db.Delete(sqlExcluir, AdicionarParametro("ID", id));
+            Db.Delete(sqlExcluir, Db.AdicionarParametro("ID", id));
         }
         public bool Exists(int id)
         {
-            return Db.Exists(sqlExists, AdicionarParametro("ID", id));
+            return Db.Exists(sqlExists, Db.AdicionarParametro("ID", id));
         }
         protected override List<T> ObterRegistros()
         {

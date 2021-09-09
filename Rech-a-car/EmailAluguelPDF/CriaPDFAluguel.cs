@@ -26,6 +26,12 @@ namespace EmailAluguelPDF
             page.Paragraphs.Add(new TextFragment($"Data de Devolução: {aluguel.DataDevolucao:d}"));
             page.Paragraphs.Add(new TextFragment($"Total Parcial R$: {aluguel.CalcularTotal()}"));
 
+            if (aluguel.Servicos.Count > 0)
+            {
+                page.Paragraphs.Add(new TextFragment($"Serviços alugados:"));
+                aluguel.Servicos.ForEach(s => page.Paragraphs.Add(new TextFragment($"{s}")));
+            }
+
             //page.Resources.Images.Add(ImagemParaStream(aluguel.Veiculo.Foto));
 
             //page.Contents.Add(new Aspose.Pdf.Operators.GSave());
@@ -40,7 +46,7 @@ namespace EmailAluguelPDF
 
             //page.Contents.Add(new Aspose.Pdf.Operators.GRestore());
 
-            document.Save($@"..\..\..\PDFs\{aluguel.Cliente}-Aluguel-{aluguel.Id}.pdf");
+            new ControladorEmail().InserirParaEnvio(new EnvioEmail(aluguel, document));
         }
 
         private static MemoryStream ImagemParaStream(System.Drawing.Image imagem)

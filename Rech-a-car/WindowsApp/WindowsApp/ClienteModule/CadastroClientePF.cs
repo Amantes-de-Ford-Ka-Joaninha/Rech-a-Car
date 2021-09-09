@@ -8,7 +8,7 @@ using WindowsApp.Shared;
 
 namespace WindowsApp.ClienteModule
 {
-    public partial class CadastroClientePF : CadastroEntidade<ClientePF>
+    public partial class CadastroClientePF : CadastroEntidade<ClientePF> //Form //
     {
         public override Controlador<ClientePF> Controlador { get => new ControladorClientePF(); }
 
@@ -38,9 +38,10 @@ namespace WindowsApp.ClienteModule
             var telefone = tbTelefone.Text;
             var endereco = tbEndereco.Text;
             var documento = tbCPF.Text;
+            var email = tb_email.Text;
             var cnh = GetCNH();
             DateTime.TryParse(mtbNascimento.Text, out DateTime dataNascimento);
-            return new ClientePF(nome, telefone, endereco, documento, cnh, dataNascimento);
+            return new ClientePF(nome, telefone, endereco, documento, cnh, dataNascimento, email);
         }
         public CNH GetCNH()
         {

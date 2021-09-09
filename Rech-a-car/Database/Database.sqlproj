@@ -160,5 +160,6 @@
       <AnsiNulls>Off</AnsiNulls>
       <QuotedIdentifier>Off</QuotedIdentifier>
     </Build>
+    <Build Include="dbo\Tables\TBEmail.sql" />
   </ItemGroup>
 </Project>

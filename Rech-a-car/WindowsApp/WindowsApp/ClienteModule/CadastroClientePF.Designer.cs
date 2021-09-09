@@ -44,6 +44,8 @@ namespace WindowsApp.ClienteModule
             this.tbCPF = new System.Windows.Forms.MaskedTextBox();
             this.tbTelefone = new System.Windows.Forms.MaskedTextBox();
             this.tbCNH = new System.Windows.Forms.MaskedTextBox();
+            this.tb_email = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -158,7 +160,7 @@ namespace WindowsApp.ClienteModule
             this.btAdicionar.Location = new System.Drawing.Point(581, 430);
             this.btAdicionar.Name = "btAdicionar";
             this.btAdicionar.Size = new System.Drawing.Size(75, 80);
-            this.btAdicionar.TabIndex = 12;
+            this.btAdicionar.TabIndex = 8;
             this.btAdicionar.UseVisualStyleBackColor = true;
             this.btAdicionar.Click += new System.EventHandler(this.btAdicionar_Click);
             // 
@@ -213,12 +215,33 @@ namespace WindowsApp.ClienteModule
             this.tbCNH.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.tbCNH.ValidatingType = typeof(int);
             // 
+            // tb_email
+            // 
+            this.tb_email.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_email.Location = new System.Drawing.Point(107, 316);
+            this.tb_email.Name = "tb_email";
+            this.tb_email.Size = new System.Drawing.Size(204, 29);
+            this.tb_email.TabIndex = 7;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(27, 319);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(48, 21);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Email";
+            // 
             // CadastroClientePF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(33)))), ((int)(((byte)(34)))));
             this.ClientSize = new System.Drawing.Size(668, 522);
+            this.Controls.Add(this.tb_email);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.tbCNH);
             this.Controls.Add(this.tbCPF);
             this.Controls.Add(this.tbTelefone);
@@ -258,5 +281,7 @@ namespace WindowsApp.ClienteModule
         private System.Windows.Forms.MaskedTextBox tbCPF;
         private System.Windows.Forms.MaskedTextBox tbTelefone;
         private System.Windows.Forms.MaskedTextBox tbCNH;
+        private System.Windows.Forms.TextBox tb_email;
+        private System.Windows.Forms.Label label2;
     }
 }

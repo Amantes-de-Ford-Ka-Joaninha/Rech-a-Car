@@ -8,7 +8,7 @@ using WindowsApp.Shared;
 
 namespace WindowsApp.ClienteModule
 {
-    public partial class CadastroClientePJ : CadastroEntidade<ClientePJ>
+    public partial class CadastroClientePJ : CadastroEntidade<ClientePJ>//Form//
     {
         public override Controlador<ClientePJ> Controlador { get => new ControladorClientePJ(); }
 
@@ -48,11 +48,13 @@ namespace WindowsApp.ClienteModule
             var telefone = tbTelefone.Text;
             var endereco = tbEndereco.Text;
             var documento = tbCNPJ.Text;
-            return new ClientePJ(nome, telefone, endereco, documento);
+            var email = tb_email.Text;
+
+            return new ClientePJ(nome, telefone, endereco, documento, email);
         }
         private MotoristaEmpresa GetMotoristaSelecionado()
         {
-            return entidade.Motoristas.Find(x=>x.Id==dgvMotoristas.GetIdSelecionado());
+            return entidade.Motoristas.Find(x => x.Id == dgvMotoristas.GetIdSelecionado());
         }
 
         private void HabilitarBotoes(bool estado)

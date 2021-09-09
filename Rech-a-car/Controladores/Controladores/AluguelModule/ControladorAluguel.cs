@@ -131,7 +131,7 @@ namespace Controladores.AluguelModule
                 { "ID_VEICULO", aluguel.Veiculo.Id },
                 { "TIPO_PLANO", aluguel.TipoPlano },
                 { "DATA_ALUGUEL", aluguel.DataAluguel },
-                { "DATA_DEVOLUCAO", aluguel.DataDevolucao },
+                { "DATA_DEVOLUCAO", aluguel.DataDevolucao }
             };
         }
     }

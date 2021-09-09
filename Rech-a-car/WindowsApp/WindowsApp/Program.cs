@@ -1,5 +1,7 @@
 ﻿using Dominio.PessoaModule;
+using EmailAluguelPDF;
 using System;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsApp.AluguelModule;
 
@@ -17,6 +19,22 @@ namespace WindowsApp
             Application.SetCompatibleTextRenderingDefault(false);
 
             new Login().Show();
+
+            Task.Run(async () =>
+            {
+                while (true)
+                {
+                    try
+                    {
+                        new EnviaPDFEmail();
+                    }
+                    catch (FilaEmailVazia)
+                    {
+                        await Task.Delay(new TimeSpan(0,5,0));
+                    }
+        
+                }
+            });
 
             Application.Run();
         }

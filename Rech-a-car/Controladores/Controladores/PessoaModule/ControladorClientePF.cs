@@ -17,6 +17,7 @@ namespace Controladores.PessoaModule
                     [ENDERECO],
                     [DOCUMENTO],
                     [DATA_NASCIMENTO],
+                    [EMAIL],
                     [ID_CNH]
                 )
             VALUES
@@ -26,6 +27,7 @@ namespace Controladores.PessoaModule
                     @ENDERECO,
                     @DOCUMENTO,
                     @DATA_NASCIMENTO,
+                    @EMAIL,
                     @ID_CNH
                 )";
 
@@ -36,6 +38,7 @@ namespace Controladores.PessoaModule
                     [TELEFONE] = @TELEFONE,             
                     [ENDERECO] = @ENDERECO,
                     [DOCUMENTO] = @DOCUMENTO,
+                    [EMAIL] = @EMAIL,
                     [DATA_NASCIMENTO] = @DATA_NASCIMENTO
                 WHERE [ID] = @ID";
 
@@ -87,12 +90,13 @@ namespace Controladores.PessoaModule
             var telefone = Convert.ToString(reader["TELEFONE"]);
             var documento = Convert.ToString(reader["DOCUMENTO"]);
             var endereco = Convert.ToString(reader["ENDERECO"]);
+            var email = Convert.ToString(reader["EMAIL"]);
             var data_nascimento = Convert.ToDateTime(reader["DATA_NASCIMENTO"]);
 
             var id_cnh = Convert.ToInt32(reader["ID_CNH"]);
             var cnh = new ControladorCNH().GetByIdCondutor(id_cnh);
 
-            return new ClientePF(nome, telefone, endereco, documento, cnh, data_nascimento)
+            return new ClientePF(nome, telefone, endereco, documento, cnh, data_nascimento, email)
             {
                 Id = id
             };
@@ -108,6 +112,7 @@ namespace Controladores.PessoaModule
                 { "DOCUMENTO", cliente.Documento },
                 { "DATA_NASCIMENTO", cliente.DataNascimento },
                 { "ID_CNH", cliente.Cnh.Id },
+                { "EMAIL", cliente.Email },
             };
 
             return parametros;

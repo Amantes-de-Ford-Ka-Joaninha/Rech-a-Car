@@ -33,7 +33,7 @@ namespace Controladores.AluguelModule
         public override void Editar(int id, AluguelFechado entidade)
         {
             entidade.Id = id;
-            Db.Update(sqlFecharAluguel, AdicionarParametro("ID", id, ObterParametrosRegistro(entidade)));
+            Db.Update(sqlFecharAluguel, Db.AdicionarParametro("ID", id, ObterParametrosRegistro(entidade)));
             new ControladorServico().DesalugarServicosAlugados(id);
         }
 
