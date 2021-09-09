@@ -5,22 +5,23 @@ using Dominio.AluguelModule;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 
 namespace EmailAluguelPDF
 {
     public class ControladorEmail
     {
         #region Queries
-        private const string sqlInserirEmail = 
+        private const string sqlInserirEmail =
             @"INSERT INTO [TBEMAIL]
               (
                 [ID_ALUGUEL],       
-                [PATH_EMAIL]            
+                [PDF]            
               )
                 VALUES
               (
                 @ID_ALUGUEL,
-                @PATH_EMAIL
+                @PDF
               )";
 
         private const string sqlAlterarEmailEnviado =
@@ -37,9 +38,11 @@ namespace EmailAluguelPDF
 
         #endregion
 
-        public void InserirParaEnvio(int id_aluguel, string pathAluguel)
+        public void InserirParaEnvio(EnvioEmail envio)
         {
-            Db.Insert(sqlInserirEmail, Db.AdicionarParametro("ID_ALUGUEL", id_aluguel, Db.AdicionarParametro("PATH_EMAIL", pathAluguel)));
+            var ms = new MemoryStream();
+            envio.Pdf.Save(ms);
+            Db.Insert(sqlInserirEmail, Db.AdicionarParametro("ID_ALUGUEL", envio.Aluguel.Id, Db.AdicionarParametro("PDF", ms)));
         }
         public void AlterarEnviado(int id)
         {
@@ -51,11 +54,10 @@ namespace EmailAluguelPDF
         }
         private EnvioEmail ConverterEmEntidade(IDataReader reader)
         {
-            var aluguel = new ControladorAluguel().GetById(Convert.ToInt32(reader["ID_ALUGUEL"]));
-            var pathPdf = Convert.ToString(reader["PATH_EMAIL"]);
             var id = Convert.ToInt32(reader["ID"]);
+            var aluguel = new ControladorAluguel().GetById(Convert.ToInt32(reader["ID_ALUGUEL"]));
 
-            return new EnvioEmail(aluguel, pathPdf) { Id = id};
+            return new EnvioEmail(aluguel, new Document(new MemoryStream((byte[])reader["PDF"]))) { Id = id };
         }
     }
 }

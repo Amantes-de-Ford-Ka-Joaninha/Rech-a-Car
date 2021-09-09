@@ -5,10 +5,10 @@ namespace EmailAluguelPDF
 {
     public class EnvioEmail
     {
-        public EnvioEmail(Aluguel aluguel, string path_pdf)
+        public EnvioEmail(Aluguel aluguel, Document pdf)
         {
             Aluguel = aluguel;
-            Pdf = new Document(path_pdf);
+            Pdf = pdf;
         }
         public Aluguel Aluguel { get; }
         public Document Pdf { get; }
