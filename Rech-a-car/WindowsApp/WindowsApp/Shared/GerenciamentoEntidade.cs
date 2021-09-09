@@ -1,15 +1,14 @@
 ﻿using Dominio.Shared;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 
 namespace WindowsApp.Shared
 {
-    public partial class GerenciamentoEntidade<T> : Form, IVisualizavel where T : IControlavel
+    public abstract partial class GerenciamentoEntidade<T> : Form, IVisualizavel where T : IControlavel
     {
-        protected virtual CadastroEntidade<T> Cadastro { get => throw new NotImplementedException(); }
+        protected abstract CadastroEntidade<T> Cadastro { get; }
         public GerenciamentoEntidade(String titulo, TipoTela tipo = TipoTela.CadastroBasico)
         {
             InitializeComponent();
@@ -18,9 +17,9 @@ namespace WindowsApp.Shared
             AtualizarBotoes(tipo);
             AlternarBotoes(false);
         }
-
-        public virtual object[] ObterCamposLinha(T item) { throw new NotImplementedException(); }
-        public virtual DataGridViewColumn[] ConfigurarColunas() { throw new NotImplementedException(); }
+        protected abstract IVisualizavel Visualizar(T entidade);
+        public abstract object[] ObterCamposLinha(T item);
+        public abstract DataGridViewColumn[] ConfigurarColunas();
         public void AtualizarRegistros(List<T> registros)
         {
             dgvEntidade.ConfigurarGrid(ConfigurarColunas());
@@ -99,7 +98,6 @@ namespace WindowsApp.Shared
         {
             return;
         }
-        protected virtual IVisualizavel Visualizar(T entidade) { throw new NotImplementedException(); }
 
         #region Eventos
         private void btAdicionar_Click(object sender, EventArgs e)
@@ -141,9 +139,6 @@ namespace WindowsApp.Shared
         {
             AtualizarRegistros(Cadastro.Controlador.FiltroTunado(tbFiltro.Text));
         }
-        private void dgvEntidade_RowEnter(object sender, DataGridViewCellEventArgs e)
-        {
-        }
         private void dgvEntidade_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             TelaPrincipal.Instancia.FormAtivo = (Form)Visualizar(GetEntidadeSelecionado());
@@ -154,7 +149,6 @@ namespace WindowsApp.Shared
                 AlternarBotoes(true);
         }
         #endregion
-
     }
     public enum TipoTela
     {
