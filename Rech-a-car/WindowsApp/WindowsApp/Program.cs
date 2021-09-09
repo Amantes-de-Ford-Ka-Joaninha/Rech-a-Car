@@ -28,10 +28,8 @@ namespace WindowsApp
                     {
                         new EnviaPDFEmail();
                     }
-                    catch (Exception e)
+                    catch (FilaEmailVazia)
                     {
-                        MessageBox.Show(e.Data.ToString());
-                        throw;
                         await Task.Delay(new TimeSpan(0,5,0));
                     }
         
