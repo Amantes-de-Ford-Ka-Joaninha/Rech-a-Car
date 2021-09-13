@@ -20,7 +20,7 @@ namespace Tests.Tests.ClientePJ_Module
         [TestInitialize]
         public void Inserir_clientePJ()
         {
-            cliente = new ClientePJ("nome", "99999999999", "endereco", "99999999999999");
+            cliente = new ClientePJ("nome", "99999999999", "endereco", "99999999999999", "email@teste.com");
             controladorClientePJ.Inserir(cliente);
             motorista = new MotoristaEmpresa("nomeMotorista", "99999999999", "endereco", "99999999999999", new CNH("59778304921", TipoCNH.A), cliente);
             controladorMotorista.Inserir(motorista);

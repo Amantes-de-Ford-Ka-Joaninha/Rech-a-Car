@@ -17,7 +17,7 @@ namespace WindowsApp.Shared
             AtualizarBotoes(tipo);
             AlternarBotoes(false);
         }
-
+        protected abstract IVisualizavel Visualizar(T entidade);
         public abstract object[] ObterCamposLinha(T item);
         public abstract DataGridViewColumn[] ConfigurarColunas();
         public void AtualizarRegistros(List<T> registros)
@@ -98,7 +98,6 @@ namespace WindowsApp.Shared
         {
             return;
         }
-        protected abstract IVisualizavel Visualizar(T entidade);
 
         #region Eventos
         private void btAdicionar_Click(object sender, EventArgs e)
@@ -140,9 +139,6 @@ namespace WindowsApp.Shared
         {
             AtualizarRegistros(Cadastro.Controlador.FiltroTunado(tbFiltro.Text));
         }
-        private void dgvEntidade_RowEnter(object sender, DataGridViewCellEventArgs e)
-        {
-        }
         private void dgvEntidade_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             TelaPrincipal.Instancia.FormAtivo = (Form)Visualizar(GetEntidadeSelecionado());
@@ -153,7 +149,6 @@ namespace WindowsApp.Shared
                 AlternarBotoes(true);
         }
         #endregion
-
     }
     public enum TipoTela
     {
